@@ -1,0 +1,1154 @@
+{
+  "words": [
+    {
+      "word": "aadlijk",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen adel"
+    },
+    {
+      "word": "aanminnelijkheid",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen aanminnelijk"
+    },
+    {
+      "word": "aanminnig",
+      "decision": "keep",
+      "reason": "zeldzaam bijvoeglijk naamwoord voor innemend, geen doorzichtige afleiding"
+    },
+    {
+      "word": "abtschap",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit het ambt van een abt"
+    },
+    {
+      "word": "alleenlijk",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit alleen"
+    },
+    {
+      "word": "altemets",
+      "decision": "drop",
+      "reason": "c: glos beschrijft alleen een functie en zegt niet wat het woord betekent"
+    },
+    {
+      "word": "alzijdig",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit alle zijden"
+    },
+    {
+      "word": "ambtsedig",
+      "decision": "drop",
+      "reason": "c: glos is een sjabloonrest en zegt niet wat het woord betekent"
+    },
+    {
+      "word": "armtierig",
+      "decision": "keep",
+      "reason": "literair voor schraal en verlopen, onder de herkenningsgrens"
+    },
+    {
+      "word": "baaierd",
+      "decision": "keep",
+      "reason": "zeldzaam voor de ongeordende massa, in literair en bijbels proza"
+    },
+    {
+      "word": "baarlijk",
+      "decision": "keep",
+      "reason": "zeldzaam bijvoeglijk naamwoord, zich in zijn ware vorm tonend"
+    },
+    {
+      "word": "bargoens",
+      "decision": "keep",
+      "reason": "eigen naam voor een onbegrijpelijke groepstaal"
+    },
+    {
+      "word": "bedauwen",
+      "decision": "keep",
+      "reason": "literair voor met dauw bedekken, geen alledaagse handeling"
+    },
+    {
+      "word": "bedektelijk",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit bedekt"
+    },
+    {
+      "word": "beërven",
+      "decision": "keep",
+      "reason": "formeel voor door erfenis verkrijgen"
+    },
+    {
+      "word": "begoochelen",
+      "decision": "drop",
+      "reason": "e: grensgeval, te bekend om in deze lijst te blijven"
+    },
+    {
+      "word": "begrotelijk",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen begroten"
+    },
+    {
+      "word": "bekransen",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit een krans leggen"
+    },
+    {
+      "word": "benaarstigen",
+      "decision": "keep",
+      "reason": "zeldzaam voor zich met ijver op iets toeleggen"
+    },
+    {
+      "word": "benauwenis",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen benauwd"
+    },
+    {
+      "word": "bepeinzen",
+      "decision": "keep",
+      "reason": "literair voor rustig overdenken"
+    },
+    {
+      "word": "berijmen",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit rijm"
+    },
+    {
+      "word": "berispelijk",
+      "decision": "keep",
+      "reason": "formeel voor afkeuring verdienend, net onder de 90 procent"
+    },
+    {
+      "word": "beroezen",
+      "decision": "drop",
+      "reason": "c: glos is een sjabloonrest, aan, geen lopende definitie"
+    },
+    {
+      "word": "beschoeien",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit beschoeiing"
+    },
+    {
+      "word": "besprengen",
+      "decision": "drop",
+      "reason": "c: glos is stuk, bevochtigen met een lege komma"
+    },
+    {
+      "word": "bestatigen",
+      "decision": "keep",
+      "reason": "formeel voor vaststellen, niet het alledaagse constateren"
+    },
+    {
+      "word": "bestoefen",
+      "decision": "keep",
+      "reason": "zeldzaam voor pochen"
+    },
+    {
+      "word": "beuzelen",
+      "decision": "keep",
+      "reason": "literair voor zich met beuzelarijen bezighouden"
+    },
+    {
+      "word": "bevindelijk",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen bevinden"
+    },
+    {
+      "word": "bevroeden",
+      "decision": "keep",
+      "reason": "literair voor vermoeden"
+    },
+    {
+      "word": "bewasemen",
+      "decision": "keep",
+      "reason": "precies woord voor een koud vlak met adem bedekken"
+    },
+    {
+      "word": "beweerdelijk",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen beweren"
+    },
+    {
+      "word": "bijwijlen",
+      "decision": "keep",
+      "reason": "literair voor af en toe, geen doorzichtige afleiding"
+    },
+    {
+      "word": "binnengaats",
+      "decision": "keep",
+      "reason": "nautisch bijwoord met een eigen betekenis, niet alledaags"
+    },
+    {
+      "word": "bloesemen",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit bloesem"
+    },
+    {
+      "word": "boeverij",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen boef"
+    },
+    {
+      "word": "breedvoerig",
+      "decision": "keep",
+      "reason": "literair voor uitvoerig, de betekenis volgt niet uit een alledaags deel"
+    },
+    {
+      "word": "buitenissig",
+      "decision": "keep",
+      "reason": "zeldzaam voor afwijkend van het gangbare"
+    },
+    {
+      "word": "buitenmatig",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit buiten de maat"
+    },
+    {
+      "word": "daartegenin",
+      "decision": "drop",
+      "reason": "c: glos is een ongrammaticale rest, geen definitie"
+    },
+    {
+      "word": "davvenen",
+      "decision": "keep",
+      "reason": "specifiek voor op joodse wijze bidden, in goed proza"
+    },
+    {
+      "word": "deconfiture",
+      "decision": "keep",
+      "reason": "literair voor bankroet, een woord dat je in essays tegenkomt"
+    },
+    {
+      "word": "dekenij",
+      "decision": "keep",
+      "reason": "kerkelijk gebied van een deken, niet alledaags"
+    },
+    {
+      "word": "dellerig",
+      "decision": "keep",
+      "reason": "zeldzaam voor opzichtig en onbetamelijk, geen doorzichtig grondwoord"
+    },
+    {
+      "word": "derwijze",
+      "decision": "keep",
+      "reason": "formeel bijwoord voor op die manier, in goed proza"
+    },
+    {
+      "word": "desemen",
+      "decision": "keep",
+      "reason": "specifiek voor met zuurdeeg doen rijzen"
+    },
+    {
+      "word": "desniettemin",
+      "decision": "drop",
+      "reason": "e: alledaags voegwoord dat elke lezer kent"
+    },
+    {
+      "word": "deswege",
+      "decision": "keep",
+      "reason": "formeel voegwoordelijk bijwoord dat je in betoog tegenkomt en lang niet iedereen kent"
+    },
+    {
+      "word": "dodijnen",
+      "decision": "keep",
+      "reason": "zeldzaam voor zacht in slaap wiegen"
+    },
+    {
+      "word": "dolaard",
+      "decision": "keep",
+      "reason": "zeldzaam voor een doelloze zwerver"
+    },
+    {
+      "word": "doldriftig",
+      "decision": "keep",
+      "reason": "literaire samenstelling waarvan de betekenis niet meteen uit de delen volgt"
+    },
+    {
+      "word": "doorgankelijk",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit doorgaan"
+    },
+    {
+      "word": "dreggen",
+      "decision": "keep",
+      "reason": "specifiek voor met een beugel in het water zoeken"
+    },
+    {
+      "word": "drekkig",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen drek"
+    },
+    {
+      "word": "droefenis",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen droef"
+    },
+    {
+      "word": "druistig",
+      "decision": "keep",
+      "reason": "zeldzaam voor wild en energiek",
+      "gloss": "wild en energiek"
+    },
+    {
+      "word": "duivekaters",
+      "decision": "keep",
+      "reason": "zeldzame versterking die je in ouder proza tegenkomt"
+    },
+    {
+      "word": "eensdaags",
+      "decision": "drop",
+      "reason": "a: samenstelling van eens en daags, de betekenis volgt daaruit"
+    },
+    {
+      "word": "eensklaps",
+      "decision": "keep",
+      "reason": "literair voor plotseling, onder de herkenningsgrens"
+    },
+    {
+      "word": "eerbiediglijk",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen eerbied"
+    },
+    {
+      "word": "eigendunkelijk",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit eigendunk"
+    },
+    {
+      "word": "epanafoor",
+      "decision": "keep",
+      "reason": "stijlfiguur die je in een serieuze stijlleer tegenkomt"
+    },
+    {
+      "word": "erbarmen",
+      "decision": "keep",
+      "reason": "literair werkwoord voor medelijden hebben, onder de 90 procent"
+    },
+    {
+      "word": "erbinnen",
+      "decision": "drop",
+      "reason": "c: glos is een sjabloonrest, geen definitie"
+    },
+    {
+      "word": "ereblijk",
+      "decision": "keep",
+      "reason": "formeel voor een teken van eer"
+    },
+    {
+      "word": "fielterig",
+      "decision": "drop",
+      "reason": "c: glos is een vage vergelijking, geen definitie"
+    },
+    {
+      "word": "fieltig",
+      "decision": "drop",
+      "reason": "c: glos is vaag en zegt alleen dat iemand slecht is"
+    },
+    {
+      "word": "fierljeppen",
+      "decision": "drop",
+      "reason": "e: alledaagse sportnaam die veel mensen kennen"
+    },
+    {
+      "word": "flambouw",
+      "decision": "keep",
+      "reason": "zeldzaam voor een fakkelstok"
+    },
+    {
+      "word": "flemerig",
+      "decision": "keep",
+      "reason": "literair voor gemaakt vleiend, het grondwoord flemen is zelf ongewoon",
+      "gloss": "gemaakt en overdreven vleiend"
+    },
+    {
+      "word": "flemerij",
+      "decision": "keep",
+      "reason": "literair voor ongemeende lof, het grondwoord is zelf ongewoon"
+    },
+    {
+      "word": "fluwijn",
+      "decision": "drop",
+      "reason": "b: grote kloof NL/Vl 9/57, waarschijnlijk regionaal"
+    },
+    {
+      "word": "fnuiken",
+      "decision": "keep",
+      "reason": "literair voor ondermijnen"
+    },
+    {
+      "word": "frijnen",
+      "decision": "keep",
+      "reason": "vakwoord voor fijne groeven aanbrengen, in beschrijvend proza"
+    },
+    {
+      "word": "gebeurlijk",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen gebeuren"
+    },
+    {
+      "word": "gedreig",
+      "decision": "drop",
+      "reason": "c: glos is een sjabloon, de handeling van het dreigen"
+    },
+    {
+      "word": "gemelijk",
+      "decision": "keep",
+      "reason": "literair voor knorrig, geen doorzichtige afleiding"
+    },
+    {
+      "word": "gevankelijk",
+      "decision": "keep",
+      "reason": "formeel bijwoord, als gevangene, dat je in ouder rechtstaal leest"
+    },
+    {
+      "word": "gevoeglijk",
+      "decision": "keep",
+      "reason": "formeel voor betamelijk, in goed proza"
+    },
+    {
+      "word": "godzalig",
+      "decision": "keep",
+      "reason": "literair voor vroom, in ouder godsdienstig proza",
+      "gloss": "vroom en godvruchtig"
+    },
+    {
+      "word": "goelijk",
+      "decision": "keep",
+      "reason": "zeldzaam voor zachtmoedig"
+    },
+    {
+      "word": "grafelijk",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit graaf, en de glos is bovendien onnauwkeurig"
+    },
+    {
+      "word": "griffen",
+      "decision": "keep",
+      "reason": "zeldzaam voor in duurzaam materiaal krassen"
+    },
+    {
+      "word": "groeizaam",
+      "decision": "drop",
+      "reason": "c: glos is een kapot sjabloon, van omstandigheden dat ze"
+    },
+    {
+      "word": "grotelijks",
+      "decision": "drop",
+      "reason": "a: versterking van groot, de betekenis volgt uit het grondwoord"
+    },
+    {
+      "word": "grovelijk",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen grof"
+    },
+    {
+      "word": "hooglijk",
+      "decision": "drop",
+      "reason": "a: versterking van hoog"
+    },
+    {
+      "word": "huldeblijk",
+      "decision": "keep",
+      "reason": "formeel voor een teken van hulde"
+    },
+    {
+      "word": "iebelig",
+      "decision": "keep",
+      "reason": "zeldzaam voor licht geërgerd, niet als dialect gemarkeerd"
+    },
+    {
+      "word": "iezegrimmig",
+      "decision": "keep",
+      "reason": "zeldzaam voor griezelig grimmig, vrijwel niemand herkent het"
+    },
+    {
+      "word": "imkerij",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit het bedrijf van een imker"
+    },
+    {
+      "word": "indroevig",
+      "decision": "drop",
+      "reason": "a: de glos is alleen een versterking van droevig"
+    },
+    {
+      "word": "jagerij",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen jagen"
+    },
+    {
+      "word": "jewelste",
+      "decision": "drop",
+      "reason": "c: glos is vaag en plakt twee betekenissen aan elkaar"
+    },
+    {
+      "word": "kaaltjes",
+      "decision": "drop",
+      "reason": "a: verkleinende parafrase van kaal"
+    },
+    {
+      "word": "kalvermesterij",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit kalveren mesten"
+    },
+    {
+      "word": "kapelanij",
+      "decision": "keep",
+      "reason": "kerkelijk instituut met een eigen vermogen, niet alledaags"
+    },
+    {
+      "word": "kattepierig",
+      "decision": "drop",
+      "reason": "c: glos is alleen een rij synoniemen voor humeurig"
+    },
+    {
+      "word": "keurmede",
+      "decision": "keep",
+      "reason": "historisch rechtswoord dat je in goede geschiedschrijving tegenkomt"
+    },
+    {
+      "word": "keuterij",
+      "decision": "keep",
+      "reason": "specifiek woord voor de behuizing van een keuterboer"
+    },
+    {
+      "word": "kissebissen",
+      "decision": "keep",
+      "reason": "literair voor langdurig twisten, onder de 90 procent"
+    },
+    {
+      "word": "koeterwalen",
+      "decision": "keep",
+      "reason": "literair voor een onbegrijpelijke taal spreken"
+    },
+    {
+      "word": "kortswijl",
+      "decision": "keep",
+      "reason": "zeldzaam voor scherts"
+    },
+    {
+      "word": "korzelig",
+      "decision": "keep",
+      "reason": "formeel voor licht geprikkeld, net onder de 90 procent",
+      "gloss": "licht ontstemd en ongeduldig"
+    },
+    {
+      "word": "koterij",
+      "decision": "drop",
+      "reason": "b: grote kloof NL/Vl 51/86, waarschijnlijk regionaal"
+    },
+    {
+      "word": "kramakkelig",
+      "decision": "keep",
+      "reason": "zeldzaam voor moeizaam en kwakkelend",
+      "gloss": "moeizaam en kwakkelend"
+    },
+    {
+      "word": "kursaal",
+      "decision": "keep",
+      "reason": "leenwoord voor een zalengebouw in een badplaats"
+    },
+    {
+      "word": "kwaaiig",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen kwaad"
+    },
+    {
+      "word": "kwatrijn",
+      "decision": "keep",
+      "reason": "dichtvorm met een eigen schema, niet doorzichtig"
+    },
+    {
+      "word": "lafenis",
+      "decision": "keep",
+      "reason": "literair voor verfrissing"
+    },
+    {
+      "word": "lambrekijn",
+      "decision": "keep",
+      "reason": "zeldzaam woord voor een geschulpte randversiering"
+    },
+    {
+      "word": "lanterlui",
+      "decision": "keep",
+      "reason": "historisch kaartspel dat je in ouder proza tegenkomt"
+    },
+    {
+      "word": "leewieken",
+      "decision": "keep",
+      "reason": "specifiek voor een vleugel inkorten zodat een vogel niet wegvliegt"
+    },
+    {
+      "word": "leliaard",
+      "decision": "keep",
+      "reason": "historische benaming die je in goede geschiedschrijving tegenkomt"
+    },
+    {
+      "word": "libertijn",
+      "decision": "keep",
+      "reason": "literair en historisch voor een voorstander van absolute vrijheid"
+    },
+    {
+      "word": "liefelijk",
+      "decision": "drop",
+      "reason": "e: bijna iedereen kent het, 89 procent, als variant van lieflijk"
+    },
+    {
+      "word": "lijdelijkheid",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen lijdelijk"
+    },
+    {
+      "word": "maalderij",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit graan malen"
+    },
+    {
+      "word": "makelarij",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit het werk van een makelaar"
+    },
+    {
+      "word": "maltentig",
+      "decision": "keep",
+      "reason": "zeldzaam voor overdreven netjes, vrijwel niemand herkent het"
+    },
+    {
+      "word": "malvezij",
+      "decision": "drop",
+      "reason": "f: druivenras, geen woord dat je in gewone schrijftaal nog tegenkomt"
+    },
+    {
+      "word": "maraskijn",
+      "decision": "keep",
+      "reason": "zeldzame likeur die je in ouder proza tegenkomt"
+    },
+    {
+      "word": "meewarig",
+      "decision": "keep",
+      "reason": "literair voor vol medelijden, onder de herkenningsgrens"
+    },
+    {
+      "word": "mijmerij",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen mijmeren"
+    },
+    {
+      "word": "milddadig",
+      "decision": "keep",
+      "reason": "literair voor mild in daad, niet alledaags"
+    },
+    {
+      "word": "nabuurschap",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen de relatie tussen buren"
+    },
+    {
+      "word": "oeteren",
+      "decision": "drop",
+      "reason": "c: de glos is alleen een synoniem van ploeteren"
+    },
+    {
+      "word": "omdijken",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit een dijk eromheen"
+    },
+    {
+      "word": "onbevattelijkheid",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen niet bevatten"
+    },
+    {
+      "word": "onbillijk",
+      "decision": "keep",
+      "reason": "formeel voor onrechtvaardig, in betoog en rechtstaal"
+    },
+    {
+      "word": "onderduims",
+      "decision": "keep",
+      "reason": "vast bijwoord voor in het verborgene, geen doorzichtige samenstelling"
+    },
+    {
+      "word": "onderhorig",
+      "decision": "keep",
+      "reason": "formeel voor onderworpen, in historisch en bestuurlijk proza",
+      "gloss": "onderworpen en ondergeschikt"
+    },
+    {
+      "word": "ondeugdelijkheid",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen ondeugdelijk"
+    },
+    {
+      "word": "ongaarne",
+      "decision": "drop",
+      "reason": "a: de glos is alleen niet graag, het tegendeel van gaarne"
+    },
+    {
+      "word": "ongedurig",
+      "decision": "keep",
+      "reason": "literair voor rusteloos, op de grens van 90 procent en niet erboven"
+    },
+    {
+      "word": "ongerieflijk",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen ongerief"
+    },
+    {
+      "word": "onmondig",
+      "decision": "keep",
+      "reason": "formeel juridisch woord, zonder beslissende stem"
+    },
+    {
+      "word": "onnoemlijk",
+      "decision": "drop",
+      "reason": "c: glos is een kapot sjabloon, van iets dat er"
+    },
+    {
+      "word": "ontstentenis",
+      "decision": "keep",
+      "reason": "formeel juridisch voor het ontbreken, onder de 90 procent"
+    },
+    {
+      "word": "ontzaglijk",
+      "decision": "keep",
+      "reason": "literair voor ontzagwekkend in de oude betekenis, onder de 90 procent"
+    },
+    {
+      "word": "onuitsprekelijk",
+      "decision": "keep",
+      "reason": "literair voor zo sterk dat er geen woorden voor zijn",
+      "gloss": "zo groot of sterk dat er geen woorden voor zijn"
+    },
+    {
+      "word": "onvergankelijk",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit niet vergaan"
+    },
+    {
+      "word": "onvergankelijkheid",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen niet vergaan"
+    },
+    {
+      "word": "onverkwikkelijk",
+      "decision": "keep",
+      "reason": "het ijkpunt: onsmaakelijk en gênant, ongeveer 78 procent herkent het"
+    },
+    {
+      "word": "opjuinen",
+      "decision": "keep",
+      "reason": "zeldzaam voor iemand tot iets verkeerds aanzetten"
+    },
+    {
+      "word": "opperrabbijn",
+      "decision": "drop",
+      "reason": "a: doorzichtige samenstelling van opper en rabbijn"
+    },
+    {
+      "word": "overdijken",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit een dijk dwars door iets"
+    },
+    {
+      "word": "overwelmen",
+      "decision": "keep",
+      "reason": "literair voor overweldigen"
+    },
+    {
+      "word": "parmantig",
+      "decision": "keep",
+      "reason": "literair voor deftig en trots, net onder de 90 procent"
+    },
+    {
+      "word": "pasverworven",
+      "decision": "drop",
+      "reason": "a: doorzichtige samenstelling van pas en verworven"
+    },
+    {
+      "word": "pinaren",
+      "decision": "drop",
+      "reason": "b: Surinaams voor het moeilijk hebben"
+    },
+    {
+      "word": "priorschap",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen prior"
+    },
+    {
+      "word": "puritein",
+      "decision": "keep",
+      "reason": "historisch en literair voor een strenge protestant, onder de 90 procent"
+    },
+    {
+      "word": "realiter",
+      "decision": "keep",
+      "reason": "Latijns bijwoord in serieus proza, met een eigen betekenis naast in werkelijkheid"
+    },
+    {
+      "word": "reeuwen",
+      "decision": "keep",
+      "reason": "zeldzaam voor een overledene afleggen"
+    },
+    {
+      "word": "rekkelijk",
+      "decision": "keep",
+      "reason": "zeldzaam voor tot compromis geneigd"
+    },
+    {
+      "word": "rekwisitoor",
+      "decision": "keep",
+      "reason": "juridisch betoog dat je in rechtspraak en reportage tegenkomt"
+    },
+    {
+      "word": "roofzuchtig",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit roof en zucht"
+    },
+    {
+      "word": "schabouwelijk",
+      "decision": "drop",
+      "reason": "b: grote kloof NL/Vl 13/72, waarschijnlijk regionaal"
+    },
+    {
+      "word": "schalmeien",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit een schalmei bespelen"
+    },
+    {
+      "word": "schapraai",
+      "decision": "drop",
+      "reason": "b: grote kloof NL/Vl 9/34, waarschijnlijk regionaal"
+    },
+    {
+      "word": "schranken",
+      "decision": "drop",
+      "reason": "b: grote kloof NL/Vl 44/84, waarschijnlijk regionaal"
+    },
+    {
+      "word": "schrijlings",
+      "decision": "keep",
+      "reason": "specifiek bijwoord voor met de benen uiteen, onder de 90 procent"
+    },
+    {
+      "word": "schrooien",
+      "decision": "keep",
+      "reason": "zeldzaam voor besnoeien"
+    },
+    {
+      "word": "schroomvallig",
+      "decision": "keep",
+      "reason": "literair voor aarzelend, geen doorzichtige afleiding"
+    },
+    {
+      "word": "sleunen",
+      "decision": "keep",
+      "reason": "zeldzaam voor takken uitdunnen"
+    },
+    {
+      "word": "smadelijk",
+      "decision": "keep",
+      "reason": "literair bijwoord voor op een oneervolle manier"
+    },
+    {
+      "word": "smartelijk",
+      "decision": "keep",
+      "reason": "literair voor leed veroorzakend"
+    },
+    {
+      "word": "smarten",
+      "decision": "keep",
+      "reason": "literair voor leed berokkenen"
+    },
+    {
+      "word": "smokken",
+      "decision": "keep",
+      "reason": "specifiek naaiwoord voor sierplooien vastzetten"
+    },
+    {
+      "word": "smotsig",
+      "decision": "keep",
+      "reason": "zeldzaam voor grauw en verlopen"
+    },
+    {
+      "word": "snoeverig",
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen snoeven"
+    },
+    {
+      "word": "snoeverij",
+      "decision": "keep",
+      "reason": "literair voor opschepperij, het grondwoord snoeven is zelf ongewoon"
+    },
+    {
+      "word": "soebatten",
+      "decision": "keep",
+      "reason": "literair voor aanhoudend smeken"
+    },
+    {
+      "word": "spijzigen",
+      "decision": "keep",
+      "reason": "formeel voor van een maaltijd voorzien"
+    },
+    {
+      "word": "spinzen",
+      "decision": "keep",
+      "reason": "zeldzaam voor loeren om iets te bemachtigen"
+    },
+    {
+      "word": "starlings",
+      "decision": "keep",
+      "reason": "zeldzaam bijwoord voor met een starende blik"
+    },
+    {
+      "word": "steilorig",
+      "decision": "keep",
+      "reason": "zeldzaam voor onverzettelijk"
+    },
+    {
+      "word": "suzerein",
+      "decision": "keep",
+      "reason": "staatsrechtelijk woord voor de macht over een protectoraat"
+    },
+    {
+      "word": "tabbaard",
+      "decision": "keep",
+      "reason": "historisch kledingstuk, een mantel, dat je in goed proza tegenkomt"
+    },
+    {
+      "word": "tappelings",
+      "decision": "keep",
+      "reason": "zeldzaam bijwoord voor in stromen, niet alledaags"
+    },
+    {
+      "word": "teemsen",
+      "decision": "keep",
+      "reason": "zeldzaam voor door een zeef reinigen"
+    },
+    {
+      "word": "teljoor",
+      "decision": "drop",
+      "reason": "b: grote kloof NL/Vl 8/53, regionaal voor bord"
+    },
+    {
+      "word": "temerig",
+      "decision": "keep",
+      "reason": "zeldzaam voor zeurderig",
+      "gloss": "zeurderig en klagend"
+    },
+    {
+      "word": "traagzaam",
+      "decision": "drop",
+      "reason": "a: de glos herhaalt alleen traag"
+    },
+    {
+      "word": "tresoor",
+      "decision": "keep",
+      "reason": "historisch voor de kamer waar een schat wordt bewaard"
+    },
+    {
+      "word": "uwentwege",
+      "decision": "keep",
+      "reason": "formeel bijwoord in oudere brieven, uit uw naam"
+    },
+    {
+      "word": "uwentwil",
+      "decision": "keep",
+      "reason": "formeel bijwoord, in uw belang, dat je in goed ouder proza tegenkomt"
+    },
+    {
+      "word": "vaandrig",
+      "decision": "drop",
+      "reason": "c: glos geeft alleen de alledaagse scoutingrang, niet een zeldzame betekenis"
+    },
+    {
+      "word": "verbeuren",
+      "decision": "keep",
+      "reason": "juridisch voor een recht verspelen"
+    },
+    {
+      "word": "verbeuzelen",
+      "decision": "keep",
+      "reason": "literair voor aan beuzelarijen verspillen"
+    },
+    {
+      "word": "verboemelen",
+      "decision": "keep",
+      "reason": "zeldzaam voor iets niet nuttig gebruiken"
+    },
+    {
+      "word": "vergrauwen",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit grauw worden"
+    },
+    {
+      "word": "verguizen",
+      "decision": "keep",
+      "reason": "literair voor te schande maken"
+    },
+    {
+      "word": "verhapstukken",
+      "decision": "keep",
+      "reason": "literair voor in orde brengen, op de grens van 90 procent"
+    },
+    {
+      "word": "verkerven",
+      "decision": "keep",
+      "reason": "zeldzaam voor iets dat goed was lelijk maken"
+    },
+    {
+      "word": "verlummelen",
+      "decision": "keep",
+      "reason": "literair voor de tijd verlummelen"
+    },
+    {
+      "word": "verlustigen",
+      "decision": "keep",
+      "reason": "literair voor genoegen scheppen in kijken"
+    },
+    {
+      "word": "vermeien",
+      "decision": "keep",
+      "reason": "literair voor zich ontspannen"
+    },
+    {
+      "word": "vermolmen",
+      "decision": "keep",
+      "reason": "literair voor door verrotting zacht worden"
+    },
+    {
+      "word": "verpozen",
+      "decision": "keep",
+      "reason": "literair voor uitrusten, in goed proza"
+    },
+    {
+      "word": "verronselen",
+      "decision": "keep",
+      "reason": "zeldzaam voor slinks van de hand doen"
+    },
+    {
+      "word": "verslampampen",
+      "decision": "keep",
+      "reason": "zeldzaam voor weker en luier worden"
+    },
+    {
+      "word": "verslensen",
+      "decision": "drop",
+      "reason": "b: grote kloof NL/Vl 15/69, waarschijnlijk regionaal"
+    },
+    {
+      "word": "vervaarlijk",
+      "decision": "keep",
+      "reason": "literair voor schrikwekkend"
+    },
+    {
+      "word": "verwasemen",
+      "decision": "keep",
+      "reason": "precies woord voor een vloeistof in damp laten overgaan"
+    },
+    {
+      "word": "verwikken",
+      "decision": "keep",
+      "reason": "zeldzaam voor in beweging brengen"
+    },
+    {
+      "word": "verwrikken",
+      "decision": "keep",
+      "reason": "zeldzaam voor door wringen losmaken"
+    },
+    {
+      "word": "verzengen",
+      "decision": "keep",
+      "reason": "literair voor door schroeien beschadigen"
+    },
+    {
+      "word": "verzilten",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit zilt worden"
+    },
+    {
+      "word": "vigeren",
+      "decision": "keep",
+      "reason": "juridisch voor van kracht zijn"
+    },
+    {
+      "word": "vliemen",
+      "decision": "keep",
+      "reason": "zeldzaam voor scherp insnijden"
+    },
+    {
+      "word": "volgaarne",
+      "decision": "keep",
+      "reason": "literair bijwoord voor met veel genoegen, onder de herkenningsgrens"
+    },
+    {
+      "word": "wangelovig",
+      "decision": "drop",
+      "reason": "c: glos is een werkwoordelijke zin en blijft vaag"
+    },
+    {
+      "word": "wasemen",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit wasem"
+    },
+    {
+      "word": "weduwlijk",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit weduwe"
+    },
+    {
+      "word": "wegenis",
+      "decision": "drop",
+      "reason": "b: grote kloof NL/Vl 20/68, Vlaams administratief woord"
+    },
+    {
+      "word": "weledel",
+      "decision": "keep",
+      "reason": "vaste aanspreekvorm in formele stukken, niet alledaags"
+    },
+    {
+      "word": "wichtig",
+      "decision": "keep",
+      "reason": "literair voor van gewicht, in ouder proza",
+      "gloss": "van groot belang"
+    },
+    {
+      "word": "wijdlopig",
+      "decision": "keep",
+      "reason": "literair voor omslachtig",
+      "gloss": "omslachtig en breedsprakig"
+    },
+    {
+      "word": "woestaard",
+      "decision": "keep",
+      "reason": "literair voor iemand zonder fatsoen"
+    },
+    {
+      "word": "wrochten",
+      "decision": "keep",
+      "reason": "literair voor op een eigen manier maken"
+    },
+    {
+      "word": "ziederij",
+      "decision": "keep",
+      "reason": "specifieke werkplaats, niet een doorzichtige afleiding van een alledaags woord"
+    },
+    {
+      "word": "zijlings",
+      "decision": "drop",
+      "reason": "a: de betekenis volgt uit zijde"
+    },
+    {
+      "word": "zoetelijk",
+      "decision": "keep",
+      "reason": "literair voor wee en flemend, niet alleen zoet"
+    },
+    {
+      "word": "zoetvijlen",
+      "decision": "keep",
+      "reason": "specifiek voor glad en fijn afwerken, ook figuurlijk"
+    },
+    {
+      "word": "zwijmen",
+      "decision": "keep",
+      "reason": "literair voor het bewustzijn verliezen"
+    }
+  ]
+}
