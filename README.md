@@ -122,3 +122,7 @@ De woorden, betekenissen en voorbeelden komen uit WikiWoordenboek, het Nederland
 De site past de gegevens aan: alledaagse woorden, eigennamen, afkortingen, vaktaal en doorzichtige samenstellingen vallen weg, per lemma blijft één woordsoort, het lidwoord is afgeleid, en lange voorbeeldzinnen zijn ingekort zoals hierboven. De tekst zelf is niet herschreven. Dezelfde toelichting staat op Bronnen.
 
 De code van deze site is vrij te gebruiken. De woordgegevens blijven CC BY-SA 4.0.
+
+## Productie
+
+De site staat op https://woordwijs.alexanderclaes.com. De nginx-configuratie staat in `deploy/nginx.conf` en gebruikt een SPA-fallback voor diepe links. Publiceer uitsluitend `dist/` naar een nieuwe map onder `/var/www/woordwijs-static/releases/<git-revisie>` en vervang de `current`-symlink atomair. De broncode, brongegevens, caches en `node_modules` horen niet in de publieke webmap. HTTPS gebruikt het eigen automatisch vernieuwde Let's Encrypt-certificaat voor dit subdomein.
