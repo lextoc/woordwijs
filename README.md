@@ -66,13 +66,13 @@ De set in deze repository, uit het extract van 2026-10-01:
 | Nederlandse items | 669.494 |
 | Kandidaten vóór één woordsoort per lemma | 229 |
 | Lemma’s in de frequentielijst | 13.604 |
-| Woorden in de set | 144 |
-| Met een voorbeeldzin | 144 |
+| Woorden in de set | 140 |
+| Met een voorbeeldzin | 140 |
 | Met een lidwoord | 18 |
 | Zelfstandige naamwoorden | 31 |
 | Werkwoorden | 53 |
-| Bijvoeglijke naamwoorden | 41 |
-| Bijwoorden | 19 |
+| Bijvoeglijke naamwoorden | 40 |
+| Bijwoorden | 16 |
 
 Ontbreekt een lidwoord of een voorbeeldzin, dan verbergt de site dat veld. Op de woordpagina blijft de kop Voorbeeld staan, met de zin “Voor dit woord is geen voorbeeldzin beschikbaar.”
 
@@ -85,7 +85,7 @@ De set is een lijst zeldzame, formele of literaire lemma’s, geen frequentielij
 3. De eerste 6.000 lemma’s van de frequentielijst vallen weg. Die lijst dekt het alledaagse woord. De staart ervan is geen literaire zeldzaamheid (namen, leenwoorden, gewone woorden), dus een laag rangnummer is niet genoeg om een woord te houden.
 4. De automatische filters maken alleen een kandidatenlijst. Doorzichtige samenstellingen en productieve afleidingen vallen daar al uit, net als voltooide en tegenwoordige deelwoorden. Een betekenis die het lemma herhaalt, valt weg. Hetzelfde geldt voor een *-ig*-woord dat uit gewone delen bestaat, zoals *dikbuikig*. Een vaste lijst alledaagse lemma’s die de frequentielijst te laag zet of mist, valt ook weg. Een afleiding op *-erij*, *-arij*, *-nij*, *-erig*, *-ig*, *-heid*, *-schap*, *-shalve*, *-ing* of *-wijze* valt weg zodra het grondwoord bekend is: het staat in de frequentielijst, of het Leesonderzoek zet het boven de 80 procent. Dat geldt ook als de afleiding zelf een cijfer van 90 procent of minder heeft. Een betekenis met een kapot sjabloon (*van iets dat het…*), een cirkelredenering of een ander begrip dan het woord, valt weg. Een spellingvariant die alleen een koppel-s scheelt van een bekend lemma, valt ook weg. Wat hier overblijft is nog geen eindset.
 5. Elk kandidaatwoord is met de hand beoordeeld en vastgelegd in `data/curated.json`, met keep of drop en een reden. `words.json` bevat alleen de woorden met keep. Een woord valt af als de betekenis uit een bekend grondwoord volgt of de glos dat grondwoord alleen napraat, als het alleen regionaal is, als de glos cirkelvormig, een sjabloonrest, ongrammaticaal of vaag is, als de glos niet bij de woordsoort past, als het alledaags is of als meer dan 90 procent het herkent, of als het alleen nog archaïsch is. Een grote kloof tussen Nederland en Vlaanderen, zoals bij *teljoor*, telt daarbij als waarschuwing. `data/denylist.json` zet elk woord vast dat QA heeft afgekeurd. `npm run data` faalt als zo’n woord in de set staat, of als een id uit `meta.starterIds` ontbreekt. De herkenningstabel blijft het vaste bestand `data/nl-recognition.json`; het script controleert de sha256 en haalt hem niet live op. *onverkwikkelijk* blijft, met ongeveer 78 procent. *tabbaard* ook.
-6. Per lemma blijft één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. De kandidatenlijst telt 228 woorden. De beoordeling houdt er 144 en laat er 84 vallen: 56 omdat de betekenis uit een bekend grondwoord volgt, 14 om de glos, 9 omdat het woord regionaal is, 4 omdat het alledaags is, en 1 omdat het alleen nog archaïsch is. De eindset telt 19 bijwoorden, 41 bijvoeglijke naamwoorden, 31 zelfstandige naamwoorden en 53 werkwoorden. Het Leesonderzoek haalt vóór die beoordeling 77 lemma’s uit de kandidaten, de afleidingsfilter 123, de glosfilter 8, en één spellingvariant valt daar weg.
+6. Per lemma blijft één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. De kandidatenlijst telt 228 woorden. De beoordeling houdt er 140 en laat er 88 vallen: 58 omdat de betekenis uit een bekend grondwoord volgt, 16 om de glos, 9 omdat het woord regionaal is, 4 omdat het alledaags is, en 1 omdat het alleen nog archaïsch is. De eindset telt 16 bijwoorden, 40 bijvoeglijke naamwoorden, 31 zelfstandige naamwoorden en 53 werkwoorden. Het Leesonderzoek haalt vóór die beoordeling 77 lemma’s uit de kandidaten, de afleidingsfilter 123, de glosfilter 8, en één spellingvariant valt daar weg.
 
 Het lidwoord komt uit de labels in het extract: alleen onzijdig wordt *het*, mannelijk en/of vrouwelijk wordt *de*, allebei wordt *de/het*. Een leidende dubbele punt en indices als `[1]` gaan uit de betekenis. Buigingsglossen vallen weg. Bij een handvol bijvoeglijke naamwoorden is een bijwoordelijke glos teruggebracht tot een bijvoeglijke formulering. Verder wordt de tekst van een betekenis of voorbeeld niet herschreven. Een voorbeeldzin langer dan 240 tekens wordt ingekort op een zinseinde, zolang het woord er nog in staat.
 

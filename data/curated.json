@@ -27,8 +27,8 @@
     },
     {
       "word": "altemets",
-      "decision": "keep",
-      "reason": "zeldzaam bijwoord van onzekerheid, vrijwel niemand herkent het"
+      "decision": "drop",
+      "reason": "c: glos beschrijft alleen een functie en zegt niet wat het woord betekent"
     },
     {
       "word": "alzijdig",
@@ -435,8 +435,8 @@
     },
     {
       "word": "grovelijk",
-      "decision": "keep",
-      "reason": "literair bijwoord, op een grove manier, niet doorzichtig uit een alledaags woord"
+      "decision": "drop",
+      "reason": "a: de glos parafraseert alleen grof"
     },
     {
       "word": "hooglijk",
@@ -495,9 +495,8 @@
     },
     {
       "word": "kattepierig",
-      "decision": "keep",
-      "reason": "zeldzaam voor nukkig, geen doorzichtig grondwoord",
-      "gloss": "humeurig, nukkig en kribbig"
+      "decision": "drop",
+      "reason": "c: glos is alleen een rij synoniemen voor humeurig"
     },
     {
       "word": "keurmede",
@@ -679,8 +678,8 @@
     },
     {
       "word": "ongaarne",
-      "decision": "keep",
-      "reason": "formeel tegendeel van gaarne, onder de herkenningsgrens"
+      "decision": "drop",
+      "reason": "a: de glos is alleen niet graag, het tegendeel van gaarne"
     },
     {
       "word": "ongedurig",

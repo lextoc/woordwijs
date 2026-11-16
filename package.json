@@ -6,7 +6,7 @@
   "scripts": {
     "data": "node scripts/build-words.mjs",
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "node scripts/check-set.mjs && tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1 --port 4173"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 /**
- * Fail the data build when a denylisted word is in the set, or when a
- * starter id is missing from it. Also runnable on its own:
+ * Fail npm run data and npm run build when a denylisted word is in the
+ * set, or when a starter id is missing from it. Also runnable on its own:
  *   node scripts/check-set.mjs
  *   node scripts/check-set.mjs --inject gedreig
  */
