@@ -89,13 +89,13 @@ export function WordDetail() {
         </button>
       )}
       <p className="source-line">
-        Bron:{" "}
-        <a href={`https://nl.wiktionary.org/wiki/${encodeURIComponent(word.word)}`} target="_blank" rel="noopener noreferrer">
+        <span>Bron: </span>
+        <a className="source-anchor" href={`https://nl.wiktionary.org/wiki/${encodeURIComponent(word.word)}`} target="_blank" rel="noopener noreferrer">
           WikiWoordenboek
           <span className="sr-only"> (opent in een nieuw tabblad)</span>
         </a>
-        ,{" "}
-        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.nl" target="_blank" rel="noopener noreferrer">
+        <span>, </span>
+        <a className="source-anchor" href="https://creativecommons.org/licenses/by-sa/4.0/deed.nl" target="_blank" rel="noopener noreferrer">
           CC BY-SA 4.0
           <span className="sr-only"> (opent in een nieuw tabblad)</span>
         </a>

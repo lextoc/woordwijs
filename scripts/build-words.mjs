@@ -37,10 +37,14 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const cacheDir = path.join(root, "data", "cache");
 const extractPath = path.join(cacheDir, "nl-extract.jsonl.gz");
 const frequencyPath = path.join(cacheDir, "nl-frequency.txt");
+const recognitionPath = path.join(cacheDir, "nl-recognition.json");
 const outPath = path.join(root, "src", "data", "words.json");
 
 const EXTRACT_URL = "https://kaikki.org/nlwiktionary/raw-wiktextract-data.jsonl.gz";
 const FREQUENCY_URL = "https://raw.githubusercontent.com/bnpd/freqListsLemmatized/main/nl.txt";
+const RECOGNITION_API = "https://nl.wiktionary.org/w/api.php";
+const RECOGNITION_RAW = "https://nl.wiktionary.org/w/index.php";
+const SURVEY_MAX = 90;
 
 const HARD_CAP = 1200;
 const MAX_SENSES = 6;
@@ -136,6 +140,48 @@ async function ensureFile(url, dest, minBytes) {
   await download(url, dest);
 }
 
+function parseRecognitionPage(wikitext, region, into) {
+  const pattern = /\|([^\n|={}]+)=(\d+)/g;
+  let match = pattern.exec(wikitext);
+  while (match) {
+    const word = match[1].trim().toLocaleLowerCase("nl");
+    if (word.length >= 2 && /^[\p{L}'’]+$/u.test(word) && !into[word]) {
+      into[word] = {};
+    }
+    if (into[word] && into[word][region] == null) into[word][region] = Number(match[2]);
+    match = pattern.exec(wikitext);
+  }
+}
+
+async function ensureRecognition() {
+  if (existsSync(recognitionPath) && statSync(recognitionPath).size > 1000) {
+    process.stdout.write(`cache ${recognitionPath}\n`);
+    return JSON.parse(await readFile(recognitionPath, "utf8"));
+  }
+  const listUrl = `${RECOGNITION_API}?action=query&list=allpages&apnamespace=10&apprefix=Leesonderzoek_2013/&aplimit=500&format=json`;
+  process.stdout.write(`download ${listUrl}\n`);
+  const listResponse = await fetch(listUrl);
+  if (!listResponse.ok) throw new Error(`Download mislukt (${listResponse.status}) voor ${listUrl}`);
+  const listed = await listResponse.json();
+  const titles = (listed.query?.allpages || []).map((page) => page.title).sort((a, b) => a.localeCompare(b, "nl"));
+  if (titles.length < 40) throw new Error(`Te weinig Leesonderzoek-pagina's: ${titles.length}`);
+  const rows = {};
+  for (const title of titles) {
+    const region = title.includes("/nl-") ? "nl" : "vl";
+    const url = `${RECOGNITION_RAW}?action=raw&title=${encodeURIComponent(title)}`;
+    process.stdout.write(`download ${url}\n`);
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Download mislukt (${response.status}) voor ${url}`);
+    parseRecognitionPage(await response.text(), region, rows);
+  }
+  const ordered = {};
+  for (const word of Object.keys(rows).sort((a, b) => a.localeCompare(b, "nl"))) ordered[word] = rows[word];
+  mkdirSync(cacheDir, { recursive: true });
+  await writeFile(recognitionPath, JSON.stringify(ordered));
+  process.stdout.write(`saved ${recognitionPath} (${Object.keys(ordered).length} woorden)\n`);
+  return ordered;
+}
+
 function clean(text) {
   return String(text).replace(/\s+/g, " ").trim();
 }
@@ -165,6 +211,29 @@ function posLabel(entry) {
     adv: "bijwoord",
   };
   return fallback[entry.pos] || "woord";
+}
+
+const NOT_INFINITIVE = new Set(
+  "mensen dingen kinderen handen voeten ogen oren jaren namen woorden zaken delen soorten vormen tijden plaatsen landen dieren planten stenen boeken kanten grenzen tussen binnen buiten tegen boven onder zonder".split(" "),
+);
+const SHORT_VERB = new Set(["zijn", "gaan", "staan", "slaan", "zien", "doen", "worden", "hebben", "kunnen", "laten"]);
+
+function hasInfinitive(gloss) {
+  const tokens = gloss.toLocaleLowerCase("nl").split(/[^\p{L}]+/u).filter(Boolean);
+  return tokens.some((token) => SHORT_VERB.has(token) || (token.length >= 4 && token.endsWith("en") && !NOT_INFINITIVE.has(token)));
+}
+
+function prepareGloss(raw, pos) {
+  let gloss = acceptableGloss(raw);
+  if (!gloss) return null;
+  if (/^is\s+(het|de|een)\b/i.test(gloss)) gloss = gloss.replace(/^is\s+/i, "");
+  if (/^te wijten aan\b/i.test(gloss)) return null;
+  if (/^geheel\s+(onder|boven|binnen|buiten|in|op)\b/i.test(gloss)) return null;
+  if (pos === "verb" && !hasInfinitive(gloss)) return null;
+  if (pos === "verb" && /^het\s+\p{L}+en\s+van\b/iu.test(gloss)) return null;
+  if (pos === "noun" && /^zich\b/i.test(gloss)) return null;
+  if (gloss.length < 8) return null;
+  return gloss;
 }
 
 function acceptableGloss(raw) {
@@ -240,6 +309,52 @@ function ordinaryVerb(word, gloss, listed) {
     if (base.length >= 3 && listed.has(base) && !/(aa|ee|oo|uu|eu|oe|ui|ei|ij|ou|au)/.test(base)) return true;
   }
   if (LOAN_VERB.test(word)) return true;
+  return false;
+}
+
+function recognitionPercent(recognition, word) {
+  const row = recognition.get(word);
+  if (!row) return null;
+  const values = [row.nl, row.vl].filter((value) => Number.isFinite(value));
+  if (!values.length) return null;
+  return Math.max(...values);
+}
+
+function widelyKnown(word, recognition, top) {
+  if (top.has(word)) return true;
+  const percent = recognitionPercent(recognition, word);
+  return percent != null && percent > SURVEY_MAX;
+}
+
+function transparentNominal(word, recognition, top) {
+  if (word.endsWith("erij") || word.endsWith("arij")) {
+    const stem = undouble(word.slice(0, -4));
+    if (widelyKnown(stem, recognition, top) || widelyKnown(`${stem}en`, recognition, top) || widelyKnown(word.slice(0, -2), recognition, top)) return true;
+    const cores = [word.slice(0, -2), word.slice(0, -4)];
+    for (const core of cores) {
+      for (let index = 3; index <= core.length - 4; index += 1) {
+        const left = core.slice(0, index);
+        const right = core.slice(index);
+        if (!widelyKnown(left, recognition, top)) continue;
+        if (widelyKnown(right, recognition, top) || widelyKnown(`${undouble(right)}en`, recognition, top) || widelyKnown(`${right}en`, recognition, top)) return true;
+      }
+    }
+    return false;
+  }
+  if (word.startsWith("ge") && word.length >= 6) {
+    const rest = word.slice(2);
+    return widelyKnown(`${rest}en`, recognition, top) || widelyKnown(`${undouble(rest)}en`, recognition, top);
+  }
+  return false;
+}
+
+function spellingVariant(word, ordinaryForms, listed) {
+  const prepositions = ["onder", "boven", "binnen", "buiten", "achter", "naast", "tegen", "zonder"];
+  for (const preposition of prepositions) {
+    if (!word.startsWith(preposition)) continue;
+    const rest = word.slice(preposition.length);
+    if (rest.length >= 3 && ordinaryForms.has(rest) && !listed.has(rest)) return true;
+  }
   return false;
 }
 
@@ -400,10 +515,11 @@ function foldAccents(word) {
 }
 
 async function indexExtract(file, bands) {
-  const { rankOf, listed, top400, top2500, top3000, top6000, top8000, ordinaryForms, verbCommon } = bands;
+  const { rankOf, listed, top400, top2500, top3000, top6000, top8000, ordinaryForms, verbCommon, recognition } = bands;
   const byPos = new Map();
   let lines = 0;
   let dutch = 0;
+  let surveyRemoved = 0;
   const gunzip = createGunzip();
   const input = createReadStream(file).pipe(gunzip);
   const rl = createInterface({ input, crlfDelay: Infinity });
@@ -447,7 +563,7 @@ async function indexExtract(file, bands) {
         elevated = true;
       } else if (tags.has("poetic")) elevated = true;
       for (const gloss of sense.glosses || []) {
-        const text = acceptableGloss(gloss);
+        const text = prepareGloss(gloss, entry.pos);
         if (!text || senses.includes(text) || related(text, word)) continue;
         if (key.endsWith("ig") && !key.endsWith("lijk") && /^(met |in het bezit van|voorzien van |bestaande uit )/i.test(text)) continue;
         if (senses.length < MAX_SENSES) senses.push(text);
@@ -519,6 +635,13 @@ async function indexExtract(file, bands) {
       entry.pos === "noun" ||
       (entry.pos === "verb" && key.endsWith("en"));
     if (!shaped) continue;
+    if (entry.pos === "adv" && spellingVariant(key, ordinaryForms, listed)) continue;
+    const percent = recognitionPercent(recognition, key);
+    if (percent == null && entry.pos === "noun" && transparentNominal(key, recognition, top6000)) continue;
+    if (percent != null && percent > SURVEY_MAX) {
+      surveyRemoved += 1;
+      continue;
+    }
 
     const id = `${key}__${entry.pos}`;
     const item = {
@@ -547,7 +670,7 @@ async function indexExtract(file, bands) {
       }
     }
   }
-  return { byPos, lines, dutch };
+  return { byPos, lines, dutch, surveyRemoved };
 }
 
 function pickLemma(byPos) {
@@ -617,10 +740,15 @@ function toRecord(entry, rank) {
 
 await ensureFile(EXTRACT_URL, extractPath, 50_000_000);
 await ensureFile(FREQUENCY_URL, frequencyPath, 10_000);
+const recognitionTable = await ensureRecognition();
+if (recognitionTable.onverkwikkelijk?.nl !== 78) {
+  throw new Error("Het herkenningsbestand hoort onverkwikkelijk op 78 procent voor Nederland te zetten");
+}
 
-const [extractHash, frequencyHash, frequency] = await Promise.all([
+const [extractHash, frequencyHash, recognitionHash, frequency] = await Promise.all([
   readFile(extractPath).then(sha256),
   readFile(frequencyPath).then(sha256),
+  readFile(recognitionPath).then(sha256),
   readFrequency(frequencyPath),
 ]);
 const { lemmas } = frequency;
@@ -642,6 +770,7 @@ const bands = {
   top8000: new Set(lemmas.slice(0, 8000)),
   ordinaryForms,
   verbCommon: new Set([...lemmas.slice(0, 6000), ...ordinaryForms]),
+  recognition: new Map(Object.entries(recognitionTable)),
 };
 const indexed = await indexExtract(extractPath, bands);
 const pool = pickLemma(indexed.byPos);
@@ -672,7 +801,7 @@ chosen.sort(
     a.pos.localeCompare(b.pos),
 );
 const capped = chosen.slice(0, HARD_CAP);
-if (capped.length < 300) {
+if (capped.length < 200) {
   throw new Error(`Te weinig woorden geselecteerd: ${capped.length}`);
 }
 const selected = capped.map((entry, index) => toRecord(entry, index + 1));
@@ -715,10 +844,16 @@ const meta = {
       sha256: frequencyHash,
       license: "CC BY-SA 4.0",
     },
+    {
+      name: "WikiWoordenboek, Leesonderzoek 2013",
+      url: "https://nl.wiktionary.org/wiki/Sjabloon:Leesonderzoek_2013",
+      sha256: recognitionHash,
+      note: "Herkenningspercentages uit het onderzoek van het Centrum voor Leesonderzoek (2013), zoals nl.wiktionary ze per lemma toont. Een lemma met deze cijfers blijft alleen als hoogstens 90 procent van de Nederlanders en van de Vlamingen het herkent.",
+    },
   ],
   fields: ["id", "word", "pos", "posLabel", "article", "senses", "example", "rank"],
   selection:
-    "Nederlandse lemma's van 7 tot 20 letters met een duidelijke Nederlandse betekenis en een voorbeeldzin. Een betekenis die het lemma herhaalt, valt weg. De eerste 6000 lemma's van de frequentielijst vallen weg (alledaags). Eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen, informeel taalgebruik en vaktaal vallen weg. Doorzichtige samenstellingen, scheidbare werkwoorden, -ig-afleidingen van gewone delen en productieve afleidingen van een frequent woord vallen weg. Een lemma blijft als het formeel of poëtisch gelabeld is, een literaire vorm heeft, of een bijwoord van minstens 8 letters is. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft alleen als het geen samenstelling of leenwoordspelling is, een Nederlandse uitgang heeft wanneer het een zelfstandig naamwoord is, en het extract het naar hoogstens drie andere talen vertaalt. Gewone werkwoorden, klanknabootsingen en leenwerkwoorden vallen weg. Spelfouten en alternatieve spellingen vallen weg. Per lemma één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. Hoogstens 1200. Rank is de plaats in die volgorde, niet de frequentie.",
+    "Nederlandse lemma's van 7 tot 20 letters met een duidelijke Nederlandse betekenis en een voorbeeldzin. Een betekenis die het lemma herhaalt, valt weg. De eerste 6000 lemma's van de frequentielijst vallen weg (alledaags). Eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen, informeel taalgebruik en vaktaal vallen weg. Doorzichtige samenstellingen, scheidbare werkwoorden, -ig-afleidingen van gewone delen en productieve afleidingen van een frequent woord vallen weg. Een lemma blijft als het formeel of poëtisch gelabeld is, een literaire vorm heeft, of een bijwoord van minstens 8 letters is. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft alleen als het geen samenstelling of leenwoordspelling is, een Nederlandse uitgang heeft wanneer het een zelfstandig naamwoord is, en het extract het naar hoogstens drie andere talen vertaalt. Gewone werkwoorden, klanknabootsingen en leenwerkwoorden vallen weg. Spelfouten en alternatieve spellingen vallen weg. Heeft een lemma cijfers uit het Leesonderzoek 2013, dan blijft het alleen als hoogstens 90 procent het herkent. Doorzichtige ge-zelfstandige naamwoorden en -erij/-arij-afleidingen van een algemeen bekend grondwoord vallen weg, tenzij dat onderzoek ze als zeldzaam aanmerkt. Een betekenis die niet bij de woordsoort past, of die met 'is het' begint, wordt verbeterd of weggelaten. Per lemma één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. Hoogstens 1200. Rank is de plaats in die volgorde, niet de frequentie.",
   adaptations: [
     "Alledaagse lemma's (de eerste 6000 van de frequentielijst), eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, verouderde betekenissen en vaktaal zijn weggelaten.",
     "Betekenissen die het lemma herhalen, doorzichtige samenstellingen en productieve afleidingen van een frequent woord zijn weggelaten.",
@@ -737,6 +872,7 @@ const meta = {
     nouns,
     formal: formalCount,
     byPos: posCounts,
+    surveyRemoved: indexed.surveyRemoved,
   },
   starterIds,
   wordOfTheDay:
@@ -756,6 +892,7 @@ process.stdout.write(
     `nouns ${nouns}`,
     `formal ${formalCount}`,
     `byPos ${JSON.stringify(posCounts)}`,
+    `surveyRemoved ${indexed.surveyRemoved}`,
     `starter ${starterIds.join(", ")}`,
     `extract ${extractHash}`,
     `frequency ${frequencyHash}`,

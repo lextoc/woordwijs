@@ -452,7 +452,20 @@ input[type="search"]::-webkit-search-decoration {
   padding: 16px 0;
   font-size: 0.9333rem;
 }
-.source-line { border-top: 1px solid var(--ink); padding-top: 16px; margin-top: 16px; font-size: 0.9333rem; }
+.source-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 48px;
+  border-top: 1px solid var(--ink);
+  margin-top: 16px;
+  font-size: 0.9333rem;
+}
+.source-line a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+}
 
 .source-list { display: grid; gap: 10px; margin: 16px 0 24px; }
 .source-link {

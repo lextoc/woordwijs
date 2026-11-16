@@ -64,15 +64,15 @@ De set in deze repository, uit het extract van 2026-10-01:
 |---|---|
 | Regels in het extract | 1.121.234 |
 | Nederlandse items | 669.494 |
-| Kandidaten vóór één woordsoort per lemma | 404 |
+| Kandidaten vóór één woordsoort per lemma | 285 |
 | Lemma’s in de frequentielijst | 13.604 |
-| Woorden in de set | 400 |
-| Met een voorbeeldzin | 400 |
-| Met een lidwoord | 35 |
-| Zelfstandige naamwoorden | 114 |
-| Werkwoorden | 98 |
-| Bijvoeglijke naamwoorden | 136 |
-| Bijwoorden | 52 |
+| Woorden in de set | 283 |
+| Met een voorbeeldzin | 283 |
+| Met een lidwoord | 31 |
+| Zelfstandige naamwoorden | 81 |
+| Werkwoorden | 71 |
+| Bijvoeglijke naamwoorden | 94 |
+| Bijwoorden | 37 |
 
 Ontbreekt een lidwoord of een voorbeeldzin, dan verbergt de site dat veld. Op de woordpagina blijft de kop Voorbeeld staan, met de zin “Voor dit woord is geen voorbeeldzin beschikbaar.”
 
@@ -83,9 +83,9 @@ De set is een lijst zeldzame, formele of literaire lemma’s, geen frequentielij
 1. Alleen zelfstandig naamwoord, werkwoord, bijvoeglijk naamwoord en bijwoord. Eén token van 7 tot 20 letters. Geen hoofdletters, streepjes, woordgroepen, afkortingen of eigennamen.
 2. Vormvarianten, dialect, alleen verouderde betekenissen en vaktaal (geneeskunde, plantkunde, scheikunde en vergelijkbare onderwerpen) vallen weg.
 3. De eerste 6.000 lemma’s van de frequentielijst vallen weg. Die lijst dekt het alledaagse woord. De staart ervan is geen literaire zeldzaamheid (namen, leenwoorden, gewone woorden), dus een laag rangnummer is niet genoeg om een woord te houden.
-4. Doorzichtige samenstellingen en productieve afleidingen van een frequent woord vallen weg, net als voltooide en tegenwoordige deelwoorden. Een betekenis die het lemma herhaalt, valt weg. Hetzelfde geldt voor een *-ig*-woord dat uit gewone delen bestaat, zoals *dikbuikig*. Een vaste lijst alledaagse lemma’s die de frequentielijst te laag zet of mist, valt ook weg.
-5. Wat overblijft heeft een formeel of poëtisch label, een literaire vorm (zoals *-lijk*, *-ig*, *-temin*, *-aard*, *-nis*) of is een bijwoord van minstens acht letters. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft als het zeldzaam maar echt is: een duidelijke Nederlandse betekenis, geen scheidbaar werkwoord, geen leenwoordspelling, en bij een zelfstandig naamwoord een Nederlandse uitgang. Gewone werkwoorden vallen weg: klanknabootsing, een gewone lichamelijke handeling en een leenwerkwoord op *-eren* of *-en*. Een formeel of literair werkwoord zoals *wrochten*, *verschalken*, *verbeuzelen*, *vermeien*, *verguizen* en *kuieren* blijft. Spelfouten en alternatieve spellingen vallen weg, ook als het extract ze alleen als vorm van een ander lemma markeert. *desalniettemin*, *kwistig*, *onverkwikkelijk* en *tabbaard* horen daarbij.
-6. Per lemma blijft één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. De set stopt bij 1.200; deze invoer levert 400 woorden.
+4. Doorzichtige samenstellingen en productieve afleidingen van een frequent woord vallen weg, net als voltooide en tegenwoordige deelwoorden. Een betekenis die het lemma herhaalt, valt weg. Hetzelfde geldt voor een *-ig*-woord dat uit gewone delen bestaat, zoals *dikbuikig*. Een vaste lijst alledaagse lemma’s die de frequentielijst te laag zet of mist, valt ook weg. Een *ge-*-zelfstandig naamwoord of een *-erij*- of *-arij*-afleiding valt weg als de betekenis uit een algemeen bekend grondwoord volgt, tenzij het Leesonderzoek die afleiding als zeldzaam aanmerkt.
+5. Wat overblijft heeft een formeel of poëtisch label, een literaire vorm (zoals *-lijk*, *-ig*, *-temin*, *-aard*, *-nis*) of is een bijwoord van minstens acht letters. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft als het zeldzaam maar echt is: een duidelijke Nederlandse betekenis, geen scheidbaar werkwoord, geen leenwoordspelling, en bij een zelfstandig naamwoord een Nederlandse uitgang. Gewone werkwoorden vallen weg: klanknabootsing, een gewone lichamelijke handeling en een leenwerkwoord op *-eren* of *-en*. Een formeel of literair werkwoord zoals *wrochten*, *verbeuzelen*, *vermeien* en *verguizen* blijft. Spelfouten en alternatieve spellingen vallen weg, ook als het extract ze alleen als vorm van een ander lemma markeert. Een betekenis die niet bij de woordsoort past, of die met *is het* begint, wordt verbeterd of weggelaten. Heeft nl.wiktionary voor het lemma de herkenningscijfers uit het Leesonderzoek 2013, dan blijft het alleen als hoogstens 90 procent van de Nederlanders en van de Vlamingen het herkent. *onverkwikkelijk* zit daar met ongeveer 78 procent onder. Zonder die cijfers blijft de heuristiek uit de vorige stappen gelden. *tabbaard* hoort daarbij.
+6. Per lemma blijft één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. De set stopt bij 1.200; deze invoer levert 283 woorden. Het Leesonderzoek haalt daar 102 lemma’s uit die anders waren gebleven, omdat meer dan 90 procent ze herkent.
 
 Het lidwoord komt uit de labels in het extract: alleen onzijdig wordt *het*, mannelijk en/of vrouwelijk wordt *de*, allebei wordt *de/het*. Een leidende dubbele punt en indices als `[1]` gaan uit de betekenis. Buigingsglossen vallen weg. De tekst van een betekenis of voorbeeld wordt verder niet herschreven. Een voorbeeldzin langer dan 240 tekens wordt ingekort op een zinseinde, zolang het woord er nog in staat.
 
