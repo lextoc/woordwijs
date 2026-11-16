@@ -86,6 +86,14 @@ optimaal overmatig pertinent piekerig plakkerig pluizig poezelig prijzig prikkel
 rumoerig schemerig schriftelijk slijmig snoezig stekelig stijfjes stilletjes stuntelig toegeeflijk dromerig weetgierig botmatig eenzijdig
 hindernis ergernis aanstoot fundament interieur logistiek onbehagen rijtuig boomgaard heidezee vistuig lievelings editoriaal puzzelen brouwen bungelen graaien grinniken dobbelen dreunen hinkelen hippelen buffelen waggelen wiegelen dweilen sproeien multitasken spammen wrappen
 bruschetta bungeejump deepfake fastfood freefight goodwill moussaka soulmate strooistep danseuse banlieue raspoetin tibetaan jamboree roulette nouvelle islamofoob pentagoon aggregaat
+alstublief treuzelen wiebelen ratelen gorgelen jengelen gniffelen sponsoren kladden spatelen sluizen
+barrevoets barvoets blootsvoets blootvoets collectief plusminus normalerwijze gemakshalve buitenmate
+desondanks niettemin weliswaar nochtans onderwijl middelerwijl daarmede hiermede waarmede afgrijselijk heelhuids andermaal nauwgezet bevlogen billijk binnensmonds luidkeels meermalen onbeschrijfelijk ruimschoots ternauwernood voetstoots hutjemutje aanschouwelijk vanwaaruit zoetjesaan koeltjes wijselijk ziekelijk alleszins
+pastorij bezondigen huldigen ijveren kenschetsen verkondigen verkroppen verveelvoudigen beteren ontfermen krieken bejubelen
+behaaglijk baldadig erbarmelijk hachelijk wispelturig weelderig zedelijk vernuftig schimmig onderhavig minnelijk erkentelijk behoeftig afzijdig aanhangig heilzaam triomfantelijk
+penseel terpentijn uitgeverij visserij wasserij vakmanschap babbelarij dagdromerij dromerij aannemerij smokkelarij vreterij opschepperij blufferij beeltenis tafereel
+aanhalig aannemelijk afzonderlijk ambachtelijk ambtelijk armzalig bebaard bedachtzaam bedillerig behoedzaam bemoeizuchtig bespottelijk betweterig bezitterig bibberig bijgelovig bijterig bouwvallig broeierig brokkelig brommerig bronstig buigzaam buitenkerkelijk clichématig dikwandig dommelig doornig draderig drassig dreinerig dwangmatig eeneiig eenkennig erfelijk gaperig geboortig geeuwerig gemakzuchtig geniepig glanzig gluiperig grijzig grofkorrelig grofmazig hakkelig halfzijdig halsstarrig hatelijk hebberig hijgerig hikkerig huiverig inpandig inschikkelijk interkerkelijk jankerig jeukerig jichtig klefferig kleffig kleumerig klierig krakkemikkig kroezelig kroezig kruimig lamlendig leuterig lijfelijk luidruchtig lummelig mallotig meerdelig meerduidig meerledig moedwillig onaannemelijk onbedachtzaam onbenullig onbuigzaam ondeugdelijk onmetelijk onomstotelijk onpasselijk onstuimig ontoegankelijk onverbeterlijk onvergeeflijk onwennig oubollig ouwelijk overdadig overgankelijk pafferig papperig patserig pesterig petieterig pietluttig plagerig pluizerig potsierlijk praatlustig prekerig priegelig profijtelijk protserig prullerig prullig rafelig reflexmatig rellerig rijkelijk rillerig roestig saamhorig salonfähig satijnig schetsmatig schichtig schijterig schraperig sjokkerig slaperig sletterig slibberig slijmerig slobberig slonzig snauwerig sopperig statelijk streberig stuiterig tintelig tobberig toepasselijk toeschietelijk treiterig trillerig vakmatig veeltalig verachtelijk verlokkelijk vleierig volmondig voltallig voorradig waaghalzerig wederkerig wetmatig wijdmazig wijsneuzig wormstekig zanderig zelfredzaam zelfzuchtig zintuiglijk zoenerig zoeterig zorglijk zuurbestendig zwemmerig zweterig zweverig
+adbusten bakkeleien bedampen bedijken beduimelen begapen bekalken beknabbelen beknibbelen besnuffelen besproeien bespuwen bestrooien bezuren bloezen bruisen daveren djoinen dretsen drillen frituren glooien grauwen haperen herijken joderen klieren klitten knauwen knipogen krammen kreuken krikken krullen kwalmen lameren lanterfanten loodsen luieren muilkorven ontkrullen ontkurken ontvinken ontwurmen plaveien priemen pruilen puberen rausjen ravotten roetsjen sleuren sleuven slijzen slinken sloeren slurpen smakken smotsen smurfen snakken snauwen snierken snorken snuiven sperren speuren sprengen spruiten stippen stuiken tjompen toespitsen verachtvoudigen verdampen verengen verhakkelen verhippen verkegelen verkruimelen verloden vernikkelen verslanken verslijpen versloffen versmoren verstuiken verstuwen vertienvoudigen vertrappelen verwerven verzuimen verzadigen wipwappen zuchten zwammen zwetsen
 tussenin uitbundig uitermate uitvoerig uitwendig veelzijdig veranderlijk verdacht vergeefs vermakelijk vlijtig
 volgzaam volstrekt wekelijks wenselijk winderig zorgzaam zuinigjes zwierig allerminst breeduit
 vanbinnen vanbuiten schaakmat fiftyfifty crescendo spiccato staccato sforzando contrecoeur`.split(/\s+/));
@@ -165,7 +173,7 @@ function acceptableGloss(raw) {
   if (/strijkinstrument|strijkstok|\bstoornis\b/i.test(gloss)) return null;
   if (/^(niet |zonder |het tegengestelde|afkorting|lijkend )/i.test(gloss)) return null;
   if (/^(zeer |heel |erg |zelden |vrijwel )/i.test(gloss)) return null;
-  if (/verouderd|archaïsch|zie\s*:|\+|aanspreektitel|uitroep bij/i.test(gloss)) return null;
+  if (/verouderd|archaïsch|zie\s*:|\+|aanspreektitel|uitroep bij|spelfout|schrijfwijze|alternatieve spelling|verkeerde spelling|spelling van/i.test(gloss)) return null;
   if (/\b(the|and|with|from|which|voornaam|achternaam|hormoon|scheikundig|informatica|plantkundig|geslacht|de vorm van|hebbend|opwekkend)\b/i.test(gloss)) return null;
   const tokens = gloss.split(/[\s,;:/]+/).filter(Boolean);
   if (tokens.length < 2) return null;
@@ -211,6 +219,28 @@ function undouble(stem) {
   const consonants = "bcdfghjklmnpqrstvwxz";
   if (stem.length >= 2 && stem.at(-1) === stem.at(-2) && consonants.includes(stem.at(-1))) return stem.slice(0, -1);
   return stem;
+}
+
+const BASIC_ACTION = /\b(lopen|wandelen|bewegen|zitten|staan|slaan|breken|eten|drinken|vallen|gooien|trekken|duwen|knoeien|vlekken|zeuren|zaniken|jammeren|huilen|lachen|slapen|springen|klimmen|rennen|hinken)\b/i;
+const ONOMATOPOEIA = /\b(geluid|geluiden|klank|klinkt|klinken|knars\w*|piep\w*|ratel\w*|suiz\w*|zoem\w*|knetter\w*|rinkel\w*|rammel\w*|roffel\w*)\b/i;
+const LOAN_VERB = /^(sponsor|perform|sprint|trim|tase|snooze|sniff|slam|spoil|plog|blur|disabel|grill|chant|fase|kader|fritur|schmink|jodel|press|spar|wrap|disable|djoin|rausj|jode|adbust)/;
+const LITERARY_VERB = new Set(["wrochten", "verschalken", "verbeuzelen", "vermeien", "verguizen", "kuieren"]);
+
+function ordinaryVerb(word, gloss, listed) {
+  if (LITERARY_VERB.has(word)) return false;
+  if (ONOMATOPOEIA.test(gloss)) return true;
+  if (/elen$/.test(word) && !/^(ver|be|ont|her|over)/.test(word)) return true;
+  const literaryWalk = gloss.length >= 55 && /zonder|gemak|\bdoel\b/.test(gloss);
+  if (!literaryWalk && !/^(ver|be|ont|her)/.test(word) && BASIC_ACTION.test(gloss)) return true;
+  if (!word.endsWith("en")) return false;
+  const stem = undouble(word.slice(0, -2));
+  if (stem.length >= 4 && listed.has(stem) && gloss.toLocaleLowerCase("nl").includes(stem)) return true;
+  if (word.endsWith("eren")) {
+    const base = word.slice(0, -4);
+    if (base.length >= 3 && listed.has(base) && !/(aa|ee|oo|uu|eu|oe|ui|ei|ij|ou|au)/.test(base)) return true;
+  }
+  if (LOAN_VERB.test(word)) return true;
+  return false;
 }
 
 function transparentVerb(word, common, depth = 0) {
@@ -394,7 +424,7 @@ async function indexExtract(file, bands) {
     const key = word.toLocaleLowerCase("nl");
     if (!LEMMA_RE.test(key) || key.includes("-") || key.includes(" ")) continue;
     const entryTags = new Set(entry.tags || []);
-    if ([...entryTags].some((tag) => SKIP_ENTRY.has(tag))) continue;
+    if ([...entryTags].some((tag) => SKIP_ENTRY.has(tag) || tag === "misspelling" || tag === "alt-of" || tag === "alternative-form" || tag === "alternative-spelling")) continue;
     if (NUMBER_PREFIXES.some((prefix) => key.startsWith(prefix))) continue;
     if (COMPASS.test(key) || ENGLISHY.test(key) || LATIN.test(key) || NUMBER_WORD.test(key)) continue;
     if (EVERYDAY.has(key) || key.endsWith("kundig") || key.endsWith("toonaard")) continue;
@@ -407,6 +437,8 @@ async function indexExtract(file, bands) {
     for (const sense of entry.senses || []) {
       const tags = new Set(sense.tags || []);
       if ([...tags].some((tag) => SKIP_SENSE.has(tag))) continue;
+      if (sense.form_of?.length || sense.alt_of?.length) continue;
+      if (tags.has("misspelling") || tags.has("alt-of") || tags.has("alternative-form") || tags.has("alternative-spelling")) continue;
       if (tags.has("informal") || tags.has("slang") || tags.has("vulgar")) continue;
       const topics = new Set(sense.topics || []);
       if ([...topics].some((topic) => SPECIALIST.has(topic))) continue;
@@ -462,6 +494,7 @@ async function indexExtract(file, bands) {
     if (plainContent && entry.pos === "noun" && /(tje|pje|kje|vernis)$/u.test(key)) continue;
     if (isCompound(key, top400, top3000, top6000, top8000) || seeThroughIg(key, listed)) continue;
     if (entry.pos === "verb" && transparentVerb(key, verbCommon)) continue;
+    if (entry.pos === "verb" && !elevated && ordinaryVerb(key, senses[0], listed)) continue;
     if (entry.pos === "noun" && !formal && key.endsWith("ing")) continue;
     if (entry.pos === "noun" && key.endsWith("en") && top6000.has(key.slice(0, -2))) continue;
     if (entry.pos === "noun" && key.endsWith("e") && top6000.has(key.slice(0, -1))) continue;
@@ -685,7 +718,7 @@ const meta = {
   ],
   fields: ["id", "word", "pos", "posLabel", "article", "senses", "example", "rank"],
   selection:
-    "Nederlandse lemma's van 7 tot 20 letters met een duidelijke Nederlandse betekenis en een voorbeeldzin. Een betekenis die het lemma herhaalt, valt weg. De eerste 6000 lemma's van de frequentielijst vallen weg (alledaags). Eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen, informeel taalgebruik en vaktaal vallen weg. Doorzichtige samenstellingen, scheidbare werkwoorden, -ig-afleidingen van gewone delen en productieve afleidingen van een frequent woord vallen weg. Een lemma blijft als het formeel of poëtisch gelabeld is, een literaire vorm heeft, of een bijwoord van minstens 8 letters is. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft alleen als het geen samenstelling of leenwoordspelling is, een Nederlandse uitgang heeft wanneer het een zelfstandig naamwoord is, en het extract het naar hoogstens drie andere talen vertaalt. Per lemma één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. Hoogstens 1200. Rank is de plaats in die volgorde, niet de frequentie.",
+    "Nederlandse lemma's van 7 tot 20 letters met een duidelijke Nederlandse betekenis en een voorbeeldzin. Een betekenis die het lemma herhaalt, valt weg. De eerste 6000 lemma's van de frequentielijst vallen weg (alledaags). Eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen, informeel taalgebruik en vaktaal vallen weg. Doorzichtige samenstellingen, scheidbare werkwoorden, -ig-afleidingen van gewone delen en productieve afleidingen van een frequent woord vallen weg. Een lemma blijft als het formeel of poëtisch gelabeld is, een literaire vorm heeft, of een bijwoord van minstens 8 letters is. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft alleen als het geen samenstelling of leenwoordspelling is, een Nederlandse uitgang heeft wanneer het een zelfstandig naamwoord is, en het extract het naar hoogstens drie andere talen vertaalt. Gewone werkwoorden, klanknabootsingen en leenwerkwoorden vallen weg. Spelfouten en alternatieve spellingen vallen weg. Per lemma één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. Hoogstens 1200. Rank is de plaats in die volgorde, niet de frequentie.",
   adaptations: [
     "Alledaagse lemma's (de eerste 6000 van de frequentielijst), eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, verouderde betekenissen en vaktaal zijn weggelaten.",
     "Betekenissen die het lemma herhalen, doorzichtige samenstellingen en productieve afleidingen van een frequent woord zijn weggelaten.",
