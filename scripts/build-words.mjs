@@ -74,7 +74,7 @@ const FUNCTION_PARTS = new Set([
   "rondom", "vanuit", "vanaf",
 ]);
 const LITERARY_SUFFIXES = ["elijkheid", "temin", "erwijs", "gewijs", "lings", "waarts", "halve", "wege", "elijk", "lijk", "zaam", "aard", "nis", "dom", "dank", "ig"];
-const BAD_ENDINGS = ["heid", "loos", "eloos", "achtig", "vormig", "atie", "iteit", "isme", "isch", "sel"];
+const BAD_ENDINGS = ["loos", "eloos", "achtig", "vormig", "atie", "iteit", "isme", "isch", "sel"];
 const NUMBER_PREFIXES = ["twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen", "tien", "elf", "twaalf", "dertien", "veertien", "vijftien", "twintig", "dertig", "veertig", "vijftig", "zestig", "zeventig", "tachtig", "negentig", "honderd", "duizend", "miljoen"];
 const ENGLISHY = /(body|guard|stage|ticket|showbiz|manager|computer|internet|online|feedback|baby|fuck|shit)/;
 const LATIN = /(itis|osis|ium|hypo|hyper|neuro|cardio|encefal|pathie)/;
@@ -320,31 +320,71 @@ function recognitionPercent(recognition, word) {
   return Math.max(...values);
 }
 
-function widelyKnown(word, recognition, top) {
-  if (top.has(word)) return true;
+function baseWidelyKnown(word, recognition, top) {
+  if (!word || word.length < 3) return false;
   const percent = recognitionPercent(recognition, word);
-  return percent != null && percent > SURVEY_MAX;
+  if (percent != null) return percent > SURVEY_MAX;
+  return top.has(word);
 }
 
-function transparentNominal(word, recognition, top) {
+const DERIVATION_SUFFIXES = [
+  "erwijze", "gewijze", "elijkheid", "elijks", "shalve", "erij", "arij", "gewijs", "wijze",
+  "schap", "heid", "elijk", "lijks", "lijk", "zaam", "baar", "loos", "lings", "daags", "waarts",
+  "dom", "ing", "nij",
+];
+
+function stemCandidates(stem) {
+  const candidates = new Set();
+  const add = (value) => {
+    if (value && value.length >= 3) candidates.add(value);
+  };
+  add(stem);
+  add(undouble(stem));
+  if (stem.endsWith("s") && stem.length > 4) add(undouble(stem.slice(0, -1)));
+  if (stem.endsWith("en") && stem.length > 5) add(undouble(stem.slice(0, -2)));
+  if (stem.endsWith("e") && stem.length > 4) add(stem.slice(0, -1));
+  add(`${undouble(stem)}en`);
+  return candidates;
+}
+
+function knownStem(stem, recognition, top) {
+  for (const candidate of stemCandidates(stem)) {
+    if (baseWidelyKnown(candidate, recognition, top)) return true;
+  }
+  return false;
+}
+
+function transparentDerivation(word, recognition, top) {
+  for (const suffix of DERIVATION_SUFFIXES) {
+    if (!word.endsWith(suffix) || word.length <= suffix.length + 2) continue;
+    if (knownStem(word.slice(0, -suffix.length), recognition, top)) return true;
+  }
   if (word.endsWith("erij") || word.endsWith("arij")) {
-    const stem = undouble(word.slice(0, -4));
-    if (widelyKnown(stem, recognition, top) || widelyKnown(`${stem}en`, recognition, top) || widelyKnown(word.slice(0, -2), recognition, top)) return true;
     const cores = [word.slice(0, -2), word.slice(0, -4)];
     for (const core of cores) {
       for (let index = 3; index <= core.length - 4; index += 1) {
         const left = core.slice(0, index);
         const right = core.slice(index);
-        if (!widelyKnown(left, recognition, top)) continue;
-        if (widelyKnown(right, recognition, top) || widelyKnown(`${undouble(right)}en`, recognition, top) || widelyKnown(`${right}en`, recognition, top)) return true;
+        if (!baseWidelyKnown(left, recognition, top)) continue;
+        if (knownStem(right, recognition, top) || baseWidelyKnown(right, recognition, top)) return true;
       }
     }
-    return false;
   }
   if (word.startsWith("ge") && word.length >= 6) {
     const rest = word.slice(2);
-    return widelyKnown(`${rest}en`, recognition, top) || widelyKnown(`${undouble(rest)}en`, recognition, top);
+    if (baseWidelyKnown(`${rest}en`, recognition, top) || baseWidelyKnown(`${undouble(rest)}en`, recognition, top)) return true;
   }
+  return false;
+}
+
+function glossFitsNominalization(gloss) {
+  if (/^(?:een |de |het )?(?:persoon|man|vrouw|iemand|vertegenwoordiger|functionaris|beambte|dienaar|officier|bewoner)\b/iu.test(gloss)) return false;
+  if (/\b(?:ambt|ambts\p{L}*|functie|waardigheid|betrekking|positie|hoedanigheid|eigenschap|kwaliteit|handeling|daad|relatie|verhouding|toestand|stemming|gevoel|neiging|gedrag|gewoonte|verschijnsel|vermogen)\b/iu.test(gloss)) return true;
+  if (/\bde mate waarin\b/iu.test(gloss)) return true;
+  if (/\bniet te \p{L}{3,}(?:en|n)\b/iu.test(gloss)) return true;
+  if (/^het\s+niet\b/iu.test(gloss)) return true;
+  if (/^het\s+\p{L}{4,}en\b/iu.test(gloss)) return true;
+  if (/\bhet\s+\p{L}{3,}\s+zijn\b/iu.test(gloss)) return true;
   return false;
 }
 
@@ -520,6 +560,10 @@ async function indexExtract(file, bands) {
   let lines = 0;
   let dutch = 0;
   let surveyRemoved = 0;
+  let derivationRemoved = 0;
+  let glossRemoved = 0;
+  const derivationDropped = [];
+  const glossDropped = [];
   const gunzip = createGunzip();
   const input = createReadStream(file).pipe(gunzip);
   const rl = createInterface({ input, crlfDelay: Infinity });
@@ -637,10 +681,23 @@ async function indexExtract(file, bands) {
     if (!shaped) continue;
     if (entry.pos === "adv" && spellingVariant(key, ordinaryForms, listed)) continue;
     const percent = recognitionPercent(recognition, key);
-    if (percent == null && entry.pos === "noun" && transparentNominal(key, recognition, top6000)) continue;
     if (percent != null && percent > SURVEY_MAX) {
       surveyRemoved += 1;
       continue;
+    }
+    if (percent == null && transparentDerivation(key, recognition, top6000)) {
+      derivationRemoved += 1;
+      derivationDropped.push(key);
+      continue;
+    }
+    if (entry.pos === "noun" && /(schap|heid|ing)$/.test(key)) {
+      const fitting = senses.filter((sense) => glossFitsNominalization(sense));
+      if (!fitting.length) {
+        glossRemoved += 1;
+        glossDropped.push(key);
+        continue;
+      }
+      if (fitting.length !== senses.length) senses.splice(0, senses.length, ...fitting);
     }
 
     const id = `${key}__${entry.pos}`;
@@ -670,7 +727,7 @@ async function indexExtract(file, bands) {
       }
     }
   }
-  return { byPos, lines, dutch, surveyRemoved };
+  return { byPos, lines, dutch, surveyRemoved, derivationRemoved, glossRemoved, derivationDropped, glossDropped };
 }
 
 function pickLemma(byPos) {
@@ -853,7 +910,7 @@ const meta = {
   ],
   fields: ["id", "word", "pos", "posLabel", "article", "senses", "example", "rank"],
   selection:
-    "Nederlandse lemma's van 7 tot 20 letters met een duidelijke Nederlandse betekenis en een voorbeeldzin. Een betekenis die het lemma herhaalt, valt weg. De eerste 6000 lemma's van de frequentielijst vallen weg (alledaags). Eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen, informeel taalgebruik en vaktaal vallen weg. Doorzichtige samenstellingen, scheidbare werkwoorden, -ig-afleidingen van gewone delen en productieve afleidingen van een frequent woord vallen weg. Een lemma blijft als het formeel of poëtisch gelabeld is, een literaire vorm heeft, of een bijwoord van minstens 8 letters is. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft alleen als het geen samenstelling of leenwoordspelling is, een Nederlandse uitgang heeft wanneer het een zelfstandig naamwoord is, en het extract het naar hoogstens drie andere talen vertaalt. Gewone werkwoorden, klanknabootsingen en leenwerkwoorden vallen weg. Spelfouten en alternatieve spellingen vallen weg. Heeft een lemma cijfers uit het Leesonderzoek 2013, dan blijft het alleen als hoogstens 90 procent het herkent. Doorzichtige ge-zelfstandige naamwoorden en -erij/-arij-afleidingen van een algemeen bekend grondwoord vallen weg, tenzij dat onderzoek ze als zeldzaam aanmerkt. Een betekenis die niet bij de woordsoort past, of die met 'is het' begint, wordt verbeterd of weggelaten. Per lemma één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. Hoogstens 1200. Rank is de plaats in die volgorde, niet de frequentie.",
+    "Nederlandse lemma's van 7 tot 20 letters met een duidelijke Nederlandse betekenis en een voorbeeldzin. Een betekenis die het lemma herhaalt, valt weg. De eerste 6000 lemma's van de frequentielijst vallen weg (alledaags). Eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen, informeel taalgebruik en vaktaal vallen weg. Doorzichtige samenstellingen, scheidbare werkwoorden, -ig-afleidingen van gewone delen en productieve afleidingen van een frequent woord vallen weg. Een lemma blijft als het formeel of poëtisch gelabeld is, een literaire vorm heeft, of een bijwoord van minstens 8 letters is. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft alleen als het geen samenstelling of leenwoordspelling is, een Nederlandse uitgang heeft wanneer het een zelfstandig naamwoord is, en het extract het naar hoogstens drie andere talen vertaalt. Gewone werkwoorden, klanknabootsingen en leenwerkwoorden vallen weg. Spelfouten en alternatieve spellingen vallen weg. Heeft een lemma cijfers uit het Leesonderzoek 2013, dan blijft het alleen als hoogstens 90 procent het herkent. Een afleiding op ge-, -erij, -arij, -nij, -schap, -heid, -ing, -shalve, -wijze, -lijk of een vergelijkbare productieve uitgang valt weg als het grondwoord algemeen bekend is: volgens het Leesonderzoek als dat cijfers heeft (meer dan 90 procent), anders volgens de frequentielijst. Heeft de afleiding zelf een onderzoekcijfer van 90 procent of minder, dan blijft ze. Een -schap, -heid of -ing waarvan de betekenis niet een toestand, ambt, handeling of eigenschap beschrijft, valt weg. Een betekenis die niet bij de woordsoort past, of die met 'is het' begint, wordt verbeterd of weggelaten. Per lemma één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. Hoogstens 1200. Rank is de plaats in die volgorde, niet de frequentie.",
   adaptations: [
     "Alledaagse lemma's (de eerste 6000 van de frequentielijst), eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, verouderde betekenissen en vaktaal zijn weggelaten.",
     "Betekenissen die het lemma herhalen, doorzichtige samenstellingen en productieve afleidingen van een frequent woord zijn weggelaten.",
@@ -873,6 +930,8 @@ const meta = {
     formal: formalCount,
     byPos: posCounts,
     surveyRemoved: indexed.surveyRemoved,
+    derivationRemoved: indexed.derivationRemoved,
+    glossRemoved: indexed.glossRemoved,
   },
   starterIds,
   wordOfTheDay:
@@ -893,6 +952,10 @@ process.stdout.write(
     `formal ${formalCount}`,
     `byPos ${JSON.stringify(posCounts)}`,
     `surveyRemoved ${indexed.surveyRemoved}`,
+    `derivationRemoved ${indexed.derivationRemoved}`,
+    `glossRemoved ${indexed.glossRemoved}`,
+    `derivationDropped ${indexed.derivationDropped.join(", ")}`,
+    `glossDropped ${indexed.glossDropped.join(", ")}`,
     `starter ${starterIds.join(", ")}`,
     `extract ${extractHash}`,
     `frequency ${frequencyHash}`,
