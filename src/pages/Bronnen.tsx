@@ -24,12 +24,13 @@ export function Bronnen() {
       </div>
       <h2>Aanpassingen</h2>
       <p>
-        Voor deze site zijn {entries} Nederlandse lemma’s gekozen uit het nlwiktionary-extract van Kaikki.org. De volgorde volgt een openbare
-        frequentielijst, ook onder CC BY-SA 4.0: een woord dat daar vaker voorkomt, staat eerder. Lidwoorden, voornaamwoorden en andere
-        functiewoorden zijn overgeslagen. Per lemma blijft één woordsoort. Vormvarianten zijn weggelaten. Het lidwoord is afgeleid uit de labels in
-        het extract. Per woord staan hoogstens acht betekenissen. Een leidende dubbele punt en verwijzingen als [1] zijn verwijderd. De eerste
-        voorbeeldzin van hoogstens 240 tekens is bewaard. {withExample} van de {entries} woorden hebben een voorbeeldzin. De tekst van een betekenis
-        of voorbeeld is verder niet herschreven.
+        Voor deze site zijn {entries} Nederlandse lemma’s gekozen uit het nlwiktionary-extract van Kaikki.org. Het zijn ongebruikelijke woorden:
+        formeel, literair of zeldzaam, met een duidelijke Nederlandse betekenis. Alledaagse woorden uit het begin van een openbare frequentielijst,
+        ook onder CC BY-SA 4.0, zijn weggelaten. Hetzelfde geldt voor eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen
+        verouderde betekenissen en vaktaal. Doorzichtige samenstellingen van gewone woorden zijn ook weggelaten. Per lemma blijft één woordsoort.
+        Het lidwoord is afgeleid uit de labels in het extract. Per woord staan hoogstens zes betekenissen. Een leidende dubbele punt en verwijzingen
+        als [1] zijn verwijderd. Een voorbeeldzin die langer is dan 240 tekens is ingekort op een zinseinde, als het woord er nog in staat.{" "}
+        {withExample} van de {entries} woorden hebben een voorbeeldzin. De tekst van een betekenis of voorbeeld is verder niet herschreven.
       </p>
     </div>
   );

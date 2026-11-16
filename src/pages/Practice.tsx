@@ -82,6 +82,7 @@ export function Practice() {
   const inputRef = useRef<HTMLInputElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const meaningRef = useRef<HTMLDivElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!saved) return;
@@ -97,6 +98,10 @@ export function Practice() {
     if (phase.kind === "recall-back") meaningRef.current?.focus();
     else headingRef.current?.focus();
   }, [index, phase.kind]);
+
+  useEffect(() => {
+    if (phase.kind === "fill" && phase.result && phase.result !== "empty") nextRef.current?.focus();
+  }, [phase]);
 
   if (!saved) return <Navigate to="/" replace />;
 
@@ -173,10 +178,10 @@ export function Practice() {
       const choice = phase.options[phase.picked];
       finish(choice.correct ? "goed" : "niet");
     }
-    if ((phase.kind === "fill" && phase.result && phase.result !== "empty" && event.key === "Enter" && !typing) || false) {
+    if (phase.kind === "fill" && phase.result && phase.result !== "empty" && event.key === "Enter" && !typing) {
       event.preventDefault();
-      const result = phase.kind === "fill" ? phase.result : null;
-      const rating: Rating = result === "fout" ? "niet" : phase.kind === "fill" && phase.hint ? "moeilijk" : "goed";
+      event.stopPropagation();
+      const rating: Rating = phase.result === "fout" ? "niet" : phase.hint ? "moeilijk" : "goed";
       finish(rating);
     }
   }
@@ -363,6 +368,7 @@ export function Practice() {
         ) : null}
         {phase.kind === "fill" && phase.result && phase.result !== "empty" ? (
           <button
+            ref={nextRef}
             type="button"
             className="primary split"
             onClick={() => finish(phase.result === "fout" ? "niet" : phase.hint ? "moeilijk" : "goed")}

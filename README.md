@@ -11,6 +11,10 @@ npm run dev
 
 `npm run build` maakt de site in `dist/`. `npm run preview` toont die build. De gebouwde site haalt geen gegevens en geen lettertypen op van internet. Het woordenboek zit in de JavaScript-bundel. Inter (OFL) wordt meegeleverd. Georgia komt van het toestel, met Times New Roman als reserve.
 
+### Diepe links
+
+De site gebruikt paden als `/voortgang` en `/woord/kwistig__adj`. `npm run preview` stuurt zo’n pad naar `index.html`. Een host die alleen bestanden uitdeelt, doet dat niet: een verversing of een directe link geeft dan een 404. Zet daar een rewrite naar `index.html`. Bij nginx is dat `try_files $uri $uri/ /index.html;`. Bij Netlify of Cloudflare Pages volstaat een bestand `_redirects` met de regel `/* /index.html 200`.
+
 ## Schermen
 
 | Pad | Pagina |
@@ -45,14 +49,14 @@ Het bestand heeft `meta` en `words`. Elk woord heeft deze velden:
 
 | Veld | Inhoud |
 |---|---|
-| `id` | `{woord}__{pos}`, bijvoorbeeld `huis__noun` |
+| `id` | `{woord}__{pos}`, bijvoorbeeld `kwistig__adj` |
 | `word` | het lemma |
-| `pos` | `noun`, `verb`, `adj`, `adv`, `num` of `intj` |
+| `pos` | `noun`, `verb`, `adj` of `adv` |
 | `posLabel` | de Nederlandse woordsoort uit het extract, in kleine letters |
 | `article` | `de`, `het`, `de/het` of `null` |
 | `senses` | één tot acht betekenissen |
 | `example` | de eerste voorbeeldzin, of `null` |
-| `rank` | 1 is het meest frequente lemma in deze set |
+| `rank` | plaats in de set: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord en werkwoord, en daarbinnen alfabetisch. Geen frequentie |
 
 De set in deze repository, uit het extract van 2026-10-01:
 
@@ -60,37 +64,38 @@ De set in deze repository, uit het extract van 2026-10-01:
 |---|---|
 | Regels in het extract | 1.121.234 |
 | Nederlandse items | 669.494 |
-| Lemmas met een inhoudswoord | 171.213 |
+| Kandidaten vóór één woordsoort per lemma | 509 |
 | Lemma’s in de frequentielijst | 13.604 |
-| Woorden in de set | 2.000 |
-| Met een voorbeeldzin | 1.907 |
-| Met een lidwoord | 945 |
-| Zelfstandige naamwoorden | 1.178 |
-| Werkwoorden | 365 |
-| Bijvoeglijke naamwoorden | 256 |
-| Bijwoorden | 159 |
-| Tussenwerpsels | 34 |
-| Telwoorden | 8 |
+| Woorden in de set | 501 |
+| Met een voorbeeldzin | 501 |
+| Met een lidwoord | 21 |
+| Zelfstandige naamwoorden | 37 |
+| Werkwoorden | 1 |
+| Bijvoeglijke naamwoorden | 376 |
+| Bijwoorden | 87 |
 
 Ontbreekt een lidwoord of een voorbeeldzin, dan verbergt de site dat veld. Op de woordpagina blijft de kop Voorbeeld staan, met de zin “Voor dit woord is geen voorbeeldzin beschikbaar.”
 
 ### Hoe de set gekozen wordt
 
-1. Vormvarianten (`form-of`) en verouderde betekenissen vallen weg.
-2. Alleen zelfstandig naamwoord, werkwoord, bijvoeglijk naamwoord, bijwoord, telwoord en tussenwerpsel blijven over.
-3. Een vaste lijst functiewoorden valt weg: lidwoorden, voornaamwoorden, voegwoorden, voorzetsels en woorden als *niet*, *wel*, *ja* en *nee*. Een lemma valt ook weg als de beste inhoudelijke lezing maar één betekenis heeft en een gesloten woordklasse minstens evenveel betekenissen heeft.
-4. Per lemma blijft één woordsoort. Van de lezingen die hoogstens één betekenis achterlopen op de drukste lezing, wint de volgorde zelfstandig naamwoord, werkwoord, bijvoeglijk naamwoord, bijwoord, telwoord, tussenwerpsel.
-5. Het script loopt de frequentielijst af tot 2.000 lemma’s. Rank 1 is het meest frequente item. Homografen van hetzelfde lemma komen niet allebei in de set.
+De set is een lijst zeldzame, formele of literaire lemma’s, geen frequentielijst van alledaags Nederlands. Het script houdt een lemma als het een duidelijke Nederlandse betekenis heeft en een voorbeeldzin waarin het woord (of een korte buiging) staat.
 
-Het lidwoord komt uit de labels in het extract: alleen onzijdig wordt *het*, mannelijk en/of vrouwelijk wordt *de*, allebei wordt *de/het*. Een leidende dubbele punt en indices als `[1]` gaan uit de betekenis. Buigingsglossen (meervoud, verkleinwoord, genitief, partitief) vallen weg. De tekst van een betekenis of voorbeeld wordt verder niet herschreven. De eerste voorbeeldzin van 8 tot 240 tekens blijft staan.
+1. Alleen zelfstandig naamwoord, werkwoord, bijvoeglijk naamwoord en bijwoord. Eén token van 7 tot 20 letters. Geen hoofdletters, streepjes, woordgroepen, afkortingen of eigennamen.
+2. Vormvarianten, dialect, alleen verouderde betekenissen en vaktaal (geneeskunde, plantkunde, scheikunde en vergelijkbare onderwerpen) vallen weg.
+3. De eerste 6.000 lemma’s van de frequentielijst vallen weg. Die lijst dekt het alledaagse woord. De staart ervan is geen literaire zeldzaamheid (namen, leenwoorden, gewone woorden), dus een laag rangnummer is niet genoeg om een woord te houden.
+4. Doorzichtige samenstellingen en productieve afleidingen van een frequent woord vallen weg, net als voltooide en tegenwoordige deelwoorden. Een vaste lijst alledaagse lemma’s die de frequentielijst te laag zet of mist, valt ook weg.
+5. Wat overblijft heeft een formeel of poëtisch label, een literaire vorm (zoals *-lijk*, *-ig*, *-temin*, *-aard*, *-nis*) of is een bijwoord van minstens acht letters. *desalniettemin*, *kwistig* en *onverkwikkelijk* horen daarbij.
+6. Per lemma blijft één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. De set stopt bij 1.200; deze invoer levert 501 woorden.
+
+Het lidwoord komt uit de labels in het extract: alleen onzijdig wordt *het*, mannelijk en/of vrouwelijk wordt *de*, allebei wordt *de/het*. Een leidende dubbele punt en indices als `[1]` gaan uit de betekenis. Buigingsglossen vallen weg. De tekst van een betekenis of voorbeeld wordt verder niet herschreven. Een voorbeeldzin langer dan 240 tekens wordt ingekort op een zinseinde, zolang het woord er nog in staat.
 
 ### De tien startwoorden
 
-“Voeg 10 woorden toe” kiest tien id’s uit `meta.starterIds`. Het script zoekt die bij het bouwen: een zelfstandig naamwoord, werkwoord of bijvoeglijk naamwoord, bij voorkeur tussen rank 400 en 1400, met een voorbeeldzin van hoogstens 130 tekens waarin het lemma als heel woord staat. Het lemma *seks* en glossen met *genitief*, *partitief* of *geslachtsgemeenschap* vallen alleen voor deze tien af. De verhouding is vier zelfstandige naamwoorden, drie werkwoorden en drie bijvoeglijke naamwoorden.
+“Voeg 10 woorden toe” kiest tien id’s uit `meta.starterIds`. Het script zoekt die bij het bouwen: vier bijwoorden, vier bijvoeglijke naamwoorden en twee zelfstandige naamwoorden, formeel en langer eerst. De voorbeeldzin telt hoogstens 150 tekens en bevat het lemma als heel woord. Glossen met *titel*, *uitroep* of *benaming* vallen alleen voor deze tien af.
 
 ### Woord van de dag
 
-De set wordt gesorteerd op rank. De pool is het deel met een rank strikt boven 60% van de lengte, dus de minder frequente woorden. De index is FNV-1a van de lokale datum `YYYY-MM-DD`, modulo de lengte van die pool. Dezelfde datum geeft op elk toestel hetzelfde woord. De daggrens is middernacht op het toestel.
+Het woord van de dag komt uit de hele set. De lemma’s worden op `id` gesorteerd. De index is FNV-1a van de lokale datum `YYYY-MM-DD`, modulo het aantal woorden. Dezelfde datum geeft op elk toestel hetzelfde woord. De daggrens is middernacht op het toestel.
 
 ## Oefenen en voortgang
 
@@ -112,8 +117,8 @@ Alles staat in `localStorage` onder de sleutel `woordwijs.v1`. Een lopende oefen
 
 ## Licentie
 
-De woorden, betekenissen en voorbeelden komen uit WikiWoordenboek, het Nederlandstalige Wiktionary. Kaikki.org publiceert het extract; Wiktextract heeft de gegevens omgezet. De frequentievolgorde komt uit de lemmatized frequency lists. Beide bronnen vallen onder [Creative Commons Naamsvermelding-GelijkDelen 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.nl).
+De woorden, betekenissen en voorbeelden komen uit WikiWoordenboek, het Nederlandstalige Wiktionary. Kaikki.org publiceert het extract; Wiktextract heeft de gegevens omgezet. De frequentielijst filtert alledaagse lemma’s weg en komt uit de lemmatized frequency lists. Beide bronnen vallen onder [Creative Commons Naamsvermelding-GelijkDelen 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.nl).
 
-De site past de gegevens aan: vormvarianten en functiewoorden vallen weg, per lemma blijft één woordsoort, het lidwoord is afgeleid, en betekenissen zijn ingekort zoals hierboven. De tekst zelf is niet herschreven. Dezelfde toelichting staat op Bronnen.
+De site past de gegevens aan: alledaagse woorden, eigennamen, afkortingen, vaktaal en doorzichtige samenstellingen vallen weg, per lemma blijft één woordsoort, het lidwoord is afgeleid, en lange voorbeeldzinnen zijn ingekort zoals hierboven. De tekst zelf is niet herschreven. Dezelfde toelichting staat op Bronnen.
 
 De code van deze site is vrij te gebruiken. De woordgegevens blijven CC BY-SA 4.0.

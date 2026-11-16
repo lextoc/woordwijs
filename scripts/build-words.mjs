@@ -1,28 +1,23 @@
 /**
- * Build the committed Woordwijs starter set from the Kaikki.nlwiktionary extract.
+ * Build the committed Woordwijs starter set from the Kaikki nlwiktionary extract.
  *
  * Downloads (cached under data/cache/, not committed):
  * - https://kaikki.org/nlwiktionary/raw-wiktextract-data.jsonl.gz
  * - https://raw.githubusercontent.com/bnpd/freqListsLemmatized/main/nl.txt
- *   (CC BY-SA 4.0 lemmatized frequency list; first token of each line is the lemma,
- *   lines are ordered by frequency of the most common form)
+ *   (CC BY-SA 4.0 lemmatized frequency list; first token of each line is the lemma)
  *
- * Selection is deterministic:
- * 1. Keep Dutch lemmas (lang_code nl) with at least one gloss that is not a
- *    form-of or obsolete sense.
- * 2. Skip a fixed list of function words (articles, pronouns, conjunctions,
- *    prepositions and particles such as "niet" and "een"). Also skip a lemma
- *    when its only well-documented reading is closed-class.
- * 3. Keep one entry per lemma: among content readings within one gloss of the
- *    maximum, prefer noun, then verb, adjective, adverb, numeral, interjection.
- * 4. Walk the frequency list until 2 000 lemmas. Rank 1 is the most frequent.
- *    If that yields fewer than 1 000, fill by sense count, then word, then pos.
- *
- * Adaptations (also described on the Bronnen page):
- * - inflected form-of entries and closed-class lemmas are dropped
- * - at most 8 glosses; whitespace collapsed; a leading colon and [1]-indices removed
- * - the first example of 8–240 characters is kept
- * - article is derived from neuter / masculine / feminine tags
+ * Selection is deterministic. The frequency list is a filter, not a ranking:
+ * the top 6 000 lemmas are everyday Dutch and are left out. The tail of that
+ * list is still full of ordinary words, names and loans, so a lemma is kept
+ * only when it also looks formal, literary or uncommon:
+ * - a Dutch gloss of at least a short definition, and an example that still
+ *   contains the lemma (or a short inflection) after clipping to 240 characters
+ * - no proper noun, abbreviation, multiword entry, inflection, dialect,
+ *   archaic-only sense, or specialist topic
+ * - no transparent compound or productive derivation of a frequent word
+ * - a formal/poetic tag, a literary shape (desalniettemin, kwistig,
+ *   onverkwikkelijk), or an adverb of at least 8 letters
+ * One part of speech per lemma. At most 1 200 entries.
  *
  * The same inputs always produce the same JSON (no timestamps, stable key order).
  */
@@ -43,21 +38,51 @@ const outPath = path.join(root, "src", "data", "words.json");
 const EXTRACT_URL = "https://kaikki.org/nlwiktionary/raw-wiktextract-data.jsonl.gz";
 const FREQUENCY_URL = "https://raw.githubusercontent.com/bnpd/freqListsLemmatized/main/nl.txt";
 
-const TARGET_PRIMARY = 2000;
-const HARD_CAP = 2000;
-const FUNCTION_LEMMAS = new Set(
-  `de het een ik je jij u we wij ze zij hij hem haar hun mij me ons jullie jou
-dat dit die deze wat wie waar hoe waarom wanneer welke welk er daar hier
-en of maar want dus als dan omdat toen niet wel geen ook nog al toch zo nu
-te om van in op met voor aan bij uit naar over door tot sinds tegen zonder
-na tussen onder boven ja nee mijn jouw uw onze`.split(/\s+/).filter(Boolean),
-);
-const MIN_BEFORE_FALLBACK = 1000;
-const MAX_SENSES = 8;
-const CONTENT_POS = new Set(["noun", "verb", "adj", "adv", "num", "intj"]);
-const CLOSED_POS = new Set(["article", "pron", "conj", "prep", "det", "particle", "contraction", "postp"]);
-const POS_RANK = { noun: 0, verb: 1, adj: 2, adv: 3, num: 4, intj: 5 };
+const HARD_CAP = 1200;
+const MAX_SENSES = 6;
+const CONTENT_POS = new Set(["noun", "verb", "adj", "adv"]);
+const POS_RANK = { adv: 0, adj: 1, noun: 2, verb: 3 };
 const WORD_RE = /^[\p{L}][\p{L}'’-]*$/u;
+const LEMMA_RE = /^[a-zà-ÿ]{7,20}$/;
+const SKIP_ENTRY = new Set(["form-of", "abbreviation", "acronym", "proper-noun", "name", "surname", "toponymic", "person", "plural", "participle"]);
+const SKIP_SENSE = new Set(["form-of", "obsolete", "archaic", "dated", "dialect", "dialectal", "historical", "abbreviation", "acronym", "name", "surname", "proper-noun"]);
+const SPECIALIST = new Set([
+  "medicine", "botany", "physics", "chemistry", "biology", "anatomy", "mathematics", "zoology", "geology",
+  "electrical-engineering", "pharmacology", "zootomy", "mechanical-engineering", "biochemistry", "optics",
+  "astronomy", "mining", "numismatics", "electronics", "computer sciences", "Internet", "telecommunications",
+  "grammar", "linguistics", "units-of-measure", "shipping", "military", "railways", "textiles", "fishing",
+  "agriculture", "demonym", "accounting", "pathology", "genetics", "dentistry", "veterinary", "surgery",
+  "heraldry", "mycology", "entomology", "ornithology", "paleontology", "mineralogy", "taxonomy", "immunology",
+  "virology", "cardiology", "neurology", "psychiatry", "engineering", "programming", "software", "aviation",
+  "meteorology", "sports", "football", "cycling", "hunting", "nautical", "comics", "mythology",
+]);
+const TAILS = new Set(["waar", "niet", "min", "dan", "wel", "toch", "nog", "mee", "uit", "aan", "bij", "dank", "ondanks"]);
+const FUNCTION_PARTS = new Set([
+  "niet", "waar", "wel", "dank", "maar", "toch", "want", "deze", "daar", "hier", "voor", "naar", "over",
+  "onder", "boven", "door", "tegen", "zonder", "tussen", "sinds", "omdat", "hoewel", "terwijl", "ondanks",
+  "alleen", "altijd", "nooit", "misschien", "gewoon", "eigen", "andere", "ander", "alles", "iets", "niets",
+  "zelf", "heel", "zeer", "veel", "meer", "minder", "weer", "eens", "zoals", "tijdens", "binnen", "buiten",
+  "rondom", "vanuit", "vanaf",
+]);
+const LITERARY_SUFFIXES = ["elijkheid", "temin", "erwijs", "gewijs", "lings", "waarts", "halve", "wege", "elijk", "lijk", "zaam", "aard", "nis", "dom", "dank", "ig"];
+const BAD_ENDINGS = ["heid", "loos", "eloos", "achtig", "vormig", "atie", "iteit", "isme", "isch", "sel"];
+const NUMBER_PREFIXES = ["twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen", "tien", "elf", "twaalf", "dertien", "veertien", "vijftien", "twintig", "dertig", "veertig", "vijftig", "zestig", "zeventig", "tachtig", "negentig", "honderd", "duizend", "miljoen"];
+const ENGLISHY = /(body|guard|stage|ticket|showbiz|manager|computer|internet|online|feedback|baby|fuck|shit)/;
+const LATIN = /(itis|osis|ium|hypo|hyper|neuro|cardio|encefal|pathie)/;
+const COMPASS = /(oost|west|noord|zuid)/;
+const NUMBER_WORD = /^(een|twee|drie|vier|vijf|zes|zeven|acht|negen|tien|elf|twaalf|dertien|veertien|vijftien|twin|der|veer|vijf|zes|zeven|tach|negen).+tig$/;
+// Everyday lemmas this subtitle list ranks too low or misses entirely.
+const EVERYDAY = new Set(`aanlokkelijk aanhankelijk aanstekelijk aantoonbaar aanvankelijk adequaat afwezig
+anderzijds authentiek begerig behendig bezittelijk beweeglijk bovenmatig buitensporig deugdelijk derhalve doelmatig
+driftig dunnetjes duurzaam eenstemmig eentonig enerzijds fleurig geleidelijk gemoedelijk giechelig glibberig
+grieperig grimmig hinderlijk hobbelig hoogstens huilerig ijverig inhoudelijk kleverig klunzig klungelig
+knorrig kortstondig kriebelig krullig lacherig middelmatig meertalig miezerig minnetjes objectief ogenschijnlijk onverschillig
+optimaal overmatig pertinent piekerig plakkerig pluizig poezelig prijzig puberaal radicaal rimpelig
+rumoerig schemerig schriftelijk slijmig snoezig stekelig stijfjes stilletjes stuntelig toegeeflijk
+tussenin uitbundig uitermate uitvoerig veelzijdig veranderlijk verdacht vergeefs vermakelijk vlijtig
+volgzaam volstrekt wekelijks wenselijk winderig zorgzaam zuinigjes zwierig allerminst breeduit
+vanbinnen vanbuiten schaakmat fiftyfifty crescendo spiccato staccato sforzando contrecoeur`.split(/\s+/));
+const INFLECTION_GLOSS = /^(meervoud|verkleinwoord|verbogen vorm|verleden tijd|voltooid deelwoord|vergrotende trap|overtreffende trap|genitief|datief|accusatief|nominatief|partitief|vervoeging|verbuiging|afkorting|synoniem van|zie |voornaam|achternaam|plaatsnaam)\b/i;
 
 function sha256(buffer) {
   return createHash("sha256").update(buffer).digest("hex");
@@ -104,12 +129,6 @@ function cleanGloss(text) {
   return clean(clean(text).replace(/^:\s*/, "").replace(/\[\d+\]/g, ""));
 }
 
-function isInflectionGloss(text) {
-  return /^(meervoud|verkleinwoord|verbogen vorm|verleden tijd|voltooid deelwoord|vergrotende trap|overtreffende trap|genitief|datief|accusatief|nominatief|partitief|vervoeging|verbuiging)\b/i.test(
-    text,
-  );
-}
-
 function articleFromTags(tags, pos) {
   if (pos !== "noun") return null;
   const set = new Set(tags || []);
@@ -121,33 +140,6 @@ function articleFromTags(tags, pos) {
   return null;
 }
 
-function collectSenses(entry) {
-  const senses = [];
-  let example = null;
-  for (const sense of entry.senses || []) {
-    const tags = new Set(sense.tags || []);
-    if (tags.has("form-of") || tags.has("obsolete")) continue;
-    if (senses.length < MAX_SENSES) {
-      for (const gloss of sense.glosses || []) {
-        const text = cleanGloss(gloss);
-        if (text.length < 2 || isInflectionGloss(text)) continue;
-        if (!senses.includes(text)) senses.push(text);
-        if (senses.length >= MAX_SENSES) break;
-      }
-    }
-    if (!example) {
-      for (const item of sense.examples || []) {
-        const text = clean(item.text || "");
-        if (text.length < 8 || text.length > 240) continue;
-        if (text.toLocaleLowerCase("nl") === String(entry.word).toLocaleLowerCase("nl")) continue;
-        example = text;
-        break;
-      }
-    }
-  }
-  return { senses, example };
-}
-
 function posLabel(entry) {
   const title = clean(entry.pos_title || "");
   if (title) return title.toLocaleLowerCase("nl");
@@ -156,10 +148,100 @@ function posLabel(entry) {
     verb: "werkwoord",
     adj: "bijvoeglijk naamwoord",
     adv: "bijwoord",
-    num: "telwoord",
-    intj: "tussenwerpsel",
   };
   return fallback[entry.pos] || "woord";
+}
+
+function acceptableGloss(raw) {
+  const gloss = cleanGloss(raw);
+  if (gloss.length < 8 || INFLECTION_GLOSS.test(gloss)) return null;
+  if (/strijkinstrument|strijkstok|\bstoornis\b/i.test(gloss)) return null;
+  if (/^(niet |zonder |het tegengestelde|afkorting|lijkend )/i.test(gloss)) return null;
+  if (/^(zeer |heel |erg |zelden |vrijwel )/i.test(gloss)) return null;
+  if (/verouderd|zie\s*:|\+|aanspreektitel|uitroep bij/i.test(gloss)) return null;
+  if (/\b(the|of|and|with|from|which|voornaam|achternaam|hormoon|scheikundig|informatica|plantkundig|geslacht|de vorm van|hebbend|opwekkend)\b/i.test(gloss)) return null;
+  const tokens = gloss.split(/[\s,;:/]+/).filter(Boolean);
+  if (tokens.length < 2) return null;
+  if (tokens.length < 3 && gloss.length < 16) return null;
+  const letters = gloss.replace(/[^A-Za-zÀ-ÿ]/g, "");
+  if (letters) {
+    const capitals = [...letters].filter((char) => char.toLocaleUpperCase("nl") === char && char.toLocaleLowerCase("nl") !== char).length;
+    if (capitals / letters.length > 0.25) return null;
+  }
+  return gloss;
+}
+
+function related(text, word) {
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(?<![\\p{L}\\p{M}])${escaped}(?:e|en|er|ere|ste|s)?(?![\\p{L}\\p{M}])`, "iu").test(text);
+}
+
+function clipExample(text, word) {
+  const cleaned = clean(text);
+  if (!related(cleaned, word) || cleaned.length < 12) return null;
+  if (cleaned.length <= 240) return cleaned;
+  const chunk = cleaned.slice(0, 240);
+  const cut = Math.max(chunk.lastIndexOf(". "), chunk.lastIndexOf("! "), chunk.lastIndexOf("? "));
+  let clipped = chunk;
+  if (cut >= 40) clipped = chunk.slice(0, cut + 1).trim();
+  else {
+    const space = chunk.lastIndexOf(" ");
+    if (space > 40) clipped = chunk.slice(0, space).replace(/[ ,;]+$/u, "");
+  }
+  if (clipped.length >= 12 && related(clipped, word)) return clipped;
+  return null;
+}
+
+function literaryShape(word) {
+  if (BAD_ENDINGS.some((suffix) => word.endsWith(suffix))) return false;
+  return LITERARY_SUFFIXES.some((suffix) => word.endsWith(suffix) && word.length > suffix.length + 2);
+}
+
+function embedsCommon(word, top400, top3000) {
+  for (let start = 0; start < word.length - 3; start += 1) {
+    const max = Math.min(word.length, start + 16);
+    for (let end = start + 4; end <= max; end += 1) {
+      const part = word.slice(start, end);
+      if (FUNCTION_PARTS.has(part) || TAILS.has(part)) continue;
+      if (part.length >= 4 && top400.has(part)) return true;
+      if (part.length >= 5 && top3000.has(part)) return true;
+    }
+  }
+  return false;
+}
+
+function isCompound(word, top400, top3000, top6000, top8000) {
+  if (embedsCommon(word, top400, top3000)) return true;
+  for (let index = 4; index < word.length - 2; index += 1) {
+    const right = word.slice(index);
+    if (right.length >= 3 && right.length <= 12 && top8000.has(right) && !TAILS.has(right)) return true;
+  }
+  for (let index = 4; index < word.length - 2; index += 1) {
+    const left = word.slice(0, index);
+    const rest = word.slice(index);
+    if (!top6000.has(left)) continue;
+    for (const linker of ["", "s", "e", "en", "er", "n"]) {
+      if (!rest.startsWith(linker)) continue;
+      const right = rest.slice(linker.length);
+      if (right.length >= 3 && top8000.has(right) && !TAILS.has(right)) return true;
+    }
+  }
+  return false;
+}
+
+function listedOk(word, pos, frequencyRank, formal) {
+  if (frequencyRank == null) return true;
+  if (frequencyRank <= 6000) return false;
+  if (formal) return true;
+  if (frequencyRank < 8500) return false;
+  if (literaryShape(word)) return true;
+  if (pos === "adv" && word.length >= 8) return true;
+  return false;
+}
+
+function containsHeadword(example, word) {
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(?<![\\p{L}\\p{M}])${escaped}(?![\\p{L}\\p{M}])`, "iu").test(example);
 }
 
 async function readFrequency(file) {
@@ -177,11 +259,11 @@ async function readFrequency(file) {
   return lemmas;
 }
 
-async function indexExtract(file) {
-  const index = new Map();
+async function indexExtract(file, bands) {
+  const { rankOf, top400, top3000, top6000, top8000 } = bands;
+  const byPos = new Map();
   let lines = 0;
   let dutch = 0;
-  let kept = 0;
   const gunzip = createGunzip();
   const input = createReadStream(file).pipe(gunzip);
   const rl = createInterface({ input, crlfDelay: Infinity });
@@ -196,88 +278,139 @@ async function indexExtract(file) {
     }
     if (entry.lang_code !== "nl") continue;
     dutch += 1;
-    if (!CONTENT_POS.has(entry.pos) && !CLOSED_POS.has(entry.pos)) continue;
+    if (!CONTENT_POS.has(entry.pos)) continue;
     const word = clean(entry.word || "");
-    if (!WORD_RE.test(word) || word.length < 2 || word.length > 32) continue;
-    const entryTags = new Set(entry.tags || []);
-    if (entryTags.has("form-of")) continue;
-    const { senses, example } = collectSenses(entry);
-    if (senses.length === 0) continue;
+    if ([...word].some((char) => char !== char.toLocaleLowerCase("nl"))) continue;
     const key = word.toLocaleLowerCase("nl");
-    let byPos = index.get(key);
-    if (!byPos) {
-      byPos = new Map();
-      index.set(key, byPos);
+    if (!LEMMA_RE.test(key) || key.includes("-") || key.includes(" ")) continue;
+    const entryTags = new Set(entry.tags || []);
+    if ([...entryTags].some((tag) => SKIP_ENTRY.has(tag))) continue;
+    if (NUMBER_PREFIXES.some((prefix) => key.startsWith(prefix))) continue;
+    if (COMPASS.test(key) || ENGLISHY.test(key) || LATIN.test(key) || NUMBER_WORD.test(key)) continue;
+    if (EVERYDAY.has(key) || key.endsWith("kundig")) continue;
+    if (BAD_ENDINGS.some((suffix) => key.endsWith(suffix))) continue;
+
+    let formal = false;
+    const senses = [];
+    let example = null;
+    for (const sense of entry.senses || []) {
+      const tags = new Set(sense.tags || []);
+      if ([...tags].some((tag) => SKIP_SENSE.has(tag))) continue;
+      const topics = new Set(sense.topics || []);
+      if ([...topics].some((topic) => SPECIALIST.has(topic))) continue;
+      if (tags.has("formal") || tags.has("literary") || tags.has("poetic")) formal = true;
+      for (const gloss of sense.glosses || []) {
+        const text = acceptableGloss(gloss);
+        if (!text || senses.includes(text)) continue;
+        if (senses.length < MAX_SENSES) senses.push(text);
+      }
+      if (senses.length && !example) {
+        for (const item of sense.examples || []) {
+          const clipped = clipExample(item.text || "", word);
+          if (clipped) {
+            example = clipped;
+            break;
+          }
+        }
+      }
     }
+    if (!senses.length || !example) continue;
+    const translations = (entry.translations || []).length;
+    if (!formal && translations > 14) continue;
+    const frequencyRank = rankOf.get(key) ?? null;
+    if (!listedOk(key, entry.pos, frequencyRank, formal)) continue;
+    if (isCompound(key, top400, top3000, top6000, top8000)) continue;
+    if (key.length >= 8 && /ge[a-zà-ÿ]{3,}(?:en|[dt])$/.test(key)) continue;
+    if (key.length >= 8 && /^(ver|be|ont|her)[a-zà-ÿ]+[dt]$/.test(key)) continue;
+    if (key.length >= 8 && /ende$/.test(key)) continue;
+    if (key.startsWith("on") && key.length > 5 && top8000.has(key.slice(2))) continue;
+    const shaped = formal || literaryShape(key) || (entry.pos === "adv" && key.length >= 8);
+    if (!shaped) continue;
+
+    const id = `${key}__${entry.pos}`;
     const item = {
+      id,
       word,
       pos: entry.pos,
       posLabel: posLabel(entry),
       article: articleFromTags(entry.tags, entry.pos),
       senses,
       example,
+      formal,
+      frequencyRank,
     };
-    const existing = byPos.get(entry.pos);
+    const existing = byPos.get(id);
     if (!existing) {
-      byPos.set(entry.pos, item);
-      kept += 1;
+      byPos.set(id, item);
     } else {
+      existing.formal = existing.formal || formal;
+      if (!existing.article && item.article) existing.article = item.article;
+      if (!existing.example && example) existing.example = example;
+      else if (example && containsHeadword(example, word) && !containsHeadword(existing.example, word)) existing.example = example;
       for (const sense of senses) {
         if (existing.senses.length >= MAX_SENSES) break;
         if (!existing.senses.includes(sense)) existing.senses.push(sense);
       }
-      if (!existing.example && example) existing.example = example;
-      if (!existing.article && item.article) existing.article = item.article;
     }
   }
-  return { index, lines, dutch, kept };
+  return { byPos, lines, dutch };
 }
 
-function containsHeadword(example, word) {
-  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const pattern = new RegExp(`(?<![\\p{L}\\p{M}])${escaped}(?![\\p{L}\\p{M}])`, "iu");
-  return pattern.test(example);
+function pickLemma(byPos) {
+  const byLemma = new Map();
+  for (const item of byPos.values()) {
+    const key = item.word.toLocaleLowerCase("nl");
+    const current = byLemma.get(key);
+    if (!current) {
+      byLemma.set(key, item);
+      continue;
+    }
+    const better =
+      Number(item.formal) - Number(current.formal) ||
+      (POS_RANK[current.pos] ?? 9) - (POS_RANK[item.pos] ?? 9);
+    if (better > 0) byLemma.set(key, item);
+  }
+  return [...byLemma.values()];
 }
 
 function pickStarter(words) {
-  const quotas = { noun: 4, verb: 3, adj: 3 };
+  const quotas = { adv: 4, adj: 4, noun: 2 };
   const starter = [];
-  const take = (predicate) => {
-    for (const word of words) {
-      if (starter.length === 10) return;
-      if (!predicate(word)) continue;
-      if (!quotas[word.pos]) continue;
-      if (starter.includes(word.id)) continue;
-      starter.push(word.id);
-      quotas[word.pos] -= 1;
-    }
-  };
-  const awkward = /genitief|partitief|geslachtsgemeenschap/i;
-  const base = (word) =>
+  const awkward = /genitief|partitief|geslachtsgemeenschap|titel|uitroep|benaming|kruispunt|vliegtuig|verouderd/i;
+  const ordered = [...words].sort(
+    (a, b) =>
+      Number(b.formal) - Number(a.formal) ||
+      Number(a.word.endsWith("iter")) - Number(b.word.endsWith("iter")) ||
+      b.word.length - a.word.length ||
+      (a.example?.length ?? 999) - (b.example?.length ?? 999) ||
+      a.word.localeCompare(b.word, "nl"),
+  );
+  const usable = (word) =>
     word.example &&
-    word.example.length <= 130 &&
-    word.word.length >= 4 &&
-    word.word !== "seks" &&
+    word.example.length <= 150 &&
+    word.word.length <= 18 &&
+    containsHeadword(word.example, word.word) &&
     word.senses[0] &&
     word.senses[0].length >= 12 &&
-    !awkward.test(word.senses[0]) &&
-    (word.pos === "noun" || word.pos === "verb" || word.pos === "adj") &&
-    containsHeadword(word.example, word.word);
-  take((word) => base(word) && word.rank >= 400 && word.rank <= 1400);
-  take((word) => base(word) && word.rank >= 200);
-  take((word) => base(word));
-  take(
-    (word) =>
-      word.example &&
-      (word.pos === "noun" || word.pos === "verb" || word.pos === "adj") &&
-      word.rank >= 200,
-  );
+    !awkward.test(word.senses[0]);
+  for (const word of ordered) {
+    if (starter.length === 10) break;
+    if (!usable(word) || !quotas[word.pos] || starter.includes(word.id)) continue;
+    starter.push(word.id);
+    quotas[word.pos] -= 1;
+  }
+  for (const word of ordered) {
+    if (starter.length === 10) break;
+    if (!usable(word) || starter.includes(word.id)) continue;
+    if (!["adv", "adj", "noun"].includes(word.pos)) continue;
+    starter.push(word.id);
+  }
   return starter;
 }
 
 function toRecord(entry, rank) {
   return {
-    id: `${entry.word}__${entry.pos}`,
+    id: entry.id,
     word: entry.word,
     pos: entry.pos,
     posLabel: entry.posLabel,
@@ -288,92 +421,38 @@ function toRecord(entry, rank) {
   };
 }
 
-const extractBytes = async () => readFile(extractPath);
-const frequencyBytes = async () => readFile(frequencyPath);
-
 await ensureFile(EXTRACT_URL, extractPath, 50_000_000);
 await ensureFile(FREQUENCY_URL, frequencyPath, 10_000);
 
-const [extractHash, frequencyHash, lemmas, indexed] = await Promise.all([
-  extractBytes().then(sha256),
-  frequencyBytes().then(sha256),
+const [extractHash, frequencyHash, lemmas] = await Promise.all([
+  readFile(extractPath).then(sha256),
+  readFile(frequencyPath).then(sha256),
   readFrequency(frequencyPath),
-  indexExtract(extractPath),
 ]);
 
-const { index, lines, dutch, kept } = indexed;
-const selected = [];
-const used = new Set();
-
-function pushEntry(entry) {
-  const id = `${entry.word}__${entry.pos}`;
-  if (used.has(id)) return false;
-  used.add(id);
-  selected.push(toRecord(entry, selected.length + 1));
-  return true;
-}
-
-function byUsefulness(a, b) {
-  return (
-    b.senses.length - a.senses.length ||
+const rankOf = new Map(lemmas.map((lemma, index) => [lemma, index + 1]));
+const bands = {
+  rankOf,
+  top400: new Set(lemmas.slice(0, 400)),
+  top3000: new Set(lemmas.slice(0, 3000)),
+  top6000: new Set(lemmas.slice(0, 6000)),
+  top8000: new Set(lemmas.slice(0, 8000)),
+};
+const indexed = await indexExtract(extractPath, bands);
+const chosen = pickLemma(indexed.byPos);
+chosen.sort(
+  (a, b) =>
+    Number(b.formal) - Number(a.formal) ||
     (POS_RANK[a.pos] ?? 9) - (POS_RANK[b.pos] ?? 9) ||
-    a.pos.localeCompare(b.pos) ||
-    a.word.localeCompare(b.word, "nl")
-  );
+    a.word.localeCompare(b.word, "nl") ||
+    a.pos.localeCompare(b.pos),
+);
+const capped = chosen.slice(0, HARD_CAP);
+if (capped.length < 300) {
+  throw new Error(`Te weinig woorden geselecteerd: ${capped.length}`);
 }
-
-let primaries = 0;
-for (const lemma of lemmas) {
-  if (primaries >= TARGET_PRIMARY || selected.length >= HARD_CAP) break;
-  if (FUNCTION_LEMMAS.has(lemma)) continue;
-  const byPos = index.get(lemma);
-  if (!byPos) continue;
-  const content = [...byPos.values()].filter((entry) => CONTENT_POS.has(entry.pos));
-  const closed = [...byPos.values()].filter((entry) => CLOSED_POS.has(entry.pos));
-  if (content.length === 0) continue;
-  const maxSenses = Math.max(...content.map((entry) => entry.senses.length));
-  const close = content.filter((entry) => entry.senses.length >= maxSenses - 1);
-  close.sort(
-    (a, b) =>
-      (POS_RANK[a.pos] ?? 9) - (POS_RANK[b.pos] ?? 9) ||
-      b.senses.length - a.senses.length ||
-      a.word.localeCompare(b.word, "nl"),
-  );
-  const primary = close[0];
-  const closedSenses = closed.reduce((max, entry) => Math.max(max, entry.senses.length), 0);
-  if (primary.senses.length === 1 && closedSenses >= primary.senses.length) continue;
-  if (!pushEntry(primary)) continue;
-  primaries += 1;
-}
-
-let fallback = 0;
-if (selected.length < MIN_BEFORE_FALLBACK) {
-  const rest = [];
-  for (const byPos of index.values()) {
-    for (const entry of byPos.values()) {
-      const id = `${entry.word}__${entry.pos}`;
-      if (used.has(id) || !CONTENT_POS.has(entry.pos)) continue;
-      rest.push(entry);
-    }
-  }
-  rest.sort(
-    (a, b) =>
-      b.senses.length - a.senses.length ||
-      a.word.localeCompare(b.word, "nl") ||
-      a.pos.localeCompare(b.pos),
-  );
-  for (const entry of rest) {
-    if (selected.length >= HARD_CAP) break;
-    pushEntry(entry);
-    fallback += 1;
-  }
-}
-
-if (selected.length < MIN_BEFORE_FALLBACK) {
-  throw new Error(`Te weinig woorden geselecteerd: ${selected.length}`);
-}
-
-const starterIds = pickStarter(selected);
+const selected = capped.map((entry, index) => toRecord(entry, index + 1));
+const starterIds = pickStarter(capped);
 if (starterIds.length !== 10) {
   throw new Error(`Starterset heeft ${starterIds.length} woorden, verwacht 10`);
 }
@@ -381,6 +460,7 @@ if (starterIds.length !== 10) {
 const withExample = selected.filter((word) => word.example).length;
 const withArticle = selected.filter((word) => word.article).length;
 const nouns = selected.filter((word) => word.pos === "noun").length;
+const formalCount = capped.filter((word) => word.formal).length;
 const posCounts = {};
 for (const word of selected) posCounts[word.pos] = (posCounts[word.pos] || 0) + 1;
 
@@ -389,7 +469,7 @@ const meta = {
   license: "CC BY-SA 4.0",
   licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.nl",
   attribution:
-    "Woorden, betekenissen en voorbeelden zijn bewerkt overgenomen uit WikiWoordenboek (het Nederlandstalige Wiktionary) via het nlwiktionary-extract van Kaikki.org, gemaakt met Wiktextract. De frequentievolgorde komt uit de lemmatized frequency lists (CC BY-SA 4.0).",
+    "Woorden, betekenissen en voorbeelden zijn bewerkt overgenomen uit WikiWoordenboek (het Nederlandstalige Wiktionary) via het nlwiktionary-extract van Kaikki.org, gemaakt met Wiktextract. Alledaagse lemma's zijn weggefilterd met de lemmatized frequency lists (CC BY-SA 4.0).",
   sources: [
     {
       name: "WikiWoordenboek",
@@ -414,28 +494,29 @@ const meta = {
   ],
   fields: ["id", "word", "pos", "posLabel", "article", "senses", "example", "rank"],
   selection:
-    "Nederlandse lemma's zonder vormvarianten. Lidwoorden, voornaamwoorden, voegwoorden, voorzetsels en een vaste lijst functiewoorden (zoals niet, een, in) zijn overgeslagen. Per lemma blijft één woordsoort: van de lezingen die hoogstens één betekenis achterlopen op de drukste lezing, in de volgorde zelfstandig naamwoord, werkwoord, bijvoeglijk naamwoord, bijwoord, telwoord, tussenwerpsel. Volgorde is de frequentielijst, tot 2000 lemma's. Rank 1 is het meest frequente item.",
+    "Nederlandse lemma's van 7 tot 20 letters met een duidelijke Nederlandse betekenis en een voorbeeldzin. De eerste 6000 lemma's van de frequentielijst vallen weg (alledaags). Eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen en vaktaal vallen weg. Doorzichtige samenstellingen en productieve afleidingen van een frequent woord vallen weg. Een lemma blijft als het formeel of poëtisch gelabeld is, een literaire vorm heeft (zoals -lijk, -ig, -temin, -aard) of een bijwoord van minstens 8 letters is. Per lemma één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. Hoogstens 1200. Rank is de plaats in die volgorde, niet de frequentie.",
   adaptations: [
-    "Vormvarianten (form-of), verouderde betekenissen en gesloten woordklassen zijn weggelaten.",
-    "Per item hoogstens acht betekenissen. Witruimte is genormaliseerd, een leidende dubbele punt en [n]-indices zijn verwijderd. De tekst is verder niet herschreven.",
-    "De eerste voorbeeldzin van 8 tot 240 tekens is bewaard. Langere zinnen zijn overgeslagen.",
+    "Alledaagse lemma's (de eerste 6000 van de frequentielijst), eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, verouderde betekenissen en vaktaal zijn weggelaten.",
+    "Doorzichtige samenstellingen en productieve afleidingen van een frequent woord zijn weggelaten.",
+    "Per item hoogstens zes betekenissen. Witruimte is genormaliseerd, een leidende dubbele punt en [n]-indices zijn verwijderd. De tekst is verder niet herschreven.",
+    "Een voorbeeldzin die langer is dan 240 tekens is ingekort op een zinseinde, zolang het woord er nog in staat.",
     "Het lidwoord is afgeleid uit de labels neuter, masculine en feminine: alleen onzijdig wordt het, mannelijk en/of vrouwelijk wordt de, allebei wordt de/het.",
   ],
   counts: {
-    extractLines: lines,
-    dutchEntries: dutch,
-    indexedLemmas: kept,
+    extractLines: indexed.lines,
+    dutchEntries: indexed.dutch,
+    indexedLemmas: indexed.byPos.size,
     frequencyLemmas: lemmas.length,
     entries: selected.length,
     withExample,
     withArticle,
     nouns,
-    fallbackEntries: fallback,
+    formal: formalCount,
     byPos: posCounts,
   },
   starterIds,
   wordOfTheDay:
-    "Het woord van de dag is een deterministische keuze uit het minst frequente deel van deze set (rank strikt boven 60% van de lengte), via FNV-1a van de lokale datum YYYY-MM-DD.",
+    "Het woord van de dag komt uit de hele set. De index is FNV-1a van de lokale datum YYYY-MM-DD, modulo het aantal lemma's, na sortering op id.",
 };
 
 const payload = { meta, words: selected };
@@ -449,10 +530,14 @@ process.stdout.write(
     `withExample ${withExample}`,
     `withArticle ${withArticle}`,
     `nouns ${nouns}`,
-    `fallback ${fallback}`,
+    `formal ${formalCount}`,
+    `byPos ${JSON.stringify(posCounts)}`,
     `starter ${starterIds.join(", ")}`,
     `extract ${extractHash}`,
     `frequency ${frequencyHash}`,
+    `lines ${indexed.lines}`,
+    `dutch ${indexed.dutch}`,
+    `frequencyLemmas ${lemmas.length}`,
     `out ${outPath}`,
     "",
   ].join("\n"),

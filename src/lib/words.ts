@@ -35,10 +35,8 @@ export const starterIds = payload.meta.starterIds.filter((id) => wordById.has(id
 export const meta = payload.meta;
 
 export function wordOfTheDay(isoDate: string): Word {
-  const ordered = [...words].sort((a, b) => a.rank - b.rank || a.id.localeCompare(b.id));
-  const start = Math.floor(ordered.length * 0.6);
-  const pool = ordered.slice(start);
-  return pool[hashString(isoDate) % pool.length];
+  const ordered = [...words].sort((a, b) => a.id.localeCompare(b.id, "nl"));
+  return ordered[hashString(isoDate) % ordered.length];
 }
 
 export function searchWords(query: string): Word[] {

@@ -109,7 +109,13 @@ input:focus-visible, select:focus-visible, .search-field:focus-within {
   letter-spacing: -0.7px;
   line-height: 1.06;
 }
-.wordmark { font-size: 25px; margin-right: auto; }
+.wordmark {
+  font-size: 25px;
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+}
 .brand-dot { color: var(--accent); }
 .icon-button, .add-button {
   width: 48px;
@@ -240,6 +246,7 @@ main:focus { outline: none; }
 .site-footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 16px;
   border-top: 1px solid var(--ink);
   margin-top: 32px;
@@ -247,7 +254,13 @@ main:focus { outline: none; }
   font-size: 0.9333rem;
   line-height: 1.5;
 }
-.site-footer a { font-weight: 600; white-space: nowrap; }
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  font-weight: 600;
+  white-space: nowrap;
+}
 
 .home-first { position: relative; min-height: calc(100svh - 92px); overflow: hidden; }
 .storage-note, .preview-notice {
@@ -633,6 +646,7 @@ input[type="search"]::-webkit-search-decoration {
   font-size: 0.9333rem;
 }
 .toast-close { color: var(--paper); width: 40px; height: 40px; }
+body:has(.practice) .toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
 
 .nav-link, .sidebar-add {
   display: flex;
