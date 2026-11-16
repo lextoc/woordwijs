@@ -64,13 +64,13 @@ De set in deze repository, uit het extract van 2026-10-01:
 |---|---|
 | Regels in het extract | 1.121.234 |
 | Nederlandse items | 669.494 |
-| Kandidaten vóór één woordsoort per lemma | 953 |
+| Kandidaten vóór één woordsoort per lemma | 948 |
 | Lemma’s in de frequentielijst | 13.604 |
-| Woorden in de set | 946 |
-| Met een voorbeeldzin | 946 |
+| Woorden in de set | 941 |
+| Met een voorbeeldzin | 941 |
 | Met een lidwoord | 39 |
 | Zelfstandige naamwoorden | 131 |
-| Werkwoorden | 404 |
+| Werkwoorden | 399 |
 | Bijvoeglijke naamwoorden | 319 |
 | Bijwoorden | 92 |
 
@@ -85,7 +85,7 @@ De set is een lijst zeldzame, formele of literaire lemma’s, geen frequentielij
 3. De eerste 6.000 lemma’s van de frequentielijst vallen weg. Die lijst dekt het alledaagse woord. De staart ervan is geen literaire zeldzaamheid (namen, leenwoorden, gewone woorden), dus een laag rangnummer is niet genoeg om een woord te houden.
 4. Doorzichtige samenstellingen en productieve afleidingen van een frequent woord vallen weg, net als voltooide en tegenwoordige deelwoorden. Een betekenis die het lemma herhaalt, valt weg. Hetzelfde geldt voor een *-ig*-woord dat uit gewone delen bestaat, zoals *dikbuikig*. Een vaste lijst alledaagse lemma’s die de frequentielijst te laag zet of mist, valt ook weg.
 5. Wat overblijft heeft een formeel of poëtisch label, een literaire vorm (zoals *-lijk*, *-ig*, *-temin*, *-aard*, *-nis*) of is een bijwoord van minstens acht letters. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft als het zeldzaam maar echt is: een duidelijke Nederlandse betekenis, geen scheidbaar werkwoord, geen leenwoordspelling, en bij een zelfstandig naamwoord een Nederlandse uitgang. *desalniettemin*, *kwistig*, *onverkwikkelijk*, *tabbaard*, *vermeien*, *verguizen* en *kuieren* horen daarbij.
-6. Per lemma blijft één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. De set stopt bij 1.200; deze invoer levert 946 woorden.
+6. Per lemma blijft één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. De set stopt bij 1.200; deze invoer levert 941 woorden.
 
 Het lidwoord komt uit de labels in het extract: alleen onzijdig wordt *het*, mannelijk en/of vrouwelijk wordt *de*, allebei wordt *de/het*. Een leidende dubbele punt en indices als `[1]` gaan uit de betekenis. Buigingsglossen vallen weg. De tekst van een betekenis of voorbeeld wordt verder niet herschreven. Een voorbeeldzin langer dan 240 tekens wordt ingekort op een zinseinde, zolang het woord er nog in staat.
 

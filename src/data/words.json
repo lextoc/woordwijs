@@ -47,10 +47,10 @@
     "counts": {
       "extractLines": 1121234,
       "dutchEntries": 669494,
-      "indexedLemmas": 953,
+      "indexedLemmas": 948,
       "frequencyLemmas": 13604,
-      "entries": 946,
-      "withExample": 946,
+      "entries": 941,
+      "withExample": 941,
       "withArticle": 39,
       "nouns": 131,
       "formal": 14,
@@ -58,7 +58,7 @@
         "adv": 92,
         "adj": 319,
         "noun": 131,
-        "verb": 404
+        "verb": 399
       }
     },
     "starterIds": [
@@ -7553,18 +7553,6 @@
       "rank": 613
     },
     {
-      "id": "dweilen__verb",
-      "word": "dweilen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "met behulp van een dweil reinigen"
-      ],
-      "example": "Ik heb de vloer gedweild.",
-      "rank": 614
-    },
-    {
       "id": "eigenen__verb",
       "word": "eigenen",
       "pos": "verb",
@@ -7574,7 +7562,7 @@
         "zich ~ tot geschikt zijn voor iets, zich lenen voor"
       ],
       "example": "Dat gereedschap eigent zich niet daartoe.",
-      "rank": 615
+      "rank": 614
     },
     {
       "id": "erbarmen__verb",
@@ -7587,7 +7575,7 @@
         "zich ontfermen over iemand"
       ],
       "example": "De geneesheer erbarmde zich over de zieke.",
-      "rank": 616
+      "rank": 615
     },
     {
       "id": "faseren__verb",
@@ -7599,7 +7587,7 @@
         "in fasen onderverdelen, spreiden"
       ],
       "example": "Door te faseren wordt een project in de tijd in delen uiteengerafeld.",
-      "rank": 617
+      "rank": 616
     },
     {
       "id": "fezelen__verb",
@@ -7612,7 +7600,7 @@
         "iets met gedempte stem zeggen"
       ],
       "example": "Zij fezelde tijdens de vergadering iets in mijn oor.",
-      "rank": 618
+      "rank": 617
     },
     {
       "id": "fierljeppen__verb",
@@ -7624,7 +7612,7 @@
         "overbruggen van een zo groot mogelijke afstand met behulp van een polsstok"
       ],
       "example": "Al fierljeppend staken de Friezen vroeger de talrijke grachten over.",
-      "rank": 619
+      "rank": 618
     },
     {
       "id": "fikfakken__verb",
@@ -7638,7 +7626,7 @@
         "zich druk maken zonder dat het nut heeft, op een verkeerde manier bezig zijn"
       ],
       "example": "Voor dat alles moet hij thuis nooit meer doen dan zijn pantoffels aanschieten, zijn krant lezen en fikfakken met de kleinen.",
-      "rank": 620
+      "rank": 619
     },
     {
       "id": "fnuiken__verb",
@@ -7651,7 +7639,7 @@
         "in de kiem smoren"
       ],
       "example": "Nu was hij de laatste tijd juist minder monter dan gewoonlijk. Door het vooruitzicht van een wapenstilstand was hij zichtbaar in de put geraakt, was zijn patriottische bezieling gefnuikt.",
-      "rank": 621
+      "rank": 620
     },
     {
       "id": "frazelen__verb",
@@ -7663,7 +7651,7 @@
         "onverstaanbaar murmelen, geluidjes maken, zacht prevelen"
       ],
       "example": "Baby's beginnen eerst te frazelen, het praten volgt later.",
-      "rank": 622
+      "rank": 621
     },
     {
       "id": "friemelen__verb",
@@ -7675,7 +7663,7 @@
         "onrustig en zonder doel met vingers en handen bewegen"
       ],
       "example": "De stervende friemelde aan zijn dekens.",
-      "rank": 623
+      "rank": 622
     },
     {
       "id": "frijnen__verb",
@@ -7687,7 +7675,7 @@
         "voorzien van smalle evenwijdige groefjes"
       ],
       "example": "Het oppervlak werd machinaal gefrijnd.",
-      "rank": 624
+      "rank": 623
     },
     {
       "id": "frituren__verb",
@@ -7699,7 +7687,7 @@
         "bereiden door middel van onderdompeling in hete olie of vet"
       ],
       "example": "Algauw zat ik het opgefleurde meisje tot in de finesses uit te leggen hoe onze vaderlandse kroketten worden bereid, van het trekken van de bouillon tot het paneren en frituren.",
-      "rank": 625
+      "rank": 624
     },
     {
       "id": "frotten__verb",
@@ -7711,7 +7699,7 @@
         "klungelen en frummelen met name door met de handen ergens aan te zitten"
       ],
       "example": "Helaas zijn er toch vooroordelen. Dat het iets met seks te maken heeft, bijvoorbeeld. Dat we in een soort commune leven en alle dagen met elkaar lopen te frotten. Nou, niets is minder waar.”",
-      "rank": 626
+      "rank": 625
     },
     {
       "id": "frummelen__verb",
@@ -7725,7 +7713,7 @@
         "op een slordige manier iets met de vingers maken"
       ],
       "example": "In de video kijken de leden van CMon & Kypski aanvankelijk in de camera alsof het een spiegel is. Ze frummelen aan hun colbert, modelleren hun kuif en strikken een dasje.",
-      "rank": 627
+      "rank": 626
     },
     {
       "id": "frutselen__verb",
@@ -7737,7 +7725,7 @@
         "met de handen aan iets heel kleins werken vaak op een niet al te nette wijze"
       ],
       "example": "Hoe bedenk je muziek? Volgens Marlijn gebeurt dat eigenlijk vanzelf. \"Soms zit ik aan de piano te frutselen. Noten bedenk je niet, ze komen gewoon bij je op.\" Dat vindt Patric Barendregt ook.",
-      "rank": 628
+      "rank": 627
     },
     {
       "id": "giebelen__verb",
@@ -7749,7 +7737,7 @@
         "een beetje geheimzinnig en verholen lachen door kinderen en jonge meisjes"
       ],
       "example": "Meisjes van zestien. Hoe ze gesprekken voeren die, dan weer melig, dan weer menens, alle kanten op meanderen. En hoe ze tijdens al dat praten en giebelen volcontinu aan elkaar zitten te frutten.",
-      "rank": 629
+      "rank": 628
     },
     {
       "id": "ginnegappen__verb",
@@ -7762,7 +7750,7 @@
         "grappen maken, grollen"
       ],
       "example": "Ondanks de berispingen van hun ouders, zaten de kinderen de hele tijd te ginnegappen.",
-      "rank": 630
+      "rank": 629
     },
     {
       "id": "glooien__verb",
@@ -7774,7 +7762,7 @@
         "een lichte helling vertonen"
       ],
       "example": "De weide glooit steeds meer naarmate je verder van het beekje komt.",
-      "rank": 631
+      "rank": 630
     },
     {
       "id": "gniffelen__verb",
@@ -7786,7 +7774,7 @@
         "wat onderdrukt plezier hebben"
       ],
       "example": "Hij gniffelde een beetje, maar trok zijn gezicht weer snel in de plooi.",
-      "rank": 632
+      "rank": 631
     },
     {
       "id": "gnuiven__verb",
@@ -7798,7 +7786,7 @@
         "onderdrukt, triomfantelijk lachen, vaak uit leedvermaak"
       ],
       "example": "De kwajongen zat te gnuiven toen de leraar erin trapte.",
-      "rank": 633
+      "rank": 632
     },
     {
       "id": "goochelen__verb",
@@ -7811,7 +7799,7 @@
         "doelbewust zodanig met bepaalde informatie omgaan dat de zaken verkeerd worden voorgesteld of voor de betrokkenen niet meer goed te begrijpen zijn"
       ],
       "example": "Hij heeft van goochelen zijn beroep gemaakt.",
-      "rank": 634
+      "rank": 633
     },
     {
       "id": "gorgelen__verb",
@@ -7823,7 +7811,7 @@
         "met de stembanden wat vloeistof in de keel doen wervelen"
       ],
       "example": "Ik heb wat kamillethee gemaakt en ermee gegorgeld.",
-      "rank": 635
+      "rank": 634
     },
     {
       "id": "grauwen__verb",
@@ -7835,7 +7823,7 @@
         "grauw (grijs) worden"
       ],
       "example": "Het oude marmer is gegrauwd. Een vogeltrein schuift in het wijde.",
-      "rank": 636
+      "rank": 635
     },
     {
       "id": "grienen__verb",
@@ -7847,7 +7835,7 @@
         "huilen (familiair of minachtend)"
       ],
       "example": "Nathanael Cole zat aan tafel te grienen, een beangstigend gezicht voor de jongste kinderen die het overlijden van hun moeder nog niet half hadden begrepen.",
-      "rank": 637
+      "rank": 636
     },
     {
       "id": "griffen__verb",
@@ -7859,7 +7847,7 @@
         "door krassen voor altijd vastleggen in een duurzaam materiaal"
       ],
       "example": "De Duitse gouverneur probeerde alle gerechten, desserts en wijnen in zijn geheugen te griffen om alles haarfijn in een brief aan zijn bloedverwanten in Duitsland te kunnen beschrijven, en het ergerde hem bovenmatig dat de hofmeester niet",
-      "rank": 638
+      "rank": 637
     },
     {
       "id": "grillen__verb",
@@ -7871,7 +7859,7 @@
         "bruinen en braden op een open rooster (grill) boven een warmtebron"
       ],
       "example": "Gebruik bij het grillen van vlees, gevogelte en vis altijd een druipschaal om uitlopend vet en vleessappen op te vangen.",
-      "rank": 639
+      "rank": 638
     },
     {
       "id": "gruiten__verb",
@@ -7884,7 +7872,7 @@
         "dreggen en schoonmaken van een watergang"
       ],
       "example": "'s Woensdags wordt er gegruit.",
-      "rank": 640
+      "rank": 639
     },
     {
       "id": "gruwelen__verb",
@@ -7896,7 +7884,7 @@
         "een gevoel van afgrijzen ondergaan, gruwen"
       ],
       "example": "Wij gruwelen bij de gedachte dat er mensen onder ons zijn die tot extreem geweld in staat zijn en hier ook nog van lijken te genieten.",
-      "rank": 641
+      "rank": 640
     },
     {
       "id": "hakkelen__verb",
@@ -7909,7 +7897,7 @@
         "moeilijk en onzeker spreken met herhaling van klanken"
       ],
       "example": "De gehakkelde aurelia is een vlinder met grof gekartelde vleugels.",
-      "rank": 642
+      "rank": 641
     },
     {
       "id": "hameren__verb",
@@ -7922,7 +7910,7 @@
         "~ op: zwaar de nadruk op iets leggen"
       ],
       "example": "Hij hamerde voor de zekerheid nog een paar spijkers door het hout.",
-      "rank": 643
+      "rank": 642
     },
     {
       "id": "haperen__verb",
@@ -7934,7 +7922,7 @@
         "stokken, niet vooruitgaan."
       ],
       "example": "De motor haperde.",
-      "rank": 644
+      "rank": 643
     },
     {
       "id": "harmelen__verb",
@@ -7946,7 +7934,7 @@
         "gedurig met een paard en wagen voor- en achterwaarts gaan"
       ],
       "example": "⧖ Het woord harmelen wordt der redactie van het Woordenboek, in den boven bedoelden zin van gedurig vóor- en achteruitrijden ten zeerste aanbevolen.",
-      "rank": 645
+      "rank": 644
     },
     {
       "id": "herijken__verb",
@@ -7959,7 +7947,7 @@
         "overdrachtelijk een beleid of onderdeel daarvan opnieuw bezien"
       ],
       "example": "Die weegschaal mog ook wel eens herijkt worden.",
-      "rank": 646
+      "rank": 645
     },
     {
       "id": "hompelen__verb",
@@ -7971,7 +7959,7 @@
         "gebrekkig en onregelmatig lopen"
       ],
       "example": "Een beetje vent laat een dame die op bezoek komt uit. Achter mijn rollator hompelde ik naast haar richting motor. Ik keek naar rechts. maar zag haar been niet slepen. Waarschijnlijk teveel gefixeerd op mijn eigen slepende rechterbeen.",
-      "rank": 647
+      "rank": 646
     },
     {
       "id": "hosselen__verb",
@@ -7984,7 +7972,7 @@
         "een (illegaal) (straat)handeltje drijven (met name om drugs te kunnen betalen)"
       ],
       "example": "Uitgerekend Patrick krijgt de pinpas niet in handen. „Hij is drugsverslaafd en de hele dag aan het hosselen, zoals hij het zelf noemt, om aan geld te komen.",
-      "rank": 648
+      "rank": 647
     },
     {
       "id": "huldigen__verb",
@@ -7996,7 +7984,7 @@
         "iemand hulde of eer bewijzen"
       ],
       "example": "Het Nederlands Elftal werd uitgebreid gehuldigd op de Grote Markt te Haarlem.",
-      "rank": 649
+      "rank": 648
     },
     {
       "id": "husselen__verb",
@@ -8008,7 +7996,7 @@
         "iets trachten te mengen door het op te gooien"
       ],
       "example": "Verder heb ik de mosselen op gestoofde mosselgroenten gelegd, en er ook verse koriander door gehusseld op het einde.",
-      "rank": 650
+      "rank": 649
     },
     {
       "id": "ijveren__verb",
@@ -8020,7 +8008,7 @@
         "moeite doen om een doel na te streven"
       ],
       "example": "Er werd daarvoor door velen geijverd.",
-      "rank": 651
+      "rank": 650
     },
     {
       "id": "jengelen__verb",
@@ -8032,7 +8020,7 @@
         "zeuren, zaniken, jammeren, tot last zijn"
       ],
       "example": "Die kinderen jengelen de hele dag.",
-      "rank": 652
+      "rank": 651
     },
     {
       "id": "jeuzelen__verb",
@@ -8044,7 +8032,7 @@
         "oeverloos praten, zeuren, ongericht bezig zijn"
       ],
       "example": "En zo werd er nog uren gejeuzeld.",
-      "rank": 653
+      "rank": 652
     },
     {
       "id": "joderen__verb",
@@ -8057,7 +8045,7 @@
         "jodium koppelen aan een organische verbinding"
       ],
       "example": "Het meeste jodium krijgen we binnen via melk, brood en vis. Daarom werd in 2009 beslist om het zout voor bakkerijproducten te joderen.",
-      "rank": 654
+      "rank": 653
     },
     {
       "id": "judassen__verb",
@@ -8069,7 +8057,7 @@
         "bewust ergeren of bij herhaling uitdagend kwetsen"
       ],
       "example": "Zij kunnen hem niet uitstaan en zij zijn hem altijd aan het judassen.",
-      "rank": 655
+      "rank": 654
     },
     {
       "id": "juffelen__verb",
@@ -8081,7 +8069,7 @@
         "juffen die kletsen"
       ],
       "example": "De kinderen in de klas moesten er niets van hebben dat de juffen aan het juffelen waren.",
-      "rank": 656
+      "rank": 655
     },
     {
       "id": "kachelen__verb",
@@ -8094,7 +8082,7 @@
         "de actie van het langzaam richtingsloos voortbewegen"
       ],
       "example": "We hebben een heel stuk zo maar wat gekacheld.",
-      "rank": 657
+      "rank": 656
     },
     {
       "id": "kaderen__verb",
@@ -8106,7 +8094,7 @@
         "in het grote geheel laten passen"
       ],
       "example": "De wildebras liet zich niet kaderen.",
-      "rank": 658
+      "rank": 657
     },
     {
       "id": "kakelen__verb",
@@ -8119,7 +8107,7 @@
         "overdrachtelijk zinloos en luid praten"
       ],
       "example": "Toen hij de kippen kwam voeren, kakelden zij opgewonden en pikten hongering naar het voer.",
-      "rank": 659
+      "rank": 658
     },
     {
       "id": "kapittelen__verb",
@@ -8131,7 +8119,7 @@
         "berispen, iemand de les leren"
       ],
       "example": "Het Kamerlid wil de minister kapittelen over zijn omstreden bezoek.",
-      "rank": 660
+      "rank": 659
     },
     {
       "id": "kapselen__verb",
@@ -8143,7 +8131,7 @@
         "maken van een kapsel"
       ],
       "example": "Hoe zijn huid zich om zijn romp en ledematen spannen zou, om zijn gezicht. Hoe vlees zich zou kapselen om zijn beenderen die krakend rechttrokken.",
-      "rank": 661
+      "rank": 660
     },
     {
       "id": "kegelen__verb",
@@ -8156,7 +8144,7 @@
         "~ uit uitwerpen, elimineren"
       ],
       "example": "Zo waren ze uit de competitie gekegeld.",
-      "rank": 662
+      "rank": 661
     },
     {
       "id": "kenschetsen__verb",
@@ -8168,7 +8156,7 @@
         "de kenmerkende eigenschappen van iets of iemand beschrijven"
       ],
       "example": "In de wandelgangen van het Lagerhuis wordt de gang van zaken gekenschetst als shakespeareaans.",
-      "rank": 663
+      "rank": 662
     },
     {
       "id": "keutelen__verb",
@@ -8181,7 +8169,7 @@
         "flikflooien van verliefde mensen"
       ],
       "example": "Plonie: „Wij vinden haar geweldig. Ze is de jongste van drie meisjes en ze zijn allemaal anders. Deze keutelt overal tussendoor. Als ze iets niet wil, doet ze het niet.",
-      "rank": 664
+      "rank": 663
     },
     {
       "id": "kieskauwen__verb",
@@ -8193,7 +8181,7 @@
         "met grote tegenzin langzaam iets eten"
       ],
       "example": "Gebrek aan plezierige sfeer vult men niet met een afgehaalde gado-gado, waarop men ook kan kieskauwen.",
-      "rank": 665
+      "rank": 664
     },
     {
       "id": "kissebissen__verb",
@@ -8205,7 +8193,7 @@
         "langdurig een twistgeprek voeren"
       ],
       "example": "Zij zaten weer de hele tijd te kissebissen.",
-      "rank": 666
+      "rank": 665
     },
     {
       "id": "kladden__verb",
@@ -8217,7 +8205,7 @@
         "knoeien, vlekken maken"
       ],
       "example": "Ik zit een beetje te kladden.",
-      "rank": 667
+      "rank": 666
     },
     {
       "id": "klaverenazen__verb",
@@ -8229,7 +8217,7 @@
         "het spelen van een-twee-drie-klaveraas, een schijnbaar eenvoudig kansspel, vaak gebruikt om mensen te bedriegen"
       ],
       "example": "⧖ De kwartjesvinder komt soms als koopman met pijpen ; het slachtoffer zou wel graag zoo een pijp hebben, doch vindt zes gulden te duur, dan laat de koopman aan een metgezel met klaverenazen een pijp winnen, en deze is maar niet uitgepraat",
-      "rank": 668
+      "rank": 667
     },
     {
       "id": "klepelen__verb",
@@ -8242,7 +8230,7 @@
         "maaien van ruige begroeiingen met behulp van roterende klepels waarbij het maaisel achterblijft"
       ],
       "example": "Toen de buisklokken zwegen, luisterden we allebei scherp of we Tonio niet hoorden huilen. Nee, geen kik. Om te voorkomen dat het carillon opnieuw begon te klepelen, snelde ik naar de intercom.",
-      "rank": 669
+      "rank": 668
     },
     {
       "id": "klieren__verb",
@@ -8254,7 +8242,7 @@
         "zich onaangenaam gedragen"
       ],
       "example": "Ma, Michel zit weer te klieren!",
-      "rank": 670
+      "rank": 669
     },
     {
       "id": "klitten__verb",
@@ -8266,7 +8254,7 @@
         "vastklampen, plakken"
       ],
       "example": "De vriendinnen klitten altijd samen op het schoolplein",
-      "rank": 671
+      "rank": 670
     },
     {
       "id": "klotsen__verb",
@@ -8281,7 +8269,7 @@
         "een deels vloeibare inhoud in hoorbare beweging brengen"
       ],
       "example": "Ik klots door de meren.",
-      "rank": 672
+      "rank": 671
     },
     {
       "id": "knakken__verb",
@@ -8294,7 +8282,7 @@
         "je plotseling machteloos voelen"
       ],
       "example": "De takjes knakken onder de zware schoenen van de wandelaar.",
-      "rank": 673
+      "rank": 672
     },
     {
       "id": "knauwen__verb",
@@ -8307,7 +8295,7 @@
         "inslikken van de uitgang -en in de uitspraak van een woord, met name in het Gronings"
       ],
       "example": "De hond knauwde op een bot.",
-      "rank": 674
+      "rank": 673
     },
     {
       "id": "knerpen__verb",
@@ -8319,7 +8307,7 @@
         "het maken van een piepend, knarsend, krakend geluid"
       ],
       "example": "Twee schelpenwinningsbedrijven, in Harlingen en Yerseke, hebben waarschijnlijk zonder geldige vergunning schelpen uit de Waddenzee gehaald. Dus best kans dat die schelpen op de paden in natuurgebieden illegaal onder uw schoenen knerpen.",
-      "rank": 675
+      "rank": 674
     },
     {
       "id": "knersen__verb",
@@ -8331,7 +8319,7 @@
         "geluid voortbrengen door twee hard oneffen voorwerpen met kracht over elkaar heen te bewegen"
       ],
       "example": "Boos, heel boos worden ze. Ze knersen hun tanden. Juist op dat moment gaat voor Stéfanus de hemel echter open en ziet hij „de heerlijkheid Gods en Jezus, staande ter rechterhand Gods.” Vol van de Heilige Geest vertelt hij dat ook.",
-      "rank": 676
+      "rank": 675
     },
     {
       "id": "knikkebollen__verb",
@@ -8343,7 +8331,7 @@
         "zittend half in slaap vallen"
       ],
       "example": "De helft van de personeelsleden zat te knikkebollen tijdens de ellenlange toespraak van de algemeen directeur.",
-      "rank": 677
+      "rank": 676
     },
     {
       "id": "knipogen__verb",
@@ -8356,7 +8344,7 @@
         "aan en uit gaan, twinkelen"
       ],
       "example": "Hij wachtte en keek naar de sterren die hoog boven hem aan de hemel stonden te knipogen.",
-      "rank": 678
+      "rank": 677
     },
     {
       "id": "knobelen__verb",
@@ -8368,7 +8356,7 @@
         "gokken, dobbelen, knobbelen"
       ],
       "example": "De zaterdag staat in het teken staan van gezellig knobelen onder het genot van een hapje en een drankje. Vooraf wordt er voor de kinderen een lampionoptocht georganiseerd, de stoet zal worden aangevoerd door de kerstman in z'n arrenslee.",
-      "rank": 679
+      "rank": 678
     },
     {
       "id": "knoffelen__verb",
@@ -8381,7 +8369,7 @@
         "breien uit de losse hand met korte breinaalden"
       ],
       "example": "Nu ik denk van zijn kennissen, die de eierzoeker in de sloot ziet knoffelen.",
-      "rank": 680
+      "rank": 679
     },
     {
       "id": "knuppelen__verb",
@@ -8394,7 +8382,7 @@
         "met een knots of knuppel slaan"
       ],
       "example": "Jongeren vast voor knuppelen: Tien jongeren uit Musselkanaal en omgeving zijn opgepakt omdat ze in september in Oost-Groningen willekeurige voorbijgangers met honkbalknuppels ernstig zouden hebben mishandeld.",
-      "rank": 681
+      "rank": 680
     },
     {
       "id": "koeterwalen__verb",
@@ -8406,7 +8394,7 @@
         "een onbegrijpelijke taal of dialect spreken"
       ],
       "example": "En de twee mannen stonden er nog een tijdje te koeterwalen in dat vreemde taaltje voordat ze opstapten.",
-      "rank": 682
+      "rank": 681
     },
     {
       "id": "kokkelen__verb",
@@ -8420,7 +8408,7 @@
         "bepaalde eetbare schelpdieren Cerastoderma edule verzamelen"
       ],
       "example": "Feitelijk hoort hij nu samen met Taag te kokkelen en niet zinloos boven op de dijk te staan turen, maar Taag, na een heftige woordenwisseling met zijn vader (…), zie: \"Neem vandaag maar vrijaf.\"",
-      "rank": 683
+      "rank": 682
     },
     {
       "id": "konfijten__verb",
@@ -8433,7 +8421,7 @@
         "vlees bij een temperatuur onder de 90 ᵒC langdurig garen in dierlijk vet"
       ],
       "example": "We konfijten de schillen in suikerstroop om er sukade van te maken.",
-      "rank": 684
+      "rank": 683
     },
     {
       "id": "konkelen__verb",
@@ -8445,7 +8433,7 @@
         "samenspannend intrigeren, onderhandse plannen in werking zetten"
       ],
       "example": "Er was al tijden gekonkeld om hem te wippen.",
-      "rank": 685
+      "rank": 684
     },
     {
       "id": "kraaien__verb",
@@ -8457,7 +8445,7 @@
         "het voor de haan kenmerkende geluid voortbrengen"
       ],
       "example": "De haan kraaide in de vroege ochtend.",
-      "rank": 686
+      "rank": 685
     },
     {
       "id": "krabbelen__verb",
@@ -8471,7 +8459,7 @@
         "handen of benen onbeholpen bewegen"
       ],
       "example": "De hond vond het heerlijk wat achter de oren gekrabbeld te worden.",
-      "rank": 687
+      "rank": 686
     },
     {
       "id": "krammen__verb",
@@ -8483,7 +8471,7 @@
         "vastmaken met behulp van metalen staafjes die aan beide uiteinden ombuigen tot een haakje dat in het te bevestigen materiaal wordt gestoken"
       ],
       "example": "Bij honderden waren de mensen doende boten te bouwen en te herstellen, te krammen en te snoeren; er werden kabels van bast gedraaid en klampen gesmeed zelfs waar het ijzer schaarser was dan ooit.",
-      "rank": 688
+      "rank": 687
     },
     {
       "id": "krasselen__verb",
@@ -8496,7 +8484,7 @@
         "sukkelen, klungelen"
       ],
       "example": "Op en neer ging het, steeds lagen er andere, weer nieuwe onbekenden voorop. De ene wiggelwaggelbeweging volgde de andere op. Het was krasselen op het grote mes, het was van tuttuttutut en zoef rakketakketak.",
-      "rank": 689
+      "rank": 688
     },
     {
       "id": "krenten__verb",
@@ -8508,7 +8496,7 @@
         "per tros ontdoen van de kleinste druiven, zodat de resterende druiven groter zullen worden"
       ],
       "example": "Door een druif te krenten krijg je dus mooier gevormde trossen, waar minder ongegroeide druiven in hangen. De druiven die wel overblijven worden groot, zoet en sappig.",
-      "rank": 690
+      "rank": 689
     },
     {
       "id": "kreuken__verb",
@@ -8520,7 +8508,7 @@
         "het aanbrengen van min of meer permanente vouwtjes in een glad oppervlak"
       ],
       "example": "De bladzijde werd door dat baldadige mispunt helemaal gekreukt.",
-      "rank": 691
+      "rank": 690
     },
     {
       "id": "kreupelen__verb",
@@ -8532,7 +8520,7 @@
         "kreupel slaan, een persoon of dier dusdanig letsel toebrengen dat het zich voortbewegen blijvend bemoeilijkt of onmogelijk wordt"
       ],
       "example": "Het paard werd door de aandoening aan zijn hoeven gekreupeld.",
-      "rank": 692
+      "rank": 691
     },
     {
       "id": "kribbelen__verb",
@@ -8544,7 +8532,7 @@
         "snel, slordig krassen of schrijven"
       ],
       "example": "Turlututu is de hoofdpersoon die je vraagt mee te doen. Bij een tekening van een bord: \"Neem een geel potlood en kribbel ermee in het bord. Voeg rode puntjes toe, enkele groene rondjes en heel veel blauwe streepjes.",
-      "rank": 693
+      "rank": 692
     },
     {
       "id": "krieken__verb",
@@ -8556,7 +8544,7 @@
         "allereerste begin vertonen"
       ],
       "example": "Speciale eenheden van de Duitse politie hebben de gewoonte om bij het krieken van de dag bij hun verdachten op de stoep te staan, en dat ondervond ook de hoofdredacteur van het extreem-rechtse tijdschrift Compact, Jürgen Elsässer.",
-      "rank": 694
+      "rank": 693
     },
     {
       "id": "krikken__verb",
@@ -8568,7 +8556,7 @@
         "geslachtsgemeenschap hebben"
       ],
       "example": "Ook werden er wel eens 'stelletjes' van het toilet gesleurd. Daar werd wel iedereen opgefokt van. Moeten we daarop wachten dat ze liggen te krikken op het toilet.",
-      "rank": 695
+      "rank": 694
     },
     {
       "id": "kringelen__verb",
@@ -8580,7 +8568,7 @@
         "zich in cirkels blijven bewegen"
       ],
       "example": "De rook kringelde boven de kampvuren omhoog.",
-      "rank": 696
+      "rank": 695
     },
     {
       "id": "krioelen__verb",
@@ -8593,7 +8581,7 @@
         "vol zijn, druk zijn"
       ],
       "example": "(…) de talrijke wandelaars krioelen in hun bonte kledij dooreen en overal is gezang, gedans, gejuich.",
-      "rank": 697
+      "rank": 696
     },
     {
       "id": "kroezelen__verb",
@@ -8605,7 +8593,7 @@
         "krullen, kroezen"
       ],
       "example": "Bosjes kroezelen langs de weg die kronkelt, donzen als donker schuim uit de diepte omhoog.",
-      "rank": 698
+      "rank": 697
     },
     {
       "id": "krullen__verb",
@@ -8617,7 +8605,7 @@
         "spiraalvormig maken"
       ],
       "example": "De bomen vibreren door het kabaal van de vogels, de blaadjes krullen bijna vanzelf om door hun gezang.",
-      "rank": 699
+      "rank": 698
     },
     {
       "id": "kuieren__verb",
@@ -8630,7 +8618,7 @@
         "op zijn gemak, zonder haast ergens heen lopen of wandelen"
       ],
       "example": "'s Middags werd er wat gekuierd en 's avonds een spelletje gespeeld.",
-      "rank": 700
+      "rank": 699
     },
     {
       "id": "kukelen__verb",
@@ -8643,7 +8631,7 @@
         "het geluid van een haan maken."
       ],
       "example": "Ik zag de auto over de rand van het ravijn kukelen.",
-      "rank": 701
+      "rank": 700
     },
     {
       "id": "kukkelen__verb",
@@ -8655,7 +8643,7 @@
         "knuffelen, zoenen"
       ],
       "example": "Even kukkelen?",
-      "rank": 702
+      "rank": 701
     },
     {
       "id": "kwakkelen__verb",
@@ -8667,7 +8655,7 @@
         "lichamelijk niet in orde zijn"
       ],
       "example": "Hij kwakkelt al een tijdje; ernstig ziek is hij niet, maar hij voelt zich ook niet erg goed.",
-      "rank": 703
+      "rank": 702
     },
     {
       "id": "kwalmen__verb",
@@ -8679,7 +8667,7 @@
         "een dikke rook afgeven"
       ],
       "example": "Er werd bij ons thuis flink gekwalmd toen ik een kind was.",
-      "rank": 704
+      "rank": 703
     },
     {
       "id": "kwekken__verb",
@@ -8692,7 +8680,7 @@
         "druk, nodeloos praten van mensen"
       ],
       "example": "Vliegensvlug Bunco spelen en oeverloos kwekken gaan moeiteloos samen. Dat verklaart vermoedelijk de populariteit onder Amerikaanse vrouwen.",
-      "rank": 705
+      "rank": 704
     },
     {
       "id": "lameren__verb",
@@ -8704,7 +8692,7 @@
         "praten, kletsen, zijn tijd verpraten"
       ],
       "example": "Werknemers die de hele dag zitten te lameren, zijn niet erg productief.",
-      "rank": 706
+      "rank": 705
     },
     {
       "id": "lanterfanten__verb",
@@ -8716,7 +8704,7 @@
         "luieren terwijl dat op dat moment ongepast is, verbeuzelen van de tijd"
       ],
       "example": "Voor Kerry kan geen enkel land, dus ook de VS niet, de klimaatproblemen op zijn eentje oplossen. 'Het is eenvoudigweg een feit dat we geen tijd hebben om hier te lanterfanten over wiens verantwoordelijkheid het is om te handelen.",
-      "rank": 707
+      "rank": 706
     },
     {
       "id": "leewieken__verb",
@@ -8728,7 +8716,7 @@
         "verwijderen van een stukje vleugel bij jonge vogels om te voorkomen dat ze later kunnen wegvliegen"
       ],
       "example": "Bep, Ko en Jan, van beroep muskusrattenvanger, hielpen hun vader Piet Oosteveen bij het vangen, ringen en leewieken van de dieren. Leewieken is het verwijderen van een klein stukje vleugel.",
-      "rank": 708
+      "rank": 707
     },
     {
       "id": "loodsen__verb",
@@ -8740,7 +8728,7 @@
         "begeleiden naar de bestemming"
       ],
       "example": "De bodyguards loodsen de filmster langs alle verzamelde media.",
-      "rank": 709
+      "rank": 708
     },
     {
       "id": "luieren__verb",
@@ -8752,7 +8740,7 @@
         "niets uitvoeren, niks doen"
       ],
       "example": "Hij was vandaag erg aan het luieren.",
-      "rank": 710
+      "rank": 709
     },
     {
       "id": "makelen__verb",
@@ -8764,7 +8752,7 @@
         "als makelaar werkzaam zijn"
       ],
       "example": "Hij makelde enkele jaren in verzekeringen.",
-      "rank": 711
+      "rank": 710
     },
     {
       "id": "meuzelen__verb",
@@ -8776,7 +8764,7 @@
         "smakelijk eten met kleine stukjes tegelijk"
       ],
       "example": "Ze meuzelde de hele dag, maar liet het avondeten staan.",
-      "rank": 712
+      "rank": 711
     },
     {
       "id": "miegelen__verb",
@@ -8788,7 +8776,7 @@
         "wemelen, krioelen"
       ],
       "example": "Het miegelde er van de reigers",
-      "rank": 713
+      "rank": 712
     },
     {
       "id": "miesmuizen__verb",
@@ -8800,7 +8788,7 @@
         "overdreven klagen of zeuren"
       ],
       "example": "Ik ga zeker niet zitten miesmuizen.",
-      "rank": 714
+      "rank": 713
     },
     {
       "id": "miezemuizen__verb",
@@ -8812,7 +8800,7 @@
         "overdreven klagen of zeuren"
       ],
       "example": "Ik ga zeker niet zitten miezemuizen.",
-      "rank": 715
+      "rank": 714
     },
     {
       "id": "monkelen__verb",
@@ -8825,7 +8813,7 @@
         "binnensmonds (en daardoor vaak onduidelijk) praten"
       ],
       "example": "Ik hoor u nu monkelen: u heeft makkelijk praten, drs. Van Amerongen. Dat klopt want wij hebben 3800 zonuren per jaar en u hoogstens 1400, als u tenminste het geluk hebt in Vlissingen of op Texel te wonen.",
-      "rank": 716
+      "rank": 715
     },
     {
       "id": "morrelen__verb",
@@ -8838,7 +8826,7 @@
         "afbreken, kapot maken, wijzigen"
       ],
       "example": "Hij morrelde wat aan het roestige slot en kreeg het zowaar open.",
-      "rank": 717
+      "rank": 716
     },
     {
       "id": "muilkorven__verb",
@@ -8851,19 +8839,7 @@
         "iemand beletten te spreken"
       ],
       "example": "Hij moest die valse hond wel muilkorven.",
-      "rank": 718
-    },
-    {
-      "id": "multitasken__verb",
-      "word": "multitasken",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "twee of meer dingen tegelijk doen"
-      ],
-      "example": "“Mensen willen ook best in hun brein gestimuleerd worden”, stelt ze. “Je kunt je brein onder meer voeden door bewust te kiezen voor focus en multitasken te vervangen door singletasken.”",
-      "rank": 719
+      "rank": 717
     },
     {
       "id": "mummelen__verb",
@@ -8875,7 +8851,7 @@
         "onduidelijk, binnensmonds mompelen"
       ],
       "example": "\"Langer jeugdig blijven gaat ons al steeds beter af: de generatie van mijn grootmoeder zat met 66 jaar in een zwarte jurk wat te mummelen in het bejaardentehuis.",
-      "rank": 720
+      "rank": 718
     },
     {
       "id": "murmelen__verb",
@@ -8889,7 +8865,7 @@
         "zachtjes mopperen"
       ],
       "example": "Mijn oude oma zat altijd in haar stoel te murmelen.",
-      "rank": 721
+      "rank": 719
     },
     {
       "id": "netelen__verb",
@@ -8902,7 +8878,7 @@
         "door contact met brandharen last hebben van een geïrriteerde en prikkende huid"
       ],
       "example": "⧖ ‘En waarom niet?’ vroeg Henriette weer geneteld. ‘Mis ik eene enkele noot, wanneer ik ze speel?’",
-      "rank": 722
+      "rank": 720
     },
     {
       "id": "oetelen__verb",
@@ -8914,7 +8890,7 @@
         "willekeurig wat dingen doen zonder verplichtingen."
       ],
       "example": "Vandaag had ik een vrije dag en was ik lekker aan het oetelen.",
-      "rank": 723
+      "rank": 721
     },
     {
       "id": "oeteren__verb",
@@ -8927,7 +8903,7 @@
         "onhandig te werk gaan"
       ],
       "example": "Ze zaten de hele dag te oeteren.",
-      "rank": 724
+      "rank": 722
     },
     {
       "id": "omdijken__verb",
@@ -8939,7 +8915,7 @@
         "omringen met waterkeringen (van een gebied)"
       ],
       "example": "De Markerwaard is wel omdijkt, maar nooit drooggelegd.",
-      "rank": 725
+      "rank": 723
     },
     {
       "id": "ontfermen__verb",
@@ -8951,7 +8927,7 @@
         "zich ~ over zich het lot van iemand aantrekken en voor gaan zorgen"
       ],
       "example": "Zij ontfermde zich over de zwerfkat.",
-      "rank": 726
+      "rank": 724
     },
     {
       "id": "ontgoochelen__verb",
@@ -8963,7 +8939,7 @@
         "van een illusie beroven"
       ],
       "example": "Hij was erg ontgoocheld toen bleek dat zij een ander had.",
-      "rank": 727
+      "rank": 725
     },
     {
       "id": "ontkrullen__verb",
@@ -8975,7 +8951,7 @@
         "het stijl maken van krullend of kroezend haar"
       ],
       "example": "Volgens The Sun en de Daily Express is het allemaal heel eenvoudig. Meghan gebruikt een chemisch product om haar van nature zeer krullende haar te ontkrullen. Dat middel wordt echter afgeraden bij zwangerschap.",
-      "rank": 728
+      "rank": 726
     },
     {
       "id": "ontkurken__verb",
@@ -8987,7 +8963,7 @@
         "een fles van de afsluitende kurk ontdoen"
       ],
       "example": "Het heuglijke feit werd gevierd door een fles champagne te ontkurken.",
-      "rank": 729
+      "rank": 727
     },
     {
       "id": "onttakelen__verb",
@@ -8999,7 +8975,7 @@
         "het demonteren van een installatie"
       ],
       "example": "De oude machinerie zal worden onttakeld.",
-      "rank": 730
+      "rank": 728
     },
     {
       "id": "ontvinken__verb",
@@ -9011,7 +8987,7 @@
         "vinkjes, merktekentjes verwijderen of door klikken deactiveren"
       ],
       "example": "Als u de optie ‘Elke leerling krijgt dezelfde getallen’ ontvinkt, krijgen de leerlingen verschillende getallen met dezelfde moeilijkheidsgraad.",
-      "rank": 731
+      "rank": 729
     },
     {
       "id": "ontwurmen__verb",
@@ -9024,7 +9000,7 @@
         "zich aan iets ~ zich door te wurmen aan iets ontsnappen"
       ],
       "example": "Of het nu kinderen te eten geven is, de koeien ontwurmen, de bomen snoeien, de druiven plukken of de mensen hun loon uitbetalen is, het moet gebeuren.",
-      "rank": 732
+      "rank": 730
     },
     {
       "id": "opjuinen__verb",
@@ -9036,7 +9012,7 @@
         "iemand aanzetten tot iets wat niet helemaal goed is"
       ],
       "example": "Volgens Duijzer geldt hetzelfde voor topfuncties in andere bedrijfstakken en voor de politiek. „We laten ons opjuinen door consultants en dat soort types, die ons gaan vergelijken met anderen. Maar van vergelijken word je nooit gelukkig.”",
-      "rank": 733
+      "rank": 731
     },
     {
       "id": "orakelen__verb",
@@ -9048,7 +9024,7 @@
         "als een orakel verkondigen"
       ],
       "example": "Johan Cruijff orakelde en televisiekijkend Nederland luisterde gedwee, hoewel het doorgaans geen flauw idee had wat Cruijff nu precies zei",
-      "rank": 734
+      "rank": 732
     },
     {
       "id": "overdijken__verb",
@@ -9063,7 +9039,7 @@
         "bedekken met materiaal om een waterkering uit te breiden"
       ],
       "example": "⧖ Neen, in zulk een klein deel, als hij teekent, zouden niet de groote vloed- en ebstroomen ontstaan zijn, die het toen onmogelijk maakten en zelfs thans moeilijk zouden maken, om ze te overdijken.",
-      "rank": 735
+      "rank": 733
     },
     {
       "id": "overwelmen__verb",
@@ -9075,7 +9051,7 @@
         "door iets of iemand bedolven, verpletterd of overweldigd worden"
       ],
       "example": "Om preciezer te zijn: die gelukkige gevoelens zullen je overwelmen om 19 uur.",
-      "rank": 736
+      "rank": 734
     },
     {
       "id": "papegaaien__verb",
@@ -9087,7 +9063,7 @@
         "iets precies herhalen, zonder noodzakelijkerwijs te laten zien dat je het begrijpt, net zoals een papegaai."
       ],
       "example": "De meeste schrijvers hebben weinig origineels te vertellen, zij papegaaien de schijfsels van hun voorgangers door.",
-      "rank": 737
+      "rank": 735
     },
     {
       "id": "pardaffen__verb",
@@ -9100,7 +9076,7 @@
         "slaan of gooien met een hoorbare klap"
       ],
       "example": "Daerentusschen den dag begon te schemelen; eenen zeyde het is zeker Botros, zal hem wel doen roeren, namen dan groote steenen om op my te pardaffen, dit merkende , heb gesproken en gezeyt: Botros is hier (…)",
-      "rank": 738
+      "rank": 736
     },
     {
       "id": "parelen__verb",
@@ -9113,7 +9089,7 @@
         "met heldere klanken klinken"
       ],
       "example": "Zweetdruppels parelen op zijn voorhoofd. De één heeft een rood aangelopen hoofd alsof een schaarsgeklede dame zojuist de ruimte binnen wandelt en een ander schudt met zijn hoofd en zegt: 'Daar loopt niemand warm voor'.",
-      "rank": 739
+      "rank": 737
     },
     {
       "id": "peeuwen__verb",
@@ -9126,7 +9102,7 @@
         "door beide armen uit te strekken met de hand de lengte van iets schatten, vamen"
       ],
       "example": "\"Je moet niet zo peeuwen (janken, piepen), wat meer uitgesproken wordt als pieuwen.\" Het woord \"Peeuwen\" ken ik van mijn Zaanse vriendin.",
-      "rank": 740
+      "rank": 738
     },
     {
       "id": "performen__verb",
@@ -9138,7 +9114,7 @@
         "in het publiek optreden door een kunstenaar"
       ],
       "example": "Nina: ,,Kimberly kan heel goed performen. Ik heb gisteren gezien hoe ze met de professionele dansers meedanste. En ze kan ook nog heel hoog zingen. Zij haalt noten waar ik alleen van kan dromen.\"",
-      "rank": 741
+      "rank": 739
     },
     {
       "id": "pimpelen__verb",
@@ -9150,7 +9126,7 @@
         "uitgebreid alcohol consumeren"
       ],
       "example": "Er werd aardig gepimpeld daar in dat tehuis.",
-      "rank": 742
+      "rank": 740
     },
     {
       "id": "pinaren__verb",
@@ -9163,7 +9139,7 @@
         "arm zijn, gebrek lijden"
       ],
       "example": "Granman Forster (de belangrijkste traditionele leider van de bosnegers) heeft vanuit Apatou in Frans-Guyana laten weten dat Nederland 'desnoods' Suriname moet terugnemen om zijn Mensen, die pinaren (bet moeilijk hebben en pijn lijden), te",
-      "rank": 743
+      "rank": 741
     },
     {
       "id": "pinkelen__verb",
@@ -9175,7 +9151,7 @@
         "knipperen met de ogen"
       ],
       "example": "Ik kijk naar de klare morgenhemel waar nog een paar sterren pinkelen, en lach.",
-      "rank": 744
+      "rank": 742
     },
     {
       "id": "plaveien__verb",
@@ -9188,7 +9164,7 @@
         "een bijdrage leveren om een gewenst doel te bereiken"
       ],
       "example": "Dat kán in principe de weg plaveien voor een verdere modelcarrière. Jurylid Zoey Ivory (24) uit Almere ‘schitterde’ bij eerdere edities van de loterijshow met de koffers nummer 4 en 9.",
-      "rank": 745
+      "rank": 743
     },
     {
       "id": "plengen__verb",
@@ -9200,7 +9176,7 @@
         "een traan ~: huilen"
       ],
       "example": "Bij het afscheid plengt hij een traantje.",
-      "rank": 746
+      "rank": 744
     },
     {
       "id": "pletsen__verb",
@@ -9213,7 +9189,7 @@
         "slaan en zo een hoog geluid produceren"
       ],
       "example": "Bokshandschoenen pletsen op zware bokszakken, die rinkelen aan hun kettingen. Tientallen boksers, van fluo meisjes tot kolossale oud-kampioenen, trainen ongestoord door alsof ze elke dag een Vlaams parlementslid in de ring zien staan.",
-      "rank": 747
+      "rank": 745
     },
     {
       "id": "ploffen__verb",
@@ -9227,7 +9203,7 @@
         "een geluid voortbrengend van zich ergens in laten vallen"
       ],
       "example": "Ploffend en knallend reed de antieke auto door de straat.",
-      "rank": 748
+      "rank": 746
     },
     {
       "id": "ploggen__verb",
@@ -9240,7 +9216,7 @@
         "het tegelijk joggen en vuil rapen"
       ],
       "example": "De essentie van ploggen is het vastleggen van een fotodagboek.",
-      "rank": 749
+      "rank": 747
     },
     {
       "id": "plompen__verb",
@@ -9254,7 +9230,7 @@
         "iets wat geroofd is laten verdwijnen en/of vernietigen"
       ],
       "example": "Het afvalwater werd in de sloot geplompt.",
-      "rank": 750
+      "rank": 748
     },
     {
       "id": "popelen__verb",
@@ -9266,7 +9242,7 @@
         "Iets zo graag willen dat je hart bonst en je niet stil kunt blijven staan."
       ],
       "example": "Hij staat te popelen om zijn vrouw te kussen.",
-      "rank": 751
+      "rank": 749
     },
     {
       "id": "pressen__verb",
@@ -9283,7 +9259,7 @@
         "krachtig tegen zich aandrukken"
       ],
       "example": "Wij, mannen, zijn stom, bekrompen, achterlijk genoeg, ons nog in harnassen te pressen.",
-      "rank": 752
+      "rank": 750
     },
     {
       "id": "priegelen__verb",
@@ -9295,7 +9271,7 @@
         "Een heel moeilijk, fijn mechanisch werkje verrichten"
       ],
       "example": "Hij priegelde net zo lang aan zijn horloge todat het weer liep.",
-      "rank": 753
+      "rank": 751
     },
     {
       "id": "priemen__verb",
@@ -9307,7 +9283,7 @@
         "met een priem steken, doorboren"
       ],
       "example": "Hij heeft wat extra gaatjes in de riem gepriemd.",
-      "rank": 754
+      "rank": 752
     },
     {
       "id": "pruilen__verb",
@@ -9320,7 +9296,7 @@
         "droevig zijn zonder geluid te maken"
       ],
       "example": "Ondertussen zat Jan Peumans nog steeds in een hoekje te pruilen, gekwetst door de miskenning van zijn komische talenten.",
-      "rank": 755
+      "rank": 753
     },
     {
       "id": "pruttelen__verb",
@@ -9333,7 +9309,7 @@
         "geluidjes maken met name binnensmonds mopperen of mompelen (morren)"
       ],
       "example": "Ontspannen lag hij op zijn matje met een pruttelend potje aardappelpuree op zijn gasbrander.",
-      "rank": 756
+      "rank": 754
     },
     {
       "id": "puberen__verb",
@@ -9345,7 +9321,7 @@
         "het opstandige gedrag van jongeren tegenover de gevestigde orde en andere verschijnselen die ontstaan door de hormonen"
       ],
       "example": "Mijn zoon van 12 was eind vorig schooljaar druk met de musical van groep 8 én met puberen. Dat puberen zorgde ervoor dat er niet zoveel meer gedeeld werd met me op het gebied van veranderingen en meisjes.",
-      "rank": 757
+      "rank": 755
     },
     {
       "id": "rakelen__verb",
@@ -9357,7 +9333,7 @@
         "door het vuur heen en weer poken"
       ],
       "example": "Hij rakelde wat en voegde nog wat briketten toe om het vuur niet uit te laten gaan.",
-      "rank": 758
+      "rank": 756
     },
     {
       "id": "rammelen__verb",
@@ -9373,7 +9349,7 @@
         "door elkaar ~ schudden"
       ],
       "example": "De deur rammelt.",
-      "rank": 759
+      "rank": 757
     },
     {
       "id": "rampetampen__verb",
@@ -9386,7 +9362,7 @@
         "ergens heel hard voor moeten werken"
       ],
       "example": "Bobbi: \"Het is nog steeds een soort taboe dat de seks na het krijgen van kinderen een tijdje minder is, maar het is heel normaal. Juist omdat mensen over Mark en mij denken dat we de hele tijd liggen te rampetampen, is het een goeie grap.",
-      "rank": 760
+      "rank": 758
     },
     {
       "id": "ranselen__verb",
@@ -9398,7 +9374,7 @@
         "iemand met een stok of karwats een pak slaag geven"
       ],
       "example": "Zij werden nog enige tijd genadeloos geranseld.",
-      "rank": 761
+      "rank": 759
     },
     {
       "id": "ratelen__verb",
@@ -9410,7 +9386,7 @@
         "harde korte geluiden maken"
       ],
       "example": "De ijzeren wielen van de koets ratelden over de kinderkopjes van de straat.",
-      "rank": 762
+      "rank": 760
     },
     {
       "id": "rausjen__verb",
@@ -9423,7 +9399,7 @@
         "snel en onbeheerst rijden; wild tekeergaan"
       ],
       "example": "Met het thema ‘Amsterdamse dieren’ wil Loorbach kinderen stimuleren naar buiten te gaan en „lekker in de natuur te rausjen”. „Stadskinderen zitten veel binnen, ze zien veel beton en mogen vaak nauwelijks alleen buiten spelen.",
-      "rank": 763
+      "rank": 761
     },
     {
       "id": "ravotten__verb",
@@ -9435,7 +9411,7 @@
         "op een gezellige vriendschappelijke wijze met elkaar vechten zonder elkaar te verwonden"
       ],
       "example": "Het huis waar zijn kinderen afgelopen week ook voor het eerst twee nachtjes sliepen. ,,Ze liepen al te ravotten in de tuin. Het is fijn dat ze nu een vaste plek hebben.\"",
-      "rank": 764
+      "rank": 762
     },
     {
       "id": "rebbelen__verb",
@@ -9447,7 +9423,7 @@
         "druk en weinig verstaanbaar of structuurloos praten"
       ],
       "example": "Er werd op de kade druk Italiaans gerebbeld.",
-      "rank": 765
+      "rank": 763
     },
     {
       "id": "reeuwen__verb",
@@ -9459,7 +9435,7 @@
         "het lichaam van een overledene verzorgen"
       ],
       "example": "De doden werden gereeuwd en in de kist gelegd.",
-      "rank": 766
+      "rank": 764
     },
     {
       "id": "reutelen__verb",
@@ -9473,7 +9449,7 @@
         "zaniken en zeuren"
       ],
       "example": "Toen de vrouw vredig lag te reutelen, klom ik eruit. Tijd voor het betere inleidwerk. Wat we ervan opsteken is dat de cv-ketel het 's nachts niet doet. Toch kwam de opening soepeltjes tot stand.",
-      "rank": 767
+      "rank": 765
     },
     {
       "id": "rijmelen__verb",
@@ -9485,7 +9461,7 @@
         "slechte gedichten maken"
       ],
       "example": "Het tijdperk, waarin hij rijmelt, duurt lang; toen hij betere verzen schreef was het klaarblijkelijk onder invloed van zijn omgeving.",
-      "rank": 768
+      "rank": 766
     },
     {
       "id": "rochelen__verb",
@@ -9497,7 +9473,7 @@
         "hoorbaar slijm in beweging brengen met de adem"
       ],
       "example": "Er werd wat gerocheld en gekucht, maar verder was het stil.",
-      "rank": 769
+      "rank": 767
     },
     {
       "id": "roekoeken__verb",
@@ -9510,7 +9486,7 @@
         "proberen de liefde van een meisje te winnen"
       ],
       "example": "'De mus' verschijnt vandaag als cd-single. Tom America maakte de muziek bij Hanlo's tekst. America tjielpt, twintigmaal en meer, gesteund door merelende gitaren en klapwiekende bassen die de laatste mistflarden roekoeken.",
-      "rank": 770
+      "rank": 768
     },
     {
       "id": "roetsjen__verb",
@@ -9522,7 +9498,7 @@
         "snel ergens vanaf glijden"
       ],
       "example": "Wil je nog naam maken, dan kan je maar beter een set ski’s meenemen op de Everest, en geen zuurstof, en helemaal van de top naar beneden roetsjen",
-      "rank": 771
+      "rank": 769
     },
     {
       "id": "roezemoezen__verb",
@@ -9534,7 +9510,7 @@
         "druk gepraat van vele mensen dat vanaf een afstand niet verstaanbaar is"
       ],
       "example": "De Miradoura trekt een gemengde groep van autochtonen en toeristen, wiens gesprekken zachtjes roezemoezen boven hun koele biertjes.",
-      "rank": 772
+      "rank": 770
     },
     {
       "id": "roffelen__verb",
@@ -9546,7 +9522,7 @@
         "snel, ritmisch ergens op slaan zodat er een tikkend geluid ontstaat; snel op een trommel slaan om muziek te maken"
       ],
       "example": "Van klassiek op piano tot een lekker potje roffelen op een leeg olievat. Maar dat laatste wel onder leiding van de man, die overal muzikaal op kan roffelen: Golden Earringdrummer Cesar Zuiderwijk.",
-      "rank": 773
+      "rank": 771
     },
     {
       "id": "sappelen__verb",
@@ -9558,7 +9534,7 @@
         "hard werken om aan de kost te komen"
       ],
       "example": "Ze moesten sappelen om het hoofd boven water te houden.",
-      "rank": 774
+      "rank": 772
     },
     {
       "id": "schaften__verb",
@@ -9570,7 +9546,7 @@
         "het werk onderbreken om te eten"
       ],
       "example": "Laten we eerst maar even schaften.",
-      "rank": 775
+      "rank": 773
     },
     {
       "id": "schalmeien__verb",
@@ -9583,7 +9559,7 @@
         "hard blazen of luid klinken"
       ],
       "example": "Hoor het jonge bloed schalmeien, nu de bekers ledig zijn: zoeter min brengt zoeter pijn!",
-      "rank": 776
+      "rank": 774
     },
     {
       "id": "schminken__verb",
@@ -9595,7 +9571,7 @@
         "een gezicht beschilderen, overdreven make-up opdoen"
       ],
       "example": "Verkleed als paashaas schminkt ze op de kinderboerderij kinderen.",
-      "rank": 777
+      "rank": 775
     },
     {
       "id": "schnabbelen__verb",
@@ -9607,7 +9583,7 @@
         "extra geld verdienen met een bijbaantje"
       ],
       "example": "Journalisten en presentatoren van de KRO-NCRV mogen niet langer schnabbelen voor commerciële partijen of de overheid als die bijbaantjes strijdig kunnen zijn met hun onafhankelijke journalistieke omroepwerk.",
-      "rank": 778
+      "rank": 776
     },
     {
       "id": "schooien__verb",
@@ -9619,7 +9595,7 @@
         "iets vragen zonder iets terug te willen geven"
       ],
       "example": "Uit het artikel People at zoos: the sociological approach blijkt dat bezoekers van dierenparken vrijwel uitsluitend geïnteresseerd zijn in dieren die: om eten vragen, schooien; eten; pas geboren zijn; geluid maken; of menselijk gedrag",
-      "rank": 779
+      "rank": 777
     },
     {
       "id": "schranken__verb",
@@ -9632,7 +9608,7 @@
         "veranderen van rijstrook"
       ],
       "example": "Om het scheef zakken of schranken van de kap tegen te gaan zijn onder tegen de sporen gewoonlijk schuinoplopende sporenschrankhouten aangebracht.",
-      "rank": 780
+      "rank": 778
     },
     {
       "id": "schransen__verb",
@@ -9644,7 +9620,7 @@
         "met graagte en veel eten"
       ],
       "example": "Er werd flink geschranst toen zij de hutspot op tafel gezet had.",
-      "rank": 781
+      "rank": 779
     },
     {
       "id": "schrompelen__verb",
@@ -9656,7 +9632,7 @@
         "rimpelig worden door verlies aan inhoud"
       ],
       "example": "De ballon was helemaal geschrompeld van de extreme koude.",
-      "rank": 782
+      "rank": 780
     },
     {
       "id": "schrooien__verb",
@@ -9672,7 +9648,7 @@
         "zijwaarts afwijken of afglijden"
       ],
       "example": "Die schoenen moeten nog geschrooid worden.",
-      "rank": 783
+      "rank": 781
     },
     {
       "id": "schuifelen__verb",
@@ -9685,7 +9661,7 @@
         "zich door de voeten kleine afstanden over de vloer te schuiven voortbewegen"
       ],
       "example": "Hij was in het pikkedonker naar de andere kant van de grot geschuifeld.",
-      "rank": 784
+      "rank": 782
     },
     {
       "id": "siepelen__verb",
@@ -9697,7 +9673,7 @@
         "van water, bloed e.d. geleidelijk doordringen, langzaam vloeien"
       ],
       "example": "Waarschijnlijk siepelde in bepaalde gedeelten het water zelfs een beetje diffuus door het veen heen.",
-      "rank": 785
+      "rank": 783
     },
     {
       "id": "sijpelen__verb",
@@ -9709,7 +9685,7 @@
         "een proces waarbij een vloeistof zich door de kieren en poriën van een vaste massa heen begeeft"
       ],
       "example": "Er is veel water door de muur gesijpeld.",
-      "rank": 786
+      "rank": 784
     },
     {
       "id": "slammen__verb",
@@ -9724,7 +9700,7 @@
         "op een rappende manier een gedicht voordragen"
       ],
       "example": "In de folder 'Slammen do's & don'ts' wordt praktische informatie gegeven over 'slammen', het injecteren van drugs. De stichting geeft advies over veiliger gebruik om zo de gezondheidsschade te beperken.",
-      "rank": 787
+      "rank": 785
     },
     {
       "id": "slempen__verb",
@@ -9738,7 +9714,7 @@
         "geulen met zand en water vullen zodat het zand goed aaneensluit"
       ],
       "example": "Nadat Jan rijk werd teerde hij zijn dagen met slempen.",
-      "rank": 788
+      "rank": 786
     },
     {
       "id": "sleunen__verb",
@@ -9750,7 +9726,7 @@
         "uitdunnen door takken te verwijderen"
       ],
       "example": "⧖ Maar hadde men de beide boomen goed of volgens het nagejaagde doel gesleund, geen twijfel of de waarde van den eerste zoowel als die van den tweede, zou er oneindig veel bij gewonnen hebben.",
-      "rank": 789
+      "rank": 787
     },
     {
       "id": "sleuren__verb",
@@ -9762,7 +9738,7 @@
         "moeizaam of gewelddadig (mee)slepen."
       ],
       "example": "De trein sleurde de vrachtwagen honderden meters over het spoor.",
-      "rank": 790
+      "rank": 788
     },
     {
       "id": "sleuven__verb",
@@ -9774,7 +9750,7 @@
         "voorzien van een langgerekte groef"
       ],
       "example": "De totale oppervlakte van het te sleuven onderzoeksgebied bedraagt 16459 m².",
-      "rank": 791
+      "rank": 789
     },
     {
       "id": "slijzen__verb",
@@ -9786,7 +9762,7 @@
         "in plakken snijden"
       ],
       "example": "De rundvlees in de rum inleggen en soja saus.Deze 15 minuten laten marineren. De uien en tomaten slijzen. De aardappel schil;len en in schijven bakken inde friteuze,.(Sla en tomaten rauw er bij reserveren).",
-      "rank": 792
+      "rank": 790
     },
     {
       "id": "slinken__verb",
@@ -9800,7 +9776,7 @@
         "geleidelijk verdwijnen, wegdeemsteren"
       ],
       "example": "De kracht van de tegenstanders slinkt zienderogen.",
-      "rank": 793
+      "rank": 791
     },
     {
       "id": "sloeren__verb",
@@ -9813,7 +9789,7 @@
         "laten ~: verwaarlozen, veronachtzamen"
       ],
       "example": "⧖ De kerk van Amsterdam was echter in verzuim gebleven en in '89 had de N.-Hollandsche Synode verklaard, dat er h. i. nog geen Nationale Synode noodig was! Nu bleef de zaak sloeren.",
-      "rank": 794
+      "rank": 792
     },
     {
       "id": "slooien__verb",
@@ -9825,7 +9801,7 @@
         "onzeker wankelend lopen, slenteren"
       ],
       "example": "Ze liepen halfdronken nog een tijdje te slooien.",
-      "rank": 795
+      "rank": 793
     },
     {
       "id": "sluizen__verb",
@@ -9838,7 +9814,7 @@
         "naar bepaalde bestemmingen doen gaan"
       ],
       "example": "Nederland is het belangrijkste land ter wereld voor multinationals om geld naar belastingparadijzen te sluizen.",
-      "rank": 796
+      "rank": 794
     },
     {
       "id": "slurpen__verb",
@@ -9850,7 +9826,7 @@
         "hoorbaar vloeistof tot zich nemen"
       ],
       "example": "Aan de kindertafel werd er geslurpt en gesmakt dat het een lieve lust was.",
-      "rank": 797
+      "rank": 795
     },
     {
       "id": "smakken__verb",
@@ -9864,7 +9840,7 @@
         "een klappend geluid met de mond maken bij gretig eten of zoenen"
       ],
       "example": "De maaltijd was zo lekker, dat de jongens hem smakkend verorberden.",
-      "rank": 798
+      "rank": 796
     },
     {
       "id": "smarten__verb",
@@ -9876,7 +9852,7 @@
         "leed of pijn berokkenen"
       ],
       "example": "Het smart mij.",
-      "rank": 799
+      "rank": 797
     },
     {
       "id": "smikkelen__verb",
@@ -9888,7 +9864,7 @@
         "met smaak en genoegen eten"
       ],
       "example": "Er werd gesmikkeld en gesmuld van de overheerlijke witte chocoladevlokken.",
-      "rank": 800
+      "rank": 798
     },
     {
       "id": "smokken__verb",
@@ -9900,7 +9876,7 @@
         "kleine plooitjes in een stof leggen en deze met allerlei siersteken vastzetten"
       ],
       "example": "Deze satijnen handschoenen zijn smokken.",
-      "rank": 801
+      "rank": 799
     },
     {
       "id": "smotsen__verb",
@@ -9912,7 +9888,7 @@
         "modderen, rommelen, kliederen, morsig doen"
       ],
       "example": "Er werd door de kinderen heerlijk gesmotst en gekliederd.",
-      "rank": 802
+      "rank": 800
     },
     {
       "id": "smurfen__verb",
@@ -9924,7 +9900,7 @@
         "plaatsvervanger voor ieder ander willekeurige werkwoord"
       ],
       "example": "Is het je nou nog gelukt om dat ding te smurfen?",
-      "rank": 803
+      "rank": 801
     },
     {
       "id": "snabbelen__verb",
@@ -9938,7 +9914,7 @@
         "snel maar onverstaanbaar spreken"
       ],
       "example": "Bij het biertje ook nog wat om te snabbelen ernaast.",
-      "rank": 804
+      "rank": 802
     },
     {
       "id": "snakken__verb",
@@ -9951,7 +9927,7 @@
         "heftig naar iets verlangen, veelal na ontbering ervan"
       ],
       "example": "Na die lange duik kwam zij snakkend boven.",
-      "rank": 805
+      "rank": 803
     },
     {
       "id": "snauwen__verb",
@@ -9963,7 +9939,7 @@
         "iemand op geïrriteerde toon kortaf toespreken"
       ],
       "example": "De boze leraar snauwde tegen de leerlingen die alweer hun huiswerk niet hadden gemaakt.",
-      "rank": 806
+      "rank": 804
     },
     {
       "id": "snerpen__verb",
@@ -9976,7 +9952,7 @@
         "een erge, scherpe pijn veroorzaken"
       ],
       "example": "In het huis snerpt een stem, de herkenning ervan doet hem huiveren. Er vallen klappen, iets zwaars — zijn vader, neemt hij aan — slaat als een zak aardappelen tegen de grond.",
-      "rank": 807
+      "rank": 805
     },
     {
       "id": "snierken__verb",
@@ -9989,7 +9965,7 @@
         "boven een vuurtje roosteren"
       ],
       "example": "Sommige kleuters snierken dat je nekharen ervan overeind gaan staan.",
-      "rank": 808
+      "rank": 806
     },
     {
       "id": "sniffelen__verb",
@@ -10001,7 +9977,7 @@
         "herhaaldelijk een licht snuivend geluid maken, om te ruiken of als gevolg van verkoudheid of verdriet"
       ],
       "example": "... overal was dan het sniffelen, wenen en snotteren te horen...",
-      "rank": 809
+      "rank": 807
     },
     {
       "id": "sniffen__verb",
@@ -10015,7 +9991,7 @@
         "aandachtig ruiken"
       ],
       "example": "Niezen, sniffen, snuiten, hoesten. De tijd is er weer voor. En dus is het tijd voor wat grieppreventie. Want hoe voorkom je die nare griep?",
-      "rank": 810
+      "rank": 808
     },
     {
       "id": "snoezelen__verb",
@@ -10027,7 +10003,7 @@
         "combinatie van knuffelen en dommelen"
       ],
       "example": "Om zeven uur mag je me komen wekken. Of, om zeven uur mag je nog even lekker bij me komen snoezelen. Want dat soort momenten moet je natuurlijk wel blijven koesteren zolang het kan!\"",
-      "rank": 811
+      "rank": 809
     },
     {
       "id": "snoozen__verb",
@@ -10039,7 +10015,7 @@
         "in bed blijven liggen nadat men al wakker is geworden"
       ],
       "example": "Sta zo snel mogelijk op als de wekker is gegaan, is de eerste tip. \"Dus niet snoozen, want daarmee verleng je de tijd die je in bed ligt zonder dat je 'echt' slaapt\", zegt slaapexpert Boss.",
-      "rank": 812
+      "rank": 810
     },
     {
       "id": "snorken__verb",
@@ -10052,7 +10028,7 @@
         "pochen, opscheppen"
       ],
       "example": "Verdachte laat zien hoe hij met de vlakke linkerhand het T-shirt tegen het lichaam drukte. Het shirt was niet gevouwen of op een prop. “Ik heb een paar keer horen snorken, toen hield het op.",
-      "rank": 813
+      "rank": 811
     },
     {
       "id": "snuiven__verb",
@@ -10064,7 +10040,7 @@
         "sterk door de neus inademen (om te ruiken)"
       ],
       "example": "En daarom was hij de eerste die merkte dat het witte paard van Sinterklaas zo raar stond te hijgen en te snuiven.",
-      "rank": 814
+      "rank": 812
     },
     {
       "id": "soebatten__verb",
@@ -10077,19 +10053,7 @@
         "langdurig discussiëren"
       ],
       "example": "Winkelcentrum Beijum Oost gold ooit als een broeinest van overlast en criminaliteit. Na jaren soebatten werd vorig jaar 2,5 miljoen euro geïnvesteerd in een fikse opknapbeurt.",
-      "rank": 815
-    },
-    {
-      "id": "spammen__verb",
-      "word": "spammen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "het op grote schaal verspreiden van ongevraagde e-mails"
-      ],
-      "example": "Studente Rowena Pareja (23) uit Almelo krijgt dagelijks dreigbrieven en ongefrankeerde postpakketten toegestuurd omdat ze beleggingsadviezen zou spammen per fax.",
-      "rank": 816
+      "rank": 813
     },
     {
       "id": "sparren__verb",
@@ -10101,7 +10065,7 @@
         "informeel met iemand overleggen over voors en tegens van mogelijke oplossingen"
       ],
       "example": "Docenten zijn vaak nog in de avonduren werk aan het nakijken, waarover ze misschien willen sparren met collega’s.",
-      "rank": 817
+      "rank": 814
     },
     {
       "id": "spartelen__verb",
@@ -10113,7 +10077,7 @@
         "wilde bewegingen maken met armen en benen, gewoonlijk om zich ergens van te bevrijden"
       ],
       "example": "De gevangen vis spartelde nog wat aan de haak, maar gaf snel de strijd op.",
-      "rank": 818
+      "rank": 815
     },
     {
       "id": "spatelen__verb",
@@ -10125,7 +10089,7 @@
         "het voorzichtig door elkaar scheppen van twee of meer producten met behulp van een spatel"
       ],
       "example": "Een kleingesneden banaan en drie eetlepels gemalen kokos door het beslag spatelen.",
-      "rank": 819
+      "rank": 816
     },
     {
       "id": "sperren__verb",
@@ -10138,7 +10102,7 @@
         "blokkeren, afsluiten"
       ],
       "example": "De beide dieren sperren hun muil wijd open.",
-      "rank": 820
+      "rank": 817
     },
     {
       "id": "speuren__verb",
@@ -10150,7 +10114,7 @@
         "grondig en zorgvuldig zoeken"
       ],
       "example": "Vrijwilligers speurden in het bos naar het lichaam van de vermiste man.",
-      "rank": 821
+      "rank": 818
     },
     {
       "id": "spijzigen__verb",
@@ -10162,7 +10126,7 @@
         "van een maaltijd voorzien"
       ],
       "example": "Zij werden er gespijzigd en gelaafd.",
-      "rank": 822
+      "rank": 819
     },
     {
       "id": "spinzen__verb",
@@ -10174,7 +10138,7 @@
         "loeren om iets te kunnen krijgen"
       ],
       "example": "Van Hanegem benadrukte op de golfbaan dat hij helemaal geen interesse heeft in een plek in de technische staf. 'Ik heb Mario verzekerd dat ik nergens op zit te spinzen.",
-      "rank": 823
+      "rank": 820
     },
     {
       "id": "spoeden__verb",
@@ -10187,7 +10151,7 @@
         "met grote haast handelen"
       ],
       "example": "Ze minachten zelfs hun eigen gemeenschappelijke Europese instellingen - behalve wanneer ze zelf mogen komen bedelen om centen, waarmee ze zich schaamteloos van Brussel naar huis spoeden om daar te spuwen in de hand die hen voedt.",
-      "rank": 824
+      "rank": 821
     },
     {
       "id": "spoilen__verb",
@@ -10199,7 +10163,7 @@
         "verraden van de plot van een boek of film en zo het plezier van de lezer of de kijker verpesten"
       ],
       "example": "\"Nee, nee, nee! Niet spoilen!\" Met haar handen bedekt een collega haar oren nadat het woord Game of Thrones is gevallen bij de koffieautomaat. Gisteravond is de nieuwe Game of Thrones-aflevering in de Verenigde Staten uitgezonden.",
-      "rank": 825
+      "rank": 822
     },
     {
       "id": "sponsoren__verb",
@@ -10211,7 +10175,7 @@
         "als sponsor fungeren voor iets of iemand"
       ],
       "example": "Hij sponsort met vijftien andere bedrijven het evenement.",
-      "rank": 826
+      "rank": 823
     },
     {
       "id": "sprankelen__verb",
@@ -10224,7 +10188,7 @@
         "overdrachtelijk een schitterende rol spelen, bruisend leven"
       ],
       "example": "De champagne bruiste en sprankelde en zij stootten nog eens aan.",
-      "rank": 827
+      "rank": 824
     },
     {
       "id": "sprengen__verb",
@@ -10237,7 +10201,7 @@
         "met zout bestrooien, pekelen"
       ],
       "example": "Evenwel kon niemand behalve de priester de offerande opofferen, door het bloed te nemen en het rondom over de altaar te sprengen (Leviticus 1:1-5).",
-      "rank": 828
+      "rank": 825
     },
     {
       "id": "sprinten__verb",
@@ -10250,19 +10214,7 @@
         "een kort stuk hard ergens heen rennen"
       ],
       "example": "Er werd die middag niet gesprint omdat het hard regende.",
-      "rank": 829
-    },
-    {
-      "id": "sproeien__verb",
-      "word": "sproeien",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "een vloestof in fijne druppeltjes op iets spuiten"
-      ],
-      "example": "Ik heb de rozen even gesproeid.",
-      "rank": 830
+      "rank": 826
     },
     {
       "id": "sprokkelen__verb",
@@ -10275,7 +10227,7 @@
         "kleine beetjes of waren vergaren bij anderen zonder tegenprestatie of betaling"
       ],
       "example": "Er waren vrij veel stronken en takken gesprokkeld en het vuur brandde de hele nacht en hield de kampeerders warm.",
-      "rank": 831
+      "rank": 827
     },
     {
       "id": "spruiten__verb",
@@ -10287,7 +10239,7 @@
         "~ uit: voortkomen of voortvloeien uit"
       ],
       "example": "Dit spruit uit zijn verlangen beroemd te worden.",
-      "rank": 832
+      "rank": 828
     },
     {
       "id": "stijfselen__verb",
@@ -10299,7 +10251,7 @@
         "kleverig maken door besmeren met een geconcentreerde zetmeeloplossing"
       ],
       "example": "Noland schrijft kleine komische scènes, waarin veel mis gaat en die soms het \"de Dikke en de Dunne'-gevoel oproepen. Tijdens verwoede behangselwerkzaamheden stijfselen Vos en Konijn Kips feestjurk aan de muur.",
-      "rank": 833
+      "rank": 829
     },
     {
       "id": "stippelen__verb",
@@ -10311,7 +10263,7 @@
         "van een reeks punten of vlekken voorzien"
       ],
       "example": "Hij had een kant van de tekening gestippeld en de andere gearceerd.",
-      "rank": 834
+      "rank": 830
     },
     {
       "id": "stippen__verb",
@@ -10323,7 +10275,7 @@
         "voorzien van puntvormiɡe markerinɡen of versierinɡen"
       ],
       "example": "Zij verstond ook de kunst van op het glas te stippen of te drillen, en behandelde met veel talent het graveerijzer.",
-      "rank": 835
+      "rank": 831
     },
     {
       "id": "stoefen__verb",
@@ -10335,7 +10287,7 @@
         "pochen, opscheppen, snoeven, pralen"
       ],
       "example": "„En nóg een verschil: wij Belgen zijn minder fier op ons design. Hollanders stoefen meer. En met opscheppen en brutaal zijn geraak je verder. Kijk maar naar de nieuwe grote gebouwen hier.",
-      "rank": 836
+      "rank": 832
     },
     {
       "id": "stouwen__verb",
@@ -10348,7 +10300,7 @@
         "iets anders dan goederen ergens opbergen"
       ],
       "example": "Om maar te zeggen: wie zelf geen half miljoen op een effectenrekening kon stouwen, moet daarom niet minder deernis opbrengen voor wie daarop wel dat nieuwe taksje moet betalen.",
-      "rank": 837
+      "rank": 833
     },
     {
       "id": "striemen__verb",
@@ -10360,7 +10312,7 @@
         "slaan met rode strepen tot gevolg"
       ],
       "example": "Op de wilde rit door het struikgewas werd hij gestriemd door de zwiepende takken.",
-      "rank": 838
+      "rank": 834
     },
     {
       "id": "strompelen__verb",
@@ -10372,7 +10324,7 @@
         "gebrekkig lopen, lopen terwijl je het eigenlijk bijna niet meer kan, struikelend lopen"
       ],
       "example": "Als je Feyenoord zo ziet strompelen ontstaat het beeld dat de ploeg in de beginfase van de competitie boven zijn stand heeft geleefd - als koploper vanaf dag één, met het verwachtingspatroon (de hunkering naar ‘de Coolsingel’) dat is",
-      "rank": 839
+      "rank": 835
     },
     {
       "id": "stuiken__verb",
@@ -10384,7 +10336,7 @@
         "door een stoot neervallen"
       ],
       "example": "Wat een leed toch. Vanaf de start van de Tour in Rotterdam stuiken de renners als vliegende dakpannen ten gronde. Iedereen valt. Het lijkt wel de Tour Epilepsie.",
-      "rank": 840
+      "rank": 836
     },
     {
       "id": "suizelen__verb",
@@ -10396,7 +10348,7 @@
         "een zacht suizend of ruisend geluid maken"
       ],
       "example": "De tornado was voorbij en er was alleen het suizelen van een zachte stilte.",
-      "rank": 841
+      "rank": 837
     },
     {
       "id": "taffelen__verb",
@@ -10408,7 +10360,7 @@
         "langzaam lopen, strompelen, kuieren"
       ],
       "example": "‘Het leek alsof onze verdediging elke week stond te taffelen, maar als je ziet dat er van tien tegengoals slechts vier velddoelpunten bij zijn, is dat een heel ander verhaal.",
-      "rank": 842
+      "rank": 838
     },
     {
       "id": "takelen__verb",
@@ -10420,7 +10372,7 @@
         "het ophijsen met een takel"
       ],
       "example": "De beeldenpartij boven de ingang van De Holland in Dordrecht is vrijdagmorgen van het gebouw getakeld.",
-      "rank": 843
+      "rank": 839
     },
     {
       "id": "taseren__verb",
@@ -10432,7 +10384,7 @@
         "neerschieten door een stroomstootwapen"
       ],
       "example": "Braziliaanse student dood na 14 keer taseren",
-      "rank": 844
+      "rank": 840
     },
     {
       "id": "teemsen__verb",
@@ -10444,7 +10396,7 @@
         "door zeven reinigen, gewoonlijk van melk of meel"
       ],
       "example": "Wie de melk in den stal teemst, houdt ze daar langer dan noodig is, waardoor er meer stofdeelen in kunnen komen …",
-      "rank": 845
+      "rank": 841
     },
     {
       "id": "tengelen__verb",
@@ -10458,7 +10410,7 @@
         "branden, prikken"
       ],
       "example": "Als je pech hebt zijn de rachels rot, maar zelfs de grootste idioot kan rachelen. En dan gewoon kops tengelen, gipsplaat schraag tegen je latteien nieten en even taps dichtkitten. Wat is er, huil je?'",
-      "rank": 846
+      "rank": 842
     },
     {
       "id": "tikkelen__verb",
@@ -10471,7 +10423,7 @@
         "herhaaldelijk tikken laten horen"
       ],
       "example": "Een grasspriet tikkelde aan tegen haar neus, een vlieg mafte rustig op haar koon.",
-      "rank": 847
+      "rank": 843
     },
     {
       "id": "tingelen__verb",
@@ -10484,7 +10436,7 @@
         "tengels aanbrengen op een muur als voorbereiding op het aanbrengen van behang"
       ],
       "example": "Bakkers en slagers rijden die dag weer op een transportfiets met voorop een mand en een bel die veel lijkt op een dingdong in de hal. Trams tingelen kerkklokken luiden.",
-      "rank": 848
+      "rank": 844
     },
     {
       "id": "tinkelen__verb",
@@ -10497,7 +10449,7 @@
         "een soort toveren"
       ],
       "example": "Het boek Wiplala Weer is de tweede kinderroman die Annie M.G. Schmidt schreef over de vriendschap tussen de oer-Hollandse familie Blom en het piepkleine mannetje Wiplala dat kan 'tinkelen', een soort toveren.",
-      "rank": 849
+      "rank": 845
     },
     {
       "id": "tippelen__verb",
@@ -10511,7 +10463,7 @@
         "lopen, wandelen (met korte, vlugge pasjes)"
       ],
       "example": "Jezus zei tot zijn discipelen: Wie niet fietsen kan moet maar tippelen",
-      "rank": 850
+      "rank": 846
     },
     {
       "id": "tjilpen__verb",
@@ -10523,7 +10475,7 @@
         "geluid maken zoals kleine vogeltjes doen"
       ],
       "example": "Wat moet Somberman doen in zijn strijd tegen de vogels? Hun gekwetter, hun getjilp, hun zingen? Er zijn gewoon te veel vogels. Hij stopt zijn oren vol proppen. Maar nu ziet hij de vogels nog.",
-      "rank": 851
+      "rank": 847
     },
     {
       "id": "tjirpen__verb",
@@ -10535,7 +10487,7 @@
         "geluid dat krekels en sprinkhanen maken"
       ],
       "example": "In de grote stad of langs een snelweg is het lastig om naar een vrouwtje te tjirpen. Mannelijke sprinkhanen passen daarom hun lokroep aan het lawaai van het voortrazende verkeer aan.",
-      "rank": 852
+      "rank": 848
     },
     {
       "id": "tjompen__verb",
@@ -10547,7 +10499,7 @@
         "met een sprong naar een andere plaats gaan"
       ],
       "example": "Even aarzelde de boot, maar juist lang genoeg om de twee laatste schipbreukelingen de kans te bieden om van het levensgevaarlijke wrak, waar de stortzeën [sic!] onbelemmerd overheen sloegen, af te tjompen.",
-      "rank": 853
+      "rank": 849
     },
     {
       "id": "toespitsen__verb",
@@ -10559,7 +10511,7 @@
         "ruzies en conflicten erger maken dan ze al zijn"
       ],
       "example": "Journaliste Myriam Francois onderzoekt hoe bedrijven in het westen zich in toenemende mate ook toespitsen op islamitische consumenten. Is er toekomst voor halal fastfood, ramadanafdelingen in de supermarkt of een burkini in kledingzaken?",
-      "rank": 854
+      "rank": 850
     },
     {
       "id": "trappelen__verb",
@@ -10571,7 +10523,7 @@
         "enige tijd beide voeten om de beurt een stampende beweging laten maken"
       ],
       "example": "Rogge kneden was lastig en hij trappelde in de trog die op de grond stond totdat de deeg aaneenhing.",
-      "rank": 855
+      "rank": 851
     },
     {
       "id": "trekkebenen__verb",
@@ -10583,7 +10535,7 @@
         "mank lopen; bewegen met een stijf of pijnlijk been"
       ],
       "example": "De heelmeester ontbrandde in edele toorn, vroeg het believen van Willem, zette het been zoals de jeugdige aristocraat hem voorschreef, en het gevolg was dat Willem altoos trekkebenen ging en nooit meer paard kon rijden.",
-      "rank": 856
+      "rank": 852
     },
     {
       "id": "treuzelen__verb",
@@ -10597,7 +10549,7 @@
         "aarzelen om iets te gaan doen"
       ],
       "example": "Nadat iedereen filmend en fotograferend langs de pingpongtafel getrokken was, bleven ze allemaal met hun apparatuur in de aanslag staan treuzelen, blik op de gesloten zijdeur naast de rechterlijke desk gericht, alsof daar elk moment",
-      "rank": 857
+      "rank": 853
     },
     {
       "id": "trimmen__verb",
@@ -10611,7 +10563,7 @@
         "het regelen van drijfvermogen bij het duiken met behulp van een trimvest, om te zorgen dat het drijfvermogen van een duiker neutraal blijft en blijft zweven onder water. Men laat dan meer of minder lucht in het trimvest lopen om uit te balanceren."
       ],
       "example": "Zelf uw hond trimmen?",
-      "rank": 858
+      "rank": 854
     },
     {
       "id": "trippelen__verb",
@@ -10623,7 +10575,7 @@
         "met veel, zeer kleine pasjes bewegen"
       ],
       "example": "Met de pop in den arm komt zij in hare vuurroode schoentjes naar ons toe getrippeld.",
-      "rank": 859
+      "rank": 855
     },
     {
       "id": "trissen__verb",
@@ -10635,7 +10587,7 @@
         "voor de derde keer een studiejaar moeten overdoen (zittenblijven als je al bent blijven zitten)"
       ],
       "example": "Je tegenzin kan niet groter zijn: studeren! Terwijl je alleen maar wilt voetballen en plezier maken. Wat daarna gebeurt, is redelijk voorspelbaar: je moet bissen. Wat het jaar daarop gebeurt, is dat iets minder: je moet trissen.",
-      "rank": 860
+      "rank": 856
     },
     {
       "id": "troetelen__verb",
@@ -10647,7 +10599,7 @@
         "iemand liefkozend knuffelen"
       ],
       "example": "Zij worden niet getroeteld den dewijd [sic!] zij in koude heuvelachtige omgevingen zijn, hebben zij een hard gestel.",
-      "rank": 861
+      "rank": 857
     },
     {
       "id": "verachtvoudigen__verb",
@@ -10660,7 +10612,7 @@
         "achtmaal zo groot maken"
       ],
       "example": "De prijzen verachtvoudigden in die periode.",
-      "rank": 862
+      "rank": 858
     },
     {
       "id": "verbeuren__verb",
@@ -10672,7 +10624,7 @@
         "het recht op iets verliezen"
       ],
       "example": "Hij verbeurde daarmee zijn leven.",
-      "rank": 863
+      "rank": 859
     },
     {
       "id": "verbeuzelen__verb",
@@ -10684,7 +10636,7 @@
         "aan onbeduidende zaken verspillen"
       ],
       "example": "Hij verbeuzelde zijn tijd.",
-      "rank": 864
+      "rank": 860
     },
     {
       "id": "verboemelen__verb",
@@ -10696,7 +10648,7 @@
         "iets niet nuttig gebruiken"
       ],
       "example": "Het achtste gebod: Gij zult niet stelen: Sjoemel niet met declaraties, verboemel geen uren, bereken meer- en minderwerk correct.",
-      "rank": 865
+      "rank": 861
     },
     {
       "id": "verbruien__verb",
@@ -10709,7 +10661,7 @@
         "een goede relatie kapot maken door slecht gedrag"
       ],
       "example": "De Republikeinse partij heeft de stemmen van latino’s nodig. Maar de kandidaten verbruien het.",
-      "rank": 866
+      "rank": 862
     },
     {
       "id": "verdampen__verb",
@@ -10722,7 +10674,7 @@
         "in gas doen overgaan"
       ],
       "example": "In droge, koude gebieden zoals Colorado verdampt sneeuw eerder dan dat zij smelt.",
-      "rank": 867
+      "rank": 863
     },
     {
       "id": "verengen__verb",
@@ -10734,7 +10686,7 @@
         "nauwer maken; te nauw maken; smaller worden"
       ],
       "example": "Terwijl tegenstanders de discussie proberen te verengen tot de vraag die daadwerkelijk op tafel lag - 'ja' of 'nee' tegen dit verdrag met Oekraïne - tast PvdA-leider Diederik Samsom naar de motieven van de tegenstanders en hoe die recht",
-      "rank": 868
+      "rank": 864
     },
     {
       "id": "vergrauwen__verb",
@@ -10747,7 +10699,7 @@
         "minder kleurrijk worden; minder helder worden; grijzer en kleurlozer worden"
       ],
       "example": "Om vier uur hebben twee treinen ruim 1200 bezoekers aangevoerd. We kijken uit over het water, waar nevelflarden het eerste morgenlicht vergrauwen. Kerkklokken beieren in de verte, meeuwen scheren over het water.",
-      "rank": 869
+      "rank": 865
     },
     {
       "id": "verguizen__verb",
@@ -10759,7 +10711,7 @@
         "te schande maken, belachelijk maken, bekritiseren"
       ],
       "example": "Het verguizen van het onderzoek van Buikhuisen (naar de - inderdaad aanwezige - biologie van agressie) en de populariteit van het wetenschappelijk waardeloze onderzoek naar de - niet aangetoonde - effecten van opvoeding op het ontstaan van",
-      "rank": 870
+      "rank": 866
     },
     {
       "id": "verhakkelen__verb",
@@ -10772,7 +10724,7 @@
         "door verwarren iets bederven"
       ],
       "example": "Natuurlijk is Ronald Koeman een trainer van deze tijd. De betreurde Raymond Goethals was dat allang niet meer. Voor Raymundo was voetbal een soort koeterwaals: zwepen, dwepen, hakkelen, verhakkelen en winnen.",
-      "rank": 871
+      "rank": 867
     },
     {
       "id": "verhapstukken__verb",
@@ -10784,7 +10736,7 @@
         "in orde brengen, verwerken"
       ],
       "example": ",,Milika heeft de afgelopen jaren nogal wat te verhapstukken gehad op persoonlijk en medisch vlak. Ik heb daar begrip voor, wil haar alle ruimte geven. Elke relatie kent z’n dips.",
-      "rank": 872
+      "rank": 868
     },
     {
       "id": "verhippen__verb",
@@ -10798,7 +10750,7 @@
         "met kleine sprongetjes bewegen"
       ],
       "example": "De extreme metal is in de VS aardig aan het verhippen. Dat proces van muzikale gentrificatie voltrok zich al in de blackmetal bij bands als Deafheaven.",
-      "rank": 873
+      "rank": 869
     },
     {
       "id": "verkegelen__verb",
@@ -10810,7 +10762,7 @@
         "met kegelen doorbrengen"
       ],
       "example": "Ze verkegelden die hele middag.",
-      "rank": 874
+      "rank": 870
     },
     {
       "id": "verkerven__verb",
@@ -10822,7 +10774,7 @@
         "ervoor zorgen dat iets wat aanvankelijk goed was, nu slecht en lelijk is"
       ],
       "example": "'Maar daar wou ik het nu niet over hebben' keert als een refrein gedurig terug in het eerste deel van de vertelling. Een schrijver die zo begint, moet al heel lelijk doen om het bij mij nog te verkerven",
-      "rank": 875
+      "rank": 871
     },
     {
       "id": "verkneukelen__verb",
@@ -10834,7 +10786,7 @@
         "stilletjes in je vuistje lachen, vaak uit leedvermaak"
       ],
       "example": "Hij verkneukelde zich al om de verbazing die zijn komst zou veroorzaken.",
-      "rank": 876
+      "rank": 872
     },
     {
       "id": "verkondigen__verb",
@@ -10846,7 +10798,7 @@
         "bekend maken en sterk aanbevelen gewoonlijk aan een groep of menigte"
       ],
       "example": "Nationalistische politici verkondigden na de Ierse onafhankelijkheid (1921) het ideaal van een homogene Ierse bevolking.",
-      "rank": 877
+      "rank": 873
     },
     {
       "id": "verkroppen__verb",
@@ -10858,7 +10810,7 @@
         "iets onaangenaams zonder verweer verwerken"
       ],
       "example": "Wat hij in die tijd allemaal te verkroppen kreeg is moeilijk voorstelbaar.",
-      "rank": 878
+      "rank": 874
     },
     {
       "id": "verkruimelen__verb",
@@ -10872,7 +10824,7 @@
         "helemaal vernietigen"
       ],
       "example": "Ze verkruimelde wat geroosterd brood en paneerde het vlees ermee.",
-      "rank": 879
+      "rank": 875
     },
     {
       "id": "verloden__verb",
@@ -10885,7 +10837,7 @@
         "voorzien van een loodlaag"
       ],
       "example": "Febiac wijst erop dat de begrenzers beveiligd worden door ze te verloden of via elektronische weg, en dat enkel gemachtigde constructeurs-installateurs via een persoonlijke code toegang hebben tot de afgestelde begrenzers.",
-      "rank": 880
+      "rank": 876
     },
     {
       "id": "verlummelen__verb",
@@ -10897,7 +10849,7 @@
         "door niets doen de tijd niet nuttig gebruiken"
       ],
       "example": "Voor de draad ermee. Het is nu zaterdag 21 februari, dus vertel maar hoe het staat met de goede voornemens. Succesvol gestopt met roken, drinken, snoepen en tijd verlummelen? Ik mag het hopen.",
-      "rank": 881
+      "rank": 877
     },
     {
       "id": "verlustigen__verb",
@@ -10909,7 +10861,7 @@
         "plezier beleven door naar iets te kijken"
       ],
       "example": "Met het maken van de beelden heeft de verdachte de meisjes \"in al hun naaktheid en kwetsbaarheid gefilmd, de films bewerkt en zich aan de beelden verlustigd\", zo stelde de aanklager.",
-      "rank": 882
+      "rank": 878
     },
     {
       "id": "vermeien__verb",
@@ -10921,7 +10873,7 @@
         "zich ontspannen, relaxen (vaak in de natuur)"
       ],
       "example": "U vermeit zich straks in bos of duin of misschien wel aan het strand.",
-      "rank": 883
+      "rank": 879
     },
     {
       "id": "vermolmen__verb",
@@ -10933,7 +10885,7 @@
         "zacht worden door een proces van verrotting"
       ],
       "example": "Het hout van de drempel is gedeeltelijk vermolmd.",
-      "rank": 884
+      "rank": 880
     },
     {
       "id": "vernikkelen__verb",
@@ -10946,7 +10898,7 @@
         "overdrachtelijk stijf en grauw worden van de kou"
       ],
       "example": "Veel onderdelen van motorfietsen worden vernikkeld.",
-      "rank": 885
+      "rank": 881
     },
     {
       "id": "verronselen__verb",
@@ -10958,7 +10910,7 @@
         "op een onhandige, slinkse, knoeierige manier van de hand doen"
       ],
       "example": "En toch, hoe voordeelig het bezit van België ook geworden was, bleef Oostenrijk onverschillig jegens hetzelve, of liever, het hechtte er slechts aan tot een gelegenheid zich zou aanbieden om het tegen een goeden prijs te verronselen.",
-      "rank": 886
+      "rank": 882
     },
     {
       "id": "verschalken__verb",
@@ -10972,7 +10924,7 @@
         "iets met smaak opeten of -drinken"
       ],
       "example": "De poes verschalkt iedere dag een muisje.",
-      "rank": 887
+      "rank": 883
     },
     {
       "id": "verschralen__verb",
@@ -10985,7 +10937,7 @@
         "armer worden, minder rijk worden"
       ],
       "example": "De raad stemde gisteravond unaniem in met de motie van de PvdA. Wethouder Erik Volmerink wees er op dat de gemeente al maaisel afvoert om bermen te verschralen en speciaal zaaizaad inkoopt voor loze stukken terreinen.",
-      "rank": 888
+      "rank": 884
     },
     {
       "id": "verslampampen__verb",
@@ -10998,7 +10950,7 @@
         "verkwisten, verspillen, verlummelen"
       ],
       "example": "In muffe, duffe kroeg bij bier- en tabakdampen Het helder, stralend denken verslampampen;",
-      "rank": 889
+      "rank": 885
     },
     {
       "id": "verslanken__verb",
@@ -11012,7 +10964,7 @@
         "door gewichtsverlies een smaller postuur krijgen"
       ],
       "example": "In Parijs wordt, vooral door mannequins, reeds veel gebruik gemaakt van deze makkelijke manier om te verslanken of lang slank te blijven.",
-      "rank": 890
+      "rank": 886
     },
     {
       "id": "verslensen__verb",
@@ -11024,7 +10976,7 @@
         "het slap worden en wegteren, meestal van afgesneden plantenmateriaal door uitdroging"
       ],
       "example": "De bloemen waren reeds verslenst.",
-      "rank": 891
+      "rank": 887
     },
     {
       "id": "verslijpen__verb",
@@ -11037,7 +10989,7 @@
         "door een slijpproces beschadigd raken"
       ],
       "example": "Ik heb dat opgelost door dikwandige buis te vervormen en verslijpen.",
-      "rank": 892
+      "rank": 888
     },
     {
       "id": "versloffen__verb",
@@ -11049,7 +11001,7 @@
         "iets door verwaarlozing achteruit laten gaan"
       ],
       "example": "Ook het dossier binnenstad zou Elferink volgens ProHengelo hebben laten versloffen. Zo zei VVD-fractievoorzitter Onno Fiechter vorige week nog in een politieke markt: „Je hebt er 3,5 jaar een zootje van gemaakt.”",
-      "rank": 893
+      "rank": 889
     },
     {
       "id": "versmaden__verb",
@@ -11061,7 +11013,7 @@
         "links laten liggen, afkeer hebben van, met minachting of verachting beschouwen"
       ],
       "example": "Proef van onze kazen, ze zijn niet te versmaden.",
-      "rank": 894
+      "rank": 890
     },
     {
       "id": "versmoren__verb",
@@ -11073,7 +11025,7 @@
         "verstikken, smoren"
       ],
       "example": "Toen prikkelde hem mompelend gedruisch Van bidden, snikken, en of men een gil te Versmoren zocht, en dreunend sloeg der stilte Moker het neer in daverend gesuis.",
-      "rank": 895
+      "rank": 891
     },
     {
       "id": "verstuiken__verb",
@@ -11085,7 +11037,7 @@
         "gewrichtsletsel oplopen waarbij geen botbreuk optreedt en de gewrichtvlakken nog wel stabiel naast elkaar blijven"
       ],
       "example": "Men verstuikt meestal een enkel.",
-      "rank": 896
+      "rank": 892
     },
     {
       "id": "verstuwen__verb",
@@ -11098,7 +11050,7 @@
         "verplaatsen van lading op een schip"
       ],
       "example": "Ik heb de stukken voor De Sm. M. ontvangen en gelezen. Laat ik alles nu maar naar Querido doorzenden, want het is wel aardig als er ook ongepubliceerde stukken in staan en ik moet erg veel copie verstuwen deze maanden.",
-      "rank": 897
+      "rank": 893
     },
     {
       "id": "vertienvoudigen__verb",
@@ -11110,7 +11062,7 @@
         "iets tienmaal zo groot of zo talrijk maken of laten worden"
       ],
       "example": "Telefoon-producent Ericsson verwacht dat het mobiele dataverkeer nog eens zal vertienvoudigen tussen 2011 en 2016, omdat steeds meer mensen tablets en smartphones aanschaffen.",
-      "rank": 898
+      "rank": 894
     },
     {
       "id": "vertrappelen__verb",
@@ -11122,7 +11074,7 @@
         "kapotmaken of verwonden met de voeten of hoeven"
       ],
       "example": "De jongen en zijn 42–jarige vader botsten woensdag in de avondschemering op weg naar huis op een drie meter hoge olifant die de weg overstak. De olifant vertrappelde het hoofd van de jongen, die onherkenbaar werd verminkt.",
-      "rank": 899
+      "rank": 895
     },
     {
       "id": "vertroebelen__verb",
@@ -11135,7 +11087,7 @@
         "onrust teweegbrengen, in de war brengen, onzeker worden"
       ],
       "example": "Nu is er aan de aanbodkant wel sprake van een aantal zaken waardoor het beeld ietwat zal zijn vertroebeld. In februari en maart was er een staking in ’s werelds grootste kopermijn Escondida, eigendom van BHP Billiton, in Chili.",
-      "rank": 900
+      "rank": 896
     },
     {
       "id": "verveelvoudigen__verb",
@@ -11147,7 +11099,7 @@
         "vermenigvuldigen, copiëren"
       ],
       "example": "Volgens het auteursrecht mag je niet zomaar alles verveelvoudigen.",
-      "rank": 901
+      "rank": 897
     },
     {
       "id": "verwasemen__verb",
@@ -11160,7 +11112,7 @@
         "iets laten verdwijnen"
       ],
       "example": "Zijn eenig vermaak is des avonds in het koffiehuis of in de herberg te zitten en zich daar onder eene domme samenspraak zoodanig met bier op te vullen, dat alle fijnheid uit zijne hersens zou verwasemen, hadde hij ooit eenige fijnheid van",
-      "rank": 902
+      "rank": 898
     },
     {
       "id": "verwerven__verb",
@@ -11173,7 +11125,7 @@
         "leren, beheersen"
       ],
       "example": "De partij tipte het college dinsdag om het gebouw in gedachten te houden bij de realisatie van een cultureel centrum. Momenteel is de groep Wie Wilt Wa bezig om steun te verwerven voor zo'n centrum.",
-      "rank": 903
+      "rank": 899
     },
     {
       "id": "verwikken__verb",
@@ -11185,7 +11137,7 @@
         "in beweging brengen"
       ],
       "example": "In 't eind volstreden. . . Daar lag kuisch en wijd Een sneeuwlandschap, in niet meer te verwikken Zielsrust zijn ziel verwant, hem aan te blikken, Voltooid in eendere verstorvenheid.",
-      "rank": 904
+      "rank": 900
     },
     {
       "id": "verwrikken__verb",
@@ -11198,7 +11150,7 @@
         "het verzwikken van een gewricht"
       ],
       "example": "Bijna moest ik met een hand mijn kin verwrikken voordat ik omhoog durfde kijken.",
-      "rank": 905
+      "rank": 901
     },
     {
       "id": "verzadigen__verb",
@@ -11211,7 +11163,7 @@
         "tot de grens bereikt is toenemen"
       ],
       "example": "Het leven verzadigt de mens, net als goed eten.",
-      "rank": 906
+      "rank": 902
     },
     {
       "id": "verzengen__verb",
@@ -11224,7 +11176,7 @@
         "door zengen beschadigd worden"
       ],
       "example": "De onverbiddelijke zon verzengde het graan.",
-      "rank": 907
+      "rank": 903
     },
     {
       "id": "verzilten__verb",
@@ -11236,7 +11188,7 @@
         "onder invloed van zeewater of uitdroging, zouter worden van wateren en gronden"
       ],
       "example": "Anna Boer heeft meerdere malen op het Markermeer vastgezeten. Zij adviseert zout water toe te voegen om het water brak en minder helder te maken. Ook Peter Goede ziet verzilten en uitdiepen als mogelijke oplossingen.",
-      "rank": 908
+      "rank": 904
     },
     {
       "id": "verzuilen__verb",
@@ -11248,7 +11200,7 @@
         "een samenleving verdelen naar politieke richting en kerkelijke gezindheid en dus niet naar sociaal-economische klasse"
       ],
       "example": "Maar mensen willen zichzelf graag in hokjes stoppen, tegenwoordig. De belofte van internet was dat ieder zijn eigen CNN kon zijn. In praktijk gingen mensen zichzelf verzuilen.",
-      "rank": 909
+      "rank": 905
     },
     {
       "id": "verzuimen__verb",
@@ -11260,7 +11212,7 @@
         "iets niet doen dat men in principe had behoren te doen"
       ],
       "example": "Helaas hebben wij verzuimd dit te melden.",
-      "rank": 910
+      "rank": 906
     },
     {
       "id": "vespereien__verb",
@@ -11272,7 +11224,7 @@
         "in de namiddag een lichte broodmaaltijd eten"
       ],
       "example": "⧖ De boerin sneed boterhammen en noodigde haar zwagers uit om te vespereien.",
-      "rank": 911
+      "rank": 907
     },
     {
       "id": "vigeren__verb",
@@ -11284,7 +11236,7 @@
         "gelden, van kracht zijn"
       ],
       "example": "Binnen het gebied vigeren meerdere bestemmingsplannen en verordeningen.",
-      "rank": 912
+      "rank": 908
     },
     {
       "id": "vlegelen__verb",
@@ -11297,7 +11249,7 @@
         "ondeugend zijn, zich als een kwajongen gedragen"
       ],
       "example": "Gil was razend. Uithouden? Hij zou Kimbed afranselen als een hond. Uithouden? Over de touwen zou hij Kimbed vlegelen.",
-      "rank": 913
+      "rank": 909
     },
     {
       "id": "vliemen__verb",
@@ -11309,7 +11261,7 @@
         "scherp insnijden"
       ],
       "example": "Schril klinken de woorden, vliemen door de deur.",
-      "rank": 914
+      "rank": 910
     },
     {
       "id": "warrelen__verb",
@@ -11321,7 +11273,7 @@
         "zich door elkaar bewegen"
       ],
       "example": "Een stofwolk warrelt omhoog;",
-      "rank": 915
+      "rank": 911
     },
     {
       "id": "wasemen__verb",
@@ -11333,7 +11285,7 @@
         "condenserende stoom of vocht afgeven"
       ],
       "example": "Dit keer keek ze teleurgesteld naar de inhoud van de pan die uitnodigend wasemde.",
-      "rank": 916
+      "rank": 912
     },
     {
       "id": "wauwelen__verb",
@@ -11345,7 +11297,7 @@
         "langdurig zinloos praten"
       ],
       "example": "Het is makkelijk om geringschattend te doen over de opkomst van de psychotherapie en te beweren dat die een symptoom is van ons egocentrisme — miljoenen Woody Allen's die op de divan over hun zielenroerselen wauwelen.",
-      "rank": 917
+      "rank": 913
     },
     {
       "id": "wiebelen__verb",
@@ -11357,7 +11309,7 @@
         "heen en weer bewegen bij staan of zitten"
       ],
       "example": "Het onrustige kind wiebelde de hele dag op haar stoel.",
-      "rank": 918
+      "rank": 914
     },
     {
       "id": "wiewauwen__verb",
@@ -11369,7 +11321,7 @@
         "onrustig bewegen, slingeren, wiebelen"
       ],
       "example": "Er wiewauwden enige zeugmata, polysyndetons en anakoloeten door het Groot Dictee.",
-      "rank": 919
+      "rank": 915
     },
     {
       "id": "wipwappen__verb",
@@ -11381,7 +11333,7 @@
         "spelen met een wip, ook wel een wipwap genoemd"
       ],
       "example": "Onder grote belangstelling en oordovend gejuich is maandagavond in Geesteren het wereldrecord wipwappen verbeterd tot 76 uur. De stunt van de tien ‘helden’ leverde het jeugd- en jongerenwerk 40.000 euro op.",
-      "rank": 920
+      "rank": 916
     },
     {
       "id": "wortelen__verb",
@@ -11393,21 +11345,7 @@
         "verankerd zijn, ingeburgerd zijn, zijn oorsprong vinden"
       ],
       "example": "Die gedachte wortelt nog in het oude heidendom van weleer.",
-      "rank": 921
-    },
-    {
-      "id": "wrappen__verb",
-      "word": "wrappen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "met folie beplakken",
-        "met een deeglapje omgeven",
-        "notities maken over verrichte werkzaamheden"
-      ],
-      "example": "Na het wrappen zagen de originele wielen er wat gewoontjes uit. Die hebben we laten vervangen door grotere, matzwarte spaakvelgen. Het standaard uitlaatsysteem is vervangen door een speciale sportuitlaat met afstandsbediening.",
-      "rank": 922
+      "rank": 917
     },
     {
       "id": "wriemelen__verb",
@@ -11420,7 +11358,7 @@
         "~ van in groten getale door elkaar bewegend aanwezig zijn"
       ],
       "example": "Er werd gewroet en gewriemeld maar niets mocht baten.",
-      "rank": 923
+      "rank": 918
     },
     {
       "id": "wriggelen__verb",
@@ -11432,7 +11370,7 @@
         "wriemelen, kronkelen"
       ],
       "example": "Het vrouwtje kon nog niet of weinig gaan en zat soms ongeduldig op haar stoel te wriggelen, als hetgeen ze zelve plag te doen, naar heur zin niet ras genoeg van de hand ging.",
-      "rank": 924
+      "rank": 919
     },
     {
       "id": "wrikkelen__verb",
@@ -11445,7 +11383,7 @@
         "een stuk weefsel in allerlei richtingen uiteentrekken om het gladder te maken"
       ],
       "example": "De kolossale man naast mij leunt tegen mij aan. Ik begin wat ongemakkelijk te wrikkelen maar hij wil van geen wijken weten.",
-      "rank": 925
+      "rank": 920
     },
     {
       "id": "wrochten__verb",
@@ -11457,7 +11395,7 @@
         "op een zelfverzonnen manier in elkaar zetten"
       ],
       "example": "Zij wrochten iets kunstigs",
-      "rank": 926
+      "rank": 921
     },
     {
       "id": "wrongelen__verb",
@@ -11470,7 +11408,7 @@
         "melk doen stremmen"
       ],
       "example": "m.i. is fluitjesmelk de ontroomde melk die overblijft na boterstannen en karnemelk het zuursige restant nadat de platte kaas gewrongeld is.",
-      "rank": 927
+      "rank": 922
     },
     {
       "id": "zabbelen__verb",
@@ -11482,7 +11420,7 @@
         "likken en zuigen aan iets"
       ],
       "example": "Jij bent altijd aan het zabbelen aan dingen.",
-      "rank": 928
+      "rank": 923
     },
     {
       "id": "zamelen__verb",
@@ -11494,7 +11432,7 @@
         "beetje bij beetje bijeenbrengen"
       ],
       "example": "In de meeste provinciën worden tamme bijen gehouden; maar verreweg de grootste hoeveelheid wordt van de wilde bijen gezameld.",
-      "rank": 929
+      "rank": 924
     },
     {
       "id": "zegelen__verb",
@@ -11506,7 +11444,7 @@
         "van een zegel of stempel voorzien"
       ],
       "example": "De stukken werden gezegeld.",
-      "rank": 930
+      "rank": 925
     },
     {
       "id": "zemelen__verb",
@@ -11518,7 +11456,7 @@
         "zeuren, langdurig doorpraten over iets dat van weinig belang is"
       ],
       "example": "Er werd eindeloos gezemeld en gezeverd.",
-      "rank": 931
+      "rank": 926
     },
     {
       "id": "zetelen__verb",
@@ -11530,7 +11468,7 @@
         "als parlementslid werken"
       ],
       "example": "Hij zetelde tot 2012 in de Tweede Kamer.",
-      "rank": 932
+      "rank": 927
     },
     {
       "id": "zijpelen__verb",
@@ -11542,7 +11480,7 @@
         "een proces waarbij een vloeistof zich door de kieren en poriën van een vaste massa heen begeeft"
       ],
       "example": "Er is veel water door de muur gezijpeld.",
-      "rank": 933
+      "rank": 928
     },
     {
       "id": "zoetvijlen__verb",
@@ -11555,7 +11493,7 @@
         "bijwerken, de fijne puntjes afwerken"
       ],
       "example": "Dit moet nog gezoetvijld worden.",
-      "rank": 934
+      "rank": 929
     },
     {
       "id": "zuchten__verb",
@@ -11567,7 +11505,7 @@
         "hoorbaar diep uitademen, meestal als uiting van frustratie"
       ],
       "example": "Stop met zuchten en eet je bord leeg!",
-      "rank": 935
+      "rank": 930
     },
     {
       "id": "zwalken__verb",
@@ -11579,7 +11517,7 @@
         "doelloos en ongecontroleerd zich voortbewegen"
       ],
       "example": "Man, zei ik zo, ik laat de meiden voortaan dryven en zeilen; het zyn agterenden van beulen, daar niet mee is te beginnen. Het is vry wat erger! Jy zwalkt overal heen. Hebje niets gehoord?’",
-      "rank": 936
+      "rank": 931
     },
     {
       "id": "zwammen__verb",
@@ -11591,7 +11529,7 @@
         "doelloos en onzinnig praten"
       ],
       "example": "Hij zat weer eindeloos te zwammen en ik kreeg daar een beetje genoeg van.",
-      "rank": 937
+      "rank": 932
     },
     {
       "id": "zwatelen__verb",
@@ -11604,7 +11542,7 @@
         "zinloos doorpraten, nietszeggende woorden spreken"
       ],
       "example": "De bladeren zwatelden in de avondbries.",
-      "rank": 938
+      "rank": 933
     },
     {
       "id": "zwengelen__verb",
@@ -11616,7 +11554,7 @@
         "aan een zwengel draaien"
       ],
       "example": "De oude man zwengelde aan de waterpomp.",
-      "rank": 939
+      "rank": 934
     },
     {
       "id": "zwermen__verb",
@@ -11629,7 +11567,7 @@
         "zwerven, doelloos rondlopen"
       ],
       "example": "De wespen zwermden samen in het rond.",
-      "rank": 940
+      "rank": 935
     },
     {
       "id": "zwetsen__verb",
@@ -11642,7 +11580,7 @@
         "luidruchtig opscheppen; pochen"
       ],
       "example": "De Gooise vrouwen zwetsen tegen elkaar.",
-      "rank": 941
+      "rank": 936
     },
     {
       "id": "zwichten__verb",
@@ -11655,7 +11593,7 @@
         "het aanpassen van de zeilvoering op de wieken i.v.m. de windsterkte"
       ],
       "example": "De koning had zijn schoonzus op het hart gedrukt niet te zwichten voor chantage.",
-      "rank": 942
+      "rank": 937
     },
     {
       "id": "zwieren__verb",
@@ -11668,7 +11606,7 @@
         "op opvallende wijze zich heen en weer bewegend ergens heen gaan"
       ],
       "example": "Er werd gezwierd en gezwaaid.",
-      "rank": 943
+      "rank": 938
     },
     {
       "id": "zwijmelen__verb",
@@ -11680,7 +11618,7 @@
         "in extase zijn of geraken"
       ],
       "example": "De meisjes zwijmelden bij de aanblik van hun favoriete popster.",
-      "rank": 944
+      "rank": 939
     },
     {
       "id": "zwijmen__verb",
@@ -11692,7 +11630,7 @@
         "het bewustzijn geheel of gedeeltelijk verliezen"
       ],
       "example": "De benauwde hitte deed haar zwijmen.",
-      "rank": 945
+      "rank": 940
     },
     {
       "id": "zwirrelen__verb",
@@ -11704,7 +11642,7 @@
         "fladderend dwarrelen"
       ],
       "example": "De gewonde stormvogels bleven zwirrelen boven zijn lakenen terwijl hun aanklepperend vlerkengeruisch hem telkens deed gillen en schreeuwen van afgrijzen.",
-      "rank": 946
+      "rank": 941
     }
   ]
 }

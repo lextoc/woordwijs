@@ -84,7 +84,7 @@ grieperig grimmig hinderlijk hobbelig hoogstens huilerig ijverig inhoudelijk kle
 knorrig kortstondig kriebelig krullig lacherig middelmatig meertalig miezerig minnetjes naburig objectief ogenschijnlijk onverschillig overvloedig
 optimaal overmatig pertinent piekerig plakkerig pluizig poezelig prijzig prikkelig puberaal radicaal rimpelig stoornis
 rumoerig schemerig schriftelijk slijmig snoezig stekelig stijfjes stilletjes stuntelig toegeeflijk dromerig weetgierig botmatig eenzijdig
-hindernis ergernis aanstoot fundament interieur logistiek onbehagen rijtuig boomgaard heidezee vistuig lievelings editoriaal puzzelen brouwen bungelen graaien grinniken dobbelen dreunen hinkelen hippelen buffelen waggelen wiegelen
+hindernis ergernis aanstoot fundament interieur logistiek onbehagen rijtuig boomgaard heidezee vistuig lievelings editoriaal puzzelen brouwen bungelen graaien grinniken dobbelen dreunen hinkelen hippelen buffelen waggelen wiegelen dweilen sproeien multitasken spammen wrappen
 bruschetta bungeejump deepfake fastfood freefight goodwill moussaka soulmate strooistep danseuse banlieue raspoetin tibetaan jamboree roulette nouvelle islamofoob pentagoon aggregaat
 tussenin uitbundig uitermate uitvoerig uitwendig veelzijdig veranderlijk verdacht vergeefs vermakelijk vlijtig
 volgzaam volstrekt wekelijks wenselijk winderig zorgzaam zuinigjes zwierig allerminst breeduit
