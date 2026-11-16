@@ -16,7 +16,11 @@
  *   archaic-only sense, or specialist topic
  * - no transparent compound or productive derivation of a frequent word
  * - a formal/poetic tag, a literary shape (desalniettemin, kwistig,
- *   onverkwikkelijk), or an adverb of at least 8 letters
+ *   onverkwikkelijk), an adverb of at least 8 letters, or a rare noun
+ *   or verb with a real definition (tabbaard, vermeien, verguizen, kuieren)
+ * - no gloss that repeats the lemma, and no see-through -ig compound
+ * - a plain noun only when it has a native Dutch ending; a plain verb only
+ *   when it is not a separable compound or a loan spelling
  * One part of speech per lemma. At most 1 200 entries.
  *
  * The same inputs always produce the same JSON (no timestamps, stable key order).
@@ -55,6 +59,7 @@ const SPECIALIST = new Set([
   "heraldry", "mycology", "entomology", "ornithology", "paleontology", "mineralogy", "taxonomy", "immunology",
   "virology", "cardiology", "neurology", "psychiatry", "engineering", "programming", "software", "aviation",
   "meteorology", "sports", "football", "cycling", "hunting", "nautical", "comics", "mythology",
+  "economics", "financial", "legal", "architecture", "music",
 ]);
 const TAILS = new Set(["waar", "niet", "min", "dan", "wel", "toch", "nog", "mee", "uit", "aan", "bij", "dank", "ondanks"]);
 const FUNCTION_PARTS = new Set([
@@ -78,7 +83,9 @@ driftig dunnetjes duurzaam eenstemmig eentonig enerzijds fleurig geleidelijk gem
 grieperig grimmig hinderlijk hobbelig hoogstens huilerig ijverig inhoudelijk kleverig klunzig klungelig
 knorrig kortstondig kriebelig krullig lacherig middelmatig meertalig miezerig minnetjes naburig objectief ogenschijnlijk onverschillig overvloedig
 optimaal overmatig pertinent piekerig plakkerig pluizig poezelig prijzig prikkelig puberaal radicaal rimpelig stoornis
-rumoerig schemerig schriftelijk slijmig snoezig stekelig stijfjes stilletjes stuntelig toegeeflijk
+rumoerig schemerig schriftelijk slijmig snoezig stekelig stijfjes stilletjes stuntelig toegeeflijk dromerig weetgierig botmatig eenzijdig
+hindernis ergernis aanstoot fundament interieur logistiek onbehagen rijtuig boomgaard heidezee vistuig lievelings editoriaal puzzelen brouwen bungelen graaien grinniken dobbelen dreunen hinkelen hippelen buffelen waggelen wiegelen
+bruschetta bungeejump deepfake fastfood freefight goodwill moussaka soulmate strooistep danseuse banlieue raspoetin tibetaan jamboree roulette nouvelle islamofoob pentagoon aggregaat
 tussenin uitbundig uitermate uitvoerig uitwendig veelzijdig veranderlijk verdacht vergeefs vermakelijk vlijtig
 volgzaam volstrekt wekelijks wenselijk winderig zorgzaam zuinigjes zwierig allerminst breeduit
 vanbinnen vanbuiten schaakmat fiftyfifty crescendo spiccato staccato sforzando contrecoeur`.split(/\s+/));
@@ -158,8 +165,8 @@ function acceptableGloss(raw) {
   if (/strijkinstrument|strijkstok|\bstoornis\b/i.test(gloss)) return null;
   if (/^(niet |zonder |het tegengestelde|afkorting|lijkend )/i.test(gloss)) return null;
   if (/^(zeer |heel |erg |zelden |vrijwel )/i.test(gloss)) return null;
-  if (/verouderd|zie\s*:|\+|aanspreektitel|uitroep bij/i.test(gloss)) return null;
-  if (/\b(the|of|and|with|from|which|voornaam|achternaam|hormoon|scheikundig|informatica|plantkundig|geslacht|de vorm van|hebbend|opwekkend)\b/i.test(gloss)) return null;
+  if (/verouderd|archaïsch|zie\s*:|\+|aanspreektitel|uitroep bij/i.test(gloss)) return null;
+  if (/\b(the|and|with|from|which|voornaam|achternaam|hormoon|scheikundig|informatica|plantkundig|geslacht|de vorm van|hebbend|opwekkend)\b/i.test(gloss)) return null;
   const tokens = gloss.split(/[\s,;:/]+/).filter(Boolean);
   if (tokens.length < 2) return null;
   if (tokens.length < 3 && gloss.length < 16) return null;
@@ -176,9 +183,83 @@ function related(text, word) {
   return new RegExp(`(?<![\\p{L}\\p{M}])${escaped}(?:e|en|er|ere|ste|s)?(?![\\p{L}\\p{M}])`, "iu").test(text);
 }
 
+function exampleMentions(text, word) {
+  if (related(text, word)) return true;
+  if (!word.endsWith("en") || word.length < 7) return false;
+  const stem = word.slice(0, -2);
+  if (stem.length < 4) return false;
+  const escaped = stem.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(?<![\\p{L}\\p{M}])(?:ge)?${escaped}(?:t|d|de|den|end)?(?![\\p{L}\\p{M}])`, "iu").test(text);
+}
+
+function seeThroughIg(word, common) {
+  if (!word.endsWith("ig") || word.endsWith("lijk") || word.length < 7) return false;
+  let stem = word.slice(0, -2);
+  const consonants = "bcdfghjklmnpqrstvwxz";
+  if (stem.length >= 2 && stem.at(-1) === stem.at(-2) && consonants.includes(stem.at(-1))) stem = stem.slice(0, -1);
+  if (stem.length < 4) return false;
+  if (common.has(stem)) return true;
+  for (let index = 3; index <= stem.length - 3; index += 1) {
+    if (common.has(stem.slice(0, index)) && common.has(stem.slice(index))) return true;
+  }
+  return false;
+}
+
+const VERB_PREFIXES = ["tegen", "onder", "over", "voor", "weer", "door", "heen", "ver", "be", "ont", "her", "aan", "af", "uit", "mee", "bij", "om", "op", "in", "mis"];
+
+function undouble(stem) {
+  const consonants = "bcdfghjklmnpqrstvwxz";
+  if (stem.length >= 2 && stem.at(-1) === stem.at(-2) && consonants.includes(stem.at(-1))) return stem.slice(0, -1);
+  return stem;
+}
+
+function transparentVerb(word, common, depth = 0) {
+  if (!word.endsWith("en") || depth > 2) return depth === 0;
+  for (const prefix of VERB_PREFIXES) {
+    if (!word.startsWith(prefix) || word.length < prefix.length + 5) continue;
+    const rest = word.slice(prefix.length);
+    if (common.has(rest)) return true;
+    if (rest.endsWith("en") && rest.length >= 6) {
+      const bare = undouble(rest.slice(0, -2));
+      if (bare.length >= 4 && common.has(bare)) return true;
+      if (transparentVerb(rest, common, depth + 1)) return true;
+    }
+  }
+  return false;
+}
+
+function loanSpelling(word) {
+  if (/iëren$/u.test(word)) return true;
+  if (/ck|ph|th|sh|tz|wh|gh|eau|ouil|oise|aise/u.test(word)) return true;
+  if (/oa|ea|ay|ey|oy|ow/u.test(word)) return true;
+  if (/[öüéèêáàâô]/u.test(word)) return true;
+  if (/(assess|batik|bookmark|bonjour|diesel|dozer|entertain|finetun|forward|fluff|jobhop|karaoke|review|settel|zigzag|röntgen|fröbel|frobel|bookmark|scroll|tweet|spoof|scout|freelanc|download|upload|phub|urbex|botox|cocoon|payroll|influenc|skydiv|breakdanc|backpack|crowdsourc|doomscroll|hoelahoep)/u.test(word)) return true;
+  const stripped = word.replace(/sch/gu, "").replace(/ch/gu, "");
+  return /[cqxy]/u.test(stripped);
+}
+
+function namedGloss(gloss) {
+  return /\p{Lu}[\p{L}'’]{2,}/u.test(gloss.slice(1));
+}
+
+function obviousLeft(word, common) {
+  if (word.length < 8) return false;
+  for (let index = 4; index <= word.length - 3; index += 1) {
+    if (common.has(word.slice(0, index))) return true;
+  }
+  return false;
+}
+
+function seeThroughAard(word, common) {
+  if (!word.endsWith("aard") || word.endsWith("gaard") || word.length < 8) return false;
+  const raw = word.slice(0, -4);
+  const stem = raw.replace(/(en|e|s)$/u, "");
+  return (stem.length >= 3 && common.has(stem)) || (raw.length >= 3 && common.has(raw));
+}
+
 function clipExample(text, word) {
   const cleaned = clean(text);
-  if (!related(cleaned, word) || cleaned.length < 12) return null;
+  if (!exampleMentions(cleaned, word) || cleaned.length < 12) return null;
   if (cleaned.length <= 240) return cleaned;
   const chunk = cleaned.slice(0, 240);
   const cut = Math.max(chunk.lastIndexOf(". "), chunk.lastIndexOf("! "), chunk.lastIndexOf("? "));
@@ -188,12 +269,13 @@ function clipExample(text, word) {
     const space = chunk.lastIndexOf(" ");
     if (space > 40) clipped = chunk.slice(0, space).replace(/[ ,;]+$/u, "");
   }
-  if (clipped.length >= 12 && related(clipped, word)) return clipped;
+  if (clipped.length >= 12 && exampleMentions(clipped, word)) return clipped;
   return null;
 }
 
 function literaryShape(word) {
   if (BAD_ENDINGS.some((suffix) => word.endsWith(suffix))) return false;
+  if (word.endsWith("gaard")) return false;
   return LITERARY_SUFFIXES.some((suffix) => word.endsWith(suffix) && word.length > suffix.length + 2);
 }
 
@@ -236,6 +318,21 @@ function listedOk(word, pos, frequencyRank, formal) {
   if (frequencyRank < 8500) return false;
   if (literaryShape(word)) return true;
   if (pos === "adv" && word.length >= 8) return true;
+  if ((pos === "noun" || pos === "verb") && word.length >= 7) return frequencyRank >= 11000;
+  return false;
+}
+
+function nounOfCommonParts(word, listed) {
+  if (word.length < 8) return false;
+  for (let index = 4; index <= word.length - 4; index += 1) {
+    const left = word.slice(0, index);
+    const rest = word.slice(index);
+    for (const linker of ["", "s", "e", "en", "er"]) {
+      if (!rest.startsWith(linker)) continue;
+      const right = rest.slice(linker.length);
+      if (right.length >= 4 && listed.has(left) && listed.has(right)) return true;
+    }
+  }
   return false;
 }
 
@@ -247,20 +344,33 @@ function containsHeadword(example, word) {
 async function readFrequency(file) {
   const text = await readFile(file, "utf8");
   const lemmas = [];
+  const forms = [];
   const seen = new Set();
   for (const line of text.split("\n")) {
-    const first = line.trim().split(/\s+/)[0];
+    const tokens = line.trim().split(/\s+/).filter(Boolean);
+    const first = tokens[0];
     if (!first || !WORD_RE.test(first) || first.length > 32) continue;
     const key = first.toLocaleLowerCase("nl");
     if (seen.has(key)) continue;
     seen.add(key);
     lemmas.push(key);
+    forms.push(tokens.slice(1).map((token) => token.toLocaleLowerCase("nl")));
   }
-  return lemmas;
+  return { lemmas, forms };
+}
+
+function categoryText(entry) {
+  return (entry.categories || [])
+    .map((item) => (typeof item === "string" ? item : item?.name || ""))
+    .join("\n");
+}
+
+function foldAccents(word) {
+  return word.normalize("NFD").replace(/\p{M}/gu, "");
 }
 
 async function indexExtract(file, bands) {
-  const { rankOf, top400, top3000, top6000, top8000 } = bands;
+  const { rankOf, listed, top400, top2500, top3000, top6000, top8000, ordinaryForms, verbCommon } = bands;
   const byPos = new Map();
   let lines = 0;
   let dutch = 0;
@@ -291,17 +401,23 @@ async function indexExtract(file, bands) {
     if (BAD_ENDINGS.some((suffix) => key.endsWith(suffix))) continue;
 
     let formal = false;
+    let elevated = false;
     const senses = [];
     let example = null;
     for (const sense of entry.senses || []) {
       const tags = new Set(sense.tags || []);
       if ([...tags].some((tag) => SKIP_SENSE.has(tag))) continue;
+      if (tags.has("informal") || tags.has("slang") || tags.has("vulgar")) continue;
       const topics = new Set(sense.topics || []);
       if ([...topics].some((topic) => SPECIALIST.has(topic))) continue;
-      if (tags.has("formal") || tags.has("literary") || tags.has("poetic")) formal = true;
+      if (tags.has("formal") || tags.has("literary")) {
+        formal = true;
+        elevated = true;
+      } else if (tags.has("poetic")) elevated = true;
       for (const gloss of sense.glosses || []) {
         const text = acceptableGloss(gloss);
-        if (!text || senses.includes(text)) continue;
+        if (!text || senses.includes(text) || related(text, word)) continue;
+        if (key.endsWith("ig") && !key.endsWith("lijk") && /^(met |in het bezit van|voorzien van |bestaande uit )/i.test(text)) continue;
         if (senses.length < MAX_SENSES) senses.push(text);
       }
       if (senses.length && !example) {
@@ -316,15 +432,59 @@ async function indexExtract(file, bands) {
     }
     if (!senses.length || !example) continue;
     const translations = (entry.translations || []).length;
-    if (!formal && translations > 14) continue;
+    if (!elevated && translations > 14) continue;
     const frequencyRank = rankOf.get(key) ?? null;
-    if (!listedOk(key, entry.pos, frequencyRank, formal)) continue;
-    if (isCompound(key, top400, top3000, top6000, top8000)) continue;
+    if (!listedOk(key, entry.pos, frequencyRank, elevated)) continue;
+    const folded = foldAccents(key);
+    if (folded !== key && (top8000.has(folded) || EVERYDAY.has(folded) || ordinaryForms.has(folded))) continue;
+    if (ordinaryForms.has(key)) continue;
+    const categories = categoryText(entry);
+    const separable = /(?<!on)scheidbaar werkwoord/i.test(categories);
+    const compoundNoun = /samenstelling in het nederlands/i.test(categories);
+    if (entry.pos === "verb" && (separable || compoundNoun)) continue;
+    if (entry.pos === "noun" && compoundNoun && !formal && !literaryShape(key)) continue;
+    if (seeThroughAard(key, top6000)) continue;
+    if ((entry.pos === "noun" || entry.pos === "verb") && !formal && loanSpelling(key)) continue;
+    if (
+      entry.pos === "noun" &&
+      !elevated &&
+      !literaryShape(key) &&
+      (/^ge/.test(key) || /(er|ster|aar|ist|eur|iek|age|tie|our|um|us|app|bag|dump|izer|liner|stift|foon|food|fight|fake|jump|mate|step)$/u.test(key))
+    ) {
+      continue;
+    }
+    const plainContent = (entry.pos === "noun" || entry.pos === "verb") && !elevated && !literaryShape(key);
+    if (plainContent && translations > 3) continue;
+    if (plainContent && (namedGloss(senses[0]) || /\b(drank|gerecht|soort|aandoening|belasting|software|computer|smartphone|internet|hiphop|seksue|verkleinwoord|schriftgeleerde)/i.test(senses[0]) || /benaming voor/i.test(senses[0]))) continue;
+    if (plainContent && entry.pos === "noun" && obviousLeft(key, top2500)) continue;
+    if (plainContent && entry.pos === "noun" && !/(aa|ee|oo|uu|eu|oe|ui|ei|ij|ou|au|sch)/u.test(key)) continue;
+    if (plainContent && entry.pos === "noun" && !/(ij|erij|arij|schap|dom|eel|aal|ouw|aai|ijn|erd|ede|oor|ein|ens|ui)$/u.test(key)) continue;
+    if (plainContent && entry.pos === "noun" && /(tje|pje|kje|vernis)$/u.test(key)) continue;
+    if (isCompound(key, top400, top3000, top6000, top8000) || seeThroughIg(key, listed)) continue;
+    if (entry.pos === "verb" && transparentVerb(key, verbCommon)) continue;
+    if (entry.pos === "noun" && !formal && key.endsWith("ing")) continue;
+    if (entry.pos === "noun" && key.endsWith("en") && top6000.has(key.slice(0, -2))) continue;
+    if (entry.pos === "noun" && key.endsWith("e") && top6000.has(key.slice(0, -1))) continue;
+    if (entry.pos === "noun" && (key.endsWith("stoornis") || key.endsWith("vernis"))) continue;
+    if (entry.pos === "noun" && !formal && !literaryShape(key) && nounOfCommonParts(key, listed)) continue;
+    if (
+      entry.pos === "noun" &&
+      !elevated &&
+      !literaryShape(key) &&
+      senses[0].split(/[\s,;:/]+/).filter(Boolean).length < 6
+    ) {
+      continue;
+    }
     if (key.length >= 8 && /ge[a-zà-ÿ]{3,}(?:en|[dt])$/.test(key)) continue;
     if (key.length >= 8 && /^(ver|be|ont|her)[a-zà-ÿ]+[dt]$/.test(key)) continue;
     if (key.length >= 8 && /ende$/.test(key)) continue;
     if (key.startsWith("on") && key.length > 5 && top8000.has(key.slice(2))) continue;
-    const shaped = formal || literaryShape(key) || (entry.pos === "adv" && key.length >= 8);
+    const shaped =
+      elevated ||
+      literaryShape(key) ||
+      (entry.pos === "adv" && key.length >= 8) ||
+      entry.pos === "noun" ||
+      (entry.pos === "verb" && key.endsWith("en"));
     if (!shaped) continue;
 
     const id = `${key}__${entry.pos}`;
@@ -338,6 +498,7 @@ async function indexExtract(file, bands) {
       example,
       formal,
       frequencyRank,
+      translations,
     };
     const existing = byPos.get(id);
     if (!existing) {
@@ -374,7 +535,7 @@ function pickLemma(byPos) {
 }
 
 function pickStarter(words) {
-  const quotas = { adv: 4, adj: 4, noun: 2 };
+  const quotas = { adv: 3, adj: 3, noun: 2, verb: 2 };
   const starter = [];
   const awkward = /genitief|partitief|geslachtsgemeenschap|titel|uitroep|benaming|kruispunt|vliegtuig|verouderd/i;
   const ordered = [...words].sort(
@@ -402,7 +563,7 @@ function pickStarter(words) {
   for (const word of ordered) {
     if (starter.length === 10) break;
     if (!usable(word) || starter.includes(word.id)) continue;
-    if (!["adv", "adj", "noun"].includes(word.pos)) continue;
+    if (!["adv", "adj", "noun", "verb"].includes(word.pos)) continue;
     starter.push(word.id);
   }
   return starter;
@@ -424,22 +585,52 @@ function toRecord(entry, rank) {
 await ensureFile(EXTRACT_URL, extractPath, 50_000_000);
 await ensureFile(FREQUENCY_URL, frequencyPath, 10_000);
 
-const [extractHash, frequencyHash, lemmas] = await Promise.all([
+const [extractHash, frequencyHash, frequency] = await Promise.all([
   readFile(extractPath).then(sha256),
   readFile(frequencyPath).then(sha256),
   readFrequency(frequencyPath),
 ]);
+const { lemmas } = frequency;
 
 const rankOf = new Map(lemmas.map((lemma, index) => [lemma, index + 1]));
+const ordinaryForms = new Set();
+for (let index = 0; index < Math.min(lemmas.length, 8000); index += 1) {
+  for (const form of frequency.forms[index] || []) {
+    if (form.length >= 3 && WORD_RE.test(form)) ordinaryForms.add(form);
+  }
+}
 const bands = {
   rankOf,
+  listed: new Set(lemmas),
   top400: new Set(lemmas.slice(0, 400)),
+  top2500: new Set(lemmas.slice(0, 2500)),
   top3000: new Set(lemmas.slice(0, 3000)),
   top6000: new Set(lemmas.slice(0, 6000)),
   top8000: new Set(lemmas.slice(0, 8000)),
+  ordinaryForms,
+  verbCommon: new Set([...lemmas.slice(0, 6000), ...ordinaryForms]),
 };
 const indexed = await indexExtract(extractPath, bands);
-const chosen = pickLemma(indexed.byPos);
+const pool = pickLemma(indexed.byPos);
+const buckets = { adv: [], adj: [], noun: [], verb: [] };
+for (const item of pool) buckets[item.pos]?.push(item);
+const byRare = (a, b) =>
+  a.translations - b.translations ||
+  Math.abs(a.word.length - 9) - Math.abs(b.word.length - 9) ||
+  a.word.localeCompare(b.word, "nl");
+const shapedNouns = buckets.noun.filter((item) => item.formal || literaryShape(item.word));
+const plainNouns = buckets.noun.filter((item) => !item.formal && !literaryShape(item.word)).sort(byRare);
+buckets.verb.sort(byRare);
+const chosen = [
+  ...buckets.adv,
+  ...buckets.adj,
+  ...shapedNouns,
+  ...plainNouns.slice(0, 200),
+  ...buckets.verb,
+];
+process.stdout.write(
+  `pool adv ${buckets.adv.length} adj ${buckets.adj.length} noun ${buckets.noun.length} (shaped ${shapedNouns.length} plain ${plainNouns.length}) verb ${buckets.verb.length}\n`,
+);
 chosen.sort(
   (a, b) =>
     Number(b.formal) - Number(a.formal) ||
@@ -494,10 +685,10 @@ const meta = {
   ],
   fields: ["id", "word", "pos", "posLabel", "article", "senses", "example", "rank"],
   selection:
-    "Nederlandse lemma's van 7 tot 20 letters met een duidelijke Nederlandse betekenis en een voorbeeldzin. De eerste 6000 lemma's van de frequentielijst vallen weg (alledaags). Eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen en vaktaal vallen weg. Doorzichtige samenstellingen en productieve afleidingen van een frequent woord vallen weg. Een lemma blijft als het formeel of poëtisch gelabeld is, een literaire vorm heeft (zoals -lijk, -ig, -temin, -aard) of een bijwoord van minstens 8 letters is. Per lemma één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. Hoogstens 1200. Rank is de plaats in die volgorde, niet de frequentie.",
+    "Nederlandse lemma's van 7 tot 20 letters met een duidelijke Nederlandse betekenis en een voorbeeldzin. Een betekenis die het lemma herhaalt, valt weg. De eerste 6000 lemma's van de frequentielijst vallen weg (alledaags). Eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen, informeel taalgebruik en vaktaal vallen weg. Doorzichtige samenstellingen, scheidbare werkwoorden, -ig-afleidingen van gewone delen en productieve afleidingen van een frequent woord vallen weg. Een lemma blijft als het formeel of poëtisch gelabeld is, een literaire vorm heeft, of een bijwoord van minstens 8 letters is. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft alleen als het geen samenstelling of leenwoordspelling is, een Nederlandse uitgang heeft wanneer het een zelfstandig naamwoord is, en het extract het naar hoogstens drie andere talen vertaalt. Per lemma één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. Hoogstens 1200. Rank is de plaats in die volgorde, niet de frequentie.",
   adaptations: [
     "Alledaagse lemma's (de eerste 6000 van de frequentielijst), eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, verouderde betekenissen en vaktaal zijn weggelaten.",
-    "Doorzichtige samenstellingen en productieve afleidingen van een frequent woord zijn weggelaten.",
+    "Betekenissen die het lemma herhalen, doorzichtige samenstellingen en productieve afleidingen van een frequent woord zijn weggelaten.",
     "Per item hoogstens zes betekenissen. Witruimte is genormaliseerd, een leidende dubbele punt en [n]-indices zijn verwijderd. De tekst is verder niet herschreven.",
     "Een voorbeeldzin die langer is dan 240 tekens is ingekort op een zinseinde, zolang het woord er nog in staat.",
     "Het lidwoord is afgeleid uit de labels neuter, masculine en feminine: alleen onzijdig wordt het, mannelijk en/of vrouwelijk wordt de, allebei wordt de/het.",

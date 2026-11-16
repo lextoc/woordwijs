@@ -27,7 +27,7 @@ export function Bronnen() {
         Voor deze site zijn {entries} Nederlandse lemma’s gekozen uit het nlwiktionary-extract van Kaikki.org. Het zijn ongebruikelijke woorden:
         formeel, literair of zeldzaam, met een duidelijke Nederlandse betekenis. Alledaagse woorden uit het begin van een openbare frequentielijst,
         ook onder CC BY-SA 4.0, zijn weggelaten. Hetzelfde geldt voor eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen
-        verouderde betekenissen en vaktaal. Doorzichtige samenstellingen van gewone woorden zijn ook weggelaten. Per lemma blijft één woordsoort.
+        verouderde betekenissen en vaktaal. Doorzichtige samenstellingen van gewone woorden zijn ook weggelaten, net als een betekenis die het lemma herhaalt en een -ig-woord dat uit gewone delen bestaat. Een zeldzaam zelfstandig naamwoord of werkwoord blijft behouden als het een duidelijke Nederlandse betekenis heeft, ook zonder literaire uitgang. Per lemma blijft één woordsoort.
         Het lidwoord is afgeleid uit de labels in het extract. Per woord staan hoogstens zes betekenissen. Een leidende dubbele punt en verwijzingen
         als [1] zijn verwijderd. Een voorbeeldzin die langer is dan 240 tekens is ingekort op een zinseinde, als het woord er nog in staat.{" "}
         {withExample} van de {entries} woorden hebben een voorbeeldzin. De tekst van een betekenis of voorbeeld is verder niet herschreven.
