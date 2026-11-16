@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { CheckIcon, FlameIcon } from "../components/Icons";
-import { Dialog, Stats, StorageBanner, StorageNote, usePageTitle } from "../components/ui";
+import { Dialog, readState, Stats, StorageBanner, StorageNote, usePageTitle } from "../components/ui";
 import { lastSevenDays } from "../lib/dates";
 import { cardStatus } from "../lib/model";
 import { dagen } from "../lib/text";
@@ -11,7 +10,8 @@ export function ProgressPage() {
   usePageTitle("Voortgang");
   const deck = useDeck();
   const navigate = useNavigate();
-  const [confirm, setConfirm] = useState(false);
+  const location = useLocation();
+  const confirm = readState(location.state)?.dialog === "reset";
   const cards = Object.values(deck.store.cards);
   const learned = cards.filter((card) => cardStatus(card) === "geleerd").length;
   const busy = cards.filter((card) => cardStatus(card) === "bezig").length;
@@ -20,16 +20,26 @@ export function ProgressPage() {
   const hasPractice = cards.some((card) => card.ratings.length > 0) || deck.store.countedDays.length > 0;
   const days = lastSevenDays(deck.today);
 
+  function openConfirm() {
+    navigate(
+      { pathname: location.pathname, search: location.search, hash: location.hash },
+      { state: { ...(readState(location.state) ?? {}), dialog: "reset" } },
+    );
+  }
+
+  function closeConfirm() {
+    if (readState(window.history.state?.usr)?.dialog) navigate(-1);
+  }
+
   function erase() {
     const saved = deck.reset();
     if (!saved) return;
     deck.showToast("Je voortgang is gewist.");
-    setConfirm(false);
-    navigate("/");
+    navigate("/", { replace: true });
   }
 
   return (
-    <div className="page">
+    <div className="page progress-page">
       <StorageBanner />
       <p className="eyebrow">Voortgang</p>
       <h1 className="page-title">Je voortgang</h1>
@@ -40,7 +50,7 @@ export function ProgressPage() {
           <Stats
             items={[
               { label: "Reeks", value: dagen(deck.streak), icon: <FlameIcon size={20} /> },
-              { label: "Beste reeks", value: dagen(deck.best), icon: <span className="stat-gap" /> },
+              { label: "Beste reeks", value: dagen(deck.best) },
               { label: "Geleerd", value: String(learned), icon: <CheckIcon size={20} /> },
             ]}
           />
@@ -52,8 +62,8 @@ export function ProgressPage() {
               const text = done ? `${day.label}: geoefend` : isToday ? `${day.label}: vandaag nog niet geoefend` : `${day.label}: niet geoefend`;
               return (
                 <li key={day.iso}>
-                  <span className={done ? "day is-done" : isToday ? "day is-today" : "day"}>{done ? <CheckIcon size={18} /> : null}</span>
                   <span aria-hidden="true">{day.label}</span>
+                  <span className={done ? "day is-done" : isToday ? "day is-today" : "day"}>{done ? <CheckIcon size={18} /> : null}</span>
                   <span className="sr-only">{text}</span>
                 </li>
               );
@@ -80,26 +90,36 @@ export function ProgressPage() {
               </ul>
             </>
           ) : null}
-          <p>Een woord is geleerd als je het drie keer na elkaar goed had, op drie verschillende dagen. Vergeet je het later weer, dan telt het niet meer mee.</p>
-          <p>
-            Een dag telt mee voor je reeks als je minstens 5 woorden hebt geoefend, of alle woorden die vandaag aan de beurt waren. De dag loopt van
-            middernacht tot middernacht op je eigen toestel.
-          </p>
+          <details className="explain">
+            <summary>Wat betekent ‘geleerd’?</summary>
+            <p className="lede">
+              Een woord is geleerd als je het drie keer na elkaar goed had, op drie verschillende dagen. Vergeet je het later weer, dan telt het niet meer mee.
+            </p>
+          </details>
+          <details className="explain">
+            <summary>Wat telt als een dag voor je reeks?</summary>
+            <p className="lede">
+              Een dag telt mee voor je reeks als je minstens 5 woorden hebt geoefend, of alle woorden die vandaag aan de beurt waren. De dag loopt van
+              middernacht tot middernacht op je eigen toestel.
+            </p>
+          </details>
         </>
       )}
       <StorageNote>Je voortgang staat alleen in deze browser. Wis je browsergegevens, dan verdwijnt ze. Op je andere toestellen staat niets.</StorageNote>
-      <button type="button" className="text-button danger-text" onClick={() => setConfirm(true)}>
-        Wis mijn voortgang
-      </button>
+      <div className="reset-row">
+        <button type="button" className="text-button danger-text" onClick={openConfirm}>
+          Wis mijn voortgang
+        </button>
+      </div>
       {confirm ? (
-        <Dialog title="Alle voortgang wissen?" onClose={() => setConfirm(false)}>
+        <Dialog title="Alle voortgang wissen?" onClose={closeConfirm}>
           <p>Dit wist je woorden, je reeks en je voortgang in deze browser. Dit kan niet ongedaan worden gemaakt.</p>
           <div className="modal-actions">
-            <button type="button" className="secondary" onClick={() => setConfirm(false)}>
-              Annuleren
-            </button>
             <button type="button" className="danger-button" onClick={erase}>
               Wis alles
+            </button>
+            <button type="button" className="secondary" data-initial-focus onClick={closeConfirm}>
+              Annuleren
             </button>
           </div>
         </Dialog>

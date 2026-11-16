@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Shell } from "./components/Shell";
-import { Toaster } from "./components/ui";
+import { readState, Toaster, useViewportVars } from "./components/ui";
 import { Bronnen } from "./pages/Bronnen";
 import { Home } from "./pages/Home";
 import { Practice } from "./pages/Practice";
@@ -13,22 +13,40 @@ import { MyWords } from "./pages/Words";
 import { DeckProvider, useDeck } from "./state/DeckContext";
 
 function Gate() {
+  const location = useLocation();
+  const background = readState(location.state)?.backgroundLocation;
   const { corrupt } = useDeck();
-  if (corrupt) return <CorruptPage />;
+  useViewportVars();
+  if (corrupt) {
+    return (
+      <>
+        <CorruptPage />
+        <Toaster />
+      </>
+    );
+  }
   return (
-    <Routes>
-      <Route element={<Shell />}>
-        <Route index element={<Home />} />
-        <Route path="zoeken" element={<SearchPage />} />
-        <Route path="woorden" element={<MyWords />} />
-        <Route path="woord/:id" element={<WordDetail />} />
-        <Route path="voortgang" element={<ProgressPage />} />
-        <Route path="bronnen" element={<Bronnen />} />
-        <Route path="oefenen/klaar" element={<Summary />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-      <Route path="oefenen" element={<Practice />} />
-    </Routes>
+    <>
+      <Routes location={background ?? location}>
+        <Route element={<Shell />}>
+          <Route index element={<Home />} />
+          <Route path="zoeken" element={<SearchPage />} />
+          <Route path="woorden" element={<MyWords />} />
+          <Route path="woord/:id" element={<WordDetail mode="page" />} />
+          <Route path="voortgang" element={<ProgressPage />} />
+          <Route path="bronnen" element={<Bronnen />} />
+          <Route path="oefenen/klaar" element={<Summary />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+        <Route path="oefenen" element={<Practice />} />
+      </Routes>
+      {background ? (
+        <Routes>
+          <Route path="woord/:id" element={<WordDetail mode="overlay" />} />
+        </Routes>
+      ) : null}
+      <Toaster />
+    </>
   );
 }
 
@@ -37,7 +55,6 @@ export function App() {
     <BrowserRouter>
       <DeckProvider>
         <Gate />
-        <Toaster />
       </DeckProvider>
     </BrowserRouter>
   );

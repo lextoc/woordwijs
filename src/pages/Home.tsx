@@ -1,11 +1,13 @@
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRightIcon, BookIcon, CheckIcon, FlameIcon, PlusIcon, SearchIcon } from "../components/Icons";
-import { Attribution, Decor, Stats, StorageBanner, StorageNote, usePageTitle } from "../components/ui";
+import { Attribution, Decor, Stats, StorageBanner, StorageNote, usePageTitle, WordLink } from "../components/ui";
 import { dagen } from "../lib/text";
 import { dueSession } from "../lib/session";
 import { cardStatus } from "../lib/model";
 import { useDeck } from "../state/DeckContext";
 import { wordOfTheDay } from "../lib/words";
+import { useState } from "react";
 
 export function Home() {
   usePageTitle("Vandaag");
@@ -18,6 +20,14 @@ export function Home() {
   const practicedToday = deck.store.dayLog?.date === deck.today && deck.store.dayLog.answeredIds.length > 0;
   const daily = wordOfTheDay(deck.today);
   const inDeck = deck.inDeck(daily.id);
+  const [added, setAdded] = useState("");
+
+  useEffect(() => {
+    const main = document.getElementById("main");
+    if (!main) return;
+    main.classList.toggle("is-home", !firstRun);
+    return () => main.classList.remove("is-home");
+  }, [firstRun]);
 
   function addTen() {
     const saved = deck.addStarter();
@@ -26,7 +36,7 @@ export function Home() {
 
   function addDaily() {
     const saved = deck.addWord(daily.id);
-    if (saved) deck.showToast(`${daily.word} staat nu in je woorden.`);
+    if (saved) setAdded(`${daily.word} staat nu in je woorden.`);
   }
 
   return (
@@ -58,9 +68,9 @@ export function Home() {
                   <PlusIcon size={18} /> Toevoegen
                 </button>
               )}
-              <Link className="text-link" to={`/woord/${encodeURIComponent(daily.id)}`}>
+              <WordLink id={daily.id} className="text-link">
                 Bekijk woord
-              </Link>
+              </WordLink>
             </div>
           </section>
           {due.length > 0 ? (
@@ -95,16 +105,18 @@ export function Home() {
                   : "Voeg een woord toe om te oefenen."}
               </p>
               {deck.streak > 0 && !deck.todayCounted ? <p>Oefen vandaag om je reeks van {dagen(deck.streak)} te houden.</p> : null}
-              <Link className="primary split" to="/zoeken">
-                <span>Woord toevoegen</span>
-                <ArrowRightIcon />
-              </Link>
-              {cards.length > 0 ? (
-                <button type="button" className="secondary split" onClick={() => navigate("/oefenen", { state: { mode: "extra", startedAt: Date.now() } })}>
-                  <span>Extra ronde</span>
+              <div className="button-stack">
+                <Link className="primary split" to="/zoeken">
+                  <span>Woord toevoegen</span>
                   <ArrowRightIcon />
-                </button>
-              ) : null}
+                </Link>
+                {cards.length > 0 ? (
+                  <button type="button" className="secondary split" onClick={() => navigate("/oefenen", { state: { mode: "extra", startedAt: Date.now() } })}>
+                    <span>Extra ronde</span>
+                    <ArrowRightIcon />
+                  </button>
+                ) : null}
+              </div>
             </section>
           )}
           <Stats
@@ -118,6 +130,9 @@ export function Home() {
             <p className="streak-note">Je reeks begint opnieuw. Oefen vandaag om een nieuwe te starten.</p>
           ) : null}
           <Attribution />
+          <p className="sr-only" role="status">
+            {added}
+          </p>
         </>
       )}
     </div>
@@ -138,14 +153,16 @@ function FirstRun({ onAdd }: { onAdd: () => void }) {
       <p className="eyebrow">Welkom</p>
       <h1 className="welcome-title">Leer woorden die je nog niet kent.</h1>
       <p className="lede">Zoek een woord op, voeg het toe en oefen elke dag een paar minuten. Moeilijke woorden komen vaker terug.</p>
-      <button type="button" className="primary split" onClick={onAdd}>
-        <span>Voeg 10 woorden toe</span>
-        <ArrowRightIcon />
-      </button>
-      <Link className="secondary split" to="/zoeken">
-        <span>Zoek zelf een woord</span>
-        <SearchIcon />
-      </Link>
+      <div className="button-stack loose">
+        <button type="button" className="primary split" onClick={onAdd}>
+          <span>Voeg 10 woorden toe</span>
+          <ArrowRightIcon />
+        </button>
+        <Link className="secondary split" to="/zoeken">
+          <span>Zoek zelf een woord</span>
+          <SearchIcon />
+        </Link>
+      </div>
       <StorageNote>
         Je voortgang blijft in deze browser. Wis je browsergegevens, dan verdwijnt ze ook. Op een ander toestel begin je opnieuw.
       </StorageNote>
