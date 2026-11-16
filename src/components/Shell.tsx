@@ -1,24 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { BookIcon, CloseIcon, FlameIcon, InfoIcon, MenuIcon, PlusIcon } from "./Icons";
+import { WordIcon, CloseIcon, FlameIcon, InfoIcon, MenuIcon, PlusIcon } from "./Icons";
 import { focusable, pushOverlay, popOverlay, readState, trapTab, useEsc, type AppState } from "./ui";
 import { useDeck } from "../state/DeckContext";
 
-function BarsIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-      <path d="M4 20V10" />
-      <path d="M10 20V4" />
-      <path d="M16 20v-7" />
-      <path d="M22 20H2" />
-    </svg>
-  );
-}
-
 const links = [
-  { to: "/", label: "Vandaag", end: true, icon: <BookIcon size={20} /> },
-  { to: "/woorden", label: "Mijn woorden", end: false, icon: <BarsIcon /> },
+  { to: "/", label: "Vandaag", end: true, icon: <WordIcon size={20} /> },
+  { to: "/woorden", label: "Mijn woorden", end: false, icon: <WordIcon size={20} /> },
   { to: "/voortgang", label: "Voortgang", end: false, icon: <FlameIcon size={20} /> },
   { to: "/bronnen", label: "Bronnen", end: false, icon: <InfoIcon size={20} /> },
 ];
@@ -115,7 +104,7 @@ export function Shell() {
     <>
       <div className="drawer-head">
         <Link className="lockup" to="/" aria-label="Woordwijs, naar vandaag">
-          <BookIcon />
+          <WordIcon />
           <span>
             Woord
             <br />
@@ -173,7 +162,7 @@ export function Shell() {
         Ga naar de inhoud
       </a>
       <header className="topbar">
-        <button ref={menuRef} type="button" className="icon-button menu-button" aria-expanded={drawerOpen} aria-label="Menu openen" onClick={openDrawer}>
+        <button ref={menuRef} type="button" className="icon-button menu-button" aria-expanded={drawerOpen} aria-label="Menu openen" aria-controls={drawerOpen ? "mobile-navigation" : undefined} onClick={openDrawer}>
           <MenuIcon />
         </button>
         <Link className="wordmark" to="/" aria-label="Woordwijs, naar vandaag">
@@ -189,6 +178,7 @@ export function Shell() {
               <div className="overlay-catch drawer-catch" onClick={closeDrawer} />
               <div
                 className={shown ? "drawer is-shown" : "drawer"}
+                id="mobile-navigation"
                 role="dialog"
                 aria-modal="true"
                 aria-label="Menu"

@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { CheckIcon, FlameIcon } from "../components/Icons";
 import { Dialog, readState, Stats, StorageBanner, StorageNote, usePageTitle } from "../components/ui";
 import { lastSevenDays } from "../lib/dates";
@@ -44,7 +44,10 @@ export function ProgressPage() {
       <p className="eyebrow">Voortgang</p>
       <h1 className="page-title">Je voortgang</h1>
       {!hasPractice ? (
-        <p className="lede">Nog geen voortgang. Oefen je eerste woorden en je ziet hier je reeks en je geleerde woorden.</p>
+        <div className="progress-empty">
+          <p className="lede">Oefen je eerste woorden en je ziet hier je reeks en je geleerde woorden.</p>
+          <Link className="primary" to={total ? "/" : "/zoeken"}>{total ? "Begin met oefenen" : "Voeg je eerste woord toe"}</Link>
+        </div>
       ) : (
         <>
           <Stats
@@ -79,13 +82,13 @@ export function ProgressPage() {
               </div>
               <ul className="legend">
                 <li>
-                  <i className="swatch learned" /> Geleerd <strong>{learned}</strong>
+                  <Link to="/woorden?status=geleerd"><i className="swatch learned" /> Geleerd <strong>{learned}</strong></Link>
                 </li>
                 <li>
-                  <i className="swatch busy" /> Bezig <strong>{busy}</strong>
+                  <Link to="/woorden?status=bezig"><i className="swatch busy" /> Bezig <strong>{busy}</strong></Link>
                 </li>
                 <li>
-                  <i className="swatch fresh" /> Nieuw <strong>{fresh}</strong>
+                  <Link to="/woorden?status=nieuw"><i className="swatch fresh" /> Nieuw <strong>{fresh}</strong></Link>
                 </li>
               </ul>
             </>

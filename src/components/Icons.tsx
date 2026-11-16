@@ -115,3 +115,7 @@ export function BackIcon({ size }: IconProps) {
     </Svg>
   );
 }
+
+export function WordIcon({ size }: IconProps) {
+  return <Svg size={size}><text x="2" y="18" fill="currentColor" stroke="none" fontFamily="Georgia, serif" fontSize="18">Aa</text></Svg>;
+}

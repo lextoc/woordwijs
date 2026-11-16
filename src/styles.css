@@ -1053,3 +1053,42 @@ html.has-bar .toast { bottom: calc(var(--bar-h) + 12px); }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Interaction polish: retain the existing ink, paper, typography and radii. */
+.page-intro { font-size: 16px; line-height: 1.6; margin: 0 0 24px; max-width: 58ch; }
+.search-field:focus-within { outline: 2px solid var(--ink); outline-offset: 2px; }
+.search-field input::placeholder { color: #737373; }
+.result-list.is-updating { opacity: .5; }
+.result-list, .deck-list { transition: opacity .12s ease; }
+.result-list li, .deck-list li { min-width: 0; }
+.result-list strong, .deck-list strong { overflow-wrap: anywhere; }
+.result-list a:focus-visible, .deck-list a:focus-visible { outline-offset: -3px; }
+.load-more { margin-top: 20px; display: flex; justify-content: space-between; }
+.more-count { font-size: 13px; font-weight: 400; }
+.filter-count { font-size: 12px; font-variant-numeric: tabular-nums; font-weight: 400; opacity: .75; }
+.view-switch button { display: flex; justify-content: center; align-items: center; gap: 6px; min-width: 0; padding-inline: 8px; }
+.list-tools { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; padding: 0 0 16px; }
+.list-tools p { font-size: 13px; margin: 0; }
+.list-tools label { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.list-tools select { min-height: 44px; max-width: 100%; border: 1px solid var(--ink); border-radius: 5px; background: var(--paper); color: var(--ink); padding: 8px 28px 8px 10px; font: inherit; }
+.resume-card { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid var(--ink); border-radius: 5px; padding: 16px; margin-bottom: 24px; text-decoration: none; min-height: 76px; }
+.resume-card strong { display: block; font-size: 16px; font-weight: 600; }
+.resume-card small { display: block; margin-top: 6px; font-size: 13px; }
+.resume-card svg { flex: none; }
+.session-save-note { font-size: 13px; line-height: 1.5; border-bottom: 1px solid var(--ink); margin: 0; padding: 12px 20px; }
+.home-first .welcome-title { text-wrap: balance; }
+.home-first .button-stack { margin-top: 28px; }
+.home-first .storage-note { max-width: 58ch; }
+@media (hover: hover) and (pointer: fine) {
+  .result-list li:hover, .deck-list li:hover, .resume-card:hover { background: #00000004; }
+  .option:not([aria-disabled="true"]):hover { outline: 1px solid var(--ink); outline-offset: -1px; }
+}
+@media (max-width: 380px) {
+  .view-switch button { padding-inline: 5px; gap: 4px; font-size: 13px; }
+  .filter-count { font-size: 11px; }
+}
+.home > .resume-card { margin-top: 24px; }
+.legend li a { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; text-decoration: none; }
+.legend li a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.progress-empty { margin-bottom: 32px; }
+.progress-empty .primary { margin-top: 20px; }

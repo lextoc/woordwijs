@@ -41,7 +41,7 @@ export function wordOfTheDay(isoDate: string): Word {
 
 export function searchWords(query: string): Word[] {
   const needle = fold(query);
-  if (needle.length < 2) return [];
+  if (!needle.length) return [];
   const exact: Word[] = [];
   const starts: Word[] = [];
   const contains: Word[] = [];

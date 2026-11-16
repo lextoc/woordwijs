@@ -1,3 +1,4 @@
+import { practiceProgress } from "../lib/practice-progress";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRightIcon, BookIcon, CheckIcon, FlameIcon, PlusIcon, SearchIcon } from "../components/Icons";
@@ -16,6 +17,7 @@ export function Home() {
   const cards = Object.values(deck.store.cards);
   const firstRun = cards.length === 0 && !deck.store.hasHistory;
   const due = dueSession(deck.store.cards, deck.today);
+  const resume = practiceProgress(deck.store.cards);
   const learned = cards.filter((card) => cardStatus(card) === "geleerd").length;
   const practicedToday = deck.store.dayLog?.date === deck.today && deck.store.dayLog.answeredIds.length > 0;
   const daily = wordOfTheDay(deck.today);
@@ -42,6 +44,10 @@ export function Home() {
   return (
     <div className={firstRun ? "home home-first" : "home"}>
       <StorageBanner />
+      {resume ? <Link className="resume-card" to="/oefenen">
+        <span><strong>Ga verder met je oefening</strong><small>Nog {resume.remaining} {resume.remaining === 1 ? "woord" : "woorden"} in deze ronde</small></span>
+        <ArrowRightIcon />
+      </Link> : null}
       {firstRun ? (
         <FirstRun onAdd={addTen} />
       ) : (
@@ -73,7 +79,7 @@ export function Home() {
               </WordLink>
             </div>
           </section>
-          {due.length > 0 ? (
+          {resume ? null : due.length > 0 ? (
             <section className="practice-block">
               <p className="eyebrow">Oefenen</p>
               <h2>{due.length === 1 ? "1 woord voor vandaag" : `${due.length} woorden voor vandaag`}</h2>

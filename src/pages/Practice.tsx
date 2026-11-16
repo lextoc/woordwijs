@@ -91,6 +91,7 @@ export function Practice() {
   const setup = useRef<Saved | null | undefined>(undefined);
   if (setup.current === undefined) setup.current = createSession(incoming, deck);
   const saved = setup.current;
+  const [sessionError, setSessionError] = useState(false);
   const [queue, setQueue] = useState(saved?.queue ?? []);
   const [index, setIndex] = useState(saved?.index ?? 0);
   const [phase, setPhase] = useState<Phase>(saved?.phase ?? { kind: "recall-front" });
@@ -122,7 +123,7 @@ export function Practice() {
       plannedIds,
       doneIds,
     };
-    sessionStorage.setItem(SESSION_KEY, JSON.stringify(snapshot));
+    try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(snapshot)); } catch { setSessionError(true); }
   }, [doneIds, index, phase, plannedIds, queue, saved, startedAt]);
 
   useEffect(() => {
@@ -212,7 +213,7 @@ export function Practice() {
     }
     const nextIndex = index + 1;
     if (nextIndex >= queued.length) {
-      sessionStorage.removeItem(SESSION_KEY);
+      try { sessionStorage.removeItem(SESSION_KEY); } catch {}
       const summary: SummaryState = {
         answers: score.answers,
         goed: score.goed,
@@ -246,15 +247,21 @@ export function Practice() {
   }
 
   function quit() {
-    sessionStorage.removeItem(SESSION_KEY);
-    sessionStorage.setItem(STOPPED_KEY, String(startedAt));
+    try {
+      sessionStorage.removeItem(SESSION_KEY);
+      sessionStorage.setItem(STOPPED_KEY, String(startedAt));
+    } catch {}
     const idx = (window.history.state?.idx as number | undefined) ?? 0;
     if (idx >= 2) navigate(-2);
     else navigate("/", { replace: true });
   }
 
   function onKey(event: KeyboardEvent) {
-    if (stop) return;
+    if (event.repeat) {
+      if (["Enter", " ", "1", "2", "3", "4", "Escape"].includes(event.key) && !(event.target instanceof HTMLInputElement)) event.preventDefault();
+      return;
+    }
+    if (stop || event.isComposing || event.ctrlKey || event.metaKey || event.altKey) return;
     const typing = event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement;
     const fine = window.matchMedia("(pointer: fine)").matches;
     if (event.key === "Escape") {
@@ -308,6 +315,7 @@ export function Practice() {
   return (
     <div className="practice" ref={rootRef} onKeyDownCapture={(event) => onKey(event.nativeEvent)}>
       <StorageBanner />
+      {sessionError && deck.storageOk ? <p className="session-save-note" role="status">Je antwoorden worden bewaard, maar deze browser kan de open oefening niet onthouden.</p> : null}
       <header className="session-bar">
         <button type="button" onClick={openStop} aria-label="Stoppen met oefenen">
           <CloseIcon />
@@ -518,6 +526,7 @@ export function Practice() {
             <button type="button" className="danger-button" onClick={quit}>
               Stoppen
             </button>
+            {!sessionError ? <button type="button" className="secondary" onClick={() => navigate("/", { replace: true })}>Later verdergaan</button> : null}
             <button type="button" className="secondary" data-initial-focus onClick={closeStop}>
               Doorgaan met oefenen
             </button>
@@ -573,7 +582,7 @@ function FillCard({
       {!checked ? <p className="hint-line">Hoofdletters en accenten maken niet uit.</p> : null}
       {!checked && !phase.hint ? (
         <button type="button" className="text-button" onClick={onHint}>
-          {hint}
+          Toon hint
         </button>
       ) : null}
       {phase.hint && !checked ? <p className="hint-line">{hint}</p> : null}
@@ -591,7 +600,7 @@ function createSession(incoming: { mode?: "due" | "extra"; startedAt?: number } 
   if (existing && incoming?.startedAt && existing.startedAt === incoming.startedAt) return existing;
   if (existing && !incoming?.startedAt) return existing;
   if (!incoming?.mode || !incoming.startedAt) return null;
-  if (sessionStorage.getItem(STOPPED_KEY) === String(incoming.startedAt)) return null;
+  try { if (sessionStorage.getItem(STOPPED_KEY) === String(incoming.startedAt)) return null; } catch {}
   const ids = incoming.mode === "extra" ? extraSession(deck.store.cards) : dueSession(deck.store.cards, deck.today);
   if (ids.length === 0) return null;
   const queue = ids.map((id) => ({ id }));

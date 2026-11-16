@@ -126,3 +126,9 @@ De code van deze site is vrij te gebruiken. De woordgegevens blijven CC BY-SA 4.
 ## Productie
 
 De site staat op https://woordwijs.alexanderclaes.com. De nginx-configuratie staat in `deploy/nginx.conf` en gebruikt een SPA-fallback voor diepe links. Publiceer uitsluitend `dist/` naar een nieuwe map onder `/var/www/woordwijs-static/releases/<git-revisie>` en vervang de `current`-symlink atomair. De broncode, brongegevens, caches en `node_modules` horen niet in de publieke webmap. HTTPS gebruikt het eigen automatisch vernieuwde Let's Encrypt-certificaat voor dit subdomein.
+
+## Gebruiksgemak
+
+Woord toevoegen toont ook zonder zoekterm een alfabetische lijst. Zoekopdrachten, het aantal getoonde resultaten en de filters/sortering van Mijn woorden staan in de URL, zodat terugkeren uit een woordpaneel dezelfde lijst herstelt. Mijn woorden toont aantallen per status en kan sorteren op toevoegdatum, alfabet of herhaling. De legenda in Voortgang verwijst naar die filters.
+
+Een open oefening kan via ‘Later verdergaan’ opzij worden gezet en op Vandaag worden hervat. De oefening gebruikt de bestaande sessieopslag en verandert de herhaalregels niet. Hints worden pas na aanklikken getoond; ingedrukt gehouden sneltoetsen mogen geen antwoorden overslaan. Een mislukte schrijfactie naar sessieopslag blokkeert het oefenen niet.

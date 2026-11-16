@@ -474,6 +474,7 @@ export function useRowArrows(ids: string[]) {
 export function useSearchKeys(inputRef: RefObject<HTMLInputElement | null>, clear: () => void) {
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
+      if (event.ctrlKey || event.metaKey || event.altKey || event.repeat || event.isComposing || document.documentElement.dataset.overlay === "open") return;
       const typing = event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement;
       if (event.key === "/" && !typing && window.matchMedia("(pointer: fine)").matches) {
         event.preventDefault();
