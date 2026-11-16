@@ -571,16 +571,24 @@ export function StorageNote({ children }: { children: ReactNode }) {
   );
 }
 
-export function Decor() {
+export function WordDecor() {
+  const letters = [
+    { letter: "W", x: 12, y: 29, angle: -5 },
+    { letter: "O", x: 70, y: 15, angle: 3 },
+    { letter: "O", x: 128, y: 32, angle: -3 },
+    { letter: "R", x: 186, y: 19, angle: 4 },
+    { letter: "D", x: 244, y: 30, angle: -4 },
+  ];
   return (
-    <div className="decor-books" aria-hidden="true">
-      <i />
-      <i />
-      <i />
-      <i />
-      <i />
-      <i />
-    </div>
+    <svg className="decor-words" viewBox="0 0 310 106" fill="none" aria-hidden="true" focusable="false">
+      {letters.map(({ letter, x, y, angle }) => (
+        <g key={x} transform={`translate(${x} ${y}) rotate(${angle} 24 26)`}>
+          <rect width="48" height="52" rx="4" fill="var(--paper)" stroke="currentColor" strokeWidth="1.5" />
+          <text x="24" y="36" textAnchor="middle" fill="currentColor" fontFamily="Georgia, serif" fontSize="32">{letter}</text>
+        </g>
+      ))}
+      <circle cx="300" cy="86" r="4" fill="var(--accent)" />
+    </svg>
   );
 }
 

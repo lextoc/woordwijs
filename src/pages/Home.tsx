@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRightIcon, BookIcon, CheckIcon, FlameIcon, PlusIcon, SearchIcon } from "../components/Icons";
-import { Attribution, Decor, Stats, StorageBanner, StorageNote, usePageTitle, WordLink } from "../components/ui";
+import { Attribution, WordDecor, Stats, StorageBanner, StorageNote, usePageTitle, WordLink } from "../components/ui";
 import { dagen } from "../lib/text";
 import { dueSession } from "../lib/session";
 import { cardStatus } from "../lib/model";
@@ -166,7 +166,7 @@ function FirstRun({ onAdd }: { onAdd: () => void }) {
       <StorageNote>
         Je voortgang blijft in deze browser. Wis je browsergegevens, dan verdwijnt ze ook. Op een ander toestel begin je opnieuw.
       </StorageNote>
-      <Decor />
+      <WordDecor />
     </>
   );
 }

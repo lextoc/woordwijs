@@ -333,10 +333,9 @@ main.is-home { padding-top: 0; }
   text-underline-offset: 4px;
 }
 
-.home-first { position: relative; overflow: hidden; }
+.home-first { position: relative; }
 .home-first .lede { margin-bottom: 0; }
 .home-first .storage-note { margin-top: 24px; }
-.home-first > :not(.decor-books) { position: relative; z-index: 1; }
 .storage-note, .preview-notice {
   display: flex;
   gap: 8px;
@@ -348,31 +347,16 @@ main.is-home { padding-top: 0; }
 .preview-notice { margin: 0 0 16px; padding: 12px 0; border-bottom: 1px solid var(--ink); }
 .storage-note svg, .preview-notice svg { flex: none; margin-top: 2px; }
 
-.decor-books {
-  position: absolute;
-  right: -8px;
-  bottom: -35px;
-  z-index: 0;
-  display: flex;
-  align-items: flex-end;
-  gap: 9px;
-  transform: rotate(-17deg) scale(0.55);
-  transform-origin: bottom right;
-  pointer-events: none;
-}
-.decor-books i {
+.decor-words {
   display: block;
-  width: 43px;
-  height: 210px;
-  background: var(--ink);
-  border-left: 5px solid var(--paper);
-  border-radius: 4px 4px 0 0;
+  width: min(100%, 310px);
+  height: auto;
+  margin: 32px 0 0 auto;
+  color: var(--ink);
+  pointer-events: none;
+  user-select: none;
+  overflow: visible;
 }
-.decor-books i:nth-child(2) { height: 260px; width: 57px; }
-.decor-books i:nth-child(3) { height: 230px; }
-.decor-books i:nth-child(4) { height: 285px; width: 70px; }
-.decor-books i:nth-child(5) { height: 240px; }
-.decor-books i:nth-child(6) { height: 185px; }
 
 .field-label { display: block; font-size: 14px; font-weight: 500; line-height: 1.3; margin: 0 0 8px; }
 .search-field {
@@ -1035,7 +1019,6 @@ html.has-bar .toast { bottom: calc(var(--bar-h) + 12px); }
   .page-title { font-size: 44px; letter-spacing: -1.5px; }
   .practice-block h2 { font-size: 1.8rem; }
   .word-panel { margin-left: 0; margin-right: 0; }
-  .decor-books { transform: rotate(-17deg); right: 0; bottom: -60px; }
   .practice .action-bar { padding-bottom: 24px; }
   .ratings { grid-template-columns: repeat(4, 1fr); }
   .rating { height: 88px; min-height: 88px; }
