@@ -42,11 +42,11 @@
       "example",
       "rank"
     ],
-    "selection": "Nederlandse lemma's van 7 tot 20 letters met een duidelijke Nederlandse betekenis en een voorbeeldzin. Een betekenis die het lemma herhaalt, valt weg. De eerste 6000 lemma's van de frequentielijst vallen weg (alledaags). Eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen, informeel taalgebruik en vaktaal vallen weg. Doorzichtige samenstellingen, scheidbare werkwoorden en productieve afleidingen vallen weg. Een lemma blijft als het formeel of poëtisch gelabeld is, een literaire vorm heeft, of een bijwoord van minstens 8 letters is. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft als het zeldzaam maar echt is. Gewone werkwoorden, klanknabootsingen en leenwerkwoorden vallen weg. Spelfouten vallen weg, net als een spellingvariant die alleen een koppel-s scheelt van een bekend lemma. Heeft een lemma cijfers uit het Leesonderzoek 2013, dan blijft het alleen als hoogstens 90 procent het herkent. Die tabel staat vast in data/nl-recognition.json en wordt niet live opgehaald. Een afleiding op -erij, -arij, -nij, -erig, -ig, -heid, -schap, -shalve, -ing of -wijze valt weg als het grondwoord in de frequentielijst staat of in het Leesonderzoek boven de 80 procent uitkomt, ook wanneer de afleiding zelf een lager cijfer heeft. Een betekenis met een kapot sjabloon, een cirkelredenering of een ander begrip dan het woord, valt weg. Per lemma één woordsoort. Hoogstens 1200. Rank is de plaats in die volgorde, niet de frequentie.",
+    "selection": "Het script maakt een kandidatenlijst: Nederlandse lemma's van 7 tot 20 letters met een duidelijke betekenis en een voorbeeldzin, zonder de eerste 6000 frequentielemma's, zonder eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen, vaktaal, doorzichtige samenstellingen en productieve afleidingen van een bekend grondwoord, en zonder een herkenning boven de 90 procent. Die herkenningstabel staat vast in data/nl-recognition.json en wordt niet live opgehaald. data/curated.json beoordeelt elk kandidaatwoord met de hand: keep of drop. words.json bevat alleen de keep-woorden. data/denylist.json houdt de woorden vast die QA heeft afgekeurd; de bouw faalt als zo'n woord of een ontbrekende starter in de set staat. Rank is de plaats in de eindset, niet de frequentie.",
     "adaptations": [
       "Alledaagse lemma's (de eerste 6000 van de frequentielijst), eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, verouderde betekenissen en vaktaal zijn weggelaten.",
-      "Betekenissen die het lemma herhalen, doorzichtige samenstellingen en productieve afleidingen van een frequent woord zijn weggelaten.",
-      "Per item hoogstens zes betekenissen. Witruimte is genormaliseerd, een leidende dubbele punt en [n]-indices zijn verwijderd. De tekst is verder niet herschreven.",
+      "De automatische filters leveren alleen kandidaten. De eindset is de handmatige beoordeling in data/curated.json.",
+      "Per item hoogstens zes betekenissen. Witruimte is genormaliseerd, een leidende dubbele punt en [n]-indices zijn verwijderd. Een handvol bijvoeglijke glossen is teruggebracht tot een bijvoeglijke formulering. Verder is de tekst niet herschreven.",
       "Een voorbeeldzin die langer is dan 240 tekens is ingekort op een zinseinde, zolang het woord er nog in staat.",
       "Het lidwoord is afgeleid uit de labels neuter, masculine en feminine: alleen onzijdig wordt het, mannelijk en/of vrouwelijk wordt de, allebei wordt de/het."
     ],
@@ -55,33 +55,43 @@
       "dutchEntries": 669494,
       "indexedLemmas": 229,
       "frequencyLemmas": 13604,
-      "entries": 228,
-      "withExample": 228,
-      "withArticle": 26,
-      "nouns": 57,
-      "formal": 9,
+      "entries": 144,
+      "withExample": 144,
+      "withArticle": 18,
+      "nouns": 31,
+      "formal": 8,
       "byPos": {
-        "adv": 31,
-        "adj": 69,
-        "noun": 57,
-        "verb": 71
+        "adv": 19,
+        "adj": 41,
+        "noun": 31,
+        "verb": 53
       },
       "surveyRemoved": 77,
       "derivationRemoved": 123,
       "glossRemoved": 8,
-      "spellingRemoved": 1
+      "spellingRemoved": 1,
+      "curatedCandidates": 228,
+      "curatedKept": 144,
+      "curatedDropped": 84,
+      "dropReasons": {
+        "a": 56,
+        "c": 14,
+        "e": 4,
+        "b": 9,
+        "f": 1
+      }
     },
     "starterIds": [
       "ontstentenis__noun",
       "verpozen__verb",
       "weledel__adj",
       "realiter__adv",
-      "aanminnelijkheid__noun",
       "verslampampen__verb",
-      "ongerieflijk__adj",
       "kattepierig__adj",
+      "berispelijk__adj",
       "gevankelijk__adv",
-      "tappelings__adv"
+      "tappelings__adv",
+      "lambrekijn__noun"
     ],
     "wordOfTheDay": "Het woord van de dag komt uit de hele set. De index is FNV-1a van de lokale datum YYYY-MM-DD, modulo het aantal lemma's, na sortering op id."
   },
@@ -99,19 +109,6 @@
       "rank": 1
     },
     {
-      "id": "grotelijks__adv",
-      "word": "grotelijks",
-      "pos": "adv",
-      "posLabel": "bijwoord",
-      "article": null,
-      "senses": [
-        "in ruime mate",
-        "op een prachtige manier"
-      ],
-      "example": "De kruiden, welke door de wind tussen de verstrooide stenen gezaaid waren, hadden zich op die tijd grotelijks vermenigvuldigd: een weeldrig gras schoot zijn groene stijltjes overal in de hoogte, - en als de geliefkoosde kinderen der woeste",
-      "rank": 2
-    },
-    {
       "id": "realiter__adv",
       "word": "realiter",
       "pos": "adv",
@@ -121,7 +118,7 @@
         "in werkelijkheid"
       ],
       "example": "Het gaat om hetgeen realiter gebeurd.",
-      "rank": 3
+      "rank": 2
     },
     {
       "id": "volgaarne__adv",
@@ -133,7 +130,7 @@
         "met veel plezier; met veel genoegen"
       ],
       "example": "Gelukkig bieden de ministeries van Economische Zaken en BuZa een luisterend oor. Holland promotie is in, deze kabinetsperiode was er een record van 100 handelsmissies. En dus participeert de overheid volgaarne.",
-      "rank": 4
+      "rank": 3
     },
     {
       "id": "weledel__adj",
@@ -145,7 +142,7 @@
         "aanspreekvorm ter aanduiding dat iemand door afkomst of functie een hoog maatschappelijk aanzien geniet"
       ],
       "example": "En ziet, daar was de weledel hooggeboren Tjeenk Willink. Hij kwam, zag en nam een adempauze. Terecht, mijns inziens.",
-      "rank": 5
+      "rank": 4
     },
     {
       "id": "deconfiture__noun",
@@ -157,7 +154,7 @@
         "faillissement, bankroet"
       ],
       "example": "“Wat in Nederland is gebeurd is een deel van een breder patroon: een deconfiture van de westerse democratie. Formeren duurt steeds langer, regeren duurt steeds korter en in die korte periode maken ze ruzie.”",
-      "rank": 6
+      "rank": 5
     },
     {
       "id": "kortswijl__noun",
@@ -169,7 +166,7 @@
         "scherts, grappenmakerij"
       ],
       "example": "Zo heb ik uit louter kortswijl deelgenomen aan het examen voor de diplomatieke dienst en aangezien ik een goed geheugen heb en vrij behoorlijk opstellen kan schrijven, slaagde ik",
-      "rank": 7
+      "rank": 6
     },
     {
       "id": "ontstentenis__noun",
@@ -182,7 +179,7 @@
         "het falen, mislukken"
       ],
       "example": "Wegens ontstentenis van de griffier is hij niet in staat te ondertekenen.",
-      "rank": 8
+      "rank": 7
     },
     {
       "id": "verpozen__verb",
@@ -194,19 +191,7 @@
         "zich ~: uitrusten, uitblazen, ontspannen, pauzeren"
       ],
       "example": "laat niet als dank voor het aangenaam verpozen de eigenaar van dit bos de schillen en de dozen",
-      "rank": 9
-    },
-    {
-      "id": "alleenlijk__adv",
-      "word": "alleenlijk",
-      "pos": "adv",
-      "posLabel": "bijwoord",
-      "article": null,
-      "senses": [
-        "in je eentje zonder andere mensen"
-      ],
-      "example": "Het briesen der paarden mengde zich met het zoete geluid der jachthorens; echter hing de valbrug nog in de hoogte en de voorbijgaande landlieden mochten alleenlijk raden wat er gaande was.",
-      "rank": 10
+      "rank": 8
     },
     {
       "id": "altemets__adv",
@@ -218,19 +203,7 @@
         "drukt onzekerheid uit over de waarschijnlijkheid dat iets gebeurt"
       ],
       "example": "Vader bekeek nooit mijn rapport, maar af en toe vroeg hij heel stillekes ‘speel j'altemets nog ne keer klarinette?’",
-      "rank": 11
-    },
-    {
-      "id": "beweerdelijk__adv",
-      "word": "beweerdelijk",
-      "pos": "adv",
-      "posLabel": "bijwoord",
-      "article": null,
-      "senses": [
-        "zoals wel beweerd wordt"
-      ],
-      "example": "De commissie is gestuit op een (vruchteloze) poging om te interveniëren in het onderzoek. Dit zou zijn gedaan beweerdelijk vanuit kringen rond het Koninklijk Huis.",
-      "rank": 12
+      "rank": 9
     },
     {
       "id": "bijwijlen__adv",
@@ -242,7 +215,7 @@
         "soms, geregeld, van tijd tot tijd"
       ],
       "example": "Vroeger zagen we je bijwijlen voorbijkomen, maar tegenwoordig kom je maar zelden.",
-      "rank": 13
+      "rank": 10
     },
     {
       "id": "binnengaats__adv",
@@ -254,19 +227,7 @@
         "binnenlands, intern, voor zichzelf"
       ],
       "example": "Binnengaats delen zij hun politieke positie met het steeds groeiende segment van burgers dat de overheid argwanend gadeslaat of dat eenvoudigweg niet meer wordt bereikt.",
-      "rank": 14
-    },
-    {
-      "id": "daartegenin__adv",
-      "word": "daartegenin",
-      "pos": "adv",
-      "posLabel": "voornaamwoordelijk bijwoord",
-      "article": null,
-      "senses": [
-        "zich tegen dat verzettend"
-      ],
-      "example": "Het verdedigingsteam van Trump zal daartegenin brengen dat deze twee aanklachten niet wijzen op ongrondwettelijk handelen van de president en dat het ook geen misdrijven zijn.",
-      "rank": 15
+      "rank": 11
     },
     {
       "id": "derwijze__adv",
@@ -278,19 +239,7 @@
         "op zodanige manier"
       ],
       "example": "Hij raakte derwijze gewond dat hij spoedig overleed.",
-      "rank": 16
-    },
-    {
-      "id": "desniettemin__adv",
-      "word": "desniettemin",
-      "pos": "adv",
-      "posLabel": "bijwoord",
-      "article": null,
-      "senses": [
-        "ondanks dat; in weerwil daarvan"
-      ],
-      "example": "Waren zij dat wel waard? Het trof Vronski als iets onaangenaams, maar desniettemin besefte hij dat Golenisjtsjev ongelukkig moest zijn en hij had medelijden met hem.",
-      "rank": 17
+      "rank": 12
     },
     {
       "id": "duivekaters__adv",
@@ -302,19 +251,7 @@
         "in hoge mate"
       ],
       "example": "En een duivekaters inzichtige kerel was Broor ook; hij liet een hoop modder en nat zand over de veenlaag brengen en ploegde alles fiks door mekaar, en hij kocht een paar tjalken met stadsvuil en liet dat er nog eens extra doorheen kruien",
-      "rank": 18
-    },
-    {
-      "id": "eensdaags__adv",
-      "word": "eensdaags",
-      "pos": "adv",
-      "posLabel": "bijwoord",
-      "article": null,
-      "senses": [
-        "op een zekere dag in de toekomst"
-      ],
-      "example": "Hij geloofde vast en zeker dat dit eensdaags zou gebeuren.",
-      "rank": 19
+      "rank": 13
     },
     {
       "id": "eensklaps__adv",
@@ -326,31 +263,7 @@
         "plotseling, in een keer zonder geleidelijke overgang"
       ],
       "example": "Ze werd eensklaps verdrietig en begon te huilen.",
-      "rank": 20
-    },
-    {
-      "id": "eigendunkelijk__adv",
-      "word": "eigendunkelijk",
-      "pos": "adv",
-      "posLabel": "bijwoord",
-      "article": null,
-      "senses": [
-        "op een wijze die naar eigen goeddunken, zonder overleg verloopt"
-      ],
-      "example": "Aan de Fransen is gevraagd niet meer eigendunkelijk skalians en andere eigendommen van Surinamers te vernietigen aan de grens, omdat Suriname als bevriende natie ook bezig is zaken op orde te stellen in de regio.",
-      "rank": 21
-    },
-    {
-      "id": "erbinnen__adv",
-      "word": "erbinnen",
-      "pos": "adv",
-      "posLabel": "voornaamwoordelijk bijwoord",
-      "article": null,
-      "senses": [
-        "vervangt *binnen het"
-      ],
-      "example": "Het lag erbinnen.",
-      "rank": 22
+      "rank": 14
     },
     {
       "id": "gevankelijk__adv",
@@ -362,7 +275,7 @@
         "als gevangene, niet vrij"
       ],
       "example": "Gij zijt opgevaren in de hoogte; Gij hebt de gevangenis gevankelijk gevoerd; Gij hebt gaven genomen om uit te delen onder de mensen.",
-      "rank": 23
+      "rank": 15
     },
     {
       "id": "grovelijk__adv",
@@ -374,43 +287,7 @@
         "op een heel grove, stuitende manier"
       ],
       "example": "Bijvoorbeeld als een werkgever grovelijk de verplichtingen niet nakomt die voortvloeien uit de arbeidsovereenkomst en er als gevolg een verstoorde arbeidsverhouding ontstaat of als een werkgever een valse grond voor ontslag aanvoert, met",
-      "rank": 24
-    },
-    {
-      "id": "hooglijk__adv",
-      "word": "hooglijk",
-      "pos": "adv",
-      "posLabel": "bijwoord",
-      "article": null,
-      "senses": [
-        "in hoge mate; heel erg"
-      ],
-      "example": "De regimentscommandant van het eerste regiment was hooglijk verbaasd over het bevel van de opperbevelhebber om tirailleurs naar voren te sturen.",
-      "rank": 25
-    },
-    {
-      "id": "jewelste__adv",
-      "word": "jewelste",
-      "pos": "adv",
-      "posLabel": "bijwoord",
-      "article": null,
-      "senses": [
-        "van aanzienlijk formaat, heel groot; heel echt"
-      ],
-      "example": "Ruys is gespecialiseerd in populairwetenschappelijke boeken. Met Mindgym, sportschool voor je geest van mindfulnesstrainer Wouter de Jong heeft zijn uitgeverij een bestseller van jewelste uitgegeven.",
-      "rank": 26
-    },
-    {
-      "id": "kaaltjes__adv",
-      "word": "kaaltjes",
-      "pos": "adv",
-      "posLabel": "bijwoord",
-      "article": null,
-      "senses": [
-        "al te leeg of schraal"
-      ],
-      "example": "Eén stemwijzer is misschien wat kaaltjes, bedacht het IPP. Het instituut kwam daarom ook met stemmentracker.nl, die de besluiten op een rijtje zet die partijen de afgelopen regeringsperiode hebben genomen.",
-      "rank": 27
+      "rank": 16
     },
     {
       "id": "onderduims__adv",
@@ -422,7 +299,7 @@
         "in het verborgene"
       ],
       "example": "Nu we deze reeks hier afsluiten, willen we toch nog herhalen dat marketing niet louter een spelletje is. We willen nog eens herhalen dat marketing geen onderduims middel is om mensen te doen kopen wat ze eigenlijk niet willen hebben.",
-      "rank": 28
+      "rank": 17
     },
     {
       "id": "ongaarne__adv",
@@ -434,19 +311,7 @@
         "met tegenzin; niet graag"
       ],
       "example": "Smederij Meister & Zonen, al 105 jaar in de Bellamystraat, moet sluiten omdat de eigenaar geen vergunning krijgt om even verderop op kleinere schaal door te gaan. De buurt ziet de oude smederij ongaarne verdwijnen.",
-      "rank": 29
-    },
-    {
-      "id": "pasverworven__adv",
-      "word": "pasverworven",
-      "pos": "adv",
-      "posLabel": "bijwoord",
-      "article": null,
-      "senses": [
-        "recent verkregen; recent machtig geworden"
-      ],
-      "example": "Maar Nederlands leren stopt niet aan de deur van het leslokaal. Anderstaligen moeten ook de kans krijgen hun pasverworven taalkennis te oefenen in de praktijk. En daar wringt nog vaak het schoentje.",
-      "rank": 30
+      "rank": 18
     },
     {
       "id": "schrijlings__adv",
@@ -458,7 +323,7 @@
         "met de benen uiteen ergens op zitten of staan ook in figuurlijke zin"
       ],
       "example": "Is schrijlings goed gebruikt in de volgende zin: 'In de negentiende eeuw mochten vrouwen alleen schrijlings op een paard zitten'?Nee, schrijlings is hier niet goed gebruikt.",
-      "rank": 31
+      "rank": 19
     },
     {
       "id": "smadelijk__adv",
@@ -470,7 +335,7 @@
         "op oneervolle manier"
       ],
       "example": "Paardrijden was ook leerzaam.lk had een zeer deemoedigende experience toen Schilling me laatst op zijn paard liet rijden, hetwelk er stante pede van door ging tot ik smadelijk in het zand terecht kwam, zonder schadelijke gevolgen behalve",
-      "rank": 32
+      "rank": 20
     },
     {
       "id": "starlings__adv",
@@ -482,7 +347,7 @@
         "met onbeweeglijke starende blik"
       ],
       "example": "⧖ Hij zei dit schamper, nadrukkelijk, staarde den verzoeker starlings in de oogen.",
-      "rank": 33
+      "rank": 21
     },
     {
       "id": "tappelings__adv",
@@ -494,7 +359,7 @@
         "in grote stromen; in straaltjes; als uit een tap of kraan"
       ],
       "example": "Langs zijn van kruitdamp zwart geworden gezicht liep het zweet tappelings neer.",
-      "rank": 34
+      "rank": 22
     },
     {
       "id": "uwentwege__adv",
@@ -506,7 +371,7 @@
         "uit uw naam, op last van u; van u; wat u betreft"
       ],
       "example": "We kregen onlangs een brief van uwentwege om ons te verantwoorden voor de politieke keuzes die we gemaakt hebben bij de vorming van een nieuwe Belgische regering in 2011.",
-      "rank": 35
+      "rank": 23
     },
     {
       "id": "uwentwil__adv",
@@ -518,19 +383,7 @@
         "voor u; in uw belang; om u ter wille te te zijn; uit liefde voor u"
       ],
       "example": "Hij is om uwentwil uit de hemel op de aarde nedergekomen, treed gij met voeten op de aardse dingen, zoek het Koninkrijk van God en Zijn gerechtigheid om uwszelfs wil.",
-      "rank": 36
-    },
-    {
-      "id": "aadlijk__adj",
-      "word": "aadlijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "van of behorende tot de adel"
-      ],
-      "example": "Daar lag zij in het venster, behangen met fluweel, in 't midden van haar maagden, gedost in 't aadlijk geel.",
-      "rank": 37
+      "rank": 24
     },
     {
       "id": "aanminnig__adj",
@@ -542,31 +395,7 @@
         "goed uitziend, van een zekere schoonheid"
       ],
       "example": "Ze had een aanminnige houding.",
-      "rank": 38
-    },
-    {
-      "id": "alzijdig__adj",
-      "word": "alzijdig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "naar of van alle kanten"
-      ],
-      "example": "De antiautoritaire opvoeding was hiervan het trieste hoogtepunt: een mens heeft geen grenzen nodig, laat iedereen zich van jongs af aan vrij en alzijdig ontwikkelen.",
-      "rank": 39
-    },
-    {
-      "id": "ambtsedig__adj",
-      "word": "ambtsedig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "wat valt onder de ambtseed"
-      ],
-      "example": "Het rapport van de makelaar was niet erg betrouwbaar, want het was niet ambtsedig opgesteld.",
-      "rank": 40
+      "rank": 25
     },
     {
       "id": "armtierig__adj",
@@ -578,7 +407,7 @@
         "arm, verlopen en sober"
       ],
       "example": "Op tafel in het armtierige kantoortje van algemeen directeur Terry Ibbotson ligt de tekening van de nieuwbouw.",
-      "rank": 41
+      "rank": 26
     },
     {
       "id": "baarlijk__adj",
@@ -590,31 +419,7 @@
         "zich in zijn ware vorm vertonend"
       ],
       "example": "Dat is baarlijke nonsens.",
-      "rank": 42
-    },
-    {
-      "id": "bedektelijk__adj",
-      "word": "bedektelijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "op een slinkse manier"
-      ],
-      "example": "Acht engelen waren bedektelijk bij de poort op de wal geklommen, om de welkom te blazen en de Vorst aan te kondigen.",
-      "rank": 43
-    },
-    {
-      "id": "begrotelijk__adj",
-      "word": "begrotelijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "duur in verhouding met wat je ervoor terugkrijgt"
-      ],
-      "example": "Het sluiten van de kerncentrales wordt te begrotelijk voor de regering van Zweden.",
-      "rank": 44
+      "rank": 27
     },
     {
       "id": "berispelijk__adj",
@@ -626,20 +431,7 @@
         "strenge afkeuring verdienend"
       ],
       "example": "De jongen vertoonde berispelijk gedrag.",
-      "rank": 45
-    },
-    {
-      "id": "bevindelijk__adj",
-      "word": "bevindelijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "op een manier die je zelf duidelijk ervaart",
-        "met een geloof dat voortkomt uit de persoonlijke ervaring van de gelovige zelf"
-      ],
-      "example": "Het leven in een psychiatrisch ziekenhuis kan men zich pas goed voorstellen wanneer men het heeft meegemaakt, het bevindelijk heeft leren kennen zoals de ‘oude schrijvers’ zeggen.",
-      "rank": 46
+      "rank": 28
     },
     {
       "id": "breedvoerig__adj",
@@ -651,7 +443,7 @@
         "tijd en ruimte nemend om alle kanten uitgebreid te bezien"
       ],
       "example": "Hij heeft daarover een breedvoerige verhandeling geschreven.",
-      "rank": 47
+      "rank": 29
     },
     {
       "id": "buitenissig__adj",
@@ -663,19 +455,7 @@
         "afwijkend van wat gewoon en/of gangbaar is"
       ],
       "example": "Uitzonderlijke rassen en buitenissige schepselen.",
-      "rank": 48
-    },
-    {
-      "id": "buitenmatig__adj",
-      "word": "buitenmatig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "meer dan normaal"
-      ],
-      "example": "Deze jongen had een buitenmatige intelligentie, maar helaas was zijn ijver ondermaats",
-      "rank": 49
+      "rank": 30
     },
     {
       "id": "dellerig__adj",
@@ -687,7 +467,7 @@
         "als passend bij een prostituee, niet netjes of eerzaam"
       ],
       "example": "Het dellerige meisje kon wel vriendjes krijgen, maar geen man om mee te trouwen.",
-      "rank": 50
+      "rank": 31
     },
     {
       "id": "doldriftig__adj",
@@ -699,31 +479,7 @@
         "te woest, te opgewonden, te verhit"
       ],
       "example": "De seculiere media hebben zich recent doldriftig geworpen op de ontwikkelingen bij de EO. Dan werden voorhoede en ”achterban” tegen elkaar uitgespeeld.",
-      "rank": 51
-    },
-    {
-      "id": "doorgankelijk__adj",
-      "word": "doorgankelijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "in staat zijn om iets te laten passeren"
-      ],
-      "example": "Door toediening van het progestageen hebt u geen eisprong, wordt de baarmoederwand minder geschikt gemaakt voor innesteling van een bevruchte eicel en wordt het slijm rond de ingang van de baarmoedermond minder doorgankelijk voor",
-      "rank": 52
-    },
-    {
-      "id": "drekkig__adj",
-      "word": "drekkig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "vui, smerig, van lage kwaliteit, lijkend op stront"
-      ],
-      "example": "Zijn oordeel is nogal negatief: \"De grote vervuiling van het sculptuurbegrip in Nederland kon niet anders dan uitmonden in veel drekkige resultaten die voorbijtrekken in een carnavaleske parade van kleurig samengestelde figuren en",
-      "rank": 53
+      "rank": 32
     },
     {
       "id": "druistig__adj",
@@ -732,46 +488,10 @@
       "posLabel": "bijvoeglijk naamwoord",
       "article": null,
       "senses": [
-        "op een wilde, energieke wijze"
+        "wild en energiek"
       ],
       "example": "Omdat de sfeer op de Reeperbahn voor kinderen toch wat te druistig en grimmig was, besloten we in een aanpalende straat op zoek te gaan naar een restaurant. Al binnen een minuut liepen we tegen een restaurant aan genaamd Freudenhaus St.",
-      "rank": 54
-    },
-    {
-      "id": "eerbiediglijk__adj",
-      "word": "eerbiediglijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "met veel eerbied"
-      ],
-      "example": "Terwijl zij over de vermetelheid van Hugo spraken, kwam er een wapenbode in de tent, dewelke zich eerbiediglijk voor de ridders boog: zijn kleding en wapens waren met stof bedekt, en het zweet liep van zijn voorhoofd.",
-      "rank": 55
-    },
-    {
-      "id": "fielterig__adj",
-      "word": "fielterig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "zoals past bij een schoft of schavuit"
-      ],
-      "example": "'Het hoofd is hem op hol gebracht door de heren van de grote internationale exposities en door de rijkaards in Italië, die zijn vitaliteit bewonderen, zijn vermogen om veel te drinken en te eten', schreef De Tijd, er fielterig aan",
-      "rank": 56
-    },
-    {
-      "id": "fieltig__adj",
-      "word": "fieltig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "zoals bij iemand met een slecht karakter"
-      ],
-      "example": "Ontferm u bovenal over het feit dat hij mijn vrouw zo fieltig en herhaaldelijk heeft gehoond en mijn kinderen verwond.",
-      "rank": 57
+      "rank": 33
     },
     {
       "id": "flemerig__adj",
@@ -780,22 +500,10 @@
       "posLabel": "bijvoeglijk naamwoord",
       "article": null,
       "senses": [
-        "op een gemaakte, overdreven manier vriendelijk of vleiend"
+        "gemaakt en overdreven vleiend"
       ],
       "example": "Achter de perstafel bleken Crowe en Gosling na afloop heel goed in journalistje plagen: het nogal flemerige perscorps verdient dat ook.",
-      "rank": 58
-    },
-    {
-      "id": "gebeurlijk__adj",
-      "word": "gebeurlijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "dat wat kan gebeuren"
-      ],
-      "example": "Dit handelsmerk zou dienen aangebracht op het met de hand vervaardigde kantwerk. Gebeurlijk mits vermelding van de specifieke naam van de kant. Wanneer de kant mechanisch vervaardigd wordt, zou dit eveneens moeten worden aangeduid.",
-      "rank": 59
+      "rank": 34
     },
     {
       "id": "gemelijk__adj",
@@ -807,7 +515,7 @@
         "slecht van humeur, niet vriendelijk gestemd, knorrig, misnoegd, slechtgehumeurd"
       ],
       "example": "Hij was in de gemelijkste bui in jaren.",
-      "rank": 60
+      "rank": 35
     },
     {
       "id": "gevoeglijk__adj",
@@ -819,7 +527,7 @@
         "passend, betamelijk, behoorlijk"
       ],
       "example": "Wij zullen het overlijden van de koning op een gevoeglijk moment herdenken.",
-      "rank": 61
+      "rank": 36
     },
     {
       "id": "godzalig__adj",
@@ -828,12 +536,10 @@
       "posLabel": "bijvoeglijk naamwoord",
       "article": null,
       "senses": [
-        "op een vrome, godvruchtige, godvrezende wijze",
-        "op een manier die god kan goedkeuren",
-        "heerlijk, lekker"
+        "vroom en godvruchtig"
       ],
       "example": "Het praten van Den Uyl met aarzelingen, onaffe zinnen, eh's en ah's, geeft hij onvergelijkbaar weer. Tegenspeler Stijn Westenend als Van Agt staat godzalig als een misdienaar op de speelvloer.",
-      "rank": 62
+      "rank": 37
     },
     {
       "id": "goelijk__adj",
@@ -845,31 +551,7 @@
         "vriendelijk, zachtmoedig"
       ],
       "example": "„Bovendien”, tekent Kees Wegerif aan, „dat zeg ik eerlijk: mijn vader bezat te weinig ondernemerschap. Hij was te goelijk.”",
-      "rank": 63
-    },
-    {
-      "id": "grafelijk__adj",
-      "word": "grafelijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "in het bezit zijnde van een graaf"
-      ],
-      "example": "Sisu maakt grafelijk Nijreesbos Almelo schoon: Leden van atletiekvereniging Sisu hebben in het weekeinde het Nijreesbos opgeschoond.",
-      "rank": 64
-    },
-    {
-      "id": "groeizaam__adj",
-      "word": "groeizaam",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "van (weers)omstandigheden dat ze de groei bevorderen"
-      ],
-      "example": "In het voorjaar bijvoorbeeld, bij `groeizaam weer', maakt het gewas een groeispurt, waardoor het een grote behoefte heeft aan stikstof. Later in het jaar is die behoefte veel minder.",
-      "rank": 65
+      "rank": 38
     },
     {
       "id": "iebelig__adj",
@@ -881,7 +563,7 @@
         "licht geërgerd of enigszins geprikkeld"
       ],
       "example": "Maar ze wordt iebelig van dat zitten. Ze moet weer lopen.",
-      "rank": 66
+      "rank": 39
     },
     {
       "id": "iezegrimmig__adj",
@@ -894,19 +576,7 @@
         "knorrig, nors, chagrijnig, gemelijk"
       ],
       "example": "Verder is het ook gewoon een aardig medium, ongelooflijk afwisselend: op die tien Nederlandse zenders komen per avond wel vijftig of zestig programma's voorbij en dan kan je wel heel iezegrimmig zeggen: 't niks, maar dat is niet waar.",
-      "rank": 67
-    },
-    {
-      "id": "indroevig__adj",
-      "word": "indroevig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "buitengewoon triest"
-      ],
-      "example": "Dik kreeg hoe langer hoe meer medelijden met het blinde meisje, dat nog nooit haar ouders had gezien, en nog nooit de wereld in al haar pracht had kunnen bewonderen. O, hij vond het indroevig.",
-      "rank": 68
+      "rank": 40
     },
     {
       "id": "kattepierig__adj",
@@ -915,11 +585,10 @@
       "posLabel": "bijvoeglijk naamwoord",
       "article": null,
       "senses": [
-        "humeurig, slecht gestemd zijn, nukkig, kribbig, nors, kwalijk gezind",
-        "bleekjes, ongezond"
+        "humeurig, nukkig en kribbig"
       ],
       "example": "Ze zaag ter mo kattepierig eut.",
-      "rank": 69
+      "rank": 41
     },
     {
       "id": "korzelig__adj",
@@ -928,10 +597,10 @@
       "posLabel": "bijvoeglijk naamwoord",
       "article": null,
       "senses": [
-        "in een wat ontstemde, dysforische, boze, geprikkelde, ongeduldige stemming zijn"
+        "licht ontstemd en ongeduldig"
       ],
       "example": "Voor haar stond Jules, de regisseur van de ochtenduitzending, die weer eens als laatste op de redactie verscheen. ` Heb je nog wat?' `Ja,' reageerde Chantal korzelig. Het liefst zou ze hem een lesje willen leren over collegialiteit.",
-      "rank": 70
+      "rank": 42
     },
     {
       "id": "kramakkelig__adj",
@@ -940,35 +609,10 @@
       "posLabel": "bijvoeglijk naamwoord",
       "article": null,
       "senses": [
-        "op een moeizame manier die gewoonlijk op een kwaal wijst",
-        "gebreken vertonend"
+        "moeizaam en kwakkelend"
       ],
       "example": "Letterlijk een kop kleiner passeert ze me en loopt kramakkelig naar de uitgang.",
-      "rank": 71
-    },
-    {
-      "id": "kwaaiig__adj",
-      "word": "kwaaiig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "op een boze, verontwaardigde manier"
-      ],
-      "example": "Ook in Nederland werd de kritiek, voor zover überhaupt opgemerkt, enigszins kwaaiig als absurd terzijde geschoven.",
-      "rank": 72
-    },
-    {
-      "id": "liefelijk__adj",
-      "word": "liefelijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "schilderachtig, lieflijk, lief"
-      ],
-      "example": "Op vakantie kwamen we met de fiets in de liefelijkste dorpjes.",
-      "rank": 73
+      "rank": 43
     },
     {
       "id": "maltentig__adj",
@@ -981,7 +625,7 @@
         "overdreven nauwgezet of nauwkeurig"
       ],
       "example": "Voorts wist men er nog van te verhalen, dat de huizen er groen waren en de vrouwen maltentig; ook meende men gezien te hebben, dat de mannen lang waren, en hunne broeken kort.",
-      "rank": 74
+      "rank": 44
     },
     {
       "id": "meewarig__adj",
@@ -993,7 +637,7 @@
         "medelijden tonend"
       ],
       "example": "Met een meewarige blik gaf hij de student het huiswerk met een onvoldoende terug.",
-      "rank": 75
+      "rank": 45
     },
     {
       "id": "milddadig__adj",
@@ -1005,7 +649,7 @@
         "mild en vriendelijk in woord en daad"
       ],
       "example": "Of mogelijk bent u een rijk christen en tevens milddadig. Nu, indien het in enig opzicht zo met u is dat u wat boven anderen uitsteekt en uitmunt in kennis, gaven en vorderingen op de weg, dan hebt u nodig om arm en ellendig te blijven.",
-      "rank": 76
+      "rank": 46
     },
     {
       "id": "onbillijk__adj",
@@ -1017,7 +661,7 @@
         "onredelijk, onrechtmatig, onrechtvaardig, onterecht"
       ],
       "example": "De Inspectie Veiligheid en Justitie vindt het standaard visiteren van gevangenen na bezoek onredelijk en onbillijk. Gedetineerden zouden alleen bij verdenking of steekproefsgewijs lijfelijk moeten worden onderzocht op smokkelwaar.",
-      "rank": 77
+      "rank": 47
     },
     {
       "id": "onderhorig__adj",
@@ -1026,10 +670,10 @@
       "posLabel": "bijvoeglijk naamwoord",
       "article": null,
       "senses": [
-        "onderworpen zijn aan het gezag van iets of iemand, ondergeschikt"
+        "onderworpen en ondergeschikt"
       ],
       "example": "Iemand die onderhorig is aan de koning van Marokko, iemand met de dubbele nationaliteit, hoort geen voorzitter te worden van de Tweede Kamer, aldus Wilders.",
-      "rank": 78
+      "rank": 48
     },
     {
       "id": "ongedurig__adj",
@@ -1041,19 +685,7 @@
         "rusteloos, ongeduldig en nerveus bewegend"
       ],
       "example": "De jongen zat ongedurig op zijn stoel te wippen, want hij moest nodig naar de wc.",
-      "rank": 79
-    },
-    {
-      "id": "ongerieflijk__adj",
-      "word": "ongerieflijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "ongemakkelijk en niet comfortabel"
-      ],
-      "example": "Hij had er onder protest zijn goedkeuring aan gegeven het als gevangenis voor de koningin te benutten, omdat hij het te klein en te ongerieflijk vond.",
-      "rank": 80
+      "rank": 49
     },
     {
       "id": "onmondig__adj",
@@ -1066,19 +698,7 @@
         "door onvoldoende leeftijd of ontwikkeling niet over zichzelf kunnen beslissen"
       ],
       "example": "De bezoekers verdienden wel een gelijkmaker maar kregen ook na rust nooit echt vat op een counterende thuisploeg en waren zelf vooral onmondig in de zestien.",
-      "rank": 81
-    },
-    {
-      "id": "onnoemlijk__adj",
-      "word": "onnoemlijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "van iets dat er geen woorden voor zijn"
-      ],
-      "example": "In de oorlog is er onnoemlijk veel ellende zowel bij militaire als bij burgers.",
-      "rank": 82
+      "rank": 50
     },
     {
       "id": "ontzaglijk__adj",
@@ -1090,7 +710,7 @@
         "vrees en eerbied inboezemend door de grootte van iets"
       ],
       "example": "Dat is wel een ontzaglijke hoeveelheid werk dat ik nog moet doen.",
-      "rank": 83
+      "rank": 51
     },
     {
       "id": "onuitsprekelijk__adj",
@@ -1099,24 +719,10 @@
       "posLabel": "bijvoeglijk naamwoord",
       "article": null,
       "senses": [
-        "zo groot of sterk dat er geen woorden voor zijn; zeer, heel",
-        "dat de klanken zo moeilijk zijn dat je een woord of zin niet kunt uitspreken",
-        "dat wat je niet in woorden kunt uitdrukken omdat het een gevoelszaak is"
+        "zo groot of sterk dat er geen woorden voor zijn"
       ],
       "example": "Het Italiaanse publiek had geen oog voor de verliezers, voor die Nederlander met die onuitsprekelijke naam.",
-      "rank": 84
-    },
-    {
-      "id": "onvergankelijk__adj",
-      "word": "onvergankelijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "voorgoed blijvend, niet voorbijgaand, onverwoestbaar, niet geleidelijk vergaand"
-      ],
-      "example": "Maar die nummers bleken vreemd onvergankelijk, en in de loop van de jaren groeide mijn affectie voor Barry White - die stem, de uitgekiende ritmes, dit was wel degelijk ook soul.",
-      "rank": 85
+      "rank": 52
     },
     {
       "id": "onverkwikkelijk__adj",
@@ -1128,7 +734,7 @@
         "onsmakelijk, gênant"
       ],
       "example": "De scène in de Rijkskanselarij zoals die is beschreven door ooggetuigen, had wel iets weg van de onverkwikkelijke taferelen in de Oval Office afgelopen vrijdag.",
-      "rank": 86
+      "rank": 53
     },
     {
       "id": "parmantig__adj",
@@ -1140,7 +746,7 @@
         "deftig en trots"
       ],
       "example": "Die jongen loopt erg parmantig.",
-      "rank": 87
+      "rank": 54
     },
     {
       "id": "rekkelijk__adj",
@@ -1153,31 +759,7 @@
         "redelijk, fatsoenlijk"
       ],
       "example": "De ECB, die al een paar keer eerder als reddende engel optrad, is gevangen in een titanenstrijd tussen (Duitse) haviken, gebrand op haar geloofwaardigheid als inflatiebestrijder, en de rekkelijken (de rest).",
-      "rank": 88
-    },
-    {
-      "id": "roofzuchtig__adj",
-      "word": "roofzuchtig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "de neiging hebben tot het plegen van diefstal"
-      ],
-      "example": "De roofzuchtige bende trok moordend en plunderend door de stad.",
-      "rank": 89
-    },
-    {
-      "id": "schabouwelijk__adj",
-      "word": "schabouwelijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "van een jammerlijk slechte kwaliteit"
-      ],
-      "example": "Het gaat te ver om deze zoveelste film in de reeks over de Wolvenvallei opruiend te noemen: daarvoor is hij vooral te schabouwelijk gemaakt. Het enige waar deze film je tegen doet vechten, is de slaap.",
-      "rank": 90
+      "rank": 55
     },
     {
       "id": "schroomvallig__adj",
@@ -1189,7 +771,7 @@
         "aarzelend, terughoudend, weifelachtig"
       ],
       "example": "De schroomvallige politici zijn er niet happig op om de christenvervolging aan de kaak te stellen.",
-      "rank": 91
+      "rank": 56
     },
     {
       "id": "smartelijk__adj",
@@ -1201,7 +783,7 @@
         "lijden veroorzakend"
       ],
       "example": "De smartelijke dood van de geliefde vorstin zou nog lang de gemoederen in beweging houden.",
-      "rank": 92
+      "rank": 57
     },
     {
       "id": "smotsig__adj",
@@ -1214,19 +796,7 @@
         "vies, vuil, smerig"
       ],
       "example": "Wie weet wat ik bedoel als ik zeg dat ik even heerlijk ga 'dikkedakken', dat iets 'smotsig' dan wel 'brisant' is, of weet dat men zich maar beter uit de voeten maakt wanneer er wat 'miasma' op komt zetten?\"",
-      "rank": 93
-    },
-    {
-      "id": "snoeverig__adj",
-      "word": "snoeverig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "al te trots en zelfverzekerd"
-      ],
-      "example": "Toen hij in ‘Windsor hum’, over de snoeverige rol van de VS als waakhond van de wereld, plots een cynisch ‘everything’s fine’ in je gehoorgang katapulteerde, wist je weer dat hij niet over Janneke en Mieke zong",
-      "rank": 94
+      "rank": 58
     },
     {
       "id": "steilorig__adj",
@@ -1238,7 +808,7 @@
         "weinig geneigd zich te schikken"
       ],
       "example": "Zijn steilorige houding hangt me de keel uit!",
-      "rank": 95
+      "rank": 59
     },
     {
       "id": "temerig__adj",
@@ -1247,22 +817,10 @@
       "posLabel": "bijvoeglijk naamwoord",
       "article": null,
       "senses": [
-        "op een zeurende, zanikende, klagende wijze"
+        "zeurderig en klagend"
       ],
       "example": "„Als een beetje nasaal en krakerig. Ook wel een beetje temerig. Soms denk ik wel eens: Joh, schiet toch eens wat op.”",
-      "rank": 96
-    },
-    {
-      "id": "traagzaam__adj",
-      "word": "traagzaam",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "traag, langzaam, stroperig"
-      ],
-      "example": "Traagzaam sleept dit programma zich naar de apotheose. Intussen zijn de drie resterende pop-ups in Blankenberge aangekomen, waar hen nog een verrassing wacht: er moet er dan toch nog eentje afvallen (in de betekenis van wegvallen).",
-      "rank": 97
+      "rank": 60
     },
     {
       "id": "vervaarlijk__adj",
@@ -1274,32 +832,7 @@
         "schrikwekkend, angstaanjagend"
       ],
       "example": "De draak was een vervaarlijk monster dat zelfs de dapperste ridders op de vlucht joeg.",
-      "rank": 98
-    },
-    {
-      "id": "wangelovig__adj",
-      "word": "wangelovig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "iets voor waar aannemen dat niet juist is"
-      ],
-      "example": "By dit haar Heidendom zyn zy daarenboven by- en wangelovig geweest. Haaren voornaamsten Afgod is geweest Mercurius de Zoon van Majo, die zy zeer bemind en zeer hoog geëert hebben.",
-      "rank": 99
-    },
-    {
-      "id": "weduwlijk__adj",
-      "word": "weduwlijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "van of als een vrouw waarvan de huwelijkspartner is overleden",
-        "van of vergelijkbaar met iemand wiens partner is overleden"
-      ],
-      "example": "Het huwelijk verloopt kalm, koel en schier weduwlijk voor deze trouwe, ernstige en plichtbewuste vrouw. Haar man is meestal ver van huis; wanneer hij van de reis komt, werpt geen hartstocht haar in zijn armen.",
-      "rank": 100
+      "rank": 61
     },
     {
       "id": "wichtig__adj",
@@ -1308,10 +841,10 @@
       "posLabel": "bijvoeglijk naamwoord",
       "article": null,
       "senses": [
-        "van belang zijn, van grote betekenis"
+        "van groot belang"
       ],
       "example": "Gisterochtend om kwart voor acht twitterde Maxime Verhagen: ‘Want die een hoge staat, of wichtig ambt bekleedt, Is nimmer buiten zorg, en zelden buiten leed.’ Het was een citaat van de dichter en politicus Jacob Cats naar wie het Catshuis",
-      "rank": 101
+      "rank": 62
     },
     {
       "id": "wijdlopig__adj",
@@ -1320,22 +853,10 @@
       "posLabel": "bijvoeglijk naamwoord",
       "article": null,
       "senses": [
-        "te veel woorden gebruiken voor een mededeling en daardoor saai, vervelend en slaapverwekkend worden"
+        "omslachtig en breedsprakig"
       ],
       "example": "Inhoudelijk geeft het stuk hen een aantal rake oneliners en observaties in handen, al is de tekst van Den Tex ook wat wijdlopig.",
-      "rank": 102
-    },
-    {
-      "id": "zijlings__adj",
-      "word": "zijlings",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "van opzij, in de richting van een van beide zijden"
-      ],
-      "example": "Het zijlingse zeezicht maakt deze woning zeer gewild.",
-      "rank": 103
+      "rank": 63
     },
     {
       "id": "zoetelijk__adj",
@@ -1347,31 +868,7 @@
         "overdreven zoet van aard, flemend, ergerlijk"
       ],
       "example": "Hoewel veel mensen zijn werk typeren als zoetelijk en popperig, loont het om zich te verdiepen in de details.",
-      "rank": 104
-    },
-    {
-      "id": "aanminnelijkheid__noun",
-      "word": "aanminnelijkheid",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "de hoedanigheid van het aanminnelijk zijn"
-      ],
-      "example": "De aanminnelijkheid van het meisje was groot.",
-      "rank": 105
-    },
-    {
-      "id": "abtschap__noun",
-      "word": "abtschap",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "het",
-      "senses": [
-        "het ambt of de ambtsduur van een abt."
-      ],
-      "example": "Het was pas tijdens het abtschap van St. Mayeul (waarschijnlijk omstreeks 960) dat Souvigny een echte kloosternederzetting werd.",
-      "rank": 106
+      "rank": 64
     },
     {
       "id": "baaierd__noun",
@@ -1384,7 +881,7 @@
         "verwarring, warboel, woelige massa"
       ],
       "example": "Er brak brand uit en het huis veranderde in een baaierd van vlammen.",
-      "rank": 107
+      "rank": 65
     },
     {
       "id": "bargoens__noun",
@@ -1396,31 +893,7 @@
         "groepstaal die voor buitenstaanders onbegrijpelijk is"
       ],
       "example": "De leden van deze Kamer zouden volgens die critici bestaan uit politieke dwergen, die elkaar in onverstaanbaar bargoens de oren wassen om keutels.",
-      "rank": 108
-    },
-    {
-      "id": "benauwenis__noun",
-      "word": "benauwenis",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "benauwde gevoel van beklemming"
-      ],
-      "example": "Ik denk dat ‘Apeldoorn’ voor u de benauwenis van het nakende leven als staatshoofd in één keer glashelder heeft gemaakt. En uitvergroot.",
-      "rank": 109
-    },
-    {
-      "id": "boeverij__noun",
-      "word": "boeverij",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "misdadige handeling verricht door een boef"
-      ],
-      "example": "Ook hij wordt ontvoerd, samen met zijn zusje. Ze weten zich te bevrijden, waarna het gedaan is met de boeverij.",
-      "rank": 110
+      "rank": 66
     },
     {
       "id": "dekenij__noun",
@@ -1434,7 +907,7 @@
         "buurtcomité te Gent (stad in België)"
       ],
       "example": "Maar na negen jaar sluit Table d’Amis de deuren, net zoals Gastrobar Gust, de eetbar die Beudaert en Delbeke in 2015 openden op de eerste verdieping van de Oude Dekenij, toen ze hun sterrenrestaurant verhuisden naar een groter pand.",
-      "rank": 111
+      "rank": 67
     },
     {
       "id": "dolaard__noun",
@@ -1446,19 +919,7 @@
         "iemand die schijnbaar doelloos rondzwerft"
       ],
       "example": "Dan is het doel bereikt, dan leert gij eerst wat reizen betekent voor de dolaards en de ware wijzen.",
-      "rank": 112
-    },
-    {
-      "id": "droefenis__noun",
-      "word": "droefenis",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "trieste, verdrietige stemming"
-      ],
-      "example": "De inburgeringscursus was destijds zijn uitvinding. Nu moet Han Entzinger (69) tot zijn droefenis vaststellen dat zijn geesteskind aan lager wal is geraakt.",
-      "rank": 113
+      "rank": 68
     },
     {
       "id": "epanafoor__noun",
@@ -1470,7 +931,7 @@
         "stijlfiguur waarbij twee of meer overeenkomstige zinnen beginnen met een herhaling van dezelfde woorden"
       ],
       "example": "In de redevoering \"I have a dream\" gebruikt Martin Luther King Jr. de titel als epanafoor.",
-      "rank": 114
+      "rank": 69
     },
     {
       "id": "ereblijk__noun",
@@ -1482,7 +943,7 @@
         "teken van eer en dankbaarheid"
       ],
       "example": "Michel van Egmond won vorige week voor de derde keer in vijf jaar tijd de NS Publieksprijs. Al jaren is er kritiek op het jaarlijkse ereblijk dat wordt georganiseerd door het CPNB (Collectieve Propaganda van het Nederlandse Boek).",
-      "rank": 115
+      "rank": 70
     },
     {
       "id": "flambouw__noun",
@@ -1494,7 +955,7 @@
         "een in brandbare stof gedrenkte stok die gebruikt wordt als buitenverlichting"
       ],
       "example": "Nu gaan we de flambouwen buiten zetten.",
-      "rank": 116
+      "rank": 71
     },
     {
       "id": "flemerij__noun",
@@ -1506,31 +967,7 @@
         "tot eigen voordeel iemand overmatig en ongemeend loven en prijzen"
       ],
       "example": "Maeldegijs combineert zijn toverkunsten overigens met simpele trucs zoals het binden van een touwtje aan een van Beyaerts benen, verkleedpartijen, list, leugens en flemerij. Bij al zijn acties maakt hij handig gebruik van zijn mensenkennis.",
-      "rank": 117
-    },
-    {
-      "id": "fluwijn__noun",
-      "word": "fluwijn",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "hoes waarin een zak past met zacht materiaal, waarop je prettiger zit of waarop je je hoofd kunt leggen als je gaat liggen"
-      ],
-      "example": "De Dulle-van-den-Ast ligt in het diepe bed onder een bijna zwarte sargie. Geen lakens, maar een wit fluwijn.",
-      "rank": 118
-    },
-    {
-      "id": "gedreig__noun",
-      "word": "gedreig",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "het",
-      "senses": [
-        "de handeling van het uiten van dreigementen"
-      ],
-      "example": "Hou op met dat gedreig!",
-      "rank": 119
+      "rank": 72
     },
     {
       "id": "huldeblijk__noun",
@@ -1542,44 +979,7 @@
         "teken van grote instemming, verering of respect"
       ],
       "example": "Koning Harald, evenals zijn zoon kroonprins Haakon getooid met hoge hoed, koningin Sonja en het kroonprinselijk gezin namen het huldeblijk geduldig in ontvangst.",
-      "rank": 120
-    },
-    {
-      "id": "imkerij__noun",
-      "word": "imkerij",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "een bedrijf dat zich toelegt op de bijenteelt",
-        "het houden van bijen"
-      ],
-      "example": "Er is daar een imkerij gevestigd.",
-      "rank": 121
-    },
-    {
-      "id": "jagerij__noun",
-      "word": "jagerij",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "het jagen en de wereld van de jagers"
-      ],
-      "example": "Landzschap vzw windt zich op: 'De eisen van de Boerenbond en jagerij zijn nog niet een klein beetje van de pot gerukt: alle middelen toestaan om wilde zwijnen te bejagen, en tegelijk bossen en natuurgebieden in hermetisch dichte rasters",
-      "rank": 122
-    },
-    {
-      "id": "kalvermesterij__noun",
-      "word": "kalvermesterij",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "een bedrijf dat zich met het houden en opfokken van kalveren voor de productie van kalfsvlees bevat"
-      ],
-      "example": "De stierkalfjes worden verkocht aan de kalvermesterij en opgefokt voor hun vlees.",
-      "rank": 123
+      "rank": 73
     },
     {
       "id": "kapelanij__noun",
@@ -1592,7 +992,7 @@
         "ambtswoning of ambtsgebied van een hulppastoor"
       ],
       "example": "Deze kapelanij ter ere van de H. Alexius bestond reeds vóór 1455, want ze verschijnt in dit jaar als een kapelanij, gevestigd in het hospitaal met de verplichting tot twee missen per week.",
-      "rank": 124
+      "rank": 74
     },
     {
       "id": "keurmede__noun",
@@ -1604,7 +1004,7 @@
         "door de heer te kiezen beste stuk uit de nalatenschap van een horige (keurmedige)"
       ],
       "example": "De keurmede is een oud, middeleeuws, feodaal recht, een herenrecht.",
-      "rank": 125
+      "rank": 75
     },
     {
       "id": "keuterij__noun",
@@ -1616,19 +1016,7 @@
         "behuizing van een keuterboer meestal met alleen een stenen voorgevel terwijl de rest van het huis van hout gemaakt is, met minder sociale status dan een volwaardige boerderij, maar meer dan het huisje van een landarbeider"
       ],
       "example": "Keuterijen heten ze, de kleine boerderijen die overal in Drenthe staan.",
-      "rank": 126
-    },
-    {
-      "id": "koterij__noun",
-      "word": "koterij",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "schuurtjes, hokken en duivenhokken die aan de achterzijde van woonhuizen worden aangebouwd"
-      ],
-      "example": "De onaanzienlijkheid van de Vlaamse koterij zal in planologen en rijksbouwmeesters gevoelens van afschuw wekken, voor mij is het het model voor goed leven; het gerommel, het gescharrel, de mens die maar zo’n beetje aanklooit.",
-      "rank": 127
+      "rank": 76
     },
     {
       "id": "kursaal__noun",
@@ -1641,7 +1029,7 @@
         "een van de zalen van een kurhaus"
       ],
       "example": "Zo ging het gezelschap naar de Venetiaanse Gaanderijen, de waterplas voor het Kursaal van het casino van Oostende, het schip de Mercator en de Dominicanenkerk, waar onder meer werken van Michaël Borremans, Luc Tuymans en Michael Fliri te",
-      "rank": 128
+      "rank": 77
     },
     {
       "id": "kwatrijn__noun",
@@ -1653,7 +1041,7 @@
         "gedicht of couplet met vier regels met aaba als rijmschema"
       ],
       "example": "Dit is het eerste kwatrijn: Mary thou dids’t not know that I was nigh / Thou dids’t not know my gaze was fixed on thee / I stood apart and watched thee gliding by / In all thy calm unconscious majesty",
-      "rank": 129
+      "rank": 78
     },
     {
       "id": "lafenis__noun",
@@ -1667,7 +1055,7 @@
         "vertroosting, verlichting, leniging, bemoediging"
       ],
       "example": "Of we van Chocomel houden, vraagt een tijdschriftreclame uit 1960. Om vervolgens zelf te antwoorden: ‘Wat een vraag! Waar u ook neerstrijkt voor een lafenis, bestel Chocomel. Neem eerst een heerlijke teug en ...",
-      "rank": 130
+      "rank": 79
     },
     {
       "id": "lambrekijn__noun",
@@ -1679,7 +1067,7 @@
         "versiering van een horizontale rand met geschulpt afhangend textiel"
       ],
       "example": "Rondom hingen gordijnen, waarvan de bevestiging aan de hemel schuilging onder een lambrekijn; de zomen waren afgezet met passementen.",
-      "rank": 131
+      "rank": 80
     },
     {
       "id": "lanterlui__noun",
@@ -1692,7 +1080,7 @@
         "benaming voor een winnende combinatie van kaarten in het gelijknamige spel"
       ],
       "example": "⧖ Meisje hoe veel zult gy ruilen? ô! Wat slegte kaart is dat, Steven maat wilt dog niet pruilen, Had ik nog een harte blat, Dan zou ik toone, Lanterlui, Klaartje myn schoone Ik hebber den brui, Van myn geld zo te verspillen, Ik heb nu een",
-      "rank": 132
+      "rank": 81
     },
     {
       "id": "leliaard__noun",
@@ -1704,7 +1092,7 @@
         "Vlaming die in de middeleeuwen de kant van de Franse koning koos"
       ],
       "example": "Hun troepen veroverden eerst het kasteel van Jan van Sijsele, die net als Jan van Gistel veel belastingrechten op de stad kon laten gelden en als leliaard gehaat was.",
-      "rank": 133
+      "rank": 82
     },
     {
       "id": "libertijn__noun",
@@ -1717,56 +1105,7 @@
         "iemand die zich losbandig gedraagt"
       ],
       "example": "Het luidste applaus klonk toen de als libertijn bekendstaande Paul zei: „We hebben geen behoefte aan oorlog in Syrië en we hebben geen behoefte aan oorlog in Iran.”",
-      "rank": 134
-    },
-    {
-      "id": "lijdelijkheid__noun",
-      "word": "lijdelijkheid",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "het op een passieve manier, zonder eigen overweging doen wat een andere zegt dat men moet doen"
-      ],
-      "example": "Maar in al haar lijdelijkheid had zij zich juist volledig aan hem overgegeven.",
-      "rank": 135
-    },
-    {
-      "id": "maalderij__noun",
-      "word": "maalderij",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "bedrijf waar men graan tot meel maalt"
-      ],
-      "example": "Het is - na hondenpoep en soms de resultaten van FC Twente - al langer de grootste ergernis van het dorp de silo van Maalderij Kuiper. Binnenkort blijven de andere twee over.",
-      "rank": 136
-    },
-    {
-      "id": "makelarij__noun",
-      "word": "makelarij",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "bemiddeling bij de koop en verkoop van waardevolle goederen, in het spraakgebruik vooral: onroerende zaken",
-        "kantoor dat bemiddelt bij de koop en verkoop van waardevolle goederen, in het spraakgebruik vooral: onroerende zaken"
-      ],
-      "example": "Misschien toevallig, hoewel wij het anders geloven, hebben beiden een bijzondere aandacht gewijd aan typische stadsbewoners uit die vage middenstandsklasse die het van makelarij en diensten moet hebben.",
-      "rank": 137
-    },
-    {
-      "id": "malvezij__noun",
-      "word": "malvezij",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "een grote variëteitengroep witte of soms roodachtige druiven"
-      ],
-      "example": "Van malvezij wordt onder andere Madeira gemaakt.",
-      "rank": 138
+      "rank": 83
     },
     {
       "id": "maraskijn__noun",
@@ -1778,92 +1117,7 @@
         "een bitterzoete, heldere likeur gemaakt op basis van de marascakers, een variëteit van de zure kers"
       ],
       "example": "Dalmatië en de streek rond Padua zijn bekend om hun maraskijn.",
-      "rank": 139
-    },
-    {
-      "id": "mijmerij__noun",
-      "word": "mijmerij",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "het op een dromerige, vage manier aan het peinzen zijn"
-      ],
-      "example": "Het motto voorin uw bundel luidt: De dag is kort, de dood nabij, dus aan de slag, geen mijmerij! Voelt de dood nabij? Na een korte stilte: “Nou… je bent er, maar je kunt er ook ineens niet meer zijn.",
-      "rank": 140
-    },
-    {
-      "id": "nabuurschap__noun",
-      "word": "nabuurschap",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "het",
-      "senses": [
-        "de (goede) relatie tussen buren waarbij men elkaar helpt en bijstaat"
-      ],
-      "example": "In Dora's ogen is nabuurschap een soort gedwongen huwelijk.",
-      "rank": 141
-    },
-    {
-      "id": "onbevattelijkheid__noun",
-      "word": "onbevattelijkheid",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "de mate waarin iets niet te begrijpen valt",
-        "iets dat niet te begrijpen valt"
-      ],
-      "example": "Zoals die dingen gaan: je laat het bezoek uit, en voordat ieder zijns weegs gaat, blijf je elkaar nog een hele poos op de stoep gelijk staan geven - over de verspilling van een leven, over de onbevattelijkheid van het verlies.",
-      "rank": 142
-    },
-    {
-      "id": "ondeugdelijkheid__noun",
-      "word": "ondeugdelijkheid",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "het ongeschikt zijn van iets of iemand; iets wat onjuist is"
-      ],
-      "example": "In 1806 was Pfuhl een van de opstellers van het plan de campagne geweest, dat zijn einde had gevonden in Jena en Auerstedt; maar in de afloop van deze oorlog zag hij niet het minste bewijs voor de ondeugdelijkheid van zijn theorie.",
-      "rank": 143
-    },
-    {
-      "id": "onvergankelijkheid__noun",
-      "word": "onvergankelijkheid",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "het niet verloren kunnen gaan; het eeuwig zijn; het niet vergaan"
-      ],
-      "example": "Woorden als organisme, vernietiging van organismen, onvergankelijkheid van de stof, de wet van het behoud van energie, evolutie, waren in de plaats van zijn vroeger geloof gekomen.",
-      "rank": 144
-    },
-    {
-      "id": "opperrabbijn__noun",
-      "word": "opperrabbijn",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "de",
-      "senses": [
-        "geestelijk leider over de synagoges in een bepaald gebied die behoren tot een eenzelfde richting binnen het jodendom"
-      ],
-      "example": "De burgemeesters van Amsterdam, Amstelveen, Aalsmeer, Uithoorn en Jacobswoude, die vallen binnen het joodse ressort Amsterdam, hadden in een zitting van het Bet Dien – de rabbinale rechtbank onder leiding van de Amsterdamse opperrabbijn",
-      "rank": 145
-    },
-    {
-      "id": "priorschap__noun",
-      "word": "priorschap",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "het",
-      "senses": [
-        "het prior zijn; de functie van prior"
-      ],
-      "example": "Het is wel zo dat Hendrik van Zutphen na zijn priorschap in Dordrecht theologie heeft gestudeerd bij onder anderen Maarten Luther in Wittenberg.",
-      "rank": 146
+      "rank": 84
     },
     {
       "id": "puritein__noun",
@@ -1876,7 +1130,7 @@
         "iemand die (te) zuinig is en sober wil leven"
       ],
       "example": "In die tijd hadden kwekelingen de ziel van missionarissen. Franse schoolmeesters leefden als heiligen en ‘hun moraal was even onverbiddelijk als die van de eerste puriteinen’.",
-      "rank": 147
+      "rank": 85
     },
     {
       "id": "rekwisitoor__noun",
@@ -1888,19 +1142,7 @@
         "uitgebreid betoog waarom iets of iemand niet deugt"
       ],
       "example": "Hii leverde nu een striemend en emotioneel rekwisitoor tegen de wijze waarop deze kleine kliek de naam van de Griekse strijdkrachten door het slijk had gehaald.",
-      "rank": 148
-    },
-    {
-      "id": "schapraai__noun",
-      "word": "schapraai",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "de",
-      "senses": [
-        "kast met planken, vaak gebruik voor een kast in de keuken waarin voedsel wordt bewaard"
-      ],
-      "example": "Hebt gij soms op dit moment in uw schapraai geen haan of hen of iets anders om te eten?",
-      "rank": 149
+      "rank": 86
     },
     {
       "id": "snoeverij__noun",
@@ -1912,7 +1154,7 @@
         "je beter, groter of sterker voordoen dan je eigenlijk bent"
       ],
       "example": "Ik zag eerste ontmoetingen voor me, schuchterheid en snoeverij, eenzaamheid en verlangen, lange levens met heel wat tegenslagen. HP de Tijd 0/06",
-      "rank": 150
+      "rank": 87
     },
     {
       "id": "suzerein__noun",
@@ -1924,7 +1166,7 @@
         "staat die de macht over een protectoraat uitoefent"
       ],
       "example": "Nederland was in de 20e eeuw suzerein over vier Javaanse vorsten in Nederlands-Indië",
-      "rank": 151
+      "rank": 88
     },
     {
       "id": "tabbaard__noun",
@@ -1937,19 +1179,7 @@
         "de rode mantel van Sinterklaas"
       ],
       "example": "Naarmate de kleine uurtjes vorderden zagen steeds meer mensen het jongetje in een paltrok en het meisje in een lichte tabbaard met hoofddoek. Ook al stonden hun ogen dof; ze leken niet tegen hun zin met de heks mee te lopen.",
-      "rank": 152
-    },
-    {
-      "id": "teljoor__noun",
-      "word": "teljoor",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "de",
-      "senses": [
-        "vlak voorwerp om voedsel van te eten, tegenwoordig meestal van rond aardewerk, vroeger ook wel van metaal of hout"
-      ],
-      "example": "En José heeft er nog zo’n goeie: eet eerst de teljoor van een ander leeg en begin dan pas aan jouw bord.",
-      "rank": 153
+      "rank": 89
     },
     {
       "id": "tresoor__noun",
@@ -1961,31 +1191,7 @@
         "een kamer of zaal waar een schat wordt bewaard"
       ],
       "example": "De koning aanschouwde zijn schatten in zijn tresoor.",
-      "rank": 154
-    },
-    {
-      "id": "vaandrig__noun",
-      "word": "vaandrig",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "de",
-      "senses": [
-        "een assistent-leider bij de scouting"
-      ],
-      "example": "Wij werden begeleid door onze vaandrig.",
-      "rank": 155
-    },
-    {
-      "id": "wegenis__noun",
-      "word": "wegenis",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "geheel van wegen onder beheer van een instantie"
-      ],
-      "example": "Het gemeentereglement dat verbiedt langs de wegenis te bouwen zonder voorafgaande toelating van het schepencollege, is wettig en toepasselijk op al de openbare wegen, zonder onderscheid, die op het grondgebied der gemeente zijn gelegen.",
-      "rank": 156
+      "rank": 90
     },
     {
       "id": "woestaard__noun",
@@ -1997,7 +1203,7 @@
         "iemand zonder enig gevoel voor beschaving of fatsoensnormen"
       ],
       "example": "Hij was een woestaard zonder eer of trouw.",
-      "rank": 157
+      "rank": 91
     },
     {
       "id": "ziederij__noun",
@@ -2011,7 +1217,7 @@
         "bedrijf dat zout wint door pekel te verdampen"
       ],
       "example": "Johann Peter kocht de failliete boedel van deze al sinds 1733 bestaande ziederij van zachte groene zeep in 1854 op, breidde het assortiment uit met harde toiletzeep en bracht het zaakje tot bescheiden bloei.",
-      "rank": 158
+      "rank": 92
     },
     {
       "id": "bedauwen__verb",
@@ -2024,7 +1230,7 @@
         "ondersteunen, vooruithelpen, begunstigen, zegenen"
       ],
       "example": "\"Tranen zonder tal en waar een dal om te bedauwen-mist. Alleen nog vleugels op te vouwen Leren vallen als een steen.\" Daar moet je het maar mee doen.'",
-      "rank": 159
+      "rank": 93
     },
     {
       "id": "beërven__verb",
@@ -2036,32 +1242,7 @@
         "door erfenis verkrijgen"
       ],
       "example": "'Inhalige smeerlap! Ik stuur de politie op je af! ' 'Zalig zijn de zachtmoedigen, want zij zullen de aarde beërven,” zong tante Trientje even later bij de auto.",
-      "rank": 160
-    },
-    {
-      "id": "begoochelen__verb",
-      "word": "begoochelen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "iemand in een waan brengen"
-      ],
-      "example": "Hij liet zich niet begoochelen door alle schone praat en stelde een paar harde vragen.",
-      "rank": 161
-    },
-    {
-      "id": "bekransen__verb",
-      "word": "bekransen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "bedekken met een (ere)krans",
-        "prijzen, eren, goedkeuren"
-      ],
-      "example": "Sartre heeft zich vooral na de verschrikkingen van de Tweede Wereldoorlog losgemaakt van een oude Franse filosofische traditie die de wereld wil idealiseren, bekransen en betoveren.",
-      "rank": 162
+      "rank": 94
     },
     {
       "id": "benaarstigen__verb",
@@ -2073,7 +1254,7 @@
         "zich met ijver op iets toeleggen"
       ],
       "example": "Zodat de priesters niet meer volvaardig waren om de dienst te doen bij het altaar, maar de tempel verachtende, en de offeranden nalatende, benaarstigden zich, om deel te nemen aan de onwettelijke oefeningen, die in de worstelplaats",
-      "rank": 163
+      "rank": 95
     },
     {
       "id": "bepeinzen__verb",
@@ -2085,56 +1266,7 @@
         "op een rustige, beschouwende wijze ergens over denken"
       ],
       "example": "Hoe had mijn ziel in stille manedreven Zoo vredig kalm uw schoon bepeinzen mogen: Was me er uw troost niet lichtend toegevlogen, Uw blanke ziel mijn ziel niet weergegeven!",
-      "rank": 164
-    },
-    {
-      "id": "berijmen__verb",
-      "word": "berijmen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "omzetten van een proza tekst naar een meer poëtische vorm (die soms ook echt rijmt), vooral in de context van de psalmen"
-      ],
-      "example": "Anderen, zoals even later Marnix van Sint-Aldegonde, berijmen ook andere gedeelten uit de Schrift, zoals het Schelfzeelied of poëtische teksten uit Jesaja.”",
-      "rank": 165
-    },
-    {
-      "id": "beroezen__verb",
-      "word": "beroezen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "~ aan: zich ergens dronken aan voeren",
-        "donken maken, intoxicatie verwekken"
-      ],
-      "example": "Alle brouwers die zich aan hun eigen bier beroezen ten spijt.",
-      "rank": 166
-    },
-    {
-      "id": "beschoeien__verb",
-      "word": "beschoeien",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "voorzien van beschoeiing"
-      ],
-      "example": "Een kade is een beschoeide wal.",
-      "rank": 167
-    },
-    {
-      "id": "besprengen__verb",
-      "word": "besprengen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "bevochtigen, , druppeltjes neer doen vallen"
-      ],
-      "example": "Kleding en kamers werden vanouds besprengd met water, waarin de gele, uitgeperste [saffraan]olie was gemengd; olijfolie werd ermee geparfumeerd.",
-      "rank": 168
+      "rank": 96
     },
     {
       "id": "bestatigen__verb",
@@ -2146,7 +1278,7 @@
         "opmerken, constateren, vaststellen"
       ],
       "example": "De graaf zelf bestatigde dat nonkel een goede boer was en op zekere dag ging hij zelf naar nonkel, August Vermeersch.",
-      "rank": 169
+      "rank": 97
     },
     {
       "id": "bestoefen__verb",
@@ -2158,7 +1290,7 @@
         "opscheppen over, pochen over iemand"
       ],
       "example": "Van een beetje ijdelheid gaat niemand dood. Daarom bestoefen we graag ook onze eigen webshop: shop.standaard.be. U vindt er een aantrekkelijk aanbod van kwaliteitsliteratuur en -muziek aangevuld met verrassende gadgets.",
-      "rank": 170
+      "rank": 98
     },
     {
       "id": "beuzelen__verb",
@@ -2170,7 +1302,7 @@
         "zich druk maken om onbenullige zaken"
       ],
       "example": "Hou op met beuzelen!",
-      "rank": 171
+      "rank": 99
     },
     {
       "id": "bevroeden__verb",
@@ -2182,7 +1314,7 @@
         "begrijpen, vermoeden"
       ],
       "example": "Hij sprak die woorden uit, zonder te bevroeden hoe profetisch deze zouden zijn.",
-      "rank": 172
+      "rank": 100
     },
     {
       "id": "bewasemen__verb",
@@ -2194,20 +1326,7 @@
         "een koud oppervlak bedekken met kleine waterdruppeltjes uit warme vochtige lucht (zoals bijvoorbeeld de uitgeademde lucht)"
       ],
       "example": "Het lijkt erop dat Eva Bal het verhalende element van haar creaties tijdens het voorbije decennium steeds meer liet bewasemen door de adem van een associatieve vormgeving die de voorstellingen niet alleen sterk eigentijds maakt, maar ook",
-      "rank": 173
-    },
-    {
-      "id": "bloesemen__verb",
-      "word": "bloesemen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "bloeien van een (fruit)boom",
-        "tot ontwikkeling komen"
-      ],
-      "example": "De afgelopen dagen is de lente flink aan het uitbotten geslagen: de vogeltjes fluiten zich een klaplong, mijn studenten zien scheel van de hormonen en de bomen bloesemen zich een ongeluk.",
-      "rank": 174
+      "rank": 101
     },
     {
       "id": "davvenen__verb",
@@ -2219,7 +1338,7 @@
         "op joodse wijze bidden"
       ],
       "example": "Dit is de sjoel waar mijn voorouders davvenden.",
-      "rank": 175
+      "rank": 102
     },
     {
       "id": "desemen__verb",
@@ -2231,7 +1350,7 @@
         "door middel van zuurdeeg gist toevoegen aan deeg om het te doen rijzen"
       ],
       "example": "Deze broden mochten niet gedesemd worden.",
-      "rank": 176
+      "rank": 103
     },
     {
       "id": "dodijnen__verb",
@@ -2243,7 +1362,7 @@
         "zacht wiegen en in slaap zingen"
       ],
       "example": "De moeder kuste haar huilende kind en dodijnde haar oogappel tot hij zoetjes sliep.",
-      "rank": 177
+      "rank": 104
     },
     {
       "id": "dreggen__verb",
@@ -2255,7 +1374,7 @@
         "met een baggerbeugel zoeken naar drenkelingen of zaken die in het water gevallen zijn"
       ],
       "example": "Hij zou „het moeras dreggen”, Washington naar zijn hand zetten, maar deze week bleek dat Donald Trump er zelf tot zijn knieën instaat [sic!].",
-      "rank": 178
+      "rank": 105
     },
     {
       "id": "erbarmen__verb",
@@ -2268,19 +1387,7 @@
         "zich ontfermen over iemand"
       ],
       "example": "De geneesheer erbarmde zich over de zieke.",
-      "rank": 179
-    },
-    {
-      "id": "fierljeppen__verb",
-      "word": "fierljeppen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "overbruggen van een zo groot mogelijke afstand met behulp van een polsstok"
-      ],
-      "example": "Al fierljeppend staken de Friezen vroeger de talrijke grachten over.",
-      "rank": 180
+      "rank": 106
     },
     {
       "id": "fnuiken__verb",
@@ -2293,7 +1400,7 @@
         "in de kiem smoren"
       ],
       "example": "Nu was hij de laatste tijd juist minder monter dan gewoonlijk. Door het vooruitzicht van een wapenstilstand was hij zichtbaar in de put geraakt, was zijn patriottische bezieling gefnuikt.",
-      "rank": 181
+      "rank": 107
     },
     {
       "id": "frijnen__verb",
@@ -2305,7 +1412,7 @@
         "voorzien van smalle evenwijdige groefjes"
       ],
       "example": "Het oppervlak werd machinaal gefrijnd.",
-      "rank": 182
+      "rank": 108
     },
     {
       "id": "griffen__verb",
@@ -2317,7 +1424,7 @@
         "door krassen voor altijd vastleggen in een duurzaam materiaal"
       ],
       "example": "De Duitse gouverneur probeerde alle gerechten, desserts en wijnen in zijn geheugen te griffen om alles haarfijn in een brief aan zijn bloedverwanten in Duitsland te kunnen beschrijven, en het ergerde hem bovenmatig dat de hofmeester niet",
-      "rank": 183
+      "rank": 109
     },
     {
       "id": "kissebissen__verb",
@@ -2329,7 +1436,7 @@
         "langdurig een twistgeprek voeren"
       ],
       "example": "Zij zaten weer de hele tijd te kissebissen.",
-      "rank": 184
+      "rank": 110
     },
     {
       "id": "koeterwalen__verb",
@@ -2341,7 +1448,7 @@
         "een onbegrijpelijke taal of dialect spreken"
       ],
       "example": "En de twee mannen stonden er nog een tijdje te koeterwalen in dat vreemde taaltje voordat ze opstapten.",
-      "rank": 185
+      "rank": 111
     },
     {
       "id": "leewieken__verb",
@@ -2353,32 +1460,7 @@
         "verwijderen van een stukje vleugel bij jonge vogels om te voorkomen dat ze later kunnen wegvliegen"
       ],
       "example": "Bep, Ko en Jan, van beroep muskusrattenvanger, hielpen hun vader Piet Oosteveen bij het vangen, ringen en leewieken van de dieren. Leewieken is het verwijderen van een klein stukje vleugel.",
-      "rank": 186
-    },
-    {
-      "id": "oeteren__verb",
-      "word": "oeteren",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "hard werken, ploeteren",
-        "onhandig te werk gaan"
-      ],
-      "example": "Ze zaten de hele dag te oeteren.",
-      "rank": 187
-    },
-    {
-      "id": "omdijken__verb",
-      "word": "omdijken",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "omringen met waterkeringen (van een gebied)"
-      ],
-      "example": "De Markerwaard is wel omdijkt, maar nooit drooggelegd.",
-      "rank": 188
+      "rank": 112
     },
     {
       "id": "opjuinen__verb",
@@ -2390,22 +1472,7 @@
         "iemand aanzetten tot iets wat niet helemaal goed is"
       ],
       "example": "Volgens Duijzer geldt hetzelfde voor topfuncties in andere bedrijfstakken en voor de politiek. „We laten ons opjuinen door consultants en dat soort types, die ons gaan vergelijken met anderen. Maar van vergelijken word je nooit gelukkig.”",
-      "rank": 189
-    },
-    {
-      "id": "overdijken__verb",
-      "word": "overdijken",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "doorsnijden met een dam van de ene naar de andere kant",
-        "meer uitgeven dan bij een eerdere verdeling van kosten was vastgesteld",
-        "overtreffen in hoogte, zodat de dijk aan de andere zijde eerder overstroomt en de eigen dijk behouden blijft",
-        "bedekken met materiaal om een waterkering uit te breiden"
-      ],
-      "example": "⧖ Neen, in zulk een klein deel, als hij teekent, zouden niet de groote vloed- en ebstroomen ontstaan zijn, die het toen onmogelijk maakten en zelfs thans moeilijk zouden maken, om ze te overdijken.",
-      "rank": 190
+      "rank": 113
     },
     {
       "id": "overwelmen__verb",
@@ -2417,20 +1484,7 @@
         "door iets of iemand bedolven, verpletterd of overweldigd worden"
       ],
       "example": "Om preciezer te zijn: die gelukkige gevoelens zullen je overwelmen om 19 uur.",
-      "rank": 191
-    },
-    {
-      "id": "pinaren__verb",
-      "word": "pinaren",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "het moeilijk hebben",
-        "arm zijn, gebrek lijden"
-      ],
-      "example": "Granman Forster (de belangrijkste traditionele leider van de bosnegers) heeft vanuit Apatou in Frans-Guyana laten weten dat Nederland 'desnoods' Suriname moet terugnemen om zijn Mensen, die pinaren (bet moeilijk hebben en pijn lijden), te",
-      "rank": 192
+      "rank": 114
     },
     {
       "id": "reeuwen__verb",
@@ -2442,33 +1496,7 @@
         "het lichaam van een overledene verzorgen"
       ],
       "example": "De doden werden gereeuwd en in de kist gelegd.",
-      "rank": 193
-    },
-    {
-      "id": "schalmeien__verb",
-      "word": "schalmeien",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "een schalmei bespelen",
-        "hard blazen of luid klinken"
-      ],
-      "example": "Hoor het jonge bloed schalmeien, nu de bekers ledig zijn: zoeter min brengt zoeter pijn!",
-      "rank": 194
-    },
-    {
-      "id": "schranken__verb",
-      "word": "schranken",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "op een scheve manier verzakken",
-        "veranderen van rijstrook"
-      ],
-      "example": "Om het scheef zakken of schranken van de kap tegen te gaan zijn onder tegen de sporen gewoonlijk schuinoplopende sporenschrankhouten aangebracht.",
-      "rank": 195
+      "rank": 115
     },
     {
       "id": "schrooien__verb",
@@ -2484,7 +1512,7 @@
         "zijwaarts afwijken of afglijden"
       ],
       "example": "Die schoenen moeten nog geschrooid worden.",
-      "rank": 196
+      "rank": 116
     },
     {
       "id": "sleunen__verb",
@@ -2496,7 +1524,7 @@
         "uitdunnen door takken te verwijderen"
       ],
       "example": "⧖ Maar hadde men de beide boomen goed of volgens het nagejaagde doel gesleund, geen twijfel of de waarde van den eerste zoowel als die van den tweede, zou er oneindig veel bij gewonnen hebben.",
-      "rank": 197
+      "rank": 117
     },
     {
       "id": "smarten__verb",
@@ -2508,7 +1536,7 @@
         "leed of pijn berokkenen"
       ],
       "example": "Het smart mij.",
-      "rank": 198
+      "rank": 118
     },
     {
       "id": "smokken__verb",
@@ -2520,7 +1548,7 @@
         "kleine plooitjes in een stof leggen en deze met allerlei siersteken vastzetten"
       ],
       "example": "Deze satijnen handschoenen zijn smokken.",
-      "rank": 199
+      "rank": 119
     },
     {
       "id": "soebatten__verb",
@@ -2533,7 +1561,7 @@
         "langdurig discussiëren"
       ],
       "example": "Winkelcentrum Beijum Oost gold ooit als een broeinest van overlast en criminaliteit. Na jaren soebatten werd vorig jaar 2,5 miljoen euro geïnvesteerd in een fikse opknapbeurt.",
-      "rank": 200
+      "rank": 120
     },
     {
       "id": "spijzigen__verb",
@@ -2545,7 +1573,7 @@
         "van een maaltijd voorzien"
       ],
       "example": "Zij werden er gespijzigd en gelaafd.",
-      "rank": 201
+      "rank": 121
     },
     {
       "id": "spinzen__verb",
@@ -2557,7 +1585,7 @@
         "loeren om iets te kunnen krijgen"
       ],
       "example": "Van Hanegem benadrukte op de golfbaan dat hij helemaal geen interesse heeft in een plek in de technische staf. 'Ik heb Mario verzekerd dat ik nergens op zit te spinzen.",
-      "rank": 202
+      "rank": 122
     },
     {
       "id": "teemsen__verb",
@@ -2569,7 +1597,7 @@
         "door zeven reinigen, gewoonlijk van melk of meel"
       ],
       "example": "Wie de melk in den stal teemst, houdt ze daar langer dan noodig is, waardoor er meer stofdeelen in kunnen komen …",
-      "rank": 203
+      "rank": 123
     },
     {
       "id": "verbeuren__verb",
@@ -2581,7 +1609,7 @@
         "het recht op iets verliezen"
       ],
       "example": "Hij verbeurde daarmee zijn leven.",
-      "rank": 204
+      "rank": 124
     },
     {
       "id": "verbeuzelen__verb",
@@ -2593,7 +1621,7 @@
         "aan onbeduidende zaken verspillen"
       ],
       "example": "Hij verbeuzelde zijn tijd.",
-      "rank": 205
+      "rank": 125
     },
     {
       "id": "verboemelen__verb",
@@ -2605,20 +1633,7 @@
         "iets niet nuttig gebruiken"
       ],
       "example": "Het achtste gebod: Gij zult niet stelen: Sjoemel niet met declaraties, verboemel geen uren, bereken meer- en minderwerk correct.",
-      "rank": 206
-    },
-    {
-      "id": "vergrauwen__verb",
-      "word": "vergrauwen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "minder kleurrijk worden; minder helder worden; grijzer en kleurlozer worden ook in figuurlijke zin",
-        "minder kleurrijk worden; minder helder worden; grijzer en kleurlozer worden"
-      ],
-      "example": "Om vier uur hebben twee treinen ruim 1200 bezoekers aangevoerd. We kijken uit over het water, waar nevelflarden het eerste morgenlicht vergrauwen. Kerkklokken beieren in de verte, meeuwen scheren over het water.",
-      "rank": 207
+      "rank": 126
     },
     {
       "id": "verguizen__verb",
@@ -2630,7 +1645,7 @@
         "te schande maken, belachelijk maken, bekritiseren"
       ],
       "example": "Het verguizen van het onderzoek van Buikhuisen (naar de - inderdaad aanwezige - biologie van agressie) en de populariteit van het wetenschappelijk waardeloze onderzoek naar de - niet aangetoonde - effecten van opvoeding op het ontstaan van",
-      "rank": 208
+      "rank": 127
     },
     {
       "id": "verhapstukken__verb",
@@ -2642,7 +1657,7 @@
         "in orde brengen, verwerken"
       ],
       "example": ",,Milika heeft de afgelopen jaren nogal wat te verhapstukken gehad op persoonlijk en medisch vlak. Ik heb daar begrip voor, wil haar alle ruimte geven. Elke relatie kent z’n dips.",
-      "rank": 209
+      "rank": 128
     },
     {
       "id": "verkerven__verb",
@@ -2654,7 +1669,7 @@
         "ervoor zorgen dat iets wat aanvankelijk goed was, nu slecht en lelijk is"
       ],
       "example": "'Maar daar wou ik het nu niet over hebben' keert als een refrein gedurig terug in het eerste deel van de vertelling. Een schrijver die zo begint, moet al heel lelijk doen om het bij mij nog te verkerven",
-      "rank": 210
+      "rank": 129
     },
     {
       "id": "verlummelen__verb",
@@ -2666,7 +1681,7 @@
         "door niets doen de tijd niet nuttig gebruiken"
       ],
       "example": "Voor de draad ermee. Het is nu zaterdag 21 februari, dus vertel maar hoe het staat met de goede voornemens. Succesvol gestopt met roken, drinken, snoepen en tijd verlummelen? Ik mag het hopen.",
-      "rank": 211
+      "rank": 130
     },
     {
       "id": "verlustigen__verb",
@@ -2678,7 +1693,7 @@
         "plezier beleven door naar iets te kijken"
       ],
       "example": "Met het maken van de beelden heeft de verdachte de meisjes \"in al hun naaktheid en kwetsbaarheid gefilmd, de films bewerkt en zich aan de beelden verlustigd\", zo stelde de aanklager.",
-      "rank": 212
+      "rank": 131
     },
     {
       "id": "vermeien__verb",
@@ -2690,7 +1705,7 @@
         "zich ontspannen, relaxen (vaak in de natuur)"
       ],
       "example": "U vermeit zich straks in bos of duin of misschien wel aan het strand.",
-      "rank": 213
+      "rank": 132
     },
     {
       "id": "vermolmen__verb",
@@ -2702,7 +1717,7 @@
         "zacht worden door een proces van verrotting"
       ],
       "example": "Het hout van de drempel is gedeeltelijk vermolmd.",
-      "rank": 214
+      "rank": 133
     },
     {
       "id": "verronselen__verb",
@@ -2714,7 +1729,7 @@
         "op een onhandige, slinkse, knoeierige manier van de hand doen"
       ],
       "example": "En toch, hoe voordeelig het bezit van België ook geworden was, bleef Oostenrijk onverschillig jegens hetzelve, of liever, het hechtte er slechts aan tot een gelegenheid zich zou aanbieden om het tegen een goeden prijs te verronselen.",
-      "rank": 215
+      "rank": 134
     },
     {
       "id": "verslampampen__verb",
@@ -2727,19 +1742,7 @@
         "verkwisten, verspillen, verlummelen"
       ],
       "example": "In muffe, duffe kroeg bij bier- en tabakdampen Het helder, stralend denken verslampampen;",
-      "rank": 216
-    },
-    {
-      "id": "verslensen__verb",
-      "word": "verslensen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "het slap worden en wegteren, meestal van afgesneden plantenmateriaal door uitdroging"
-      ],
-      "example": "De bloemen waren reeds verslenst.",
-      "rank": 217
+      "rank": 135
     },
     {
       "id": "verwasemen__verb",
@@ -2752,7 +1755,7 @@
         "iets laten verdwijnen"
       ],
       "example": "Zijn eenig vermaak is des avonds in het koffiehuis of in de herberg te zitten en zich daar onder eene domme samenspraak zoodanig met bier op te vullen, dat alle fijnheid uit zijne hersens zou verwasemen, hadde hij ooit eenige fijnheid van",
-      "rank": 218
+      "rank": 136
     },
     {
       "id": "verwikken__verb",
@@ -2764,7 +1767,7 @@
         "in beweging brengen"
       ],
       "example": "In 't eind volstreden. . . Daar lag kuisch en wijd Een sneeuwlandschap, in niet meer te verwikken Zielsrust zijn ziel verwant, hem aan te blikken, Voltooid in eendere verstorvenheid.",
-      "rank": 219
+      "rank": 137
     },
     {
       "id": "verwrikken__verb",
@@ -2776,7 +1779,7 @@
         "door iets krachtig heen en weer te bewegen losmaken"
       ],
       "example": "Bijna moest ik met een hand mijn kin verwrikken voordat ik omhoog durfde kijken.",
-      "rank": 220
+      "rank": 138
     },
     {
       "id": "verzengen__verb",
@@ -2789,19 +1792,7 @@
         "door zengen beschadigd worden"
       ],
       "example": "De onverbiddelijke zon verzengde het graan.",
-      "rank": 221
-    },
-    {
-      "id": "verzilten__verb",
-      "word": "verzilten",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "onder invloed van zeewater of uitdroging, zouter worden van wateren en gronden"
-      ],
-      "example": "Anna Boer heeft meerdere malen op het Markermeer vastgezeten. Zij adviseert zout water toe te voegen om het water brak en minder helder te maken. Ook Peter Goede ziet verzilten en uitdiepen als mogelijke oplossingen.",
-      "rank": 222
+      "rank": 139
     },
     {
       "id": "vigeren__verb",
@@ -2813,7 +1804,7 @@
         "gelden, van kracht zijn"
       ],
       "example": "Binnen het gebied vigeren meerdere bestemmingsplannen en verordeningen.",
-      "rank": 223
+      "rank": 140
     },
     {
       "id": "vliemen__verb",
@@ -2825,19 +1816,7 @@
         "scherp insnijden"
       ],
       "example": "Schril klinken de woorden, vliemen door de deur.",
-      "rank": 224
-    },
-    {
-      "id": "wasemen__verb",
-      "word": "wasemen",
-      "pos": "verb",
-      "posLabel": "werkwoord",
-      "article": null,
-      "senses": [
-        "condenserende stoom of vocht afgeven"
-      ],
-      "example": "Dit keer keek ze teleurgesteld naar de inhoud van de pan die uitnodigend wasemde.",
-      "rank": 225
+      "rank": 141
     },
     {
       "id": "wrochten__verb",
@@ -2849,7 +1828,7 @@
         "op een zelfverzonnen manier in elkaar zetten"
       ],
       "example": "Zij wrochten iets kunstigs",
-      "rank": 226
+      "rank": 142
     },
     {
       "id": "zoetvijlen__verb",
@@ -2862,7 +1841,7 @@
         "bijwerken, de fijne puntjes afwerken"
       ],
       "example": "Dit moet nog gezoetvijld worden.",
-      "rank": 227
+      "rank": 143
     },
     {
       "id": "zwijmen__verb",
@@ -2874,7 +1853,7 @@
         "het bewustzijn geheel of gedeeltelijk verliezen"
       ],
       "example": "De benauwde hitte deed haar zwijmen.",
-      "rank": 228
+      "rank": 144
     }
   ]
 }

@@ -24,13 +24,17 @@ export function Bronnen() {
       </div>
       <h2>Aanpassingen</h2>
       <p>
-        Voor deze site zijn {entries} Nederlandse lemma’s gekozen uit het nlwiktionary-extract van Kaikki.org. Het zijn ongebruikelijke woorden:
-        formeel, literair of zeldzaam, met een duidelijke Nederlandse betekenis. Alledaagse woorden uit het begin van een openbare frequentielijst,
-        ook onder CC BY-SA 4.0, zijn weggelaten. Hetzelfde geldt voor eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen
-        verouderde betekenissen en vaktaal. Doorzichtige samenstellingen van gewone woorden zijn ook weggelaten, net als een betekenis die het lemma herhaalt en een -ig-woord dat uit gewone delen bestaat. Staat een lemma in het Leesonderzoek 2013 van het Centrum voor Leesonderzoek, dan blijft het alleen als hoogstens 90 procent van de mensen het herkent. Die tabel is een vast bestand in deze bron en wordt niet live opgehaald. Een afleiding op -erij, -arij, -nij, -erig, -ig, -heid, -schap, -shalve, -ing of -wijze valt weg als het grondwoord in de frequentielijst staat of in dat onderzoek boven de 80 procent uitkomt. Een betekenis met een kapot sjabloon, een cirkelredenering of een ander begrip dan het woord, valt weg, net als een spellingvariant die alleen een koppel-s scheelt. Een zeldzaam zelfstandig naamwoord blijft behouden als het een duidelijke Nederlandse betekenis heeft, ook zonder literaire uitgang. Een werkwoord blijft alleen als het formeel of literair is: een gewone handeling, een klanknabootsing en een leenwerkwoord vallen weg. Spelfouten, alternatieve spellingen en een betekenis die niet bij de woordsoort past, vallen ook weg. Per lemma blijft één woordsoort.
-        Het lidwoord is afgeleid uit de labels in het extract. Per woord staan hoogstens zes betekenissen. Een leidende dubbele punt en verwijzingen
-        als [1] zijn verwijderd. Een voorbeeldzin die langer is dan 240 tekens is ingekort op een zinseinde, als het woord er nog in staat.{" "}
-        {withExample} van de {entries} woorden hebben een voorbeeldzin. De tekst van een betekenis of voorbeeld is verder niet herschreven.
+        Voor deze site zijn {entries} Nederlandse lemma’s gekozen uit het nlwiktionary-extract van Kaikki.org. Het script stelt eerst kandidaten voor:
+        ongebruikelijke woorden, formeel, literair of zeldzaam, met een duidelijke Nederlandse betekenis. Alledaagse woorden uit het begin van een
+        openbare frequentielijst, ook onder CC BY-SA 4.0, zijn weggelaten. Hetzelfde geldt voor eigennamen, afkortingen, woordgroepen, buigingsvormen,
+        dialect, alleen verouderde betekenissen en vaktaal. Staat een lemma in het Leesonderzoek 2013 van het Centrum voor Leesonderzoek, dan komt het
+        alleen in aanmerking als hoogstens 90 procent van de mensen het herkent. Die tabel is een vast bestand in deze bron en wordt niet live opgehaald.
+        Elk kandidaatwoord is daarna met de hand beoordeeld. Een doorzichtige afleiding, een alleen regionaal woord, een kapotte of vage glos, een
+        alledaags woord en een louter archaïsch woord vallen af. Per lemma blijft één woordsoort. Het lidwoord is afgeleid uit de labels in het extract.
+        Per woord staan hoogstens zes betekenissen. Een leidende dubbele punt en verwijzingen als [1] zijn verwijderd. Een voorbeeldzin die langer is
+        dan 240 tekens is ingekort op een zinseinde, als het woord er nog in staat. {withExample} van de {entries} woorden hebben een voorbeeldzin. Bij
+        een handvol bijvoeglijke naamwoorden is een bijwoordelijke glos teruggebracht tot een bijvoeglijke formulering. Verder is de tekst van een
+        betekenis of voorbeeld niet herschreven.
       </p>
     </div>
   );

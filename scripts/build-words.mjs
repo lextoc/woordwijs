@@ -23,8 +23,12 @@
  *   when it is not a separable compound or a loan spelling
  * One part of speech per lemma. At most 1 200 entries.
  *
+ * That list is only the candidate pool. data/curated.json is the hand review:
+ * words.json contains the words marked keep, and nothing from data/denylist.json.
+ *
  * The same inputs always produce the same JSON (no timestamps, stable key order).
  */
+import { assertSet } from "./check-set.mjs";
 import { createHash } from "node:crypto";
 import { createReadStream, createWriteStream, existsSync, mkdirSync, statSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
@@ -878,10 +882,41 @@ chosen.sort(
 );
 const capped = chosen.slice(0, HARD_CAP);
 if (capped.length < 150) {
-  throw new Error(`Te weinig woorden geselecteerd: ${capped.length}`);
+  throw new Error(`Te weinig kandidaten: ${capped.length}`);
 }
-const selected = capped.map((entry, index) => toRecord(entry, index + 1));
-const starterIds = pickStarter(capped);
+const curated = JSON.parse(await readFile(path.join(root, "data", "curated.json"), "utf8"));
+const denylist = JSON.parse(await readFile(path.join(root, "data", "denylist.json"), "utf8"));
+const reviewByWord = new Map(curated.words.map((row) => [row.word, row]));
+const unreviewed = capped.filter((entry) => !reviewByWord.has(entry.word));
+if (unreviewed.length) {
+  throw new Error(`Geen handmatige beoordeling voor: ${unreviewed.map((entry) => entry.word).join(", ")}`);
+}
+const kept = [];
+const dropped = [];
+for (const entry of capped) {
+  const row = reviewByWord.get(entry.word);
+  if (row.decision === "keep") {
+    if (row.gloss) entry.senses = [row.gloss];
+    kept.push(entry);
+  } else if (row.decision === "drop") {
+    if (!/^[a-f]: /.test(row.reason)) {
+      throw new Error(`Dropreden zonder criteriumletter: ${entry.word}`);
+    }
+    dropped.push(row);
+  } else {
+    throw new Error(`Onbekend besluit voor ${entry.word}`);
+  }
+}
+if (kept.length < 120 || kept.length > 200) {
+  throw new Error(`De beoordeelde set heeft ${kept.length} woorden, verwacht 120 tot 200`);
+}
+const dropReasons = {};
+for (const row of dropped) {
+  const letter = row.reason[0];
+  dropReasons[letter] = (dropReasons[letter] || 0) + 1;
+}
+const selected = kept.map((entry, index) => toRecord(entry, index + 1));
+const starterIds = pickStarter(kept);
 if (starterIds.length !== 10) {
   throw new Error(`Starterset heeft ${starterIds.length} woorden, verwacht 10`);
 }
@@ -889,7 +924,7 @@ if (starterIds.length !== 10) {
 const withExample = selected.filter((word) => word.example).length;
 const withArticle = selected.filter((word) => word.article).length;
 const nouns = selected.filter((word) => word.pos === "noun").length;
-const formalCount = capped.filter((word) => word.formal).length;
+const formalCount = kept.filter((word) => word.formal).length;
 const posCounts = {};
 for (const word of selected) posCounts[word.pos] = (posCounts[word.pos] || 0) + 1;
 
@@ -929,11 +964,11 @@ const meta = {
   ],
   fields: ["id", "word", "pos", "posLabel", "article", "senses", "example", "rank"],
   selection:
-    "Nederlandse lemma's van 7 tot 20 letters met een duidelijke Nederlandse betekenis en een voorbeeldzin. Een betekenis die het lemma herhaalt, valt weg. De eerste 6000 lemma's van de frequentielijst vallen weg (alledaags). Eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen, informeel taalgebruik en vaktaal vallen weg. Doorzichtige samenstellingen, scheidbare werkwoorden en productieve afleidingen vallen weg. Een lemma blijft als het formeel of poëtisch gelabeld is, een literaire vorm heeft, of een bijwoord van minstens 8 letters is. Een zelfstandig naamwoord of werkwoord zonder die vorm blijft als het zeldzaam maar echt is. Gewone werkwoorden, klanknabootsingen en leenwerkwoorden vallen weg. Spelfouten vallen weg, net als een spellingvariant die alleen een koppel-s scheelt van een bekend lemma. Heeft een lemma cijfers uit het Leesonderzoek 2013, dan blijft het alleen als hoogstens 90 procent het herkent. Die tabel staat vast in data/nl-recognition.json en wordt niet live opgehaald. Een afleiding op -erij, -arij, -nij, -erig, -ig, -heid, -schap, -shalve, -ing of -wijze valt weg als het grondwoord in de frequentielijst staat of in het Leesonderzoek boven de 80 procent uitkomt, ook wanneer de afleiding zelf een lager cijfer heeft. Een betekenis met een kapot sjabloon, een cirkelredenering of een ander begrip dan het woord, valt weg. Per lemma één woordsoort. Hoogstens 1200. Rank is de plaats in die volgorde, niet de frequentie.",
+    "Het script maakt een kandidatenlijst: Nederlandse lemma's van 7 tot 20 letters met een duidelijke betekenis en een voorbeeldzin, zonder de eerste 6000 frequentielemma's, zonder eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, alleen verouderde betekenissen, vaktaal, doorzichtige samenstellingen en productieve afleidingen van een bekend grondwoord, en zonder een herkenning boven de 90 procent. Die herkenningstabel staat vast in data/nl-recognition.json en wordt niet live opgehaald. data/curated.json beoordeelt elk kandidaatwoord met de hand: keep of drop. words.json bevat alleen de keep-woorden. data/denylist.json houdt de woorden vast die QA heeft afgekeurd; de bouw faalt als zo'n woord of een ontbrekende starter in de set staat. Rank is de plaats in de eindset, niet de frequentie.",
   adaptations: [
     "Alledaagse lemma's (de eerste 6000 van de frequentielijst), eigennamen, afkortingen, woordgroepen, buigingsvormen, dialect, verouderde betekenissen en vaktaal zijn weggelaten.",
-    "Betekenissen die het lemma herhalen, doorzichtige samenstellingen en productieve afleidingen van een frequent woord zijn weggelaten.",
-    "Per item hoogstens zes betekenissen. Witruimte is genormaliseerd, een leidende dubbele punt en [n]-indices zijn verwijderd. De tekst is verder niet herschreven.",
+    "De automatische filters leveren alleen kandidaten. De eindset is de handmatige beoordeling in data/curated.json.",
+    "Per item hoogstens zes betekenissen. Witruimte is genormaliseerd, een leidende dubbele punt en [n]-indices zijn verwijderd. Een handvol bijvoeglijke glossen is teruggebracht tot een bijvoeglijke formulering. Verder is de tekst niet herschreven.",
     "Een voorbeeldzin die langer is dan 240 tekens is ingekort op een zinseinde, zolang het woord er nog in staat.",
     "Het lidwoord is afgeleid uit de labels neuter, masculine en feminine: alleen onzijdig wordt het, mannelijk en/of vrouwelijk wordt de, allebei wordt de/het.",
   ],
@@ -952,6 +987,10 @@ const meta = {
     derivationRemoved: indexed.derivationRemoved,
     glossRemoved: indexed.glossRemoved,
     spellingRemoved: indexed.spellingRemoved,
+    curatedCandidates: capped.length,
+    curatedKept: kept.length,
+    curatedDropped: dropped.length,
+    dropReasons,
   },
   starterIds,
   wordOfTheDay:
@@ -959,12 +998,17 @@ const meta = {
 };
 
 const payload = { meta, words: selected };
+assertSet(payload, denylist);
 const json = `${JSON.stringify(payload, null, 2)}\n`;
 mkdirSync(path.dirname(outPath), { recursive: true });
 await writeFile(outPath, json);
 
 process.stdout.write(
   [
+    `candidates ${capped.length}`,
+    `keep ${kept.length}`,
+    `drop ${dropped.length}`,
+    `dropReasons ${JSON.stringify(dropReasons)}`,
     `entries ${selected.length}`,
     `withExample ${withExample}`,
     `withArticle ${withArticle}`,
