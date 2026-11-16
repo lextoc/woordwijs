@@ -72,14 +72,14 @@ const LATIN = /(itis|osis|ium|hypo|hyper|neuro|cardio|encefal|pathie)/;
 const COMPASS = /(oost|west|noord|zuid)/;
 const NUMBER_WORD = /^(een|twee|drie|vier|vijf|zes|zeven|acht|negen|tien|elf|twaalf|dertien|veertien|vijftien|twin|der|veer|vijf|zes|zeven|tach|negen).+tig$/;
 // Everyday lemmas this subtitle list ranks too low or misses entirely.
-const EVERYDAY = new Set(`aanlokkelijk aanhankelijk aanstekelijk aantoonbaar aanvankelijk adequaat afwezig
+const EVERYDAY = new Set(`aanlokkelijk aanmerkelijk aanhankelijk aanstekelijk aantoonbaar aanvankelijk adequaat afwezig
 anderzijds authentiek begerig behendig bezittelijk beweeglijk bovenmatig buitensporig deugdelijk derhalve doelmatig
 driftig dunnetjes duurzaam eenstemmig eentonig enerzijds fleurig geleidelijk gemoedelijk giechelig glibberig
 grieperig grimmig hinderlijk hobbelig hoogstens huilerig ijverig inhoudelijk kleverig klunzig klungelig
-knorrig kortstondig kriebelig krullig lacherig middelmatig meertalig miezerig minnetjes objectief ogenschijnlijk onverschillig
-optimaal overmatig pertinent piekerig plakkerig pluizig poezelig prijzig puberaal radicaal rimpelig
+knorrig kortstondig kriebelig krullig lacherig middelmatig meertalig miezerig minnetjes naburig objectief ogenschijnlijk onverschillig overvloedig
+optimaal overmatig pertinent piekerig plakkerig pluizig poezelig prijzig prikkelig puberaal radicaal rimpelig stoornis
 rumoerig schemerig schriftelijk slijmig snoezig stekelig stijfjes stilletjes stuntelig toegeeflijk
-tussenin uitbundig uitermate uitvoerig veelzijdig veranderlijk verdacht vergeefs vermakelijk vlijtig
+tussenin uitbundig uitermate uitvoerig uitwendig veelzijdig veranderlijk verdacht vergeefs vermakelijk vlijtig
 volgzaam volstrekt wekelijks wenselijk winderig zorgzaam zuinigjes zwierig allerminst breeduit
 vanbinnen vanbuiten schaakmat fiftyfifty crescendo spiccato staccato sforzando contrecoeur`.split(/\s+/));
 const INFLECTION_GLOSS = /^(meervoud|verkleinwoord|verbogen vorm|verleden tijd|voltooid deelwoord|vergrotende trap|overtreffende trap|genitief|datief|accusatief|nominatief|partitief|vervoeging|verbuiging|afkorting|synoniem van|zie |voornaam|achternaam|plaatsnaam)\b/i;
@@ -287,7 +287,7 @@ async function indexExtract(file, bands) {
     if ([...entryTags].some((tag) => SKIP_ENTRY.has(tag))) continue;
     if (NUMBER_PREFIXES.some((prefix) => key.startsWith(prefix))) continue;
     if (COMPASS.test(key) || ENGLISHY.test(key) || LATIN.test(key) || NUMBER_WORD.test(key)) continue;
-    if (EVERYDAY.has(key) || key.endsWith("kundig")) continue;
+    if (EVERYDAY.has(key) || key.endsWith("kundig") || key.endsWith("toonaard")) continue;
     if (BAD_ENDINGS.some((suffix) => key.endsWith(suffix))) continue;
 
     let formal = false;

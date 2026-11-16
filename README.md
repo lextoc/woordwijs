@@ -64,14 +64,14 @@ De set in deze repository, uit het extract van 2026-10-01:
 |---|---|
 | Regels in het extract | 1.121.234 |
 | Nederlandse items | 669.494 |
-| Kandidaten vóór één woordsoort per lemma | 509 |
+| Kandidaten vóór één woordsoort per lemma | 499 |
 | Lemma’s in de frequentielijst | 13.604 |
-| Woorden in de set | 501 |
-| Met een voorbeeldzin | 501 |
-| Met een lidwoord | 21 |
-| Zelfstandige naamwoorden | 37 |
+| Woorden in de set | 491 |
+| Met een voorbeeldzin | 491 |
+| Met een lidwoord | 17 |
+| Zelfstandige naamwoorden | 32 |
 | Werkwoorden | 1 |
-| Bijvoeglijke naamwoorden | 376 |
+| Bijvoeglijke naamwoorden | 371 |
 | Bijwoorden | 87 |
 
 Ontbreekt een lidwoord of een voorbeeldzin, dan verbergt de site dat veld. Op de woordpagina blijft de kop Voorbeeld staan, met de zin “Voor dit woord is geen voorbeeldzin beschikbaar.”
@@ -85,7 +85,7 @@ De set is een lijst zeldzame, formele of literaire lemma’s, geen frequentielij
 3. De eerste 6.000 lemma’s van de frequentielijst vallen weg. Die lijst dekt het alledaagse woord. De staart ervan is geen literaire zeldzaamheid (namen, leenwoorden, gewone woorden), dus een laag rangnummer is niet genoeg om een woord te houden.
 4. Doorzichtige samenstellingen en productieve afleidingen van een frequent woord vallen weg, net als voltooide en tegenwoordige deelwoorden. Een vaste lijst alledaagse lemma’s die de frequentielijst te laag zet of mist, valt ook weg.
 5. Wat overblijft heeft een formeel of poëtisch label, een literaire vorm (zoals *-lijk*, *-ig*, *-temin*, *-aard*, *-nis*) of is een bijwoord van minstens acht letters. *desalniettemin*, *kwistig* en *onverkwikkelijk* horen daarbij.
-6. Per lemma blijft één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. De set stopt bij 1.200; deze invoer levert 501 woorden.
+6. Per lemma blijft één woordsoort: formeel eerst, dan bijwoord, bijvoeglijk naamwoord, zelfstandig naamwoord, werkwoord. De set stopt bij 1.200; deze invoer levert 491 woorden.
 
 Het lidwoord komt uit de labels in het extract: alleen onzijdig wordt *het*, mannelijk en/of vrouwelijk wordt *de*, allebei wordt *de/het*. Een leidende dubbele punt en indices als `[1]` gaan uit de betekenis. Buigingsglossen vallen weg. De tekst van een betekenis of voorbeeld wordt verder niet herschreven. Een voorbeeldzin langer dan 240 tekens wordt ingekort op een zinseinde, zolang het woord er nog in staat.
 

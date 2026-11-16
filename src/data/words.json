@@ -47,17 +47,17 @@
     "counts": {
       "extractLines": 1121234,
       "dutchEntries": 669494,
-      "indexedLemmas": 509,
+      "indexedLemmas": 499,
       "frequencyLemmas": 13604,
-      "entries": 501,
-      "withExample": 501,
-      "withArticle": 21,
-      "nouns": 37,
+      "entries": 491,
+      "withExample": 491,
+      "withArticle": 17,
+      "nouns": 32,
       "formal": 13,
       "byPos": {
         "adv": 87,
-        "adj": 376,
-        "noun": 37,
+        "adj": 371,
+        "noun": 32,
         "verb": 1
       }
     },
@@ -1261,18 +1261,6 @@
       "rank": 98
     },
     {
-      "id": "aanmerkelijk__adj",
-      "word": "aanmerkelijk",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "aanzienlijk, tamelijk veel, tamelijk groot"
-      ],
-      "example": "Hij had een aanmerkelijk belang in de firma.",
-      "rank": 99
-    },
-    {
       "id": "aanminnig__adj",
       "word": "aanminnig",
       "pos": "adj",
@@ -1282,7 +1270,7 @@
         "goed uitziend, van een zekere schoonheid"
       ],
       "example": "Ze had een aanminnige houding.",
-      "rank": 100
+      "rank": 99
     },
     {
       "id": "aannemelijk__adj",
@@ -1295,7 +1283,7 @@
         "waarschijnlijk, plausibel, geloofwaardig"
       ],
       "example": "Toen de wapenstilstand ten slotte een aannemelijk vooruitzicht werd, begon de hoop het er levend af te brengen zelfs bij de grootste pessimisten post te vatten.",
-      "rank": 101
+      "rank": 100
     },
     {
       "id": "aanpandig__adj",
@@ -1307,7 +1295,7 @@
         "van een bouwwerk dat het ergens aan vast gebouwd is"
       ],
       "example": "De huismeester woont in de aanpandige dienstwoning.",
-      "rank": 102
+      "rank": 101
     },
     {
       "id": "adellijk__adj",
@@ -1319,7 +1307,7 @@
         "op het punt om tot bederf over te gaan."
       ],
       "example": "De geur van adellijk vlees draagt bij aan de bijzondere smaak.",
-      "rank": 103
+      "rank": 102
     },
     {
       "id": "afzijdig__adj",
@@ -1332,7 +1320,7 @@
         "neutraal, niet betrokken"
       ],
       "example": "De kerken hebben zich tot nu toe in het conflict grotendeels afzijdig gehouden.",
-      "rank": 104
+      "rank": 103
     },
     {
       "id": "ambachtelijk__adj",
@@ -1344,7 +1332,7 @@
         "volgens de methoden van het oude ambacht"
       ],
       "example": "Dit ambachtelijke product is niet goedkoop, maar wel erg mooi.",
-      "rank": 105
+      "rank": 104
     },
     {
       "id": "ambtelijk__adj",
@@ -1357,7 +1345,7 @@
         "uit hoofde van een bepaald ambt"
       ],
       "example": "Om dit voorstel goedgekeurd te krijgen moet het eerst door de hele ambtelijke molen.",
-      "rank": 106
+      "rank": 105
     },
     {
       "id": "ambtsedig__adj",
@@ -1369,7 +1357,7 @@
         "wat valt onder de ambtseed"
       ],
       "example": "Het rapport van de makelaar was niet erg betrouwbaar, want het was niet ambtsedig opgesteld.",
-      "rank": 107
+      "rank": 106
     },
     {
       "id": "armtierig__adj",
@@ -1381,7 +1369,7 @@
         "arm, verlopen en sober"
       ],
       "example": "Op tafel in het armtierige kantoortje van algemeen directeur Terry Ibbotson ligt de tekening van de nieuwbouw.",
-      "rank": 108
+      "rank": 107
     },
     {
       "id": "armzalig__adj",
@@ -1394,7 +1382,7 @@
         "van slechte kwaliteit"
       ],
       "example": "Ze woonden in een armzalig huis, maar waren wel gelukkig.",
-      "rank": 109
+      "rank": 108
     },
     {
       "id": "baarlijk__adj",
@@ -1406,7 +1394,7 @@
         "zich in zijn ware vorm vertonend"
       ],
       "example": "Dat is baarlijke nonsens.",
-      "rank": 110
+      "rank": 109
     },
     {
       "id": "baldadig__adj",
@@ -1418,7 +1406,7 @@
         "wild, uitgelaten, ondeugend, overmoedig"
       ],
       "example": "Je hebt je handen zeker vol aan dat baldadige kind, of niet?",
-      "rank": 111
+      "rank": 110
     },
     {
       "id": "bebaard__adj",
@@ -1430,7 +1418,7 @@
         "voorzien van een (lange) baard"
       ],
       "example": "Kapitein Haddock is een stoere, bebaarde zeeschuimer.",
-      "rank": 112
+      "rank": 111
     },
     {
       "id": "bedachtzaam__adj",
@@ -1442,7 +1430,7 @@
         "goed doordacht iets doen"
       ],
       "example": "De inbreker was bedachtzaam en liet geen sporen achter.",
-      "rank": 113
+      "rank": 112
     },
     {
       "id": "bedektelijk__adj",
@@ -1454,7 +1442,7 @@
         "op een slinkse manier"
       ],
       "example": "Acht engelen waren bedektelijk bij de poort op de wal geklommen, om de welkom te blazen en de Vorst aan te kondigen.",
-      "rank": 114
+      "rank": 113
     },
     {
       "id": "bedillerig__adj",
@@ -1466,7 +1454,7 @@
         "op een onaangename manier bemoeizuchtig"
       ],
       "example": "Maar dat bedillerige, het voorschrijven wat de toeristen wel of niet zouden mogen drinken, dat schiet de overgrote meerderheid van de lezers totaal in het verkeerde keelgat (!).",
-      "rank": 115
+      "rank": 114
     },
     {
       "id": "begrotelijk__adj",
@@ -1478,7 +1466,7 @@
         "duur in verhouding met wat je ervoor terugkrijgt"
       ],
       "example": "Het sluiten van de kerncentrales wordt te begrotelijk voor de regering van Zweden.",
-      "rank": 116
+      "rank": 115
     },
     {
       "id": "behaaglijk__adj",
@@ -1491,7 +1479,7 @@
         "tevreden, op zijn gemak"
       ],
       "example": "Er heerste een behaaglijk gevoel in die ruimte.",
-      "rank": 117
+      "rank": 116
     },
     {
       "id": "behoeftig__adj",
@@ -1503,7 +1491,7 @@
         "aangewezen zijn op met name financiële hulp van anderen"
       ],
       "example": "Met de begroting in de hand als onderpand wil de Europese Commissie, tegen gunstige rente, geld lenen op de kapitaalmarkten voor een wederopbouwfonds. Geld dat vervolgens door behoeftige lidstaten in Brussel kan worden geleend of verkregen.",
-      "rank": 118
+      "rank": 117
     },
     {
       "id": "beminnelijk__adj",
@@ -1515,7 +1503,7 @@
         "aardig in de omgang"
       ],
       "example": "Mijn beminnelijke buurmeisje groette me vrolijk.",
-      "rank": 119
+      "rank": 118
     },
     {
       "id": "bemoeizuchtig__adj",
@@ -1527,7 +1515,7 @@
         "tot vervelens toe geneigd zich te bemoeien met andermans zaken"
       ],
       "example": "Een bemoeizuchtig persoon.",
-      "rank": 120
+      "rank": 119
     },
     {
       "id": "berispelijk__adj",
@@ -1539,7 +1527,7 @@
         "strenge afkeuring verdienend"
       ],
       "example": "De jongen vertoonde berispelijk gedrag.",
-      "rank": 121
+      "rank": 120
     },
     {
       "id": "beschouwelijk__adj",
@@ -1551,7 +1539,7 @@
         "meer nadenkend en observerend dan praktisch handelend"
       ],
       "example": "Hij debuteert komend voorjaar bij uitgeverij DasMag met vijftien essays, die zich volgens Postma ergens ophouden in het gebied tussen persoonlijk (al dan niet samenwonen) en beschouwelijk (literatuur, beeldende kunst en fotografie).",
-      "rank": 122
+      "rank": 121
     },
     {
       "id": "bespottelijk__adj",
@@ -1563,7 +1551,7 @@
         "uitermate vreemd"
       ],
       "example": "Het is een bespottelijk voorstel om hier alleen nog maar fietsers door te laten.",
-      "rank": 123
+      "rank": 122
     },
     {
       "id": "betweterig__adj",
@@ -1575,7 +1563,7 @@
         "het beter (denken) te weten dan anderen"
       ],
       "example": "Macht corrumpeerde eens te meer: de hoop van Georgië werd een potentaat omringd door jaknikkers, te betweterig en neoliberaal naar Roelofs’ smaak. (Coen van Zwol NRC 5 maart 2015)",
-      "rank": 124
+      "rank": 123
     },
     {
       "id": "bevallig__adj",
@@ -1587,7 +1575,7 @@
         "-gewoonlijk vrouwelijke- schoonheid bezittend die bij anderen -gewoonlijk mannen- in de smaak valt."
       ],
       "example": "Toen het bevallige meisje binnenliep, trok zij de aandacht van alle mannen aan de bar.",
-      "rank": 125
+      "rank": 124
     },
     {
       "id": "bevattelijk__adj",
@@ -1600,7 +1588,7 @@
         "van iets dat het helder en duidelijk is en daardoor makkelijk te begrijpen"
       ],
       "example": "De bevattelijke leerling kon de les met groot gemak leren.",
-      "rank": 126
+      "rank": 125
     },
     {
       "id": "bevindelijk__adj",
@@ -1613,7 +1601,7 @@
         "met een geloof dat voortkomt uit de persoonlijke ervaring van de gelovige zelf"
       ],
       "example": "Het leven in een psychiatrisch ziekenhuis kan men zich pas goed voorstellen wanneer men het heeft meegemaakt, het bevindelijk heeft leren kennen zoals de ‘oude schrijvers’ zeggen.",
-      "rank": 127
+      "rank": 126
     },
     {
       "id": "bibberig__adj",
@@ -1625,7 +1613,7 @@
         "geneigd tot rillen"
       ],
       "example": "Misschien word ik verkouden, want ik voel me wat bibberig.",
-      "rank": 128
+      "rank": 127
     },
     {
       "id": "bijgelovig__adj",
@@ -1637,7 +1625,7 @@
         "vatbaar voor bijgeloof, van personen"
       ],
       "example": "De bijgelovige man durfde bijna niet meer over straat uit angst voor zwarte katten en ladders.",
-      "rank": 129
+      "rank": 128
     },
     {
       "id": "bijterig__adj",
@@ -1649,7 +1637,7 @@
         "geneigd zijn om te bijten"
       ],
       "example": "De rotspython, die bekend staat als agressief en bijterig, komt voor in Afrika en eet voornamelijk kleine zoogdieren zoals ratten.",
-      "rank": 130
+      "rank": 129
     },
     {
       "id": "bladderig__adj",
@@ -1662,7 +1650,7 @@
         "van ijzer waarvan het oppervlak met blaasjes bedekt is"
       ],
       "example": "Bij een zaak met antiek en oude rommel stond een paar jaar geleden een tuinbeeld, een putto. Beetje roestig en bladderig, had vast al lang ergens in een tuin gestaan. We vroegen de prijs.",
-      "rank": 131
+      "rank": 130
     },
     {
       "id": "blikkerig__adj",
@@ -1674,7 +1662,7 @@
         "met een onnatuurlijke, mechanische klank"
       ],
       "example": ",,Ik kreeg op mijn 13de verjaardag van mijn ouders een pick-up. Het was een klein plastic apparaatje. De deksel was wit en de onderkant blauw. Er zaten batterijen in. Je kon er alleen singles op draaien en blikkerig dat het klonk.",
-      "rank": 132
+      "rank": 131
     },
     {
       "id": "blufferig__adj",
@@ -1686,7 +1674,7 @@
         "met veel grootspraak"
       ],
       "example": "Doel van de bijeenkomst is de promotie van het gevecht tussen Rico Verhoeven en Badr Hari. En dus wordt de verzamelde pers door Hari getrakteerd op de blufferige ’trash talk’ die bij dit soort evenementen gebruikelijk is.",
-      "rank": 133
+      "rank": 132
     },
     {
       "id": "bobbelig__adj",
@@ -1698,7 +1686,7 @@
         "met veel bulten en bobbels"
       ],
       "example": "Het was een mooie vrouw maar helaas had ze een wat bobbelige huid.",
-      "rank": 134
+      "rank": 133
     },
     {
       "id": "bochtig__adj",
@@ -1710,7 +1698,7 @@
         "met veel bochten en kronkels"
       ],
       "example": "De bochtige bergweg is reuze gevaarlijk en er gebeuren dan ook vele ongelukken.",
-      "rank": 135
+      "rank": 134
     },
     {
       "id": "boemelig__adj",
@@ -1722,7 +1710,7 @@
         "langzaam en kneuterig passend bij een langzame boemeltrein"
       ],
       "example": "Veel mensen merkten op dat lightrail eigenlijk geen nieuw fenomeen is. Een eeuw geleden waren er al ‘lichtere’ spoorwegen, waarvoor de term buurtspoor of lokaalspoor bestond. Maar dat is misschien toch wat te ‘boemelig’.",
-      "rank": 136
+      "rank": 135
     },
     {
       "id": "bolwangig__adj",
@@ -1735,7 +1723,7 @@
         "van een persoon dat deze wat dik is"
       ],
       "example": "Nationale eenheid is nou eenmaal makkelijker te vangen in termen als democratie en vrijheid, dan in de persoon van een bolwangige veertiger.",
-      "rank": 137
+      "rank": 136
     },
     {
       "id": "bonkerig__adj",
@@ -1748,7 +1736,7 @@
         "ruw, niet glad, niet egaal"
       ],
       "example": "Bas van Putten vindt dat de SsangYong Rexton Sapphire uitstekend rijdt; wat bonkerig op verkeersdrempels, maar alleszins beschaafd.",
-      "rank": 138
+      "rank": 137
     },
     {
       "id": "bouwvallig__adj",
@@ -1760,7 +1748,7 @@
         "in slechte bouwkundige staat verkerend"
       ],
       "example": "De huizen in de krottenwijk verkeerden allemaal in een bouwvallige staat.",
-      "rank": 139
+      "rank": 138
     },
     {
       "id": "boventallig__adj",
@@ -1772,7 +1760,7 @@
         "boven het normale aantal uitgaande, met name voor een werknemer die ergens werkt waar het benodigde aantal werkers reeds aanwezig is"
       ],
       "example": "De 45 medewerkers die boventallig worden verklaard zijn onder meer (medisch) secretaresses, huishoudelijke medewerkers of keukenhulpen. Voor de helft van hen wordt een andere plek in de organisatie gezocht.",
-      "rank": 140
+      "rank": 139
     },
     {
       "id": "brallerig__adj",
@@ -1784,7 +1772,7 @@
         "luidruchtig en opschepperig"
       ],
       "example": "Een week eerder zit ik op het terras, met vriendin M. Er komt een nogal brallerig type aan het tafeltje naast ons zitten, die er eens lekker voor gaat zitten. Het resultaat: hij zit bijna óp mijn vriendin.",
-      "rank": 141
+      "rank": 140
     },
     {
       "id": "broeierig__adj",
@@ -1797,7 +1785,7 @@
         "erotisch, zwoel, wellustig, wulps"
       ],
       "example": "Voorafgaand aan deze buien uit wordt het morgen eerst nog broeierig warm. De temperatuur loopt op naar 25 tot 33 graden. In de loop van de dag trekken de zware onweersbuien vervolgens vanuit het zuiden over het land.",
-      "rank": 142
+      "rank": 141
     },
     {
       "id": "brokkelig__adj",
@@ -1809,7 +1797,7 @@
         "dat iets niet stevig is doordat er makkelijk stukken van afbreken"
       ],
       "example": "Toen ik het brokkelige koekje at vielen er veel kruimels op de grond.",
-      "rank": 143
+      "rank": 142
     },
     {
       "id": "brommerig__adj",
@@ -1821,7 +1809,7 @@
         "een beetje boos"
       ],
       "example": "Wie aan Knorr denkt, legt direct de combinatie met het geluid dat een varken maakt. Hoe men voor knorrig ook brommerig en chagrijnig is gaan invullen is me overigens een raadsel.",
-      "rank": 144
+      "rank": 143
     },
     {
       "id": "bronstig__adj",
@@ -1833,7 +1821,7 @@
         "verlangend naar de paring"
       ],
       "example": "bronstige dames waren altijd welkom in de parenclub",
-      "rank": 145
+      "rank": 144
     },
     {
       "id": "bruinig__adj",
@@ -1846,7 +1834,7 @@
         "op bruin lijkend"
       ],
       "example": "Na zijn val op het pad had zijn gezicht iets bruinigs.",
-      "rank": 146
+      "rank": 145
     },
     {
       "id": "buigzaam__adj",
@@ -1859,7 +1847,7 @@
         "overdrachtelijk: bereid zich aan te passen"
       ],
       "example": "Dit materiaal is zowel buigzaam als sterk.",
-      "rank": 147
+      "rank": 146
     },
     {
       "id": "buitenkerkelijk__adj",
@@ -1871,7 +1859,7 @@
         "geen lid van een kerk zijnde"
       ],
       "example": "De rest van de Nederlanders is buitenkerkelijk. Binnen deze groep vallen mensen die wel geloven, maar niet naar de kerk gaan (17 procent) en mensen die niet gelovig zijn maar wel spiritueel (10 procent).",
-      "rank": 148
+      "rank": 147
     },
     {
       "id": "buitenmatig__adj",
@@ -1883,7 +1871,7 @@
         "meer dan normaal"
       ],
       "example": "Deze jongen had een buitenmatige intelligentie, maar helaas was zijn ijver ondermaats",
-      "rank": 149
+      "rank": 148
     },
     {
       "id": "clichématig__adj",
@@ -1895,7 +1883,7 @@
         "zo vaak herhaald en overgeschreven dat het nauwelijks nog enige betekenis heeft, een versleten uitdrukking"
       ],
       "example": "Hij kwam aanzetten met een clichématig verhaal over de zuinigheid van de Nederlandse kaaskoppen, zonder dat ik hem kon betrappen op ook maar één enkel origineel idee.",
-      "rank": 150
+      "rank": 149
     },
     {
       "id": "deugdzaam__adj",
@@ -1907,7 +1895,7 @@
         "bereid zich te gedragen in overeenstemming met algemeen aanvaarde waarden"
       ],
       "example": "Een deugdzaam leven is een wijs leven.",
-      "rank": 151
+      "rank": 150
     },
     {
       "id": "diepzinnig__adj",
@@ -1919,7 +1907,7 @@
         "diep denkend over iets, doordringen tot de kern"
       ],
       "example": "- Hij had lang nagedacht over het onderwerp zodat hij er diepzinnige opmerkingen over kon maken.",
-      "rank": 152
+      "rank": 151
     },
     {
       "id": "dikbuikig__adj",
@@ -1931,7 +1919,7 @@
         "met een dikke buik"
       ],
       "example": "Hij heeft jarenlang motorgereden, drinkt overvloedige hoeveelheden bier en springt zo vaak als maar kan dikbuikig het water in.",
-      "rank": 153
+      "rank": 152
     },
     {
       "id": "dikwandig__adj",
@@ -1943,7 +1931,7 @@
         "van iets dat het een dikke, afsluitende buitenlaag heeft"
       ],
       "example": "We leven in een zeer kwetsbare samenleving. Kerncentrales vormen met al hun beton en dikwandig staal welhaast ondoordringbare bunkers en behoren zo tot de veiligste industriële objecten.",
-      "rank": 154
+      "rank": 153
     },
     {
       "id": "doldriftig__adj",
@@ -1955,7 +1943,7 @@
         "te woest, te opgewonden, te verhit"
       ],
       "example": "De seculiere media hebben zich recent doldriftig geworpen op de ontwikkelingen bij de EO. Dan werden voorhoede en ”achterban” tegen elkaar uitgespeeld.",
-      "rank": 155
+      "rank": 154
     },
     {
       "id": "dommelig__adj",
@@ -1967,7 +1955,7 @@
         "half slapend, niet helemaal wakker"
       ],
       "example": "Als je dommelig achter het stuur zit, kun je makkelijk een ongeluk veroorzaken",
-      "rank": 156
+      "rank": 155
     },
     {
       "id": "doorgankelijk__adj",
@@ -1979,7 +1967,7 @@
         "in staat zijn om iets te laten passeren"
       ],
       "example": "Door toediening van het progestageen hebt u geen eisprong, wordt de baarmoederwand minder geschikt gemaakt voor innesteling van een bevruchte eicel en wordt het slijm rond de ingang van de baarmoedermond minder doorgankelijk voor",
-      "rank": 157
+      "rank": 156
     },
     {
       "id": "doornig__adj",
@@ -1992,7 +1980,7 @@
         "pijnlijk en moeilijk"
       ],
       "example": "Ondertussen dendert Nederland voort op het doornige pad van de recessie.",
-      "rank": 158
+      "rank": 157
     },
     {
       "id": "draderig__adj",
@@ -2004,7 +1992,7 @@
         "van vlees dat het niet mals is"
       ],
       "example": "In dit dure restaurant serveerden ze draderig vlees, ik zal hier nooit meer komen eten.",
-      "rank": 159
+      "rank": 158
     },
     {
       "id": "drakerig__adj",
@@ -2016,7 +2004,7 @@
         "van iets dat het heel overdreven en lelijk is"
       ],
       "example": "De Russische overheid had tien jaar geleden geen geld om leraren op tijd te betalen, maar stak wel 15 miljoen euro in Mikhalkovs drakerige nationalistische epos The barber of Siberia.",
-      "rank": 160
+      "rank": 159
     },
     {
       "id": "drassig__adj",
@@ -2028,7 +2016,7 @@
         "eigenschap van grond: slap en vochtig dus moerassig"
       ],
       "example": "De drassige weilanden konden niet met een tractor worden bewerkt.",
-      "rank": 161
+      "rank": 160
     },
     {
       "id": "dreinerig__adj",
@@ -2041,7 +2029,7 @@
         "op een zeurende manier"
       ],
       "example": "Na de wedstrijd, ternauwernood door Manchester met 2-1 gewonnen, ging Evra zo heel zeikerig en dreinerig voor Suarez lopen dansen en juichen.",
-      "rank": 162
+      "rank": 161
     },
     {
       "id": "drekkig__adj",
@@ -2053,7 +2041,7 @@
         "vui, smerig, van lage kwaliteit, lijkend op stront"
       ],
       "example": "Zijn oordeel is nogal negatief: \"De grote vervuiling van het sculptuurbegrip in Nederland kon niet anders dan uitmonden in veel drekkige resultaten die voorbijtrekken in een carnavaleske parade van kleurig samengestelde figuren en",
-      "rank": 163
+      "rank": 162
     },
     {
       "id": "drollig__adj",
@@ -2065,7 +2053,7 @@
         "op een aandoenlijke manier grappig"
       ],
       "example": "Meteen al aan het begin toont Henze zijn gevoel voor dubbele bodems: zo wordt het dik aangezette drollige koper geïroniseerd in de glibberig weemoedige glissandi van de strijkers.",
-      "rank": 164
+      "rank": 163
     },
     {
       "id": "dromerig__adj",
@@ -2077,7 +2065,7 @@
         "geneigd tot dagdromen en mijmeren"
       ],
       "example": "Keest Bakels (uit Kees de jongen) en Woutertje Pieterse zijn typische voorbeeld van dromerige jongens.",
-      "rank": 165
+      "rank": 164
     },
     {
       "id": "druilig__adj",
@@ -2090,7 +2078,7 @@
         "van het weer: stil en somber"
       ],
       "example": "Een druilige zondagavond am Kehrweg. Er zijn leukere locaties om het nieuwe voetbaljaar op gang te trappen. Tenzij je natuurlijk al na 2 minuten voorsprong klimt.",
-      "rank": 166
+      "rank": 165
     },
     {
       "id": "druistig__adj",
@@ -2102,7 +2090,7 @@
         "op een wilde, energieke wijze"
       ],
       "example": "Omdat de sfeer op de Reeperbahn voor kinderen toch wat te druistig en grimmig was, besloten we in een aanpalende straat op zoek te gaan naar een restaurant. Al binnen een minuut liepen we tegen een restaurant aan genaamd Freudenhaus St.",
-      "rank": 167
+      "rank": 166
     },
     {
       "id": "duchtig__adj",
@@ -2114,7 +2102,7 @@
         "grondig, met kracht, met volle inzet, niet te onderschatten"
       ],
       "example": "Zij stootten op duchtige tegenstand.",
-      "rank": 168
+      "rank": 167
     },
     {
       "id": "dwangmatig__adj",
@@ -2126,7 +2114,7 @@
         "van binnenuit opgedrongen, zich tegen iemands wil onweerstaanbaar voordoend"
       ],
       "example": "Een dwangmatige handeling.",
-      "rank": 169
+      "rank": 168
     },
     {
       "id": "dwingerig__adj",
@@ -2138,7 +2126,7 @@
         "met een houding waardoor het lijkt dat iemand geen keus krijgt"
       ],
       "example": "De meeste respondenten (81 procent) wezen de praktijk af, maar 57 procent gaf toe dat ze er toch aan meewerken. Ze zijn bereid om al bij het indienen extra citaties toe te voegen om dwingerige redacties ter wille te zijn.",
-      "rank": 170
+      "rank": 169
     },
     {
       "id": "eelterig__adj",
@@ -2150,7 +2138,7 @@
         "met eelt bedekt; met een verdikte, harde huid bedekt"
       ],
       "example": "En hij klopte met zijn eelterig handje op zijn blauwe kiel, onder zijn sleutelbeen, dat het hol klonk.",
-      "rank": 171
+      "rank": 170
     },
     {
       "id": "eenbladig__adj",
@@ -2162,7 +2150,7 @@
         "met één blad; bestaande uit één bladzijde"
       ],
       "example": "Er zijn twee soorten kano's: de Canadese kano en de kajak. In de Canadese zit je op een bankje en je gebruikt een eenbladige peddel. Meestal is de Canadees tweepersoons.",
-      "rank": 172
+      "rank": 171
     },
     {
       "id": "eeneiig__adj",
@@ -2174,7 +2162,7 @@
         "uit een enkele eicel voortgekomen"
       ],
       "example": "Een jongen en een meisje kunnen nooit eeneiige tweelingen zijn.",
-      "rank": 173
+      "rank": 172
     },
     {
       "id": "eenkennig__adj",
@@ -2186,7 +2174,7 @@
         "bang voor vreemden, contact met onbekenden vermijdend"
       ],
       "example": "Het eenkennige kind ging achter de gordijnen staan toen er bezoek kwam, maar ontdooide snel toen de taart op tafel kwam.",
-      "rank": 174
+      "rank": 173
     },
     {
       "id": "eenkoppig__adj",
@@ -2198,7 +2186,7 @@
         "bestaande uit één persoon"
       ],
       "example": "Over 5 jaar hoopt zij dat de grote zorggiganten hebben plaatsgemaakt voor kleine verpleeghuizen zonder managementlagen en „roofridders in maatpakken” maar met een eenkoppig bestuur dat de touwtjes stevig in handen heeft.",
-      "rank": 175
+      "rank": 174
     },
     {
       "id": "eenogig__adj",
@@ -2210,7 +2198,7 @@
         "in het bezit van (slechts) één oog"
       ],
       "example": "Op straat zwerft een manke, eenogige hond.",
-      "rank": 176
+      "rank": 175
     },
     {
       "id": "eenzelvig__adj",
@@ -2222,7 +2210,7 @@
         "in zichzelf gekeerd; alleen door zichzelf begrepen"
       ],
       "example": "Ik kon mij voorstellen dat haar poëzie compromisloos experimenteel zou zijn, en van een aantrekkelijke eenzelvige gekte, die in feite een getormenteerde en door geen criticus begrepen verschijningsvorm was van passie die woedde als een",
-      "rank": 177
+      "rank": 176
     },
     {
       "id": "eerbiediglijk__adj",
@@ -2234,7 +2222,7 @@
         "met veel eerbied"
       ],
       "example": "Terwijl zij over de vermetelheid van Hugo spraken, kwam er een wapenbode in de tent, dewelke zich eerbiediglijk voor de ridders boog: zijn kleding en wapens waren met stof bedekt, en het zweet liep van zijn voorhoofd.",
-      "rank": 178
+      "rank": 177
     },
     {
       "id": "eerzaam__adj",
@@ -2246,7 +2234,7 @@
         "wat geëerd dient te worden"
       ],
       "example": "Vuilnismannen hebben een eerzaam beroep.",
-      "rank": 179
+      "rank": 178
     },
     {
       "id": "eerzuchtig__adj",
@@ -2258,7 +2246,7 @@
         "verlangend naar eer en roem"
       ],
       "example": "De eerzuchtige sporter gebruikte doping om toch maar de eerste plaats te kunnen behalen.",
-      "rank": 180
+      "rank": 179
     },
     {
       "id": "eigenzinnig__adj",
@@ -2270,7 +2258,7 @@
         "van een persoon dat die persoon dingen op zijn eigen manier doet ook als die afwijken van de andere mensen"
       ],
       "example": "De eigenzinnige man ging niet meer op vakantie en vond auto's een verouderde techniek.",
-      "rank": 181
+      "rank": 180
     },
     {
       "id": "erbarmelijk__adj",
@@ -2282,7 +2270,7 @@
         "meelijwekkend, beklagenswaardig, zielig"
       ],
       "example": "De vogels moesten volgens de LID \"onder erbarmelijke omstandigheden in vieze, veel te kleine hokken\" verblijven en werden slecht verzorgd.",
-      "rank": 182
+      "rank": 181
     },
     {
       "id": "erfelijk__adj",
@@ -2294,7 +2282,7 @@
         "overdraagbaar op de erfgenaam"
       ],
       "example": "Het stadhouderschap werd met Willem IV erfelijk.",
-      "rank": 183
+      "rank": 182
     },
     {
       "id": "fieltig__adj",
@@ -2306,7 +2294,7 @@
         "zoals bij iemand met een slecht karakter"
       ],
       "example": "Ontferm u bovenal over het feit dat hij mijn vrouw zo fieltig en herhaaldelijk heeft gehoond en mijn kinderen verwond.",
-      "rank": 184
+      "rank": 183
     },
     {
       "id": "gaperig__adj",
@@ -2318,7 +2306,7 @@
         "de neiging hebben om te gapen omdat men slaperig is"
       ],
       "example": "Een op de tien bestuurders zegt zo gaperig en suf te zijn dat het eigenlijk onverantwoord is om te rijden.",
-      "rank": 185
+      "rank": 184
     },
     {
       "id": "gebaard__adj",
@@ -2330,7 +2318,7 @@
         "voorzien van een baard"
       ],
       "example": "Op het schilderij is een vrolijk lachende, gebaarde man geportretteerd.",
-      "rank": 186
+      "rank": 185
     },
     {
       "id": "gebeurlijk__adj",
@@ -2342,7 +2330,7 @@
         "dat wat kan gebeuren"
       ],
       "example": "Dit handelsmerk zou dienen aangebracht op het met de hand vervaardigde kantwerk. Gebeurlijk mits vermelding van de specifieke naam van de kant. Wanneer de kant mechanisch vervaardigd wordt, zou dit eveneens moeten worden aangeduid.",
-      "rank": 187
+      "rank": 186
     },
     {
       "id": "geboortig__adj",
@@ -2354,7 +2342,7 @@
         "van geboorte afkomstig uit; van geboorte afkomstig van"
       ],
       "example": "Plaats van handeling: Theaterhotel, Almelo. Preluderend op het wintercircus tovert ene meneer Batak, geboortig van de Zanderij in Suriname - een modieuze betweter, kasteelheertype, alias O.",
-      "rank": 188
+      "rank": 187
     },
     {
       "id": "gedurig__adj",
@@ -2366,7 +2354,7 @@
         "met grote regelmaat, vrijwel altijd"
       ],
       "example": "De gedurige kritiek op de corrupte regering haalde weinig uit.",
-      "rank": 189
+      "rank": 188
     },
     {
       "id": "geeuwerig__adj",
@@ -2378,7 +2366,7 @@
         "op een slaperige, vermoeide, saaie manier"
       ],
       "example": "In het begin van de avond had Peper er nog bijgezeten alsof het hem niet aanging. Een beetje lacherig, een beetje geeuwerig, een beetje schouderophalerig, kortom heel erg Peperig.",
-      "rank": 190
+      "rank": 189
     },
     {
       "id": "gemakzuchtig__adj",
@@ -2390,7 +2378,7 @@
         "lui, dat je niet je best wilt doen, dat je niet vermoeid wil raken"
       ],
       "example": "De gemakzuchtige postbode gooide alle brieven bij het oud papier.",
-      "rank": 191
+      "rank": 190
     },
     {
       "id": "gemelijk__adj",
@@ -2402,7 +2390,7 @@
         "slecht van humeur, niet vriendelijk gestemd, knorrig, misnoegd, slechtgehumeurd"
       ],
       "example": "Hij was in de gemelijkste bui in jaren.",
-      "rank": 192
+      "rank": 191
     },
     {
       "id": "geniepig__adj",
@@ -2414,7 +2402,7 @@
         "op een achterbakse manier en gemeen"
       ],
       "example": "Hij zette hem op een geniepige manier buiten spel.",
-      "rank": 193
+      "rank": 192
     },
     {
       "id": "genotzuchtig__adj",
@@ -2426,7 +2414,7 @@
         "geobsedeerd door genotzucht"
       ],
       "example": "De leden van de vereniging van historische schrijvers noemen de Britse koning Hendrik VIII uit de zestiende eeuw obsessief, genotzuchtig, een vrouwenmoordenaar en een tiran.",
-      "rank": 194
+      "rank": 193
     },
     {
       "id": "gevoeglijk__adj",
@@ -2438,7 +2426,7 @@
         "passend, betamelijk, behoorlijk"
       ],
       "example": "Wij zullen het overlijden van de koning op een gevoeglijk moment herdenken.",
-      "rank": 195
+      "rank": 194
     },
     {
       "id": "glanzig__adj",
@@ -2450,7 +2438,7 @@
         "glad en glanzend"
       ],
       "example": "En voor de liefhebber formuleerde niemand de opkomst van de Nieuwe Orde subliemer dan Nescio in Vae victis: “Weldra zouden de fonteinen van den haat alom hoog opspuiten uit zwarte, brokkelige gaten in ons gelijkgeschoren, glanzige gras.",
-      "rank": 196
+      "rank": 195
     },
     {
       "id": "gluiperig__adj",
@@ -2463,7 +2451,7 @@
         "op een bedekte, vriendelijke, onderdanige manier gemene dingen doen"
       ],
       "example": "De gluiperige jongen kun je niet vertrouwen.",
-      "rank": 197
+      "rank": 196
     },
     {
       "id": "godslasterlijk__adj",
@@ -2475,7 +2463,7 @@
         "lasterlijk ten opzichte van God"
       ],
       "example": "Hij is erg teleurgesteld door jouw godslasterlijke opmerkingen.",
-      "rank": 198
+      "rank": 197
     },
     {
       "id": "godsvruchtig__adj",
@@ -2487,7 +2475,7 @@
         "van een persoon dat hij gelooft in god"
       ],
       "example": "Hij sprak over zielenheil, een ziel die er is, of je het nu gelooft of niet. Hij sprak als een godsvruchtig man. Hij zag eruit als een duivelaanbidder",
-      "rank": 199
+      "rank": 198
     },
     {
       "id": "godvruchtig__adj",
@@ -2499,7 +2487,7 @@
         "sterk in god gelovend"
       ],
       "example": "Het godvruchtige meisje zal vast en zeker in de hemel komen.",
-      "rank": 200
+      "rank": 199
     },
     {
       "id": "godzalig__adj",
@@ -2513,7 +2501,7 @@
         "heerlijk, lekker"
       ],
       "example": "Het praten van Den Uyl met aarzelingen, onaffe zinnen, eh's en ah's, geeft hij onvergelijkbaar weer. Tegenspeler Stijn Westenend als Van Agt staat godzalig als een misdienaar op de speelvloer.",
-      "rank": 201
+      "rank": 200
     },
     {
       "id": "goelijk__adj",
@@ -2525,7 +2513,7 @@
         "vriendelijk, zachtmoedig"
       ],
       "example": "„Bovendien”, tekent Kees Wegerif aan, „dat zeg ik eerlijk: mijn vader bezat te weinig ondernemerschap. Hij was te goelijk.”",
-      "rank": 202
+      "rank": 201
     },
     {
       "id": "goudlokkig__adj",
@@ -2537,7 +2525,7 @@
         "met goudkleurige, blonde haarlokken"
       ],
       "example": "Apollo, lichtgod, luchtig slaand de luite Ben ik, wiens gaaf, het gouden zonlicht is. Goudlokkig telken morgen treed ik buiten Des zwarten nachts deizende droefenis.",
-      "rank": 203
+      "rank": 202
     },
     {
       "id": "grafelijk__adj",
@@ -2549,7 +2537,7 @@
         "in het bezit zijnde van een graaf"
       ],
       "example": "Sisu maakt grafelijk Nijreesbos Almelo schoon: Leden van atletiekvereniging Sisu hebben in het weekeinde het Nijreesbos opgeschoond.",
-      "rank": 204
+      "rank": 203
     },
     {
       "id": "grijzig__adj",
@@ -2561,7 +2549,7 @@
         "iets dat een beetje grijs is"
       ],
       "example": "De oude man met het grijzige haar liep kromgebogen achter zijn rollator.",
-      "rank": 205
+      "rank": 204
     },
     {
       "id": "groeizaam__adj",
@@ -2573,7 +2561,7 @@
         "van (weers)omstandigheden dat ze de groei bevorderen"
       ],
       "example": "In het voorjaar bijvoorbeeld, bij `groeizaam weer', maakt het gewas een groeispurt, waardoor het een grote behoefte heeft aan stikstof. Later in het jaar is die behoefte veel minder.",
-      "rank": 206
+      "rank": 205
     },
     {
       "id": "grofkorrelig__adj",
@@ -2585,7 +2573,7 @@
         "van een foto dat deze niet heel erg scherp is"
       ],
       "example": "Gruizig, grofkorrelig, broeierig, met veel contrast van zwart en wit. Het is het kenmerk van de portretten van Anton Corbijn. Hij begon als zovelen, vlak voor een podium: foto’s schieten van popconcerten.",
-      "rank": 207
+      "rank": 206
     },
     {
       "id": "grofmazig__adj",
@@ -2598,7 +2586,7 @@
         "van een onderzoek dat er (te) weinig leden van de te onderzoeken groep onderzocht zijn en er dus veel details gemist zijn"
       ],
       "example": "Wij hadden een balkon met een grofmazig net dat we gespannen hadden om de klimop te laten groeien. Daarin ontstonden nesten van mussen. Spreeuwen wilden we niet in verband met hun poep.",
-      "rank": 208
+      "rank": 207
     },
     {
       "id": "gruizig__adj",
@@ -2610,7 +2598,7 @@
         "met veel gruis bedekt; gelijkend op gruis"
       ],
       "example": "De Amerikaan is de beste gitarist volgens het blad Rolling Stone én volgens u, lezer van HP/De Tijd. Zijn onnavolgbare, vaak nogal gruizig klinkende solo’s waren aan vrouwen niet altijd besteed.",
-      "rank": 209
+      "rank": 208
     },
     {
       "id": "hakkelig__adj",
@@ -2622,7 +2610,7 @@
         "op een hakkelende niet vloeiende manier"
       ],
       "example": "en jaar geleden was Kenneth Vermeer net geen eerste keeper bij Ajax meer. Uit de gunst gedreven door wat hakkelig keeperswerk en halfslachtige vangballetjes en vervolgens vervangen door 185 centimeter Gelderse degelijkheid.",
-      "rank": 210
+      "rank": 209
     },
     {
       "id": "halfzijdig__adj",
@@ -2634,7 +2622,7 @@
         "aan een van de twee helften"
       ],
       "example": "De dominee van het Gelderse dorp Rhenoy die dinsdag ernstig werd mishandeld, is halfzijdig verlamd geraakt als gevolg van een bloeding tussen haar schedel en hersenen.",
-      "rank": 211
+      "rank": 210
     },
     {
       "id": "halsstarrig__adj",
@@ -2646,7 +2634,7 @@
         "koppig en onredelijk vasthoudend aan een standpunt"
       ],
       "example": "Hij verwijt het bestuur een halsstarrige opstelling.",
-      "rank": 212
+      "rank": 211
     },
     {
       "id": "hardnekkig__adj",
@@ -2659,7 +2647,7 @@
         "maar blijven aanhouden, niet willen wijken van iets"
       ],
       "example": "Hardnekkige probleemgezinnen worden onder permanent toezicht gezet.",
-      "rank": 213
+      "rank": 212
     },
     {
       "id": "harkerig__adj",
@@ -2671,7 +2659,7 @@
         "stijf en gedwongen"
       ],
       "example": "Het leest een beetje harkerig, maar het geeft toch een boeiende kijk in het leven van een domineesvrouw. De internering met vier kinderen in een jappenkamp.",
-      "rank": 214
+      "rank": 213
     },
     {
       "id": "hatelijk__adj",
@@ -2683,7 +2671,7 @@
         "door onvriendelijke gevoelens gedreven"
       ],
       "example": "Zij maakte soms de hatelijkste opmerkingen.",
-      "rank": 215
+      "rank": 214
     },
     {
       "id": "hebberig__adj",
@@ -2695,7 +2683,7 @@
         "van een persoon dat hij veel wil bezitten"
       ],
       "example": "De hebberige man heeft nooit genoeg.",
-      "rank": 216
+      "rank": 215
     },
     {
       "id": "hebzuchtig__adj",
@@ -2707,7 +2695,7 @@
         "blijk gevend van hebzucht, hebberig"
       ],
       "example": "De hebzuchtige jongen wilde meteen al het snoep hebben.",
-      "rank": 217
+      "rank": 216
     },
     {
       "id": "heimelijk__adj",
@@ -2719,7 +2707,7 @@
         "geheim, opzettelijk verborgen"
       ],
       "example": "Een heimelijke glimlach verraadde zijn intenties, maar niemand keek.",
-      "rank": 218
+      "rank": 217
     },
     {
       "id": "hengstig__adj",
@@ -2731,7 +2719,7 @@
         "van een vrouwelijk paard dat ze in de vruchtbare periode is en bereid is tot paring"
       ],
       "example": "De ranke, lichtbruine ruin glanst. Hij staat bij merrie Irma (21) en ruin Quido (25). „Quido – hé, grote vriend – is niet bij hem weg te slaan. En Irma is zelfs wat hengstig”, lacht De Groot. „Alsof ze al jaren bij elkaar staan!”",
-      "rank": 219
+      "rank": 218
     },
     {
       "id": "herfstig__adj",
@@ -2743,7 +2731,7 @@
         "op de herfst gelijkend"
       ],
       "example": "Dit herfstige weer stemt me wat sombertjes.",
-      "rank": 220
+      "rank": 219
     },
     {
       "id": "heuglijk__adj",
@@ -2756,7 +2744,7 @@
         "onvergetelijk, gedenkwaardig"
       ],
       "example": "Bij de geboorte van Thomas kwam zijn vader me het heuglijke nieuws hoogstpersoonlijk brengen.",
-      "rank": 221
+      "rank": 220
     },
     {
       "id": "hijgerig__adj",
@@ -2769,7 +2757,7 @@
         "snel ademend door inspanning"
       ],
       "example": "Dol op een terrasje, maar geen zin in zo'n hijgerig De Pijpterras? Pak dan tien minuten de trein naar Weesp. In een kwartiertje zit je op een zonnig terrasje aan de Vecht, voor een pilsje en een bitterbal, mét relaxt uitzicht.",
-      "rank": 222
+      "rank": 221
     },
     {
       "id": "hikkerig__adj",
@@ -2781,7 +2769,7 @@
         "op een hikkende, stotende manier"
       ],
       "example": "Hij heeft echter deze bronnen niet op hun waarde getoetst (tenzij in de meer recente periode sedert de heroprichting van het NTG in 1965) en dat heeft hem tot een hikkerig kortschrift gedwongen, waar slechts heel vaag (en doorgaans zonder",
-      "rank": 223
+      "rank": 222
     },
     {
       "id": "hokkerig__adj",
@@ -2793,7 +2781,7 @@
         "van een gebouw dat dit te klein is"
       ],
       "example": ",,We hebben De Munt overgenomen in 2016 en wisten toen al dat het pand niet geschikt meer was. Dat hebben we dus niet gekocht. Het oude gebouw is heel mooi en prachtig erfgoed, maar voor de productie veel te hokkerig.",
-      "rank": 224
+      "rank": 223
     },
     {
       "id": "hologig__adj",
@@ -2805,7 +2793,7 @@
         "met diepliggende ogen"
       ],
       "example": "Ik staarde ze een tijdje hologig aan. Toen wist ik maar één antwoord. \"Vraag dat maar aan je vader.\"",
-      "rank": 225
+      "rank": 224
     },
     {
       "id": "huiverig__adj",
@@ -2817,7 +2805,7 @@
         "angstig, bang, aarzelend, voorzichtig"
       ],
       "example": "Hij was heel huiverig om al zijn geld in het bedrijf van zijn broer te stoppen.",
-      "rank": 226
+      "rank": 225
     },
     {
       "id": "humeurig__adj",
@@ -2829,7 +2817,7 @@
         "slecht gestemd zijn, nukkig, kribbig, nors"
       ],
       "example": "De humeurige man had geen vrienden meer.",
-      "rank": 227
+      "rank": 226
     },
     {
       "id": "iezegrimmig__adj",
@@ -2842,7 +2830,7 @@
         "knorrig, nors, chagrijnig, gemelijk"
       ],
       "example": "Verder is het ook gewoon een aardig medium, ongelooflijk afwisselend: op die tien Nederlandse zenders komen per avond wel vijftig of zestig programma's voorbij en dan kan je wel heel iezegrimmig zeggen: 't niks, maar dat is niet waar.",
-      "rank": 228
+      "rank": 227
     },
     {
       "id": "indroevig__adj",
@@ -2854,7 +2842,7 @@
         "buitengewoon triest"
       ],
       "example": "Dik kreeg hoe langer hoe meer medelijden met het blinde meisje, dat nog nooit haar ouders had gezien, en nog nooit de wereld in al haar pracht had kunnen bewonderen. O, hij vond het indroevig.",
-      "rank": 229
+      "rank": 228
     },
     {
       "id": "inhalig__adj",
@@ -2867,7 +2855,7 @@
         "gierig, wel kunnen pakken maar niet kunnen geven"
       ],
       "example": "De inhalige bankier had aan een meer dan gewone bonus niet genoeg.",
-      "rank": 230
+      "rank": 229
     },
     {
       "id": "inpandig__adj",
@@ -2879,7 +2867,7 @@
         "binnen een gebouw"
       ],
       "example": "Het vroegere ziekenhuis Ariënsplein in Enschede wordt momenteel verbouwd tot een stadscampus en de contouren worden inpandig langzaam duidelijk. De bouw van 276 wooneenheden voor studenten vordert.",
-      "rank": 231
+      "rank": 230
     },
     {
       "id": "inschikkelijk__adj",
@@ -2892,7 +2880,7 @@
         "van een organisatie dat deze bereid is zich neer te leggen bij de eisen van een andere partij"
       ],
       "example": "Geesinks diametrale houding van inschikkelijk IOC-lid en rebellerend bestuurslid van NOC*NSF komt voort uit zijn bemoeienis met Nederland.",
-      "rank": 232
+      "rank": 231
     },
     {
       "id": "interkerkelijk__adj",
@@ -2904,7 +2892,7 @@
         "tussen kerken, van meerdere kerkgenootschappen"
       ],
       "example": "Bij het interkerkelijk overleg konden de protestante en katholieke afgevaardigden het niet helemaal eens worden.",
-      "rank": 233
+      "rank": 232
     },
     {
       "id": "jankerig__adj",
@@ -2916,7 +2904,7 @@
         "van een persoon dat die vaak heel zielig doet zonder het echt te zijn"
       ],
       "example": "Trek je niet te veel aan van zijn gejang, hij is gewoon een jankerig en verwend kind.",
-      "rank": 234
+      "rank": 233
     },
     {
       "id": "jeukerig__adj",
@@ -2928,7 +2916,7 @@
         "een gevoel dat iemand aanzet tot krabben"
       ],
       "example": "De processierups is al jarenlang met een forse opmars bezig. Het probleem zit 'm daarbij vooral in de afgestoten brandhaartjes, die bij aanraking een jeukerig en branderig gevoel geven.",
-      "rank": 235
+      "rank": 234
     },
     {
       "id": "jichtig__adj",
@@ -2941,7 +2929,7 @@
         "helemaal verstard en vastgelopen"
       ],
       "example": "Het idee achter het realityprogramma Krasse knarren van bejaardenomroep MAX: als je ouderen in een omgeving uit hun glorietijd zet en activiteiten van vroeger laat ondernemen – zoals tapdansen met een jichtige voet – dan knappen ze",
-      "rank": 236
+      "rank": 235
     },
     {
       "id": "kattepierig__adj",
@@ -2954,7 +2942,7 @@
         "bleekjes, ongezond"
       ],
       "example": "Ze zaag ter mo kattepierig eut.",
-      "rank": 237
+      "rank": 236
     },
     {
       "id": "kijklustig__adj",
@@ -2966,7 +2954,7 @@
         "met sterke behoefte iets te zien"
       ],
       "example": "Al dat kijklustig publiek belemmert het werk van de brandweer.",
-      "rank": 238
+      "rank": 237
     },
     {
       "id": "klaaglijk__adj",
@@ -2978,7 +2966,7 @@
         "van een persoon dat deze (te) veel klaagt"
       ],
       "example": "Daarom had RTL al hoog en breed een beeldbepalende creoolse presentator van een lateavondpraatshow, toen ze bij de NPO nog klaaglijk 'wekunnuhzenietvinduh' jankten na de zoveelste vruchteloze zoektocht door de eigen achtertuin en na de",
-      "rank": 239
+      "rank": 238
     },
     {
       "id": "klefferig__adj",
@@ -2990,7 +2978,7 @@
         "plakkerig, zacht en vochtig"
       ],
       "example": "Van der Kooy liet het instrument van Sauer fluisteren. Uiterst behendig ging het van Dunkel zum Licht, zonder klefferig gedoe.",
-      "rank": 240
+      "rank": 239
     },
     {
       "id": "kleffig__adj",
@@ -3002,7 +2990,7 @@
         "door vocht plakkerig"
       ],
       "example": "Doorgelekt menstruatiebloed is samen met baby’s baren een soort kleffig taboe: daarover spreek of schrijf je niet want dan stel je je aan. Terwijl, zegt Moran, bloed in vechtfilms bijvoorbeeld rijkelijk sproeit.",
-      "rank": 241
+      "rank": 240
     },
     {
       "id": "kleumerig__adj",
@@ -3014,7 +3002,7 @@
         "verstijfd van de kou"
       ],
       "example": "Koud en kleumerig drommen leerkrachten en leerlingen van de beide basisscholen van Een samen in de speeltuin.",
-      "rank": 242
+      "rank": 241
     },
     {
       "id": "klierig__adj",
@@ -3026,7 +3014,7 @@
         "van een persoon dat deze een ander persoon expres tot last is"
       ],
       "example": "Bush schrijft hoe hij als klierig jongetje wodka in een viskom goot en hoe hij in de tijd dat drank langzamerhand zijn god dreigde te worden, tijdens een familiediner aan een mooie vriendin van zijn vader en moeder vroeg: 'En, hoe is dat",
-      "rank": 243
+      "rank": 242
     },
     {
       "id": "knobbelig__adj",
@@ -3038,7 +3026,7 @@
         "met veel bulten en knobbels, met halfbolvormige verhevenheden"
       ],
       "example": "Winkelshuis vroeg daarom omdat hij een tijd terug getuige was van een ‘bijna vreselijk ongeluk’ van een mevrouw met een rollater. ‘De kleine voorwieltjes stuiterden over de oneffen en knobbelige straatkeien.",
-      "rank": 244
+      "rank": 243
     },
     {
       "id": "knoestig__adj",
@@ -3051,7 +3039,7 @@
         "ruw en niet gladjes afgewerkt"
       ],
       "example": "Van Ballycastle kunnen bezoekers ook door de 'Dark Hedges'-omgeving vlakbij Armoy wandelen, over een pad omzoomd met knoestige, die de jonge Ayra Stark passeerde in haar ontsnapping uit King's Landing.",
-      "rank": 245
+      "rank": 244
     },
     {
       "id": "knokkelig__adj",
@@ -3063,7 +3051,7 @@
         "van een hand: met uitstekend knokkels"
       ],
       "example": "Als eene furie vloog Martha op; schrikkelyker dan toen zy hem naderde, stond zy voor den deurwaerder regt; hare oogen gloeiden, en terwyl zy hare hand, knokkelig als die der dood, uitstak, riep zy uit:",
-      "rank": 246
+      "rank": 245
     },
     {
       "id": "kooplustig__adj",
@@ -3075,7 +3063,7 @@
         "geneigd om (te veel) te kopen"
       ],
       "example": "De kooplustige man had veel te veel gereedschap gekocht.",
-      "rank": 247
+      "rank": 246
     },
     {
       "id": "korzelig__adj",
@@ -3087,7 +3075,7 @@
         "in een wat ontstemde, dysforische, boze, geprikkelde, ongeduldige stemming zijn"
       ],
       "example": "Voor haar stond Jules, de regisseur van de ochtenduitzending, die weer eens als laatste op de redactie verscheen. ` Heb je nog wat?' `Ja,' reageerde Chantal korzelig. Het liefst zou ze hem een lesje willen leren over collegialiteit.",
-      "rank": 248
+      "rank": 247
     },
     {
       "id": "krakkemikkig__adj",
@@ -3099,7 +3087,7 @@
         "oud en vervallen en daardoor makkelijk kapot gaand"
       ],
       "example": "De oude krakkemikkige tafel wiebelde enorm.",
-      "rank": 249
+      "rank": 248
     },
     {
       "id": "kramakkelig__adj",
@@ -3112,7 +3100,7 @@
         "gebreken vertonend"
       ],
       "example": "Letterlijk een kop kleiner passeert ze me en loopt kramakkelig naar de uitgang.",
-      "rank": 250
+      "rank": 249
     },
     {
       "id": "krasserig__adj",
@@ -3124,7 +3112,7 @@
         "met veel krassen"
       ],
       "example": "De tekeningen die Van Straaten maakte bij bijvoorbeeld de Elfstedentocht of rechtszittingen waren aanvankelijk een beetje in de stijl van Spier, maar gaandeweg ontwikkelde hij een heel eigen handschrift: lekker krasserig, vol arceringen",
-      "rank": 251
+      "rank": 250
     },
     {
       "id": "kriegelig__adj",
@@ -3136,7 +3124,7 @@
         "makkelijk gedreven tot een boze stemming, in een slecht humeur, prikkelbaar"
       ],
       "example": "Ik word er kriegelig van als mensen mijn schaar gebruiken en niet terugleggen in de la.",
-      "rank": 252
+      "rank": 251
     },
     {
       "id": "kroezelig__adj",
@@ -3148,7 +3136,7 @@
         "meestal van haar: dat er veel kleine krullen in zit"
       ],
       "example": "Er bestaan heel wat vooroordelen over de haardroger. Je haar zou er droog en kroezelig van worden. Zolang je hittebestendige spray gebruikt mag je gerust je haar drogen met een haardroger.",
-      "rank": 253
+      "rank": 252
     },
     {
       "id": "kroezig__adj",
@@ -3160,7 +3148,7 @@
         "van haar dat het zeer sterk gekruld is"
       ],
       "example": "Amelia werd geboren met een donkere huid, zwart haar en kastanjebruine ogen. Haar tweelingzusje Jasmine werd geboren met een lichte huid, kristalblauwe ogen en kroezige krulletjes.",
-      "rank": 254
+      "rank": 253
     },
     {
       "id": "kronkelig__adj",
@@ -3172,7 +3160,7 @@
         "met veel bochten"
       ],
       "example": "De bergweg moest wel zeer kronkelig zijn, anders zouden er te steile stukken in voorkomen.",
-      "rank": 255
+      "rank": 254
     },
     {
       "id": "krottig__adj",
@@ -3184,7 +3172,7 @@
         "vervallen, niet goed onderhouden met name van gebouwen"
       ],
       "example": "Het allerbekendst is Höller geworden met zijn suisbuizen. Al in 1998 zag ik de eerste twee glijbanen van zijn hand in een toen nog krottig Berlin-Mitte.",
-      "rank": 256
+      "rank": 255
     },
     {
       "id": "kruimig__adj",
@@ -3196,7 +3184,7 @@
         "van aardappels dat als ze gekookt zijn ze makkelijk in 'kruimels' uiteenvallen"
       ],
       "example": "Schil de aardappels en snijd ze doormidden. Zorg voor je stamppot altijd voor een smakelijk kruimig aardappeltje. Dus nooit vastkokend! Want dan krijg je lijmerige stamppot.",
-      "rank": 257
+      "rank": 256
     },
     {
       "id": "kruiperig__adj",
@@ -3208,7 +3196,7 @@
         "onderdanig zijn ten opzichte van iemands meerdere"
       ],
       "example": "De kruiperige boekhouder durfde zijn baas er niet op te wijzen dat het bedrijf grote verliezen aan het lijden was.",
-      "rank": 258
+      "rank": 257
     },
     {
       "id": "krullerig__adj",
@@ -3220,7 +3208,7 @@
         "met veel bochten en gebogen vormen"
       ],
       "example": "De rococo wordt gekenmerkt door de vele krullerige versiersels.",
-      "rank": 259
+      "rank": 258
     },
     {
       "id": "kwaaiig__adj",
@@ -3232,7 +3220,7 @@
         "op een boze, verontwaardigde manier"
       ],
       "example": "Ook in Nederland werd de kritiek, voor zover überhaupt opgemerkt, enigszins kwaaiig als absurd terzijde geschoven.",
-      "rank": 260
+      "rank": 259
     },
     {
       "id": "kwistig__adj",
@@ -3244,7 +3232,7 @@
         "op lichtzinnige wijze verbruikend"
       ],
       "example": "Mensen in westerse landen zijn veel te kwistig in hun watergebruik.",
-      "rank": 261
+      "rank": 260
     },
     {
       "id": "laagdrempelig__adj",
@@ -3256,7 +3244,7 @@
         "op eenvoudige wijze toegankelijk, met weinig hindernissen bereikbaar"
       ],
       "example": "Hoe maak ik mijn sportclub laagdrempelig?",
-      "rank": 262
+      "rank": 261
     },
     {
       "id": "laagpolig__adj",
@@ -3268,7 +3256,7 @@
         "met korte haren, uit een dunne laag opstaand weefsel bestaand"
       ],
       "example": "De een kiest voor zacht, muisstil beloopbaar kamerbreed hoog- of laagpolig tapijt, de ander houdt het bij voorkeur op vinyl, houtparket, laminaat of plavuizen.",
-      "rank": 263
+      "rank": 262
     },
     {
       "id": "lamlendig__adj",
@@ -3281,7 +3269,7 @@
         "beroerd, bedrukkend"
       ],
       "example": "Het werd een lamlendige zondagnamiddag.",
-      "rank": 264
+      "rank": 263
     },
     {
       "id": "leergierig__adj",
@@ -3293,7 +3281,7 @@
         "het verlangen koesterend te leren"
       ],
       "example": "Er zijn altijd wel een paar leergierige leerlingen in een klas, maar ook die dat bepaaldelijk niet zijn.",
-      "rank": 265
+      "rank": 264
     },
     {
       "id": "leuterig__adj",
@@ -3306,7 +3294,7 @@
         "heen en weer wiegend"
       ],
       "example": "Anders en speelt het windetje niet Op elzetakken en leuterig riet",
-      "rank": 266
+      "rank": 265
     },
     {
       "id": "liefelijk__adj",
@@ -3318,7 +3306,7 @@
         "schilderachtig, lieflijk, lief"
       ],
       "example": "Op vakantie kwamen we met de fiets in de liefelijkste dorpjes.",
-      "rank": 267
+      "rank": 266
     },
     {
       "id": "lieflijk__adj",
@@ -3330,7 +3318,7 @@
         "schilderachtig, liefelijk, lief"
       ],
       "example": "Op vakantie kwamen we met de fiets in de lieflijkste dorpjes.",
-      "rank": 268
+      "rank": 267
     },
     {
       "id": "lieftallig__adj",
@@ -3342,7 +3330,7 @@
         "mooi en aardig om te zien"
       ],
       "example": "Het lieftallige meisje bood de koningin bloemen aan namens het dankbare volk.",
-      "rank": 269
+      "rank": 268
     },
     {
       "id": "lijfelijk__adj",
@@ -3354,7 +3342,7 @@
         "het lichaam betreffende"
       ],
       "example": "Depressie bij reuma heeft lijfelijke oorzaak",
-      "rank": 270
+      "rank": 269
     },
     {
       "id": "loffelijk__adj",
@@ -3366,7 +3354,7 @@
         "van iets dat het zo goed is dat het applaus verdient"
       ],
       "example": "De prijzen worden dit jaar voor de 66ste keer toegekend. Dat gebeurt naar loffelijke traditie op een gala in LA, op 25 augustus. Vorig jaar was ‘The Newsroom’ de grote Emmy-winnaar.",
-      "rank": 271
+      "rank": 270
     },
     {
       "id": "lubberig__adj",
@@ -3378,7 +3366,7 @@
         "losjes, met veel plooien"
       ],
       "example": "De grijze trui was hoog aan de hals dicht en zijn jasje was oud en hing lubberig om hem heen.",
-      "rank": 272
+      "rank": 271
     },
     {
       "id": "luidruchtig__adj",
@@ -3390,7 +3378,7 @@
         "onaangenaam veel lawaai makend"
       ],
       "example": "We ergerden ons aan de luidruchtige toeristen.",
-      "rank": 273
+      "rank": 272
     },
     {
       "id": "lummelig__adj",
@@ -3402,7 +3390,7 @@
         "zoals hoort bij een onhandige jongen"
       ],
       "example": "Ik heb ze gekoesterd gevoederd gevoed met/gedachten aan later, maar iets in ze wilde niet/groeien, is lummelig misgegaan. Badwater te/warm of te koud, foute sokjes aan?",
-      "rank": 274
+      "rank": 273
     },
     {
       "id": "mallotig__adj",
@@ -3414,7 +3402,7 @@
         "zoals een gek zou doen; overdreven en onnozel"
       ],
       "example": "En dan lees ik in de krant dat Nederlanders dankzij het echt heel erg mooie liedje het songfestival weer zijn gaan waarderen. Het songfestival was op zijn retour, niemand keek er meer naar omdat de muziek op het festival zo mallotig is.",
-      "rank": 275
+      "rank": 274
     },
     {
       "id": "maltentig__adj",
@@ -3426,7 +3414,7 @@
         "overdreven op netheid en hygiëne gericht"
       ],
       "example": "Voorts wist men er nog van te verhalen, dat de huizen er groen waren en de vrouwen maltentig; ook meende men gezien te hebben, dat de mannen lang waren, en hunne broeken kort.",
-      "rank": 276
+      "rank": 275
     },
     {
       "id": "mandelig__adj",
@@ -3438,7 +3426,7 @@
         "gemeenschappelijk eigendom"
       ],
       "example": "De kopers worden mandelig eigenaar van zowel het gebouw als de omliggende grond.",
-      "rank": 277
+      "rank": 276
     },
     {
       "id": "meercellig__adj",
@@ -3450,7 +3438,7 @@
         "van levende wezens dat ze bestaan uit meerdere cellen"
       ],
       "example": "Bacteriën zijn voorbeelden van eencellige maar alle zoogdieren zijn meercellige organismen",
-      "rank": 278
+      "rank": 277
     },
     {
       "id": "meerdelig__adj",
@@ -3462,7 +3450,7 @@
         "uit vele onderdelen bestaand"
       ],
       "example": "Het was dan ook niet zomaar een reclamefilmpje, maar een meerdelig verhaal waarin de zanger op allerlei mogelijke manieren probeert te ontsnappen aan opdringerige pers.",
-      "rank": 279
+      "rank": 278
     },
     {
       "id": "meerduidig__adj",
@@ -3474,7 +3462,7 @@
         "iets wat meer dan één betekenis heeft"
       ],
       "example": "Het begrip officiële taal is meerduidig. Hoewel zeer veel gebruikt, heeft het noch in België, noch in Nederland een juridische status.",
-      "rank": 280
+      "rank": 279
     },
     {
       "id": "meerledig__adj",
@@ -3486,7 +3474,7 @@
         "van iets dat het bestaat uit meerdere onderdelen"
       ],
       "example": "„Onze kernboodschap is meerledig. Natuurlijk willen we duidelijk maken dat geweld tegen mensen met een publieke functie niet acceptabel is. Maar onze boodschap gaat een stap verder.",
-      "rank": 281
+      "rank": 280
     },
     {
       "id": "meewarig__adj",
@@ -3498,7 +3486,7 @@
         "medelijden tonend"
       ],
       "example": "Met een meewarige blik gaf hij de student het huiswerk met een onvoldoende terug.",
-      "rank": 282
+      "rank": 281
     },
     {
       "id": "milddadig__adj",
@@ -3510,7 +3498,7 @@
         "mild en vriendelijk in woord en daad"
       ],
       "example": "Of mogelijk bent u een rijk christen en tevens milddadig. Nu, indien het in enig opzicht zo met u is dat u wat boven anderen uitsteekt en uitmunt in kennis, gaven en vorderingen op de weg, dan hebt u nodig om arm en ellendig te blijven.",
-      "rank": 283
+      "rank": 282
     },
     {
       "id": "minnelijk__adj",
@@ -3522,7 +3510,7 @@
         "op een vriendelijke manier, zonder dwang"
       ],
       "example": "Maar Bruyns wilde zijn compagnon niet vervolgen, doch tot een minnelijke schikking komen, die niet erg minnelijk was, d.w.z.",
-      "rank": 284
+      "rank": 283
     },
     {
       "id": "moedwillig__adj",
@@ -3534,7 +3522,7 @@
         "expres, opzettelijk, met (boze) opzet, weloverwogen"
       ],
       "example": "De moedwillige vernielingen door de hooligans maakten de mensen zeer boos.",
-      "rank": 285
+      "rank": 284
     },
     {
       "id": "moerassig__adj",
@@ -3546,7 +3534,7 @@
         "van de grond dat ze zo nat is dat er erin wegzakt als je er wilt lopen"
       ],
       "example": "Het moerassige gebied rond Bourtange was een goede bescherming van de Nederlanden.",
-      "rank": 286
+      "rank": 285
     },
     {
       "id": "muggenzifterig__adj",
@@ -3558,7 +3546,7 @@
         "al te zeurderig en precies"
       ],
       "example": "\"Ik heb ook wel eens gedacht: nu gaat het te ver, er worden op alle slakken zout gelegd. Maar die fase ben ik nu allang weer gepasseerd. De KNVB heeft bepaalde dingen aangepast en verbeterd. Het is nu minder muggenzifterig.\"",
-      "rank": 287
+      "rank": 286
     },
     {
       "id": "naarstig__adj",
@@ -3570,19 +3558,7 @@
         "ijverig en vlug"
       ],
       "example": "Naarstig ging ik op zoek naar secondelijm of iets dergelijks.",
-      "rank": 288
-    },
-    {
-      "id": "naburig__adj",
-      "word": "naburig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "in de buurt ervan gelegen"
-      ],
-      "example": "Ook in de naburige staten richtte de orkaan grote schade aan.",
-      "rank": 289
+      "rank": 287
     },
     {
       "id": "netelig__adj",
@@ -3594,7 +3570,7 @@
         "moeilijk, hachelijk, pijnlijk, heikel"
       ],
       "example": "Het wangedrag van de kroonprins bleef een netelige kwestie in de buitenlandse verhoudingen.",
-      "rank": 290
+      "rank": 288
     },
     {
       "id": "noestig__adj",
@@ -3607,7 +3583,7 @@
         "met veel inspanning"
       ],
       "example": "Het handengeklap begint. Tientallen seconden lang strijken de mannen hun noestige handpalmen over elkaar.",
-      "rank": 291
+      "rank": 289
     },
     {
       "id": "noodlottig__adj",
@@ -3619,7 +3595,7 @@
         "onontwijkbaar ongeluk brengend"
       ],
       "example": "Door noodlottige omstandigheden is hij om het leven gekomen.",
-      "rank": 292
+      "rank": 290
     },
     {
       "id": "onaannemelijk__adj",
@@ -3631,7 +3607,7 @@
         "onmogelijk de juistheid ervan te aanvaarden"
       ],
       "example": "Dat was een volstrekt onaannemelijke bewering.",
-      "rank": 293
+      "rank": 291
     },
     {
       "id": "onbedaarlijk__adj",
@@ -3643,7 +3619,7 @@
         "het niet kunnen stoppen met het uiten van een emotie (onbedaarlijk lachten, onbedaarlijk huilen)"
       ],
       "example": "En wat doe ik? Absoluut niets. Of wel. Eenmaal op de trein begin ik onbedaarlijk te huilen, trut die ik ben. Ik ben er aan gewend dat mensen beleefd zijn, dat ik zonder strubbeling kan reizen, dat ik zomaar elke trein kan nemen die ik wil.",
-      "rank": 294
+      "rank": 292
     },
     {
       "id": "onbedachtzaam__adj",
@@ -3655,7 +3631,7 @@
         "van een persoon dat deze niet goed nadenkt voordat hij wat doet"
       ],
       "example": "Zijn leven had ook veel nieuwe woorden opgeleverd die ik ruim voor mijn achttiende al geïnternaliseerd had: recalcitrant, onbedachtzaam, onuitstaanbaar.",
-      "rank": 295
+      "rank": 293
     },
     {
       "id": "onbenullig__adj",
@@ -3667,7 +3643,7 @@
         "dom zijn zonder het te weten"
       ],
       "example": "De onbenullige jongen maakte allerlei onbedoelde pijnlijke opmerkingen.",
-      "rank": 296
+      "rank": 294
     },
     {
       "id": "onberispelijk__adj",
@@ -3679,7 +3655,7 @@
         "waarop geen aanmerking te maken valt"
       ],
       "example": "Zijn presentatie was niet onberispelijk, maar zijn voordracht viel toch in goede aarde.",
-      "rank": 297
+      "rank": 295
     },
     {
       "id": "onbevattelijk__adj",
@@ -3691,7 +3667,7 @@
         "van iets dat het niet te begrijpen is"
       ],
       "example": "Ook bij de verschillende partijen is met afschuw gereageerd op de aanval. ,,Opnieuw zo’n onmenselijke daad tegen de vrijheid”, zegt Kamerlid Bente Becker van regeringspartij VVD. ,,Onbevattelijk en hartverscheurend.”",
-      "rank": 298
+      "rank": 296
     },
     {
       "id": "onbillijk__adj",
@@ -3703,7 +3679,7 @@
         "onredelijk, onrechtmatig, onrechtvaardig, onterecht"
       ],
       "example": "De Inspectie Veiligheid en Justitie vindt het standaard visiteren van gevangenen na bezoek onredelijk en onbillijk. Gedetineerden zouden alleen bij verdenking of steekproefsgewijs lijfelijk moeten worden onderzocht op smokkelwaar.",
-      "rank": 299
+      "rank": 297
     },
     {
       "id": "onbuigzaam__adj",
@@ -3717,7 +3693,7 @@
         "van een persoon dat deze kan doorzetten"
       ],
       "example": "Ze is slim en spuwt de hardgekookte dialogen uit met een mix van humor en passie, onbuigzaam en koppig, maar ook breekbaar zonder een spat vals sentiment.",
-      "rank": 300
+      "rank": 298
     },
     {
       "id": "onderdanig__adj",
@@ -3729,7 +3705,7 @@
         "gehoorzaam aan een leider"
       ],
       "example": "De onderdanige leerling hield snel zijn mond toen de meester het vroeg.",
-      "rank": 301
+      "rank": 299
     },
     {
       "id": "onderhavig__adj",
@@ -3741,7 +3717,7 @@
         "wat onder beschouwing is, het betreffende"
       ],
       "example": "Het onderhavige geval is duidelijk uitzonderlijk.",
-      "rank": 302
+      "rank": 300
     },
     {
       "id": "onderhorig__adj",
@@ -3753,7 +3729,7 @@
         "behorend tot het rechtsgebied van"
       ],
       "example": "Iemand die onderhorig is aan de koning van Marokko, iemand met de dubbele nationaliteit, hoort geen voorzitter te worden van de Tweede Kamer, aldus Wilders.",
-      "rank": 303
+      "rank": 301
     },
     {
       "id": "ondeugdelijk__adj",
@@ -3765,7 +3741,7 @@
         "van slechte kwaliteit"
       ],
       "example": "Tegenover de Deense omroep TV 2 verklaarde hij bijna nonchalant dat een ,,klein probleem met ballasttank leidde tot een groot probleem”. Vanwege een ondeugdelijk ventiel zou de duikboot zijn stabiliteit hebben verloren en zijn gezonken.",
-      "rank": 304
+      "rank": 302
     },
     {
       "id": "ongedurig__adj",
@@ -3777,7 +3753,7 @@
         "rusteloos, ongeduldig en nerveus bewegend"
       ],
       "example": "De jongen zat ongedurig op zijn stoel te wippen, want hij moest nodig naar de wc.",
-      "rank": 305
+      "rank": 303
     },
     {
       "id": "ongerieflijk__adj",
@@ -3789,7 +3765,7 @@
         "ongemakkelijk en niet comfortabel"
       ],
       "example": "Hij had er onder protest zijn goedkeuring aan gegeven het als gevangenis voor de koningin te benutten, omdat hij het te klein en te ongerieflijk vond.",
-      "rank": 306
+      "rank": 304
     },
     {
       "id": "onheuglijk__adj",
@@ -3801,7 +3777,7 @@
         "zo lang gelden dat er geen herinneringen meer aan zijn"
       ],
       "example": "Weliswaar heeft de partij-in-kwestie al eens in deze rubriek afgedrukt gestaan, maar dat was zo onheuglijk veel jaren geleden dat herplaatsing mij desondanks wenselijk, ja onvermijdelijk lijkt.",
-      "rank": 307
+      "rank": 305
     },
     {
       "id": "onmondig__adj",
@@ -3813,7 +3789,7 @@
         "geen beslissende invloed hebben"
       ],
       "example": "De bezoekers verdienden wel een gelijkmaker maar kregen ook na rust nooit echt vat op een counterende thuisploeg en waren zelf vooral onmondig in de zestien.",
-      "rank": 308
+      "rank": 306
     },
     {
       "id": "onnoemlijk__adj",
@@ -3825,7 +3801,7 @@
         "van iets dat er geen woorden voor zijn"
       ],
       "example": "In de oorlog is er onnoemlijk veel ellende zowel bij militaire als bij burgers.",
-      "rank": 309
+      "rank": 307
     },
     {
       "id": "onomstotelijk__adj",
@@ -3837,7 +3813,7 @@
         "van iets dat het niet ontkend kan worden (letterlijk je kunt het niet omverwerpen)"
       ],
       "example": "De advocate leverde het onomstotelijke bewijs dat haar cliënt onschuldig is.",
-      "rank": 310
+      "rank": 308
     },
     {
       "id": "onpasselijk__adj",
@@ -3849,7 +3825,7 @@
         "lijdend aan een tijdelijke aanval van misselijkheid en onwel voelen"
       ],
       "example": "Ik werd onpasselijk toen ik de rottende, dode met bloed besmeurde kat op straat zag liggen.",
-      "rank": 311
+      "rank": 309
     },
     {
       "id": "onstuimig__adj",
@@ -3862,7 +3838,7 @@
         "van het weer: met veel wind en regen"
       ],
       "example": "Zijn onstuimig gedrag in de klas leidde tot veel nablijven.",
-      "rank": 312
+      "rank": 310
     },
     {
       "id": "ontuchtig__adj",
@@ -3874,7 +3850,7 @@
         "de regels (en wetten) van de (seksuele) moraal niet in acht nemend"
       ],
       "example": "Je wordt beschuldigd van ontuchtige handelingen.",
-      "rank": 313
+      "rank": 311
     },
     {
       "id": "ontzaglijk__adj",
@@ -3886,7 +3862,7 @@
         "vrees en eerbied inboezemend door de grootte van iets"
       ],
       "example": "Dat is wel een ontzaglijke hoeveelheid werk dat ik nog moet doen.",
-      "rank": 314
+      "rank": 312
     },
     {
       "id": "onuitsprekelijk__adj",
@@ -3898,7 +3874,7 @@
         "dat wat je niet in woorden kunt uitdrukken omdat het een gevoelszaak is"
       ],
       "example": "In poëzie zit ruimte voor het onuitsprekelijke, een lastig maar belangrijk gebied, waar de wetenschap niet kan komen.",
-      "rank": 315
+      "rank": 313
     },
     {
       "id": "onverbeterlijk__adj",
@@ -3911,7 +3887,7 @@
         "dat iets zo goed is dat het niet beter kan worden dan dat het nu is"
       ],
       "example": "Piet is een onverbeterlijke deugniet.",
-      "rank": 316
+      "rank": 314
     },
     {
       "id": "onvergankelijk__adj",
@@ -3923,7 +3899,7 @@
         "voorgoed blijvend, niet voorbijgaand, onverwoestbaar, niet geleidelijk vergaand"
       ],
       "example": "Maar die nummers bleken vreemd onvergankelijk, en in de loop van de jaren groeide mijn affectie voor Barry White - die stem, de uitgekiende ritmes, dit was wel degelijk ook soul.",
-      "rank": 317
+      "rank": 315
     },
     {
       "id": "onvergeeflijk__adj",
@@ -3935,7 +3911,7 @@
         "een fout die je niet goed kunt praten"
       ],
       "example": "De arts die een onvergeeflijke fout had gemaakt mocht zijn beroep niet meer uitoefenen.",
-      "rank": 318
+      "rank": 316
     },
     {
       "id": "onverkwikkelijk__adj",
@@ -3947,7 +3923,7 @@
         "onsmakelijk, gênant"
       ],
       "example": "De scène in de Rijkskanselarij zoals die is beschreven door ooggetuigen, had wel iets weg van de onverkwikkelijke taferelen in de Oval Office afgelopen vrijdag.",
-      "rank": 319
+      "rank": 317
     },
     {
       "id": "onwennig__adj",
@@ -3959,7 +3935,7 @@
         "ergens niet aan gewoon zijn, iets niet kennen, onhandig"
       ],
       "example": "Het boerenmeisje was de onwennigste gast op het grote feest bij de koning.",
-      "rank": 320
+      "rank": 318
     },
     {
       "id": "opschepperig__adj",
@@ -3971,7 +3947,7 @@
         "van een persoon dat hij van zichzelf zegt dat hij heel goed is"
       ],
       "example": "De opschepperige man verteld in geuren en kleuren over alle vrouwen die hij versierd had.",
-      "rank": 321
+      "rank": 319
     },
     {
       "id": "oubollig__adj",
@@ -3983,7 +3959,7 @@
         "grappig, koddig, flauw"
       ],
       "example": "In een begeleidend citaat vertelt Muskee dat ze dixieland speelden op VVD-feestjes voor mensen met een clubsjaal en glazen sherry in de hand - niet leuk, een beetje oubollig.",
-      "rank": 322
+      "rank": 320
     },
     {
       "id": "ouwelijk__adj",
@@ -3995,7 +3971,7 @@
         "van iets dat het past bij oudere mensen"
       ],
       "example": "Boer David verraste me. Ik vond hem zo ouwelijk en bazig afgelopen weken, maar stuntelend met pannen achter een fornuis, zichtbaar opgelaten onder al die vrouwenblikken, snapte ik ineens wat zij in hem zien.",
-      "rank": 323
+      "rank": 321
     },
     {
       "id": "overdadig__adj",
@@ -4007,7 +3983,7 @@
         "meer dan nodig"
       ],
       "example": "De jongen nam een overdadige hoeveelheid kaas op zijn brood.",
-      "rank": 324
+      "rank": 322
     },
     {
       "id": "overgankelijk__adj",
@@ -4020,7 +3996,7 @@
         "van voorbijgaande aard, een tussenstadium vormend"
       ],
       "example": "Als Aruba wordt bestempeld als een \"newly independent state\" volgens internationaal recht, dan zijn die buitenlandse verdragen niet automatisch overgankelijk.",
-      "rank": 325
+      "rank": 323
     },
     {
       "id": "overijverig__adj",
@@ -4032,7 +4008,7 @@
         "met te veel inzet"
       ],
       "example": "De overijverige docent werkt veel harder dan alle studenten tezamen.",
-      "rank": 326
+      "rank": 324
     },
     {
       "id": "overtollig__adj",
@@ -4044,19 +4020,7 @@
         "wat in te ruime mate aanwezig is"
       ],
       "example": "De overtollig goederen zullen worden gedumpt.",
-      "rank": 327
-    },
-    {
-      "id": "overvloedig__adj",
-      "word": "overvloedig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "in ruime hoeveelheid aanwezig"
-      ],
-      "example": "Je ziet ook hoe het leven langzaam uit de Route is weggetrokken. De romantiek van het verval is overvloedig aanwezig. Verlaten, met gras en onkruid overwoekerde tankstations.",
-      "rank": 328
+      "rank": 325
     },
     {
       "id": "pafferig__adj",
@@ -4068,7 +4032,7 @@
         "slap en dik"
       ],
       "example": "De pafferige jongen hing de hele dag maar in de stoel te hangen en deed niets anders dan gamen, cola drinken en chips eten.",
-      "rank": 329
+      "rank": 326
     },
     {
       "id": "papperig__adj",
@@ -4080,7 +4044,7 @@
         "de consistentie hebben van pap"
       ],
       "example": "Hij had de macaroni te lang gekookt zodat ze nu papperig was in plaats van al dente.",
-      "rank": 330
+      "rank": 327
     },
     {
       "id": "parmantig__adj",
@@ -4092,7 +4056,7 @@
         "deftig en trots"
       ],
       "example": "Die jongen loopt erg parmantig.",
-      "rank": 331
+      "rank": 328
     },
     {
       "id": "patserig__adj",
@@ -4104,7 +4068,7 @@
         "geneigd om prat te gaan op bezit en succes"
       ],
       "example": "Wat moet je toch met die patserige vent?",
-      "rank": 332
+      "rank": 329
     },
     {
       "id": "pesterig__adj",
@@ -4116,7 +4080,7 @@
         "geneigd tot pesten (minder vriendelijk dan plagerig)"
       ],
       "example": "De docent maakte allerlei pesterige opmerkingen over de minder slimme leerlingen.",
-      "rank": 333
+      "rank": 330
     },
     {
       "id": "petieterig__adj",
@@ -4128,7 +4092,7 @@
         "dat iets heel klein en vaak ook te klein is"
       ],
       "example": "Steve Jobs had een hekel aan de stylus - je hebt je vingers toch om een touchscreen te bedienen. Maar dat was tijdens de introductie van de iPhone en die had een petieterig scherm vergeleken met de iPad Pro.",
-      "rank": 334
+      "rank": 331
     },
     {
       "id": "pieperig__adj",
@@ -4140,7 +4104,7 @@
         "van een stemgeluid dat het zacht, zwak, bang en piepend klinkt"
       ],
       "example": "‘Ja maar,’ zegt Jan-Willem, ‘dat geld is niet van mij.’ Zijn stem klinkt een beetje pieperig.",
-      "rank": 335
+      "rank": 332
     },
     {
       "id": "pietepeuterig__adj",
@@ -4152,7 +4116,7 @@
         "overdreven precies"
       ],
       "example": "het is lastig werken aan zo'n pietepeuterig apparaatje",
-      "rank": 336
+      "rank": 333
     },
     {
       "id": "pietluttig__adj",
@@ -4165,7 +4129,7 @@
         "klein, onbetekenend, onbenullig"
       ],
       "example": "Een pietluttige houding.",
-      "rank": 337
+      "rank": 334
     },
     {
       "id": "pluizerig__adj",
@@ -4179,7 +4143,7 @@
         "stoffig, grijs en saai"
       ],
       "example": "Iedereen heeft er wel eens last van: springerig en pluizerig haar dat maar niet onder controle te krijgen is. Guhl geeft je de controle terug met deze lijn.",
-      "rank": 338
+      "rank": 335
     },
     {
       "id": "pocherig__adj",
@@ -4191,7 +4155,7 @@
         "een opschepperige, al te trotse en zelfverzekerde manier van doen"
       ],
       "example": "Voor de duidelijkheid: ik post die selfies met celebs niet voor mijn eigen lol op Twitter en Instagram. Ik vind het nogal gênant, een tikkeltje kinderlijk en pocherig. ‘Kijk mij nou’.",
-      "rank": 339
+      "rank": 336
     },
     {
       "id": "pooierig__adj",
@@ -4203,7 +4167,7 @@
         "met de, niet zo fraaie, eigenschappen van een pooier"
       ],
       "example": "Hij reed in een grote, opzichtige, pooierige auto door zijn straat met de bedoeling om iedereen te imponeren.",
-      "rank": 340
+      "rank": 337
     },
     {
       "id": "popperig__adj",
@@ -4215,7 +4179,7 @@
         "klein en kabouterachtig"
       ],
       "example": "In Madurodam kun je popperige huisjes zien.",
-      "rank": 341
+      "rank": 338
     },
     {
       "id": "potsierlijk__adj",
@@ -4227,7 +4191,7 @@
         "dwaas, komisch, belachelijk"
       ],
       "example": "De hofdansen zijn merkwaardig, er is een ganzenrace in slow-motion: het potsierlijke van de pruikentijd buit hij uit tot in het extreme.",
-      "rank": 342
+      "rank": 339
     },
     {
       "id": "priegelig__adj",
@@ -4239,20 +4203,7 @@
         "van iets dat heel erg klein is, met name als het gaat om een handschrift"
       ],
       "example": "Ik begin vandaag aan het 50 kilometer lange rondje Enschede. Want die brengt je door mooie stukken in het buitengebied. Kom je tot rust. Al moet ik niet vergeten een goede bril mee te nemen om de priegelig kleine routebordjes te lezen.",
-      "rank": 343
-    },
-    {
-      "id": "prikkelig__adj",
-      "word": "prikkelig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "van een opmerking dat die storend is (N.B. een prikkelende opmerking stemt tot nadenken)",
-        "dat iets kan prikken"
-      ],
-      "example": "De vervelend student wist prikkelige opmerkingen te maken over de kleding van de docente.",
-      "rank": 344
+      "rank": 340
     },
     {
       "id": "profijtelijk__adj",
@@ -4264,7 +4215,7 @@
         "van iets dat je er voordeel van hebt; van iets dat het winstgevend is"
       ],
       "example": "Een paal in de winkel waar het tegoed van de ov-chipkaart kan worden opgewaardeerd, is voor de winkelier minder profijtelijk dan de strippenkaart. 'Mensen kunnen de kaart ook thuis via internet opladen.",
-      "rank": 345
+      "rank": 341
     },
     {
       "id": "pronkerig__adj",
@@ -4276,7 +4227,7 @@
         "te trots, te zelfvoldaan, te zeer gericht op uiterlijke sier"
       ],
       "example": "Het toont tevens het pronkerige buitenhuis van Prichodko, ter waarde van 5 miljoen euro, alsook twee appartementen in Moskou die bij elkaar 8 miljoen euro waard zijn.",
-      "rank": 346
+      "rank": 342
     },
     {
       "id": "propperig__adj",
@@ -4288,7 +4239,7 @@
         "van iets dat het druk, klein en vol is met veel kleine voorwerpen; resultaat van volproppen"
       ],
       "example": "Terwijl veel binnensteden knus en propperig zijn met tal van zijstraatjes, kenmerkt Hoogeveen zich door een lange rechte straat. Heel overzichtelijk. Maar tegelijk ook een manco.",
-      "rank": 347
+      "rank": 343
     },
     {
       "id": "protserig__adj",
@@ -4300,7 +4251,7 @@
         "teveel van het goede, overdadig, opschepperig"
       ],
       "example": "Hij woonde in een protserig kasteel.",
-      "rank": 348
+      "rank": 344
     },
     {
       "id": "prullig__adj",
@@ -4312,7 +4263,7 @@
         "van slechte smaak getuigend"
       ],
       "example": "Ze zou eerst die prullige vazen eens weg moeten doen.",
-      "rank": 349
+      "rank": 345
     },
     {
       "id": "puistig__adj",
@@ -4324,7 +4275,7 @@
         "met puisten bezet"
       ],
       "example": "Ze had een puistig gezicht.",
-      "rank": 350
+      "rank": 346
     },
     {
       "id": "pulverig__adj",
@@ -4336,7 +4287,7 @@
         "met de eigenschappen van poeder"
       ],
       "example": "Duurt dan waarlijk altijd die onafzienbare, troostlooze massa van pulverig, onvermengd grijs zand? Waar ben ik? hoe vindt men den weg? De wagen nu trekt schots en scheef over halfa en hobbels, terwijl onder de wielen de steenen kraken.",
-      "rank": 351
+      "rank": 347
     },
     {
       "id": "rafelig__adj",
@@ -4351,7 +4302,7 @@
         "met hoge criminaliteit, sociale achterstand e.d."
       ],
       "example": "Hij liep in een rafelig T-shirt rond.",
-      "rank": 352
+      "rank": 348
     },
     {
       "id": "rasperig__adj",
@@ -4363,7 +4314,7 @@
         "van een stem dat deze rauw, ruw en schor klinkt"
       ],
       "example": "Van iemand met een zo rasperig, schor en knauwend geluid als Dylan kun je moeilijk zeggen dat hij goed bij stem was, maar hij was gisteren bij vlagen uitstekend verstaanbaar.",
-      "rank": 353
+      "rank": 349
     },
     {
       "id": "redzaam__adj",
@@ -4375,7 +4326,7 @@
         "van een persoon dat deze zich weet te redden in het leven; van een persoon dat deze zich weet te behelpen"
       ],
       "example": "Volgens hem is er nu wel degelijk een groep kwetsbare ouderen die extra aandacht nodig heeft. \"Dat kunnen bijvoorbeeld mensen zijn die wat minder redzaam zijn, waarvan de mantelzorgers bijvoorbeeld nu op vakantie zijn.",
-      "rank": 354
+      "rank": 350
     },
     {
       "id": "reflexmatig__adj",
@@ -4387,7 +4338,7 @@
         "op een automatishe manier; zonder nadenken"
       ],
       "example": "Reflexmatig hield hij de koffer voor zijn gezicht en haastte zich door de deur naar de liften, maar ze volgden hem en overstelpten hem met vragen waar hij alleen flarden van meekreeg, rouwde hij over de dood van de terreurprinses, waren de",
-      "rank": 355
+      "rank": 351
     },
     {
       "id": "rekkelijk__adj",
@@ -4400,7 +4351,7 @@
         "redelijk, fatsoenlijk"
       ],
       "example": "De ECB, die al een paar keer eerder als reddende engel optrad, is gevangen in een titanenstrijd tussen (Duitse) haviken, gebrand op haar geloofwaardigheid als inflatiebestrijder, en de rekkelijken (de rest).",
-      "rank": 356
+      "rank": 352
     },
     {
       "id": "rellerig__adj",
@@ -4412,7 +4363,7 @@
         "onrustig en ruzieachtig; geneigd tot relschoppen"
       ],
       "example": "Bij Mallorca wordt vaak al snel gedacht aan kilometers strand met rellerige en lawaaierige jeugd. Maar het grootste eiland van de Balearen heeft genoeg idyllische stranden waar je heerlijk tot rust kunt komen.",
-      "rank": 357
+      "rank": 353
     },
     {
       "id": "rijkelijk__adj",
@@ -4424,7 +4375,7 @@
         "overvloedig, niet nauw rekenend"
       ],
       "example": "Ik wil graag een rijkelijk belegd broodje bestellen.",
-      "rank": 358
+      "rank": 354
     },
     {
       "id": "rillerig__adj",
@@ -4436,7 +4387,7 @@
         "als je je wat koortsig voelt zodat je de neiging hebt om te rillen"
       ],
       "example": "Als je je rillerig voelt, keelpijn, hoofdpijn en spierpijn hebt zul je waarschijnlijk wel de griep hebben.",
-      "rank": 359
+      "rank": 355
     },
     {
       "id": "roemruchtig__adj",
@@ -4448,7 +4399,7 @@
         "beroemd vaak in de niet al te gunstige zin van het woord"
       ],
       "example": "De geboren Hamburgse blijkt een roemruchtig verleden te hebben, doet RTL Boulevard uit de doeken. Sabia heeft dan ook geen goede naam in Hamburg, waar ze bekend staat als een golddigger die haar lovers selecteert op hun banksaldo.",
-      "rank": 360
+      "rank": 356
     },
     {
       "id": "roestig__adj",
@@ -4460,7 +4411,7 @@
         "aangetast door metaaloxide vooral bij ijzer"
       ],
       "example": "De roestige spijkers waren niet meer te gebruiken.",
-      "rank": 361
+      "rank": 357
     },
     {
       "id": "roodwangig__adj",
@@ -4472,7 +4423,7 @@
         "jeugdig, onvervaren, naïef"
       ],
       "example": "Hij voegde eraan toe dat de meisjes van de Sociaaldemocratische Jongerenorganisatie vaak heel charmant waren met hun roodwangige idealisme.",
-      "rank": 362
+      "rank": 358
     },
     {
       "id": "roofzuchtig__adj",
@@ -4484,7 +4435,7 @@
         "de neiging hebben tot het plegen van diefstal"
       ],
       "example": "De roofzuchtige bende trok moordend en plunderend door de stad.",
-      "rank": 363
+      "rank": 359
     },
     {
       "id": "saamhorig__adj",
@@ -4496,7 +4447,7 @@
         "gekenmerkt door een gevoel bij elkaar te horen"
       ],
       "example": "Dit was een saamhorige groep mensen.",
-      "rank": 364
+      "rank": 360
     },
     {
       "id": "sacherijnig__adj",
@@ -4508,7 +4459,7 @@
         "somber en geërgerd"
       ],
       "example": "Haar vader riep \"Kijk toch niet zo sacherijnig!\" toen hij zag hoe ze in een hoekje met een ontevreden blik zat te chagrijnen.",
-      "rank": 365
+      "rank": 361
     },
     {
       "id": "salonfähig__adj",
@@ -4520,7 +4471,7 @@
         "voorheen omstreden, maar nu algemeen en zelfs tot in officiële kringen geaccepteerd"
       ],
       "example": "Zowel Die Grünen als de Freie Demokraten dingen vanaf volgende week waarschijnlijk mee naar de hand van kanselier Angela Merkel. Voor haar zijn zij, met de SPD, de enige salonfähige coalitiepartners.",
-      "rank": 366
+      "rank": 362
     },
     {
       "id": "satijnig__adj",
@@ -4532,7 +4483,7 @@
         "aanvoelend als satijn"
       ],
       "example": "'Zoo wit haar halsje, en zoo satijnig daartegen een blauw lintje, zoo heel teêrtjes de schelpen van haar ooren, met kleuren en tinten daarin als van roze bloemen. (...) en dan haar schoudertjes en borstje dat even, éven welfde.'",
-      "rank": 367
+      "rank": 363
     },
     {
       "id": "schabouwelijk__adj",
@@ -4544,7 +4495,7 @@
         "van een jammerlijk slechte kwaliteit"
       ],
       "example": "Het gaat te ver om deze zoveelste film in de reeks over de Wolvenvallei opruiend te noemen: daarvoor is hij vooral te schabouwelijk gemaakt. Het enige waar deze film je tegen doet vechten, is de slaap.",
-      "rank": 368
+      "rank": 364
     },
     {
       "id": "scheutig__adj",
@@ -4556,7 +4507,7 @@
         "gul, onbekrompen, royaal"
       ],
       "example": "Hij is meestal niet zo scheutig met complimenten, maar vandaag kon hij zijn enthousiasme over de examenkandidaat niet voor zich houden.",
-      "rank": 369
+      "rank": 365
     },
     {
       "id": "schijterig__adj",
@@ -4568,7 +4519,7 @@
         "van een persoon dat die veel te bang is"
       ],
       "example": "De jongeman is veel te schijterig om met het mooie meisje een praatje te maken.",
-      "rank": 370
+      "rank": 366
     },
     {
       "id": "schilferig__adj",
@@ -4580,7 +4531,7 @@
         "met name over de huid: met veel dunne stukjes materiaal die loslaten"
       ],
       "example": "Het is al een tijdje bekend dat Kim Kardashian lijdt aan de chronische auto-immuunziekte psoriasis. En dat zorgt er nu voor dat de socialite last heeft van rode, schilferige plekken in haar gezicht.",
-      "rank": 371
+      "rank": 367
     },
     {
       "id": "schimmelig__adj",
@@ -4592,7 +4543,7 @@
         "schimmels bevattend"
       ],
       "example": "De schimmelige kelder was geen goede bergplaats voor voedingswaren.",
-      "rank": 372
+      "rank": 368
     },
     {
       "id": "schimmig__adj",
@@ -4604,7 +4555,7 @@
         "vaag, onduidelijk, spookachtig"
       ],
       "example": "Het schimmige politieke spel zorgde voor een verminderd vertrouwen in de regering.",
-      "rank": 373
+      "rank": 369
     },
     {
       "id": "schonkig__adj",
@@ -4616,7 +4567,7 @@
         "grofgebouwd, met grote botten"
       ],
       "example": "Achter de tap stond niet Blauwe Jaap, de oude kastelein, doch een schonkige vrouw van middelbare leeftijd.",
-      "rank": 374
+      "rank": 370
     },
     {
       "id": "schraperig__adj",
@@ -4628,7 +4579,7 @@
         "een schrapend geluid makend"
       ],
       "example": "Het klonk schraperig.",
-      "rank": 375
+      "rank": 371
     },
     {
       "id": "schrijlings__adj",
@@ -4640,7 +4591,7 @@
         "met de benen uit elkaar"
       ],
       "example": "De jongen probeert, zonder succes, met zijn schrijlingse houding indruk te maken op de politieagent.",
-      "rank": 376
+      "rank": 372
     },
     {
       "id": "schroomvallig__adj",
@@ -4652,7 +4603,7 @@
         "aarzelend, terughoudend, weifelachtig"
       ],
       "example": "De schroomvallige politici zijn er niet happig op om de christenvervolging aan de kaak te stellen.",
-      "rank": 377
+      "rank": 373
     },
     {
       "id": "schuimig__adj",
@@ -4664,7 +4615,7 @@
         "van een vloeistof dat ze veel luchtbellen bevat"
       ],
       "example": "Klop de eieren met wat zout goed schuimig. Verhit een grote koekenpan, doe wat olie erin en giet de eieren erbij. Begin meteen te roeren met een spatel, zodat het eiermengsel stolt.",
-      "rank": 378
+      "rank": 374
     },
     {
       "id": "schurftig__adj",
@@ -4676,7 +4627,7 @@
         "doortrapt, immoreel"
       ],
       "example": "Het is niet best als je voor schurftige hond wordt uitgemaakt",
-      "rank": 379
+      "rank": 375
     },
     {
       "id": "slaperig__adj",
@@ -4688,7 +4639,7 @@
         "behoefte tot slaap vertonend"
       ],
       "example": "Na al dat harde werken begon ik slaperig te worden.",
-      "rank": 380
+      "rank": 376
     },
     {
       "id": "sletterig__adj",
@@ -4700,7 +4651,7 @@
         "passend bij een prostituee"
       ],
       "example": "Het dronken meisje gedroeg zich heel sletterig.",
-      "rank": 381
+      "rank": 377
     },
     {
       "id": "slibberig__adj",
@@ -4712,7 +4663,7 @@
         "nat, glad, koud en smerig door slib en modder"
       ],
       "example": "Wadend door het brakke water trekt de stoet door de donkere gangen. „Het is hier vrij slibberig”, waarschuwt Beerten. „Ge moet voorzichtig blijven.” Lampjes lichten op in het duister. Er sijpelt water naar beneden.",
-      "rank": 382
+      "rank": 378
     },
     {
       "id": "slobberig__adj",
@@ -4724,7 +4675,7 @@
         "van kleding: dat ze te ruim zit"
       ],
       "example": "Creatief directeur Glenn Martens ontwierp hoge, slobberig om de benen zittende versies die tot het kruis reiken, gedragen door zowel mannen als vrouwen.",
-      "rank": 383
+      "rank": 379
     },
     {
       "id": "slonzig__adj",
@@ -4736,7 +4687,7 @@
         "slordig, vies, vuil"
       ],
       "example": "De slonzige vrouw had vuile en kapotte kleding aan.",
-      "rank": 384
+      "rank": 380
     },
     {
       "id": "slungelig__adj",
@@ -4748,7 +4699,7 @@
         "een slungelig persoon is meestal lang, mager, onhandig, jong en mannelijk vaak een puber in de groeispurt"
       ],
       "example": "De slungelige jongen stootte het kopje van de tafel.",
-      "rank": 385
+      "rank": 381
     },
     {
       "id": "smartelijk__adj",
@@ -4760,7 +4711,7 @@
         "lijden veroorzakend"
       ],
       "example": "De smartelijke dood van de geliefde vorstin zou nog lang de gemoederen in beweging houden.",
-      "rank": 386
+      "rank": 382
     },
     {
       "id": "smekerig__adj",
@@ -4772,7 +4723,7 @@
         "onderdanig vragend"
       ],
       "example": "Mogelijk complexer dan die logistieke operatie is de vraag hoe de ramp 'aan te pakken'. De beelden moeten bijvoorbeeld niet te smekerig of gruwelijk zijn. Persoonlijke verhalen en ooggetuigenverslagen zijn volgens Kloosterhuis effectief.",
-      "rank": 387
+      "rank": 383
     },
     {
       "id": "smotsig__adj",
@@ -4785,7 +4736,7 @@
         "vies, vuil, smerig"
       ],
       "example": "Wie weet wat ik bedoel als ik zeg dat ik even heerlijk ga 'dikkedakken', dat iets 'smotsig' dan wel 'brisant' is, of weet dat men zich maar beter uit de voeten maakt wanneer er wat 'miasma' op komt zetten?\"",
-      "rank": 388
+      "rank": 384
     },
     {
       "id": "snauwerig__adj",
@@ -4797,7 +4748,7 @@
         "boos en kortaf"
       ],
       "example": "Reizigers storen zich dan ook het meest aan de arrogantie van die beveiligers. Aan hun dikwijls klantonvriendelijke, om niet te zeggen onbehoorlijke, snauwerige optreden én hun willekeur.",
-      "rank": 389
+      "rank": 385
     },
     {
       "id": "snoeverig__adj",
@@ -4809,7 +4760,7 @@
         "al te trots en zelfverzekerd"
       ],
       "example": "Toen hij in ‘Windsor hum’, over de snoeverige rol van de VS als waakhond van de wereld, plots een cynisch ‘everything’s fine’ in je gehoorgang katapulteerde, wist je weer dat hij niet over Janneke en Mieke zong",
-      "rank": 390
+      "rank": 386
     },
     {
       "id": "snotterig__adj",
@@ -4821,7 +4772,7 @@
         "met een verstopte neus waar slijm uitkomt"
       ],
       "example": "Hij was niet echt ziek maar wel snotterig.",
-      "rank": 391
+      "rank": 387
     },
     {
       "id": "sopperig__adj",
@@ -4833,7 +4784,7 @@
         "door vocht week en vies"
       ],
       "example": "Hij loopt op natte schoenen door het bos. Zijn hardloopschoenen zijn natter dan de paden waarover hij loopt. De schoenen maken een prachtig geluid. Een sopperig, sponsachtig gepiep.",
-      "rank": 392
+      "rank": 388
     },
     {
       "id": "spakerig__adj",
@@ -4845,7 +4796,7 @@
         "met spaken, voorzien van spaken"
       ],
       "example": "Hij was op een Spakerig stokpaard gezet",
-      "rank": 393
+      "rank": 389
     },
     {
       "id": "sprietig__adj",
@@ -4857,7 +4808,7 @@
         "met veel dunne uitsteeksels"
       ],
       "example": "De koers zwiept heen en weer, forse uitslagen omhoog en omlaag, vele sprietige candles, twee handen aan het stuur als je posities hebt uitstaan, er wordt nogal wat navigatievaardigheid van de beleggers gevraagd.",
-      "rank": 394
+      "rank": 390
     },
     {
       "id": "springerig__adj",
@@ -4869,7 +4820,7 @@
         "geneigd om te springen, onrustig, niet stil kunnen blijven zitten"
       ],
       "example": "Het springerige jongetje kon moeilijk in de klas stil blijven zitten.",
-      "rank": 395
+      "rank": 391
     },
     {
       "id": "stakerig__adj",
@@ -4882,7 +4833,7 @@
         "op een onhandige, onelegante, niet vloeiende manier"
       ],
       "example": "De pijpen van de staalfabrieken vormen een stakerige skyline van een stad waaruit elke andere kleur dan grijs is weggegumd.",
-      "rank": 396
+      "rank": 392
     },
     {
       "id": "stakkerig__adj",
@@ -4894,7 +4845,7 @@
         "zoals pas bij een zielig, mislukt persoon"
       ],
       "example": "Sociaaldemocraten waren we, maar aardige sociaaldemocraten. Wijs zijn we geworden, stakkerig wijs.",
-      "rank": 397
+      "rank": 393
     },
     {
       "id": "statelijk__adj",
@@ -4907,7 +4858,7 @@
         "plechtig, statig"
       ],
       "example": "Ze beschouwden zichzelf nog steeds als ambtenaren met een zekere verantwoordelijkheid in een statelijk monopoliebedrijf, hoewel er tegenwoordig commerciële concurrentie was op de televisiemarkt.",
-      "rank": 398
+      "rank": 394
     },
     {
       "id": "steilorig__adj",
@@ -4919,7 +4870,7 @@
         "weinig geneigd zich te schikken"
       ],
       "example": "Zijn steilorige houding hangt me de keel uit!",
-      "rank": 399
+      "rank": 395
     },
     {
       "id": "stompzinnig__adj",
@@ -4931,7 +4882,7 @@
         "dom en niet goed oplettend"
       ],
       "example": "De stompzinnige jongen deel al zijn rekensommen verkeerd.",
-      "rank": 400
+      "rank": 396
     },
     {
       "id": "streberig__adj",
@@ -4943,7 +4894,7 @@
         "sterk strevend naar het hoogste en beste"
       ],
       "example": "Stil zitten kan ze niet en ze komt soms wat streberig over, maar Marjolein is wel de enige die Hans van de hoofdprijs kan beroven. En dreigt dat te mislukken, dan beschikt ze nog over een sterk geheim wapen: afkijken.",
-      "rank": 401
+      "rank": 397
     },
     {
       "id": "streperig__adj",
@@ -4955,7 +4906,7 @@
         "met strepen, strepen vertonend"
       ],
       "example": "Mijn oude huis ziet er vanavond uit als een spookhuis, met op de achtergrond de streperige gloed van Toronto. De sterren zitten als vuurvliegjes gekooid in het vlechtwerk van takken.",
-      "rank": 402
+      "rank": 398
     },
     {
       "id": "stuiterig__adj",
@@ -4967,7 +4918,7 @@
         "wat heel erg goed stuitert"
       ],
       "example": "De keiharde rubberen stuiterbal is te stuiterig en kan daardoor makkelijk kwijtraken of dingen beschadigen.",
-      "rank": 403
+      "rank": 399
     },
     {
       "id": "temerig__adj",
@@ -4979,7 +4930,7 @@
         "op een zeurende, zanikende, klagende wijze"
       ],
       "example": "„Als een beetje nasaal en krakerig. Ook wel een beetje temerig. Soms denk ik wel eens: Joh, schiet toch eens wat op.”",
-      "rank": 404
+      "rank": 400
     },
     {
       "id": "tintelig__adj",
@@ -4991,7 +4942,7 @@
         "een tintelend gevoel gevend"
       ],
       "example": "De grijze teil loopt ruischend vol, van hoog uit valt de stijve straal, die is als een ijzen staaf en boort zich diep het water in en kolkt het op en woelt het om dat zilveren blaasjes samenbubbelen tot licht en tintelig schuim....",
-      "rank": 405
+      "rank": 401
     },
     {
       "id": "tochtig__adj",
@@ -5004,7 +4955,7 @@
         "dier dat naar paring verlangt"
       ],
       "example": "Want hoe vlugger ik van deze tochtige plaats weg ben, hoe liever het mij is.",
-      "rank": 406
+      "rank": 402
     },
     {
       "id": "toeschietelijk__adj",
@@ -5017,7 +4968,7 @@
         "(van vrouwen( (te) makkelijk bereid tot (seksueel) contact"
       ],
       "example": "Misschien zou de regering niet zo toeschietelijk zijn geweest als het verzet zich had beperkt tot de arbeidswet van minister Myriam El Khomri.",
-      "rank": 407
+      "rank": 403
     },
     {
       "id": "toornig__adj",
@@ -5029,7 +4980,7 @@
         "in woede ontstoken"
       ],
       "example": "De anders zo rustige man liet zich van zijn toornige zijde zien.",
-      "rank": 408
+      "rank": 404
     },
     {
       "id": "traagzaam__adj",
@@ -5041,7 +4992,7 @@
         "traag, langzaam, stroperig"
       ],
       "example": "Traagzaam sleept dit programma zich naar de apotheose. Intussen zijn de drie resterende pop-ups in Blankenberge aangekomen, waar hen nog een verrassing wacht: er moet er dan toch nog eentje afvallen (in de betekenis van wegvallen).",
-      "rank": 409
+      "rank": 405
     },
     {
       "id": "treffelijk__adj",
@@ -5053,7 +5004,7 @@
         "op een goede manier"
       ],
       "example": "Ik nader de dertig en heb het gevoel dat ik helemaal opnieuw moet beginnen, in een stad die mijn naam niet eens treffelijk kan uitspreken. Nele. Een naam zo Vlaams als regen op stront op klei. Daan heeft vast hetzelfde probleem.",
-      "rank": 410
+      "rank": 406
     },
     {
       "id": "treiterig__adj",
@@ -5065,7 +5016,7 @@
         "op een vervelende, plagende manier waarbij men probeert de geplaagde uit de tent te lokken"
       ],
       "example": "Toen Jelle ten Rouwelaar na zijn totaal mislukte periode bij FC Twente terugkeerde in Enschede haalden ze bij Vak P een oeroude klassieker van stal: ‘Keeper wordt niet zenuwachtig hi ha ho...’ Het liedje, hoe vals en treiterig ook",
-      "rank": 411
+      "rank": 407
     },
     {
       "id": "trillerig__adj",
@@ -5077,7 +5028,7 @@
         "van een persoon dat die aan het trillen is"
       ],
       "example": "De jongen stond trillerig op zijn benen zo zenuwachtig was hij voor de uitslag van zijn examen.",
-      "rank": 412
+      "rank": 408
     },
     {
       "id": "triomfantelijk__adj",
@@ -5089,7 +5040,7 @@
         "als een overwinnaar"
       ],
       "example": "Na het behalen van zijn rijexamen kwam de man triomfantelijk thuis.",
-      "rank": 413
+      "rank": 409
     },
     {
       "id": "tutterig__adj",
@@ -5101,19 +5052,7 @@
         "saai, burgerlijk, kinderachtig en al te voorzichtig m.n. als het gaat over wat oudere vrouwen"
       ],
       "example": "Het is alsof ze de camera op je eigen tutterige burgerbestaan richten en zeggen: kijk eens, kijk eens goed, is dat wat je wilt, leven met gesloten ogen? Ze tonen een werkelijkheid waarin de mens vervreemd is van zichzelf en zijn omgeving.",
-      "rank": 414
-    },
-    {
-      "id": "uitwendig__adj",
-      "word": "uitwendig",
-      "pos": "adj",
-      "posLabel": "bijvoeglijk naamwoord",
-      "article": null,
-      "senses": [
-        "zich aan de buitenkant bevindend"
-      ],
-      "example": "Zij leed aan een uitwendige infectie.",
-      "rank": 415
+      "rank": 410
     },
     {
       "id": "vakmatig__adj",
@@ -5125,7 +5064,7 @@
         "vanuit een professioneel, beroepsmatig standpunt"
       ],
       "example": "Meteen maar een bekentenis: Koningsdag is geen dag waar Lips zich vakmatig gezien op verheugt.",
-      "rank": 416
+      "rank": 411
     },
     {
       "id": "veelstemmig__adj",
@@ -5137,7 +5076,7 @@
         "meer dan één zelfstandige zangstem bevattend"
       ],
       "example": "Nu zit McMaster zelf in de inner circle. Hij weet dat ooit iemand een boek zal schrijven over zijn plichtsbesef. En hij weet dus ook hoe belangrijk een open, kritisch en veelstemmig debat in het Witte Huis is.",
-      "rank": 417
+      "rank": 412
     },
     {
       "id": "venijnig__adj",
@@ -5149,7 +5088,7 @@
         "met een bedekte maar felle woede"
       ],
       "example": "Het venijnige mens maakte weer pinnige opmerkingen.",
-      "rank": 418
+      "rank": 413
     },
     {
       "id": "verachtelijk__adj",
@@ -5161,7 +5100,7 @@
         "waarvoor men geen enkel respect kan opbrengen"
       ],
       "example": "Zoiets verachtelijks heb ik nog nooit meegemaakt.",
-      "rank": 419
+      "rank": 414
     },
     {
       "id": "verfoeilijk__adj",
@@ -5173,7 +5112,7 @@
         "iets wat heel slecht, lelijk en naar is"
       ],
       "example": "De regering beweert ook dat ik de Europese instellingen in Brussel controleer, en dat ik die controle gebruik om het verfoeilijke ‘Sorosplan’ aan de lidstaten van de EU op te dringen. Dat is nonsens.",
-      "rank": 420
+      "rank": 415
     },
     {
       "id": "verlokkelijk__adj",
@@ -5185,7 +5124,7 @@
         "iets dat zeer aantrekkelijk lijkt, maar misschien toch niet zo goed is"
       ],
       "example": "Met gelikte brochures en gladde keukentafelgesprekken werden klanten verleid in te stappen. Voorgespiegelde vergezichten waren zo verlokkelijk dat sommigen hun hypotheek verhoogden. Er werd 3,2 miljoen ingelegd.",
-      "rank": 421
+      "rank": 416
     },
     {
       "id": "vernielzuchtig__adj",
@@ -5197,7 +5136,7 @@
         "met een onbedwingbare neiging om te vernielen"
       ],
       "example": "De vernielzuchtige horde liet een spoor van ellende achter.",
-      "rank": 422
+      "rank": 417
     },
     {
       "id": "vernuftig__adj",
@@ -5209,7 +5148,7 @@
         "van iets dat het heel slim bedacht is, dat er veel verstand voor gebruikt is"
       ],
       "example": "Dat was een heel vernuftige oplossing voor een toch wel ingewikkeld probleem.",
-      "rank": 423
+      "rank": 418
     },
     {
       "id": "vervaarlijk__adj",
@@ -5221,7 +5160,7 @@
         "schrikwekkend, angstaanjagend"
       ],
       "example": "De draak was een vervaarlijk monster dat zelfs de dapperste ridders op de vlucht joeg.",
-      "rank": 424
+      "rank": 419
     },
     {
       "id": "vezelig__adj",
@@ -5233,7 +5172,7 @@
         "opgebouwd zijnd uit draden"
       ],
       "example": "Vezelig kraakbeen is trekvast, drukbestendig en kan een soepele botverbinding geven.",
-      "rank": 425
+      "rank": 420
     },
     {
       "id": "vlassig__adj",
@@ -5245,7 +5184,7 @@
         "van haar dat blond, dun en pluizig is"
       ],
       "example": "Ik kom er maar voor uit: ik zie er regelmatig net zo onopgemaakt uit als Anouk (#omg). Ik ga zelfs zo de deur uit. Ja, echt. Met een vlassig vlechtje, rode wangen en een zichtbare rimpel.",
-      "rank": 426
+      "rank": 421
     },
     {
       "id": "vleierig__adj",
@@ -5257,7 +5196,7 @@
         "vriendelijk en onderdanig"
       ],
       "example": "Dat hij er uiteindelijk schitterend in geslaagd is, zeg ik bijna vleierig, om dat licht op een muur te schilderen. Bijvoorbeeld in een van zijn latere doeken, Sun in an Empty Room.",
-      "rank": 427
+      "rank": 422
     },
     {
       "id": "vlokkig__adj",
@@ -5269,7 +5208,7 @@
         "bestaande uit vlokken, vlokken bevattend"
       ],
       "example": "De pastilla met vis (€14,50) is een flinke pastei van heerlijk vlokkig, Marokkaans filodeeg (werqa) - met de bijgeleverde gegrilde gamba's en salade met gemak een hoofdgerecht.",
-      "rank": 428
+      "rank": 423
     },
     {
       "id": "vodderig__adj",
@@ -5281,7 +5220,7 @@
         "slap, slecht, vies, kapot zoals past bij een oude versleten lap textiel"
       ],
       "example": "Vooralsnog voelde ik me wel erg vodderig van de chemoradiatie.",
-      "rank": 429
+      "rank": 424
     },
     {
       "id": "volijverig__adj",
@@ -5293,7 +5232,7 @@
         "met veel ijver"
       ],
       "example": "Het volijverige team scoorde goal na goal.",
-      "rank": 430
+      "rank": 425
     },
     {
       "id": "volmondig__adj",
@@ -5305,7 +5244,7 @@
         "vol overtuiging, zonder aarzeling, helemaal"
       ],
       "example": "Ik kan daar een helder en volmondig nee als antwoord op geven.",
-      "rank": 431
+      "rank": 426
     },
     {
       "id": "voltallig__adj",
@@ -5317,7 +5256,7 @@
         "waaraan geen enkel lid ontbreekt"
       ],
       "example": "Dit werd in het voltallige kabinet besproken.",
-      "rank": 432
+      "rank": 427
     },
     {
       "id": "voorbarig__adj",
@@ -5329,7 +5268,7 @@
         "nog niet aan de orde"
       ],
       "example": "Het een is voorbariger dan het andere.",
-      "rank": 433
+      "rank": 428
     },
     {
       "id": "voorradig__adj",
@@ -5341,7 +5280,7 @@
         "van iets dat het verkrijgbaar is omdat het al in de voorraad aanwezig is"
       ],
       "example": "Ik zal kijken of deze wasmachine voorradig is, want dan ik ze vandaag nog bij u thuis brengen.",
-      "rank": 434
+      "rank": 429
     },
     {
       "id": "waaghalzerig__adj",
@@ -5353,7 +5292,7 @@
         "zoals past bij een durfal"
       ],
       "example": "Allard, een niet eens zo waaghalzerige boarder, was lekker offpiste in de Franse Alpen aan het glijden met zijn vrienden.",
-      "rank": 435
+      "rank": 430
     },
     {
       "id": "wangelovig__adj",
@@ -5365,7 +5304,7 @@
         "iets voor waar aannemen dat niet juist is"
       ],
       "example": "By dit haar Heidendom zyn zy daarenboven by- en wangelovig geweest. Haaren voornaamsten Afgod is geweest Mercurius de Zoon van Majo, die zy zeer bemind en zeer hoog geëert hebben.",
-      "rank": 436
+      "rank": 431
     },
     {
       "id": "wansmakelijk__adj",
@@ -5377,7 +5316,7 @@
         "getuigend van een slechte smaak"
       ],
       "example": "Ik ben er nog geen voorbeeld van tegengekomen, al noemde hij zijn uitspraak over De Wever achteraf in Vrij Nederland „wansmakelijk” en veranderde hij de „zionistenpijper” in „zionistenknechtje”, wat ik geen overtuigende vorm van matiging",
-      "rank": 437
+      "rank": 432
     },
     {
       "id": "wanstaltig__adj",
@@ -5389,7 +5328,7 @@
         "bijzonder lelijk van gestalte, mismaakt, misvormd"
       ],
       "example": "Zoiets wanstaltigs heb ik zelden gezien.",
-      "rank": 438
+      "rank": 433
     },
     {
       "id": "wantrouwig__adj",
@@ -5401,7 +5340,7 @@
         "met het gevoel misleid te zijn"
       ],
       "example": "Punk verwijst sinds het midden van de jaren 70 van de twintigste eeuw naar een stroming binnen de jongerencultuur die zeer wantrouwig tegen de grote ideologieën aankijkt.",
-      "rank": 439
+      "rank": 434
     },
     {
       "id": "wederkerig__adj",
@@ -5413,7 +5352,7 @@
         "van beide kanten"
       ],
       "example": "De beide jongens hadden een wederkerige liefde, ze hielden van elkaar.",
-      "rank": 440
+      "rank": 435
     },
     {
       "id": "weelderig__adj",
@@ -5426,7 +5365,7 @@
         "van een persoon dat deze behoorlijk dik is"
       ],
       "example": "We zaten een paar minuten zwijgend naast elkaar te roken op de trappen naar de weelderige entree van het ooit grandioze hotel waar ik van plan was mij voorlopig te vestigen, toen hij het woord tot mij richtte.",
-      "rank": 441
+      "rank": 436
     },
     {
       "id": "weerbarstig__adj",
@@ -5438,7 +5377,7 @@
         "hardnekkig weerstand biedend aan een behandeling"
       ],
       "example": "Van dat weerbarstige haar valt geen kapsel te maken.",
-      "rank": 442
+      "rank": 437
     },
     {
       "id": "weetgierig__adj",
@@ -5450,7 +5389,7 @@
         "geneigd alles te willen weten"
       ],
       "example": "Jantje is een heel weetgierig kind.",
-      "rank": 443
+      "rank": 438
     },
     {
       "id": "weldadig__adj",
@@ -5462,7 +5401,7 @@
         "een goed gevoel veroorzakend"
       ],
       "example": "Ik nam een heerlijk weldadig bad.",
-      "rank": 444
+      "rank": 439
     },
     {
       "id": "wetmatig__adj",
@@ -5475,7 +5414,7 @@
         "overeenkomstig de wetten van de natuur, volgens een vast patroon"
       ],
       "example": "Oude economische wetmatige zekerheden waarbij omzet, winst, groei en groeiverwachting in onderlinge samenhang worden bezien, werden opzij geschoven De meesten dot.com-ondernemers hadden bovendien nauwelijks ondernemerscapaciteiten.",
-      "rank": 445
+      "rank": 440
     },
     {
       "id": "wichtig__adj",
@@ -5487,7 +5426,7 @@
         "van belang zijn, van grote betekenis"
       ],
       "example": "Gisterochtend om kwart voor acht twitterde Maxime Verhagen: ‘Want die een hoge staat, of wichtig ambt bekleedt, Is nimmer buiten zorg, en zelden buiten leed.’ Het was een citaat van de dichter en politicus Jacob Cats naar wie het Catshuis",
-      "rank": 446
+      "rank": 441
     },
     {
       "id": "wijdlopig__adj",
@@ -5499,7 +5438,7 @@
         "te veel woorden gebruiken voor een mededeling en daardoor saai, vervelend en slaapverwekkend worden"
       ],
       "example": "Inhoudelijk geeft het stuk hen een aantal rake oneliners en observaties in handen, al is de tekst van Den Tex ook wat wijdlopig.",
-      "rank": 447
+      "rank": 442
     },
     {
       "id": "wijdmazig__adj",
@@ -5512,7 +5451,7 @@
         "van een netwerk dat de onderdelen daarvan ver van elkaar liggen"
       ],
       "example": "Zwaar getroffen werd een vogelpark in Marlow, waar 90 procent van de buitenvolières werd vernield. Zelfs de wijdmazige netten bezweken onder de vracht sneeuw.",
-      "rank": 448
+      "rank": 443
     },
     {
       "id": "wijsneuzig__adj",
@@ -5524,7 +5463,7 @@
         "het alles (vaak ten onrechte) beter denken te weten"
       ],
       "example": "De wijsneuzige chauffeur reed altijd verkeerd.",
-      "rank": 449
+      "rank": 444
     },
     {
       "id": "wispelturig__adj",
@@ -5536,7 +5475,7 @@
         "veranderlijk in gedrag en gedachten"
       ],
       "example": "De moderne consument is wispelturig en niet langer merktrouw.",
-      "rank": 450
+      "rank": 445
     },
     {
       "id": "wisseltonig__adj",
@@ -5548,7 +5487,7 @@
         "een andere toon voortbrengend bij in- en uitblazen"
       ],
       "example": "Mondharmonica's en bandoneons zijn wisseltonige instrumenten.",
-      "rank": 451
+      "rank": 446
     },
     {
       "id": "wolharig__adj",
@@ -5560,7 +5499,7 @@
         "met wollig haar"
       ],
       "example": "De wolharige neushoorn kon hard lopen.",
-      "rank": 452
+      "rank": 447
     },
     {
       "id": "wormstekig__adj",
@@ -5573,7 +5512,7 @@
         "oud en vergaan"
       ],
       "example": "Gelukkig stonden er in een achterafzaaltje, ver van alle nieuwe media, een paar luie, wormstekige jarenvijftigstoelen voor een dito televisiemeubel.",
-      "rank": 453
+      "rank": 448
     },
     {
       "id": "wrevelig__adj",
@@ -5585,7 +5524,7 @@
         "geïrriteerd, bitter"
       ],
       "example": "De wrevelige docente had geen geduld meer met de storende leerling die ook nog eens zijn huiswerk niet had gemaakt.",
-      "rank": 454
+      "rank": 449
     },
     {
       "id": "zakkerig__adj",
@@ -5597,7 +5536,7 @@
         "weinig aantrekkelijk, sullig, beroerd"
       ],
       "example": "Wat een zakkerige ambtenaar is dat toch!",
-      "rank": 455
+      "rank": 450
     },
     {
       "id": "zanderig__adj",
@@ -5609,7 +5548,7 @@
         "aan zand herinnerend, weinig samenhangend, met een korrelige structuur"
       ],
       "example": "Dit is tamelijk zanderige kalksteen.",
-      "rank": 456
+      "rank": 451
     },
     {
       "id": "zangerig__adj",
@@ -5622,7 +5561,7 @@
         "geneigd te zingen"
       ],
       "example": "Velen vinden Zweeds een zangerigere taal dan Deens.",
-      "rank": 457
+      "rank": 452
     },
     {
       "id": "zedelijk__adj",
@@ -5634,7 +5573,7 @@
         "zoals het volgens normen en waarden behoort"
       ],
       "example": "Zijn gedrag is altijd heel zedelijk geweest.",
-      "rank": 458
+      "rank": 453
     },
     {
       "id": "zelfzuchtig__adj",
@@ -5646,7 +5585,7 @@
         "gericht op het eigen voordeel"
       ],
       "example": "Hij is een zelfzuchtig persoon. Hij geeft alleen maar om zichzelf.",
-      "rank": 459
+      "rank": 454
     },
     {
       "id": "zemelig__adj",
@@ -5658,7 +5597,7 @@
         "vervelend, zeurderig, klagend, zanikend"
       ],
       "example": "Een zemelige dame staat in het journaal te verkondigen hoe slecht houtkachels en open haard in haar ogen zijn en dat ze daar mogelijk hinder van ondervindt. Te gek om los te lopen in deze wereld, vindt Jan van Schagen.",
-      "rank": 460
+      "rank": 455
     },
     {
       "id": "zijlings__adj",
@@ -5670,7 +5609,7 @@
         "van opzij, in de richting van een van beide zijden"
       ],
       "example": "Het zijlingse zeezicht maakt deze woning zeer gewild.",
-      "rank": 461
+      "rank": 456
     },
     {
       "id": "zintuiglijk__adj",
@@ -5683,7 +5622,7 @@
         "van waarnemingen dat deze gedaan worden door de zintuigen"
       ],
       "example": "Intussen had hij tot zijn verbazing vastgesteld dat de beslissing van de Asser synode in 1926 dat de slang in het paradijs „zintuiglijk waarneembaar” had gesproken, het gewone Bijbelonderzoek in gereformeerde kring blokkeerde.",
-      "rank": 462
+      "rank": 457
     },
     {
       "id": "zoenerig__adj",
@@ -5695,7 +5634,7 @@
         "geneigd veel te zoenen"
       ],
       "example": "Wat ben jij zoenerig vandaag, zeg!",
-      "rank": 463
+      "rank": 458
     },
     {
       "id": "zoetelijk__adj",
@@ -5707,7 +5646,7 @@
         "overdreven zoet van aard, flemend, ergerlijk"
       ],
       "example": "Hoewel veel mensen zijn werk typeren als zoetelijk en popperig, loont het om zich te verdiepen in de details.",
-      "rank": 464
+      "rank": 459
     },
     {
       "id": "zoeterig__adj",
@@ -5719,7 +5658,7 @@
         "al te sentimenteel"
       ],
       "example": "Hier stelt zich een heel nieuwe taak voor de mens, wars van alle zoeterig gepraat en sentimenteel gesnuif. Deze taak is helemaal zo ‘pessimistisch’ en wanhopig niet als de kleinburgerlijke benepenheid wel denkt.",
-      "rank": 465
+      "rank": 460
     },
     {
       "id": "zoetsappig__adj",
@@ -5731,7 +5670,7 @@
         "overdreven (onecht) vriendelijk"
       ],
       "example": "Kleutertjes houden veel van zoetsappige verhaaltjes over kaboutertjes en elfjes.",
-      "rank": 466
+      "rank": 461
     },
     {
       "id": "zuchtig__adj",
@@ -5743,7 +5682,7 @@
         "een onbedwingbaar verlangen naar iets koesterend"
       ],
       "example": "Vandaar dat wij nu reeds kunnen stellen dat er geen zuchtige mens bestaat, maar een heterogene groep van zuchtige mensen, van neurotici tot psychopathen, van defectueuze organisch-cerebraal gestoorden tot schizofreen gestoorden.",
-      "rank": 467
+      "rank": 462
     },
     {
       "id": "zuurbestendig__adj",
@@ -5755,7 +5694,7 @@
         "goed tegen de invloed van zuren kunnend"
       ],
       "example": "De zuurbestendige kom was geschikt voor het doen van chemische experimenten.",
-      "rank": 468
+      "rank": 463
     },
     {
       "id": "zwemmerig__adj",
@@ -5767,7 +5706,7 @@
         "een voorliefde voor zwemmen koesterend"
       ],
       "example": "Ik ben nooit zo zwemmerig geweest.",
-      "rank": 469
+      "rank": 464
     },
     {
       "id": "zweverig__adj",
@@ -5779,7 +5718,7 @@
         "onduidelijk, vaag"
       ],
       "example": "zweverige theorieën.",
-      "rank": 470
+      "rank": 465
     },
     {
       "id": "beeltenis__noun",
@@ -5791,7 +5730,7 @@
         "afbeelding, portret"
       ],
       "example": "Op de munt staat de beeltenis van de koning.",
-      "rank": 471
+      "rank": 466
     },
     {
       "id": "benauwenis__noun",
@@ -5803,7 +5742,7 @@
         "benauwde gevoel van beklemming"
       ],
       "example": "Ik denk dat ‘Apeldoorn’ voor u de benauwenis van het nakende leven als staatshoofd in één keer glashelder heeft gemaakt. En uitvergroot.",
-      "rank": 472
+      "rank": 467
     },
     {
       "id": "boomgaard__noun",
@@ -5815,7 +5754,7 @@
         "een stuk grond met vruchtbomen"
       ],
       "example": "Het is prachtig in de lente met de boomgaard in bloei.",
-      "rank": 473
+      "rank": 468
     },
     {
       "id": "damarvernis__noun",
@@ -5827,7 +5766,7 @@
         "vernis gemaakt uit damarhars en terpetine"
       ],
       "example": "Damarvernis is gemaakt om een olieverfschilderij te beschermen. Is vervaardigt uit damarhars en terpentine.",
-      "rank": 474
+      "rank": 469
     },
     {
       "id": "dolaard__noun",
@@ -5839,7 +5778,7 @@
         "iemand die schijnbaar doelloos rondzwerft"
       ],
       "example": "Dan is het doel bereikt, dan leert gij eerst wat reizen betekent voor de dolaards en de ware wijzen.",
-      "rank": 475
+      "rank": 470
     },
     {
       "id": "droefenis__noun",
@@ -5851,7 +5790,7 @@
         "trieste, verdrietige stemming"
       ],
       "example": "De inburgeringscursus was destijds zijn uitvinding. Nu moet Han Entzinger (69) tot zijn droefenis vaststellen dat zijn geesteskind aan lager wal is geraakt.",
-      "rank": 476
+      "rank": 471
     },
     {
       "id": "ereblijk__noun",
@@ -5863,7 +5802,7 @@
         "teken van eer en dankbaarheid"
       ],
       "example": "Michel van Egmond won vorige week voor de derde keer in vijf jaar tijd de NS Publieksprijs. Al jaren is er kritiek op het jaarlijkse ereblijk dat wordt georganiseerd door het CPNB (Collectieve Propaganda van het Nederlandse Boek).",
-      "rank": 477
+      "rank": 472
     },
     {
       "id": "ergernis__noun",
@@ -5875,7 +5814,7 @@
         "een zaak die gevoelens van onvrede oproept"
       ],
       "example": "De ergernis deed hem rood aanlopen.",
-      "rank": 478
+      "rank": 473
     },
     {
       "id": "gedreig__noun",
@@ -5887,7 +5826,7 @@
         "de handeling van het uiten van dreigementen"
       ],
       "example": "Hou op met dat gedreig!",
-      "rank": 479
+      "rank": 474
     },
     {
       "id": "grafschennis__noun",
@@ -5899,19 +5838,7 @@
         "het vernietigen van een graf en de daarin gelegen overblijfselen"
       ],
       "example": "We moesten een gesprek aangaan met de imams, zei hij. En ze vragen deze grafschennis te veroordelen in hun vrijdaggebed, voegde de maloum er onmiddellijk aan toe. Er werd instemmend gemompeld.",
-      "rank": 480
-    },
-    {
-      "id": "grotetertstoonaard__noun",
-      "word": "grotetertstoonaard",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "de",
-      "senses": [
-        "een toonladder met trappen van een hele toon, met twee uitzonderingen: tussen de derde en vierde, en tussen de zevende en achtste trap is het verschil slechts een halve toon. Bij deze toonladder is de derde toon een grote terts."
-      ],
-      "example": "Op elke grondtoon kan men een grotetertstoonaard opbouwen.",
-      "rank": 481
+      "rank": 475
     },
     {
       "id": "herrijzenis__noun",
@@ -5924,7 +5851,7 @@
         "weer levend worden na gestorven te zijn"
       ],
       "example": "Wat het jaar zou worden van de tweekamp tussen Andy Murray en Novak Djokovic, werd het jaar van de herrijzenis van Roger Federer en Rafael Nadal.",
-      "rank": 482
+      "rank": 476
     },
     {
       "id": "hindernis__noun",
@@ -5936,7 +5863,7 @@
         "iets dat de voortgang verstoort"
       ],
       "example": "De grootste hindernis was het krijgen van de juiste rechten.",
-      "rank": 483
+      "rank": 477
     },
     {
       "id": "lafenis__noun",
@@ -5950,7 +5877,7 @@
         "vertroosting, verlichting, leniging, bemoediging"
       ],
       "example": "Of we van Chocomel houden, vraagt een tijdschriftreclame uit 1960. Om vervolgens zelf te antwoorden: ‘Wat een vraag! Waar u ook neerstrijkt voor een lafenis, bestel Chocomel. Neem eerst een heerlijke teug en ...",
-      "rank": 484
+      "rank": 478
     },
     {
       "id": "leliaard__noun",
@@ -5962,31 +5889,7 @@
         "Vlaming die in de middeleeuwen de kant van de Franse koning koos"
       ],
       "example": "Hun troepen veroverden eerst het kasteel van Jan van Sijsele, die net als Jan van Gistel veel belastingrechten op de stad kon laten gelden en als leliaard gehaat was.",
-      "rank": 485
-    },
-    {
-      "id": "majeurtoonaard__noun",
-      "word": "majeurtoonaard",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "de",
-      "senses": [
-        "een toonladder met trappen van een hele toon, met twee uitzonderingen: tussen de derde en vierde, en tussen de zevende en achtste trap is het verschil slechts een halve toon. Bij deze toonladder is de derde toon een grote terts."
-      ],
-      "example": "Op elke grondtoon kan men een majeurtoonaard opbouwen.",
-      "rank": 486
-    },
-    {
-      "id": "mineurtoonaard__noun",
-      "word": "mineurtoonaard",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "de",
-      "senses": [
-        "een van de wat droevig klinkende toonladders die in verscheidene toonreeksen voorkomen, steeds ligt de derde trap een kleine terts boven de grondtoon"
-      ],
-      "example": "De mineurtoonaard kent verschillende varianten, waaronder de harmonische en de melodische.",
-      "rank": 487
+      "rank": 479
     },
     {
       "id": "rijtuig__noun",
@@ -5998,19 +5901,7 @@
         "in meer algemene zin elk tuig waarmee kan worden gereden"
       ],
       "example": "zonder laatstgenoemde definitie zou een motorrijtuig anders geen rijtuig zijn(!) terwijl we lezen in de wet aansprakelijkheidsverzekering motorrijtuigen: Artikel 31 Op de eerste vordering van de personen, belast met de opsporing van de in",
-      "rank": 488
-    },
-    {
-      "id": "stoornis__noun",
-      "word": "stoornis",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": null,
-      "senses": [
-        "een psychische aandoening waardoor de normale gang van zaken wordt bemoeilijkt"
-      ],
-      "example": "Een bipolaire stoornis is een ziekte van de hersenen waardoor mensen extreme stemmingen kunnen krijgen.",
-      "rank": 489
+      "rank": 480
     },
     {
       "id": "tabbaard__noun",
@@ -6023,19 +5914,7 @@
         "de rode mantel van Sinterklaas"
       ],
       "example": "Naarmate de kleine uurtjes vorderden zagen steeds meer mensen het jongetje in een paltrok en het meisje in een lichte tabbaard met hoofddoek. Ook al stonden hun ogen dof; ze leken niet tegen hun zin met de heks mee te lopen.",
-      "rank": 490
-    },
-    {
-      "id": "toonaard__noun",
-      "word": "toonaard",
-      "pos": "noun",
-      "posLabel": "zelfstandig naamwoord",
-      "article": "de",
-      "senses": [
-        "het klankkarakter van een toonladder"
-      ],
-      "example": "De verschillende toonaarden hebben zo hun eigen karakteristieke klank.",
-      "rank": 491
+      "rank": 481
     },
     {
       "id": "treurnis__noun",
@@ -6047,7 +5926,7 @@
         "van iets dat het heel verdrietig en spijtig is"
       ],
       "example": "Een door oppositiepartij DENK ingediende motie van treurnis - een waarschuwing aan het adres van Dekker - haalde het niet. Geen enkele andere partij steunde de motie.",
-      "rank": 492
+      "rank": 482
     },
     {
       "id": "vaandrig__noun",
@@ -6059,7 +5938,7 @@
         "een assistent-leider bij de scouting"
       ],
       "example": "Wij werden begeleid door onze vaandrig.",
-      "rank": 493
+      "rank": 483
     },
     {
       "id": "vadsigaard__noun",
@@ -6071,7 +5950,7 @@
         "slap, flauw, traag en lui persoon"
       ],
       "example": "‘Beul, schei uit!’ bulderde zij. ‘Wacht maar, booze vadsigaard, gij zult niet lang hier den boer spelen. Te naaste week gaat gij naar de fabriek.",
-      "rank": 494
+      "rank": 484
     },
     {
       "id": "valsaard__noun",
@@ -6083,7 +5962,7 @@
         "iemand die liegt en bedriegt"
       ],
       "example": "Toen waren ze nog met drie: Annelies, Eline en Davey. Eén van hen is de verrader en kruipt vanavond uit zijn molshoop. Wie is volgens u de valsaard van dit vriendenclubje?",
-      "rank": 495
+      "rank": 485
     },
     {
       "id": "verdoemenis__noun",
@@ -6096,7 +5975,7 @@
         "een heel slechte plaats"
       ],
       "example": "De priesters dreigden met hel en verdoemenis als je niet helemaal volgens de regels van de kerk leeft.",
-      "rank": 496
+      "rank": 486
     },
     {
       "id": "verzamelstoornis__noun",
@@ -6108,7 +5987,7 @@
         "verzamelzucht, de psychiatrische aandoening van een persoon die dwangmatig spullen verzamelt en bijna niets kan weggooien."
       ],
       "example": "Maar iemand met een verzamelstoornis kent een andere waarde toe aan zijn spullen. Hij kan bijvoorbeeld levendige herinneringen hebben aan een bepaald fietsstoeltje dat van zijn dochter is geweest.",
-      "rank": 497
+      "rank": 487
     },
     {
       "id": "vistuig__noun",
@@ -6120,7 +5999,7 @@
         "werktuigen die men gebruikt bij het vissen zoals bijvoorbeeld netten en hengels"
       ],
       "example": "Een kotter die met zijn vistuig blijft hangen, kan volgens hem omslaan en zinken. 'We waren al in overleg met vele partijen om de Klaverbank te helpen beschermen.'",
-      "rank": 498
+      "rank": 488
     },
     {
       "id": "volksaard__noun",
@@ -6132,7 +6011,7 @@
         "het karakter dat zou passen bij de inwoners van een land"
       ],
       "example": "Wat dat betreft kunnen we ons in Nederland dus gelukkig prijzen met een premier als Mark Rutte die in alle opzichten beantwoord aan datgene wat de Nederlandse volksaard kenmerkt, namelijk normaal doen.",
-      "rank": 499
+      "rank": 489
     },
     {
       "id": "wegenis__noun",
@@ -6144,7 +6023,7 @@
         "geheel van wegen onder beheer van een instantie"
       ],
       "example": "Het gemeentereglement dat verbiedt langs de wegenis te bouwen zonder voorafgaande toelating van het schepencollege, is wettig en toepasselijk op al de openbare wegen, zonder onderscheid, die op het grondgebied der gemeente zijn gelegen.",
-      "rank": 500
+      "rank": 490
     },
     {
       "id": "zwijnenaard__noun",
@@ -6156,7 +6035,7 @@
         "wat typerend is voor zwijnen"
       ],
       "example": "Er werd naar zwijnenaard geknord en in de aarde gewroet.",
-      "rank": 501
+      "rank": 491
     }
   ]
 }
