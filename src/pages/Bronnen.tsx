@@ -1,10 +1,11 @@
 import { Attribution, SourceLink, StorageBanner, usePageTitle } from "../components/ui";
-import { meta } from "../lib/words";
+import { useEffect, useState } from "react";
+import { catalogStats, type CatalogStats } from "../lib/catalog";
 
 export function Bronnen() {
   usePageTitle("Bronnen");
-  const entries = meta.counts.entries;
-  const withExample = meta.counts.withExample;
+  const [stats, setStats] = useState<CatalogStats | null>(null);
+  useEffect(() => { const controller = new AbortController(); catalogStats(controller.signal).then(setStats).catch(() => {}); return () => controller.abort(); }, []);
   return (
     <div className="page bronnen-page">
       <StorageBanner />
@@ -27,19 +28,11 @@ export function Bronnen() {
       <details className="explain">
         <summary>Aanpassingen</summary>
         <p className="lede">
-          Voor deze site zijn {entries} Nederlandse lemma’s gekozen uit het nlwiktionary-extract van Kaikki.org. Het script stelt eerst kandidaten voor:
-          ongebruikelijke woorden, formeel, literair of zeldzaam, met een duidelijke Nederlandse betekenis. Alledaagse woorden uit het begin van een
-          openbare frequentielijst, ook onder CC BY-SA 4.0, zijn weggelaten. Hetzelfde geldt voor eigennamen, afkortingen, woordgroepen, buigingsvormen,
-          dialect, alleen verouderde betekenissen en vaktaal. Staat een lemma in het Leesonderzoek 2013 van het Centrum voor Leesonderzoek, dan komt het
-          alleen in aanmerking als hoogstens 90 procent van de mensen het herkent. Die tabel is een vast bestand in deze bron en wordt niet live opgehaald.
-          Elk kandidaatwoord is daarna met de hand beoordeeld. Een doorzichtige afleiding, een alleen regionaal woord, een kapotte of vage glos, een
-          alledaags woord en een louter archaïsch woord vallen af. Per lemma blijft één woordsoort. Het lidwoord is afgeleid uit de labels in het extract.
-          Per woord staan hoogstens zes betekenissen. Een leidende dubbele punt en verwijzingen als [1] zijn verwijderd. Een voorbeeldzin die langer is
-          dan 240 tekens is ingekort op een zinseinde, als het woord er nog in staat. {withExample} van de {entries} woorden hebben een voorbeeldzin. Bij
-          een handvol bijvoeglijke naamwoorden is een bijwoordelijke glos teruggebracht tot een bijvoeglijke formulering. Verder is de tekst van een
-          betekenis of voorbeeld niet herschreven.
+          Het Nederlandse woordenboek wordt op onze server geïndexeerd. {stats ? `${stats.entries.toLocaleString("nl")} woorden en woordsoorten zijn doorzoekbaar; ${stats.recommended.toLocaleString("nl")} worden voorgesteld.` : "De actuele aantallen staan bij het zoeken."} Woorden die alleen een buigingsvorm zijn of geen betekenis hebben worden overgeslagen. Woordsoorten blijven afzonderlijke ingangen. Betekenissen en voorbeelden worden opgeschoond; per ingang blijven maximaal twintig betekenissen bewaard. Historische en regionale betekenissen krijgen waar beschikbaar een label.
+          De voorstellen combineren een minder hoge positie in een openbare frequentielijst met labels zoals formeel, literair en zeldzaam. Dit is een automatische selectie, geen garantie dat ieder woord moeilijk is. De oorspronkelijke 140 beoordeelde woorden blijven behouden voor de startset en het woord van de dag. Ontbreekt een voorbeeldzin, dan wordt geen invuloefening gemaakt. Je browser vraagt alleen zoekresultaten en je opgeslagen woorden op bij onze server, niet bij WikiWoordenboek.
         </p>
       </details>
+      <SourceLink href="https://github.com/bnpd/freqListsLemmatized" title="Frequentielijst" sub="CC BY-SA 4.0 · gebruikt voor woordvoorstellen" />
       <Attribution />
     </div>
   );

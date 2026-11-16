@@ -1092,3 +1092,13 @@ html.has-bar .toast { bottom: calc(var(--bar-h) + 12px); }
 .legend li a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .progress-empty { margin-bottom: 32px; }
 .progress-empty .primary { margin-top: 20px; }
+.catalog-loading { max-width: 680px; margin: 8vh auto; }
+.catalog-loading p { line-height: 1.6; }
+.catalog-loading .primary { margin-top: 24px; }
+.catalog-scope { grid-template-columns: 1fr 1fr; }
+.catalog-scope button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.catalog-pagination { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; margin-top: 24px; }
+.catalog-pagination span { font-size: 12px; text-align: center; font-variant-numeric: tabular-nums; }
+.catalog-pagination .secondary { padding-inline: 10px; }
+.catalog-pagination button:disabled { opacity: .35; cursor: default; }
+.word-labels { font-size: 13px; line-height: 1.5; margin: 0 0 20px; }

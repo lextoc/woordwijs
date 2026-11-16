@@ -12,6 +12,7 @@ export type Word = {
   senses: string[];
   example: string | null;
   rank: number;
+  labels?: string[];
 };
 
 function asArticle(value: string | null): Article | null {
@@ -31,6 +32,14 @@ export const words: Word[] = payload.words.map((entry) => ({
 }));
 
 export const wordById = new Map(words.map((word) => [word.id, word]));
+// Keep the small approved starter set bundled. Additional entries are loaded on demand.
+export function registerWords(entries: Word[]) {
+  for (const entry of entries) {
+    if (typeof entry?.id !== "string" || typeof entry.word !== "string" || typeof entry.pos !== "string" || !Array.isArray(entry.senses) || !entry.senses.every(sense => typeof sense === "string")) throw new Error("Ongeldige woordgegevens.");
+    if (!wordById.has(entry.id)) wordById.set(entry.id, entry);
+  }
+}
+
 export const starterIds = payload.meta.starterIds.filter((id) => wordById.has(id));
 export const meta = payload.meta;
 

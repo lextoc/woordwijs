@@ -185,6 +185,7 @@ function WordBody({ word, headingId, heading }: { word: Word; headingId: string;
       <Title id={headingId} tabIndex={-1} className={word.word.length >= 12 ? "detail-word is-long" : "detail-word"}>
         {word.word}
       </Title>
+      {word.labels?.length ? <p className="word-labels">{word.labels.join(" · ")}</p> : null}
       <p className="eyebrow">Betekenis</p>
       {word.senses.length > 1 ? (
         <ol className="senses">

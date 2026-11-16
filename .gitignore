@@ -3,3 +3,8 @@ dist
 data/cache
 *.log
 .DS_Store
+
+*.sqlite
+*.sqlite.*
+*.jsonl.gz
+__pycache__/

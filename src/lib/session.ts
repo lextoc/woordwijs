@@ -1,7 +1,7 @@
 import type { Card } from "./model";
 import { cardStatus } from "./model";
 import type { Word } from "./words";
-import { canBlank } from "./words";
+import { canBlank, wordById } from "./words";
 
 export type Exercise = "recall" | "choice" | "fill";
 
@@ -14,7 +14,7 @@ export function exerciseFor(card: Card, word: Word): Exercise {
 }
 
 export function dueSession(cards: Record<string, Card>, today: string): string[] {
-  const values = Object.values(cards);
+  const values = Object.values(cards).filter(card => wordById.has(card.id));
   const reviews = values
     .filter((card) => card.due <= today && cardStatus(card) !== "nieuw")
     .sort((a, b) => a.due.localeCompare(b.due) || a.ease - b.ease || a.id.localeCompare(b.id));
@@ -25,7 +25,7 @@ export function dueSession(cards: Record<string, Card>, today: string): string[]
 }
 
 export function extraSession(cards: Record<string, Card>): string[] {
-  const values = Object.values(cards);
+  const values = Object.values(cards).filter(card => wordById.has(card.id));
   const missed = values
     .filter((card) => card.lastRating === "niet" || card.lastRating === "moeilijk")
     .sort((a, b) => (b.ratings.at(-1)?.date ?? "").localeCompare(a.ratings.at(-1)?.date ?? "") || a.id.localeCompare(b.id));

@@ -1,3 +1,4 @@
+import { CatalogBoundary } from "./components/CatalogBoundary";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Shell } from "./components/Shell";
 import { readState, Toaster, useViewportVars } from "./components/ui";
@@ -54,7 +55,7 @@ export function App() {
   return (
     <BrowserRouter>
       <DeckProvider>
-        <Gate />
+        <CatalogBoundary><Gate /></CatalogBoundary>
       </DeckProvider>
     </BrowserRouter>
   );

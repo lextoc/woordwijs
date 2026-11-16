@@ -1,6 +1,6 @@
 # Woordwijs
 
-Leer Nederlandse woorden die je nog niet kent. De site is statisch: er is geen account en geen server. Je voortgang blijft in deze browser.
+Leer Nederlandse woorden die je nog niet kent. De React-client gebruikt een kleine, alleen-lezen Python/SQLite-woordenboek-API. Er zijn geen accounts. Je voortgang blijft in deze browser.
 
 ## Starten
 
@@ -9,7 +9,7 @@ npm ci
 npm run dev
 ```
 
-`npm run build` maakt de site in `dist/`. `npm run preview` toont die build. De gebouwde site haalt geen gegevens en geen lettertypen op van internet. Het woordenboek zit in de JavaScript-bundel. Inter (OFL) wordt meegeleverd. Georgia komt van het toestel, met Times New Roman als reserve.
+`npm run build` maakt de site in `dist/`. `npm run preview` toont die build. De client haalt zoekresultaten en opgeslagen woorden op via onze eigen `/api/`. Alleen de oorspronkelijke 140 startwoorden zitten in de bundel. Er zijn geen verzoeken naar WikiWoordenboek tijdens het zoeken. Inter (OFL) wordt meegeleverd. Georgia komt van het toestel, met Times New Roman als reserve.
 
 ### Diepe links
 
@@ -28,7 +28,25 @@ De site gebruikt paden als `/voortgang` en `/woord/kwistig__adj`. `npm run previ
 | `/voortgang` | Je voortgang |
 | `/bronnen` | Waar de woorden vandaan komen |
 
-## Gegevens opnieuw maken
+## Serverwoordenboek
+
+Python 3.11+ en SQLite met FTS5/trigram zijn vereist. Download het gecomprimeerde extract naar een datamap buiten Git en voer uit:
+
+```bash
+python3 backend/import_dictionary.py --source /var/lib/woordwijs/imports/nlwiktionary.jsonl.gz --output /var/lib/woordwijs/databases/dictionary.sqlite
+WOORDWIJS_DB=/var/lib/woordwijs/databases/dictionary.sqlite python3 backend/server.py
+```
+
+De import streamt de gzip, selecteert Nederlandse ingangen met echte definities en publiceert de database atomair na een integriteitscontrole. De frequentielijst wordt eenmaal naast het extract gecachet. Metadata bevat aantallen, importdatum en bronhash. Bij herimport blijft de bestaande database beschikbaar totdat de vervanger klaar is. Voer imports niet gelijktijdig uit.
+
+De API luistert uitsluitend op 127.0.0.1:8098. `deploy/nginx.conf` proxyt `/api/`; `deploy/woordwijs-api.service` bevat de productie-unit. Vite proxyt lokaal dezelfde routes. GET `/api/words` geeft maximaal twintig resultaten, POST `/api/words/by-id` maximaal honderd opgeslagen woorden. De server bewaart geen persoonlijke voortgang en logt geen zoekopdrachten. Die blijft in localStorage; een tijdelijke API-fout wist niets. Een woord zonder voorbeeld krijgt geen invuloefening.
+
+Volledige woordenboekbestanden en downloads horen buiten de repository en buiten de publieke webroot. Alleen frontend-builds gaan naar `/var/www/woordwijs-static/releases/`; backend-releases staan in `/var/lib/woordwijs/releases/`. De `current`-symlinks wijzen naar de actieve release. Herstart de API na een backend-update.
+
+## Oorspronkelijke startset opnieuw maken
+
+Onderstaande procedure betreft alleen de behouden 140 beoordeelde startwoorden, niet het volledige serverwoordenboek.
+
 
 ```bash
 npm run data
