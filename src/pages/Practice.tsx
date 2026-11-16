@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { ArrowRightIcon, CheckIcon, CloseIcon } from "../components/Icons";
-import { Dialog, StorageBanner, WriteError } from "../components/ui";
+import { Dialog, readState, StorageBanner, useBarHeight } from "../components/ui";
 import { blankExample, judgeFill, letterCount } from "../lib/text";
 import type { Rating } from "../lib/model";
 import { exerciseFor, extraSession, dueSession } from "../lib/session";
-import { choiceOptions, wordById, type ChoiceOption } from "../lib/words";
+import { choiceOptions, wordById, type ChoiceOption, type Word } from "../lib/words";
 import { useDeck } from "../state/DeckContext";
 import type { SummaryState } from "./Summary";
 
@@ -33,9 +33,12 @@ type Saved = {
   phase: Phase;
   tally: Tally;
   countedAtStart: boolean;
+  plannedIds?: string[];
+  doneIds?: string[];
 };
 
 const SESSION_KEY = "woordwijs.sessie";
+const STOPPED_KEY = "woordwijs.gestopt";
 
 function readSaved(): Saved | null {
   try {
@@ -47,6 +50,17 @@ function readSaved(): Saved | null {
   } catch {
     return null;
   }
+}
+
+function uniqueIds(ids: string[]): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  ids.forEach((id) => {
+    if (seen.has(id)) return;
+    seen.add(id);
+    out.push(id);
+  });
+  return out;
 }
 
 function phaseFor(id: string, appearance: number, cards: ReturnType<typeof useDeck>["store"]["cards"]): Phase {
@@ -64,18 +78,24 @@ function phaseFor(id: string, appearance: number, cards: ReturnType<typeof useDe
   return { kind: "recall-front" };
 }
 
+function eyebrow(base: string, repeat: boolean) {
+  return repeat ? `Nog een keer · ${base}` : base;
+}
+
 export function Practice() {
   const deck = useDeck();
   const navigate = useNavigate();
   const location = useLocation();
-  const incoming = (location.state ?? null) as { mode?: "due" | "extra"; startedAt?: number } | null;
-  const [stop, setStop] = useState(false);
+  const incoming = (location.state ?? null) as { mode?: "due" | "extra"; startedAt?: number; dialog?: string } | null;
+  const stop = readState(location.state)?.dialog === "stop";
   const setup = useRef<Saved | null | undefined>(undefined);
   if (setup.current === undefined) setup.current = createSession(incoming, deck);
   const saved = setup.current;
   const [queue, setQueue] = useState(saved?.queue ?? []);
   const [index, setIndex] = useState(saved?.index ?? 0);
   const [phase, setPhase] = useState<Phase>(saved?.phase ?? { kind: "recall-front" });
+  const [plannedIds] = useState<string[]>(() => uniqueIds(saved?.plannedIds ?? saved?.queue.map((item) => item.id) ?? []));
+  const [doneIds, setDoneIds] = useState<string[]>(saved?.doneIds ?? []);
   const tally = useRef<Tally>(saved?.tally ?? emptyTally(deck.streak, deck.todayCounted));
   const countedAtStart = useRef(saved?.countedAtStart ?? deck.todayCounted);
   const startedAt = saved?.startedAt ?? 0;
@@ -83,25 +103,79 @@ export function Practice() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const meaningRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
+  const showRef = useRef<HTMLButtonElement>(null);
+  const correctRef = useRef<HTMLButtonElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const showBar = phase.kind !== "choice" || phase.picked !== null;
+  useBarHeight(barRef, showBar);
 
   useEffect(() => {
     if (!saved) return;
-    const snapshot: Saved = { startedAt, queue, index, phase, tally: tally.current, countedAtStart: countedAtStart.current };
+    const snapshot: Saved = {
+      startedAt,
+      queue,
+      index,
+      phase,
+      tally: tally.current,
+      countedAtStart: countedAtStart.current,
+      plannedIds,
+      doneIds,
+    };
     sessionStorage.setItem(SESSION_KEY, JSON.stringify(snapshot));
-  }, [index, phase, queue, saved, startedAt]);
+  }, [doneIds, index, phase, plannedIds, queue, saved, startedAt]);
 
   useEffect(() => {
     document.title = "Oefenen · Woordwijs";
   }, []);
 
   useEffect(() => {
-    if (phase.kind === "recall-back") meaningRef.current?.focus();
-    else headingRef.current?.focus();
-  }, [index, phase.kind]);
+    const element = rootRef.current;
+    const apply = () => {
+      const viewport = window.visualViewport;
+      const open = viewport ? viewport.height < window.innerHeight - 120 : false;
+      element?.classList.toggle("kb-open", open);
+    };
+    apply();
+    window.visualViewport?.addEventListener("resize", apply);
+    window.addEventListener("resize", apply);
+    return () => {
+      window.visualViewport?.removeEventListener("resize", apply);
+      window.removeEventListener("resize", apply);
+    };
+  }, []);
+
+  const phaseKey = phase.kind === "choice" ? `choice:${phase.picked ?? "open"}` : phase.kind === "fill" ? `fill:${phase.result ?? "open"}` : phase.kind;
 
   useEffect(() => {
-    if (phase.kind === "fill" && phase.result && phase.result !== "empty") nextRef.current?.focus();
-  }, [phase]);
+    if (phase.kind === "recall-back") {
+      meaningRef.current?.focus();
+      return;
+    }
+    if (phase.kind === "recall-front") {
+      showRef.current?.focus();
+      return;
+    }
+    if (phase.kind === "choice" && phase.picked !== null) {
+      nextRef.current?.focus();
+      if (window.innerHeight <= 667) correctRef.current?.scrollIntoView({ block: "nearest" });
+      return;
+    }
+    if (phase.kind === "fill" && phase.result && phase.result !== "empty") {
+      nextRef.current?.focus();
+      return;
+    }
+    if (phase.kind === "fill" && phase.result === "empty") {
+      inputRef.current?.focus();
+      return;
+    }
+    if (phase.kind === "fill") {
+      if (window.matchMedia("(pointer: fine)").matches) inputRef.current?.focus();
+      else headingRef.current?.focus();
+      return;
+    }
+    headingRef.current?.focus();
+  }, [index, phase.kind, phaseKey]);
 
   if (!saved) return <Navigate to="/" replace />;
 
@@ -109,6 +183,10 @@ export function Practice() {
   const word = current ? wordById.get(current.id) : undefined;
   const card = current ? deck.store.cards[current.id] : undefined;
   if (!current || !word || !card) return <Navigate to="/" replace />;
+
+  const seenBefore = queue.slice(0, index).some((item) => item.id === current.id);
+  const total = plannedIds.length || queue.length;
+  const position = Math.min(total, Math.max(1, seenBefore ? doneIds.length : doneIds.length + 1));
 
   function finish(rating: Rating, nextQueue = queue) {
     const result = deck.rate(word!.id, rating);
@@ -123,6 +201,7 @@ export function Practice() {
     if (result.becameMastered) score.learned = [...new Set([...score.learned, word!.id])];
     score.streak = result.streak;
     score.todayCounted = result.todayCounted;
+    setDoneIds((prev) => (prev.includes(word!.id) ? prev : [...prev, word!.id]));
     const appearances = nextQueue.filter((item) => item.id === word!.id).length;
     const remaining = nextQueue.length - index - 1;
     let queued = nextQueue;
@@ -153,34 +232,57 @@ export function Practice() {
     setPhase(phaseFor(nextId, seen, deck.store.cards));
   }
 
+  function openStop() {
+    if (readState(location.state)?.dialog === "stop") return;
+    rootRef.current?.querySelector<HTMLButtonElement>(".session-bar button")?.focus();
+    navigate(
+      { pathname: location.pathname, search: location.search, hash: location.hash },
+      { state: { ...(readState(location.state) ?? {}), dialog: "stop", mode: incoming?.mode, startedAt } },
+    );
+  }
+
+  function closeStop() {
+    if (readState(window.history.state?.usr)?.dialog === "stop") navigate(-1);
+  }
+
+  function quit() {
+    sessionStorage.removeItem(SESSION_KEY);
+    sessionStorage.setItem(STOPPED_KEY, String(startedAt));
+    const idx = (window.history.state?.idx as number | undefined) ?? 0;
+    if (idx >= 2) navigate(-2);
+    else navigate("/", { replace: true });
+  }
+
   function onKey(event: KeyboardEvent) {
     if (stop) return;
     const typing = event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement;
+    const fine = window.matchMedia("(pointer: fine)").matches;
     if (event.key === "Escape") {
       event.preventDefault();
-      setStop(true);
+      openStop();
       return;
     }
     if (phase.kind === "recall-front" && (event.key === " " || event.key === "Enter") && !typing) {
       event.preventDefault();
       setPhase({ kind: "recall-back" });
     }
-    if (phase.kind === "recall-back" && ["1", "2", "3", "4"].includes(event.key) && !typing) {
+    if (fine && phase.kind === "recall-back" && ["1", "2", "3", "4"].includes(event.key) && !typing) {
       event.preventDefault();
       finish((["niet", "moeilijk", "goed", "makkelijk"] as Rating[])[Number(event.key) - 1]);
     }
-    if (phase.kind === "choice" && phase.picked === null && ["1", "2", "3", "4"].includes(event.key) && !typing) {
+    if (fine && phase.kind === "choice" && phase.picked === null && ["1", "2", "3", "4"].includes(event.key) && !typing) {
       event.preventDefault();
       pickChoice(Number(event.key) - 1);
     }
-    if (phase.kind === "choice" && phase.picked !== null && event.key === "Enter" && !typing) {
+    if (phase.kind === "choice" && phase.picked !== null && (event.key === "Enter" || event.key === " ") && !typing) {
+      if (event.target instanceof HTMLButtonElement) return;
       event.preventDefault();
       const choice = phase.options[phase.picked];
       finish(choice.correct ? "goed" : "niet");
     }
-    if (phase.kind === "fill" && phase.result && phase.result !== "empty" && event.key === "Enter" && !typing) {
+    if (phase.kind === "fill" && phase.result && phase.result !== "empty" && (event.key === "Enter" || event.key === " ") && !typing) {
+      if (event.target instanceof HTMLButtonElement) return;
       event.preventDefault();
-      event.stopPropagation();
       const rating: Rating = phase.result === "fout" ? "niet" : phase.hint ? "moeilijk" : "goed";
       finish(rating);
     }
@@ -191,35 +293,50 @@ export function Practice() {
     setPhase({ ...phase, picked: optionIndex });
   }
 
+  function checkFill() {
+    if (phase.kind !== "fill") return;
+    const judgement = judgeFill(phase.value, word!.word);
+    if (judgement === "empty") {
+      setPhase({ ...phase, result: "empty" });
+      return;
+    }
+    setPhase({ ...phase, result: judgement });
+  }
+
+  const long = word.word.length >= 12;
+
   return (
-    <div className="practice" onKeyDownCapture={(event) => onKey(event.nativeEvent)}>
+    <div className="practice" ref={rootRef} onKeyDownCapture={(event) => onKey(event.nativeEvent)}>
       <StorageBanner />
       <header className="session-bar">
-        <button type="button" onClick={() => setStop(true)} aria-label="Stoppen met oefenen">
+        <button type="button" onClick={openStop} aria-label="Stoppen met oefenen">
           <CloseIcon />
           <span>Stoppen</span>
+          <kbd className="hotkey">Esc</kbd>
         </button>
         <span className="session-count">
-          {index + 1} van {queue.length}
+          {position} van {total}
         </span>
       </header>
       <div
         className="ticks"
         role="progressbar"
         aria-valuemin={1}
-        aria-valuenow={index + 1}
-        aria-valuemax={queue.length}
-        aria-label={`Voortgang van deze oefening, ${index + 1} van ${queue.length}`}
+        aria-valuenow={position}
+        aria-valuemax={total}
+        aria-label={`Voortgang van deze oefening, ${position} van ${total}`}
       >
-        {queue.map((item, tick) => (
-          <i key={`${item.id}-${tick}`} className={tick < index ? "is-done" : tick === index ? "is-current" : undefined} aria-hidden="true" />
-        ))}
+        {plannedIds.map((id) => {
+          const answered = doneIds.includes(id);
+          const currentTick = id === current.id && !seenBefore;
+          return <i key={id} className={currentTick ? "is-current" : answered ? "is-done" : undefined} aria-hidden="true" />;
+        })}
       </div>
-      <div className={`card-area ${phase.kind === "recall-front" || phase.kind === "recall-back" ? "is-recall" : ""}`}>
+      <div className="card-area">
         {phase.kind === "recall-front" || phase.kind === "recall-back" ? (
           <>
-            {phase.kind === "recall-front" ? <p className="eyebrow">Weet je wat dit betekent?</p> : null}
-            <h1 ref={headingRef} tabIndex={-1} className={phase.kind === "recall-back" ? "practice-word is-back" : "practice-word"}>
+            <p className="eyebrow">{eyebrow("Betekenis", seenBefore)}</p>
+            <h1 ref={headingRef} tabIndex={-1} className={long ? "practice-word is-long" : "practice-word"}>
               {word.word}
             </h1>
             <p className="word-class">
@@ -227,7 +344,7 @@ export function Practice() {
               {word.posLabel}
             </p>
             {phase.kind === "recall-back" ? (
-              <div ref={meaningRef} tabIndex={-1} className="meaning-block">
+              <div ref={meaningRef} tabIndex={-1} className="meaning-block" aria-live="polite">
                 <p className="reveal">{word.senses[0]}</p>
                 {word.senses.length > 1 ? (
                   <Link className="text-link" to={`/woord/${encodeURIComponent(word.id)}`}>
@@ -241,8 +358,8 @@ export function Practice() {
         ) : null}
         {phase.kind === "choice" ? (
           <>
-            <p className="eyebrow">Kies de betekenis</p>
-            <h1 ref={headingRef} tabIndex={-1} className="practice-word is-choice">
+            <p className="eyebrow">{eyebrow("Kies de betekenis", seenBefore)}</p>
+            <h1 ref={headingRef} tabIndex={-1} className={long ? "practice-word is-long" : "practice-word"}>
               {word.word}
             </h1>
             <p className="word-class">{word.posLabel}</p>
@@ -255,144 +372,153 @@ export function Practice() {
                   <button
                     key={option.text}
                     type="button"
+                    ref={option.correct ? correctRef : undefined}
                     className={`option${showCorrect ? " is-correct" : ""}${showWrong ? " is-wrong" : ""}`}
-                    aria-disabled={locked}
+                    aria-disabled={locked || undefined}
                     onClick={() => pickChoice(optionIndex)}
                   >
                     {showCorrect ? <CheckIcon /> : null}
                     {showWrong ? <CloseIcon /> : null}
-                    <span className="hotkey">{optionIndex + 1}</span>
-                    <span>
-                      {option.text}
-                      {showCorrect ? <small>Juist antwoord</small> : null}
-                      {showWrong ? <small>Niet juist</small> : null}
-                    </span>
+                    {locked ? null : <kbd className="hotkey">{optionIndex + 1}</kbd>}
+                    <span>{option.text}</span>
+                    {showCorrect ? <span className="sr-only">Juist antwoord</span> : null}
+                    {showWrong ? <span className="sr-only">Niet juist</span> : null}
                   </button>
                 );
               })}
             </div>
-            {phase.picked !== null ? (
-              <p className="feedback" role="status">
-                {phase.options[phase.picked].correct ? "Juist." : `Niet juist. Het goede antwoord: ${word.senses[0]}.`}
-              </p>
-            ) : null}
           </>
         ) : null}
         {phase.kind === "fill" && word.example ? (
           <FillCard
-            word={word.word}
-            example={word.example}
-            meaning={word.senses[0]}
+            word={word}
             phase={phase}
             headingRef={headingRef}
-            inputRef={inputRef}
-            onChange={(value) => setPhase({ ...phase, value, result: phase.result === "empty" ? null : phase.result })}
+            repeat={seenBefore}
             onHint={() => setPhase({ ...phase, hint: true })}
           />
         ) : null}
       </div>
-      <div className="practice-actions">
-        <WriteError />
-        {phase.kind === "recall-front" ? (
-          <button type="button" className="primary" onClick={() => setPhase({ kind: "recall-back" })}>
-            Toon betekenis
-          </button>
-        ) : null}
-        {phase.kind === "recall-back" ? (
-          <>
-            <p className="rate-label">Hoe goed wist je het?</p>
-            <div className="ratings">
-              <RateButton hotkey="1" label="Niet geweten" hint="Komt snel terug" onClick={() => finish("niet")} />
-              <RateButton hotkey="2" label="Moeilijk" hint="Komt vaker terug" onClick={() => finish("moeilijk")} />
-              <RateButton hotkey="3" label="Goed" hint="Komt later terug" onClick={() => finish("goed")} />
-              <RateButton hotkey="4" label="Makkelijk" hint="Komt veel later terug" onClick={() => finish("makkelijk")} />
-            </div>
-          </>
-        ) : null}
-        {phase.kind === "choice" && phase.picked !== null ? (
-          <button type="button" className="primary split" onClick={() => finish(phase.options[phase.picked!].correct ? "goed" : "niet")}>
-            <span>Volgende</span>
-            <ArrowRightIcon />
-          </button>
-        ) : null}
-        {phase.kind === "fill" && !phase.result ? (
-          <>
-            {phase.result === null ? null : null}
-            <button
-              type="button"
-              className="primary"
-              onClick={() => {
-                const judgement = judgeFill(phase.value, word.word);
-                if (judgement === "empty") {
-                  setPhase({ ...phase, result: "empty" });
-                  inputRef.current?.focus();
-                  return;
-                }
-                setPhase({ ...phase, result: judgement });
-              }}
-            >
-              Controleer
+      {showBar ? (
+        <div className="action-bar" ref={barRef}>
+          {phase.kind === "recall-front" ? (
+            <button ref={showRef} type="button" className="primary" onClick={() => setPhase({ kind: "recall-back" })}>
+              Toon betekenis
             </button>
-            <button
-              type="button"
-              className="text-button center"
-              onClick={() => setPhase({ ...phase, result: "fout" })}
-            >
-              Ik weet het niet
-            </button>
-          </>
-        ) : null}
-        {phase.kind === "fill" && phase.result === "empty" ? (
-          <>
-            <p className="error" role="alert">
-              Vul een woord in.
-            </p>
-            <button
-              type="button"
-              className="primary"
-              onClick={() => {
-                const judgement = judgeFill(phase.value, word.word);
-                if (judgement === "empty") {
-                  inputRef.current?.focus();
-                  return;
-                }
-                setPhase({ ...phase, result: judgement });
-              }}
-            >
-              Controleer
-            </button>
-            <button type="button" className="text-button center" onClick={() => setPhase({ ...phase, result: "fout" })}>
-              Ik weet het niet
-            </button>
-          </>
-        ) : null}
-        {phase.kind === "fill" && phase.result && phase.result !== "empty" ? (
-          <button
-            ref={nextRef}
-            type="button"
-            className="primary split"
-            onClick={() => finish(phase.result === "fout" ? "niet" : phase.hint ? "moeilijk" : "goed")}
-          >
-            <span>Volgende</span>
-            <ArrowRightIcon />
-          </button>
-        ) : null}
-      </div>
+          ) : null}
+          {phase.kind === "recall-back" ? (
+            <>
+              <p className="rate-label">Hoe goed wist je het?</p>
+              <div className="ratings">
+                <RateButton hotkey="1" label="Niet geweten" hint="Komt snel terug" onClick={() => finish("niet")} />
+                <RateButton hotkey="2" label="Moeilijk" hint="Komt vaker terug" onClick={() => finish("moeilijk")} />
+                <RateButton hotkey="3" label="Goed" hint="Komt later terug" onClick={() => finish("goed")} />
+                <RateButton hotkey="4" label="Makkelijk" hint="Komt veel later terug" onClick={() => finish("makkelijk")} />
+              </div>
+            </>
+          ) : null}
+          {phase.kind === "choice" && phase.picked !== null ? (
+            <>
+              <p className="bar-feedback" id="practice-feedback" role="status">
+                {phase.options[phase.picked].correct ? <CheckIcon size={20} /> : <CloseIcon size={20} />}
+                <span>{phase.options[phase.picked].correct ? "Juist." : "Niet juist."}</span>
+              </p>
+              <button
+                ref={nextRef}
+                type="button"
+                className="primary split"
+                aria-describedby="practice-feedback"
+                onClick={() => finish(phase.options[phase.picked!].correct ? "goed" : "niet")}
+              >
+                <span>Volgende</span>
+                <ArrowRightIcon />
+              </button>
+            </>
+          ) : null}
+          {phase.kind === "fill" && (!phase.result || phase.result === "empty") ? (
+            <>
+              <p className={phase.result === "empty" ? "bar-label is-alert" : "bar-label"} role={phase.result === "empty" ? "alert" : undefined}>
+                {phase.result === "empty" ? (
+                  <>
+                    <CloseIcon size={16} /> Vul een woord in.
+                  </>
+                ) : (
+                  "Welk woord ontbreekt?"
+                )}
+              </p>
+              <div className="fill-row">
+                <input
+                  ref={inputRef}
+                  id="ontbrekend"
+                  aria-label="Welk woord ontbreekt?"
+                  value={phase.value}
+                  onChange={(event) => setPhase({ ...phase, value: event.target.value, result: phase.result === "empty" ? null : phase.result })}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      event.preventDefault();
+                      checkFill();
+                    }
+                  }}
+                  lang="nl"
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  autoComplete="off"
+                  spellCheck={false}
+                  enterKeyHint="done"
+                />
+                <button type="button" className="primary" onClick={checkFill}>
+                  Controleer
+                </button>
+              </div>
+              <button type="button" className="text-button center" onClick={() => setPhase({ ...phase, result: "fout" })}>
+                Ik weet het niet
+              </button>
+            </>
+          ) : null}
+          {phase.kind === "fill" && phase.result && phase.result !== "empty" ? (
+            <>
+              <p className="bar-feedback" id="practice-feedback" role="status">
+                {phase.result === "juist" ? <CheckIcon size={20} /> : <CloseIcon size={20} />}
+                <span>
+                  {phase.result === "juist" ? "Juist." : null}
+                  {phase.result === "bijna" ? (
+                    <>
+                      Bijna goed. Het woord is <strong>{word.word}</strong>.
+                    </>
+                  ) : null}
+                  {phase.result === "fout" ? (
+                    <>
+                      Niet juist. Het woord is <strong>{word.word}</strong>.
+                    </>
+                  ) : null}
+                </span>
+              </p>
+              <button
+                ref={nextRef}
+                type="button"
+                className="primary split"
+                aria-describedby="practice-feedback"
+                onClick={() => finish(phase.result === "fout" ? "niet" : phase.hint ? "moeilijk" : "goed")}
+              >
+                <span>Volgende</span>
+                <ArrowRightIcon />
+              </button>
+            </>
+          ) : null}
+        </div>
+      ) : null}
       {stop ? (
-        <Dialog title="Stoppen met oefenen?" onClose={() => setStop(false)}>
+        <Dialog title="Stoppen met oefenen?" onClose={closeStop} role="dialog">
           <p>
             {deck.storageOk
               ? "Je antwoorden tot nu toe zijn bewaard. De rest van de woorden blijft voor vandaag staan."
               : "Je antwoorden gaan verloren zodra je de pagina sluit."}
           </p>
           <div className="modal-actions">
-            <button type="button" className="secondary" onClick={() => {
-              sessionStorage.removeItem(SESSION_KEY);
-              navigate("/");
-            }}>
+            <button type="button" className="danger-button" onClick={quit}>
               Stoppen
             </button>
-            <button type="button" className="primary" onClick={() => setStop(false)}>
+            <button type="button" className="secondary" data-initial-focus onClick={closeStop}>
               Doorgaan met oefenen
             </button>
           </div>
@@ -405,7 +531,7 @@ export function Practice() {
 function RateButton({ hotkey, label, hint, onClick }: { hotkey: string; label: string; hint: string; onClick: () => void }) {
   return (
     <button type="button" className="rating" aria-label={`${label}, ${hint.charAt(0).toLocaleLowerCase("nl")}${hint.slice(1)}`} onClick={onClick}>
-      <span className="hotkey">{hotkey}</span>
+      <kbd className="hotkey">{hotkey}</kbd>
       <strong>{label}</strong>
       <small>{hint}</small>
     </button>
@@ -414,88 +540,44 @@ function RateButton({ hotkey, label, hint, onClick }: { hotkey: string; label: s
 
 function FillCard({
   word,
-  example,
-  meaning,
   phase,
   headingRef,
-  inputRef,
-  onChange,
+  repeat,
   onHint,
 }: {
-  word: string;
-  example: string;
-  meaning: string;
+  word: Word;
   phase: Extract<Phase, { kind: "fill" }>;
   headingRef: RefObject<HTMLHeadingElement | null>;
-  inputRef: RefObject<HTMLInputElement | null>;
-  onChange: (value: string) => void;
+  repeat: boolean;
   onHint: () => void;
 }) {
-  const parts = blankExample(example, word);
-  const checked = phase.result && phase.result !== "empty";
-  const hint = `Hint: ${letterCount(word)} letters, begint met ${[...word][0]?.toLocaleLowerCase("nl") ?? ""}`;
+  const parts = word.example ? blankExample(word.example, word.word) : null;
+  const checked = Boolean(phase.result && phase.result !== "empty");
+  const hint = `Hint: ${letterCount(word.word)} letters, begint met ${[...word.word][0]?.toLocaleLowerCase("nl") ?? ""}`;
+  const sentence = word.example ?? "";
   return (
     <>
-      <p className="eyebrow">Vul het ontbrekende woord in</p>
+      <p className="eyebrow">{eyebrow("Vul het ontbrekende woord in", repeat)}</p>
       <h1 ref={headingRef} tabIndex={-1} className="sr-only">
-        {word}
+        {word.word}
       </h1>
-      <p className="fill-sentence">
+      <p className={sentence.length > 80 ? "fill-sentence is-long" : "fill-sentence"}>
         {parts?.before}
         {checked ? (
-          <span className={phase.result === "fout" ? "blank is-wrong" : "blank is-filled"}>{word}</span>
+          <span className={phase.result === "juist" ? "blank is-filled" : "blank is-wrong"}>{word.word}</span>
         ) : (
           <span className="blank" aria-label="ontbrekend woord" />
         )}
         {parts?.after}
       </p>
-      {!checked ? (
-        <label className="field-label" htmlFor="ontbrekend">
-          Welk woord ontbreekt?
-          <input
-            ref={inputRef}
-            id="ontbrekend"
-            value={phase.value}
-            onChange={(event) => onChange(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.key === "Enter") {
-                event.preventDefault();
-                event.currentTarget.form?.requestSubmit?.();
-                event.currentTarget.closest(".practice")?.querySelector<HTMLButtonElement>(".practice-actions .primary")?.click();
-              }
-            }}
-            lang="nl"
-            autoCapitalize="none"
-            autoCorrect="off"
-            autoComplete="off"
-            spellCheck={false}
-            enterKeyHint="done"
-          />
-        </label>
-      ) : null}
       {!checked ? <p className="hint-line">Hoofdletters en accenten maken niet uit.</p> : null}
       {!checked && !phase.hint ? (
         <button type="button" className="text-button" onClick={onHint}>
           {hint}
         </button>
       ) : null}
-      {phase.hint && !checked ? <p>{hint}</p> : null}
-      {checked ? (
-        <p className="feedback" role="status">
-          {phase.result === "juist" ? "Juist." : null}
-          {phase.result === "bijna" ? (
-            <>
-              Bijna goed. Het woord is <strong>{word}</strong>.
-            </>
-          ) : null}
-          {phase.result === "fout" ? (
-            <>
-              Niet juist. Het woord is <strong>{word}</strong>.
-            </>
-          ) : null}
-        </p>
-      ) : null}
-      {checked ? <p className="reading small-reading">{meaning}</p> : null}
+      {phase.hint && !checked ? <p className="hint-line">{hint}</p> : null}
+      {checked ? <p className="fill-meaning">{word.senses[0]}</p> : null}
     </>
   );
 }
@@ -509,6 +591,7 @@ function createSession(incoming: { mode?: "due" | "extra"; startedAt?: number } 
   if (existing && incoming?.startedAt && existing.startedAt === incoming.startedAt) return existing;
   if (existing && !incoming?.startedAt) return existing;
   if (!incoming?.mode || !incoming.startedAt) return null;
+  if (sessionStorage.getItem(STOPPED_KEY) === String(incoming.startedAt)) return null;
   const ids = incoming.mode === "extra" ? extraSession(deck.store.cards) : dueSession(deck.store.cards, deck.today);
   if (ids.length === 0) return null;
   const queue = ids.map((id) => ({ id }));
@@ -519,5 +602,7 @@ function createSession(incoming: { mode?: "due" | "extra"; startedAt?: number } 
     phase: phaseFor(ids[0], 0, deck.store.cards),
     tally: emptyTally(deck.streak, deck.todayCounted),
     countedAtStart: deck.todayCounted,
+    plannedIds: ids,
+    doneIds: [],
   };
 }

@@ -1,62 +1,190 @@
-import { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { ArrowRightIcon, BackIcon } from "../components/Icons";
-import { Attribution, Dialog, StorageBanner, usePageTitle } from "../components/ui";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { ArrowRightIcon, BackIcon, CloseIcon } from "../components/Icons";
+import { Dialog, readState, Sheet, SidePanel, StorageBanner, usePageTitle, useWidePanel } from "../components/ui";
 import { cardStatus } from "../lib/model";
-import { wordById } from "../lib/words";
+import { wordById, type Word } from "../lib/words";
 import { useDeck } from "../state/DeckContext";
 
-export function WordDetail() {
+export function WordDetail({ mode }: { mode: "page" | "overlay" }) {
   const { id = "" } = useParams();
   const word = wordById.get(decodeURIComponent(id));
   usePageTitle(word ? word.word : "Woord");
   const deck = useDeck();
   const navigate = useNavigate();
-  const [confirm, setConfirm] = useState(false);
+  const location = useLocation();
+  const panel = useWidePanel();
+  const confirm = readState(location.state)?.dialog === "remove";
+  const background = readState(location.state)?.backgroundLocation;
+
+  function closeOverlay() {
+    navigate(-1);
+  }
+
+  function openConfirm() {
+    navigate(
+      { pathname: location.pathname, search: location.search, hash: location.hash },
+      { state: { ...(readState(location.state) ?? {}), dialog: "remove" } },
+    );
+  }
+
+  function closeConfirm() {
+    if (readState(window.history.state?.usr)?.dialog) navigate(-1);
+  }
+
   if (!word) {
+    const missing = (
+      <div className="empty-state">
+        <h1 id="missing-title">Dit woord vinden we niet</h1>
+        <p>Dit woord staat niet in het woordenboek van deze site.</p>
+        <Link className="primary" to="/zoeken">
+          Zoek een woord
+        </Link>
+      </div>
+    );
+    if (mode === "overlay" && panel) {
+      return (
+        <SidePanel onClose={closeOverlay} header={<CloseRow onClose={closeOverlay} />} footer={null}>
+          {missing}
+        </SidePanel>
+      );
+    }
+    if (mode === "overlay") {
+      return (
+        <Sheet labelledBy="missing-title" onClose={closeOverlay} header={<CloseRow onClose={closeOverlay} />} footer={null}>
+          {missing}
+        </Sheet>
+      );
+    }
     return (
       <div className="page">
         <StorageBanner />
-        <div className="empty-state">
-          <h1>Dit woord staat niet meer in het woordenboek.</h1>
-          <Link className="primary split" to="/woorden">
-            <span>Naar mijn woorden</span>
-          </Link>
-        </div>
+        {missing}
       </div>
     );
   }
-  const card = deck.store.cards[word.id];
-  const status = card ? cardStatus(card) : null;
-  const goods = card?.consecutiveGood ?? 0;
 
-  function goBack() {
-    if (window.history.state && window.history.state.idx > 0) navigate(-1);
-    else navigate("/woorden");
-  }
+  const card = deck.store.cards[word.id];
+  const headingId = `woord-${word.id}`;
 
   function add() {
-    const saved = deck.addWord(word!.id);
-    if (saved) deck.showToast(`${word!.word} staat nu in je woorden.`);
+    deck.addWord(word!.id);
   }
 
   function remove() {
     const saved = deck.removeWord(word!.id);
     if (!saved) return;
     deck.showToast(`${word!.word} is verwijderd.`);
-    setConfirm(false);
-    goBack();
+    const idx = (window.history.state?.idx as number | undefined) ?? 0;
+    if (background && idx >= 2) navigate(-2);
+    else navigate("/woorden", { replace: true });
+  }
+
+  const action = card ? (
+    <button type="button" className="secondary" onClick={openConfirm}>
+      Verwijder uit mijn woorden
+    </button>
+  ) : (
+    <button type="button" className="primary split" onClick={add}>
+      <span>Voeg toe aan mijn woorden</span>
+      <ArrowRightIcon />
+    </button>
+  );
+
+  const dialog = confirm ? (
+    <Dialog title="Woord verwijderen?" onClose={closeConfirm}>
+      <p>
+        {word.word} verdwijnt uit je woorden en je voortgang voor dit woord wordt gewist. Je kunt het woord later opnieuw toevoegen, maar dan begin je
+        opnieuw. Dit kan niet ongedaan worden gemaakt.
+      </p>
+      <div className="modal-actions">
+        <button type="button" className="danger-button" onClick={remove}>
+          Verwijder woord
+        </button>
+        <button type="button" className="secondary" data-initial-focus onClick={closeConfirm}>
+          Annuleren
+        </button>
+      </div>
+    </Dialog>
+  ) : null;
+
+  const header = (
+    <>
+      <HeadMeta word={word} />
+      <button type="button" className="icon-button" aria-label="Woordblad sluiten" onClick={closeOverlay}>
+        <CloseIcon />
+      </button>
+    </>
+  );
+
+  if (mode === "overlay" && panel) {
+    return (
+      <>
+        <SidePanel onClose={closeOverlay} header={header} footer={action}>
+          <WordBody word={word} headingId={headingId} heading="h2" />
+        </SidePanel>
+        {dialog}
+      </>
+    );
+  }
+
+  if (mode === "overlay") {
+    return (
+      <>
+        <Sheet labelledBy={headingId} onClose={closeOverlay} header={header} footer={action}>
+          <WordBody word={word} headingId={headingId} heading="h2" />
+        </Sheet>
+        {dialog}
+      </>
+    );
+  }
+
+  function goBack() {
+    if (window.history.state && window.history.state.idx > 0) navigate(-1);
+    else navigate("/woorden");
   }
 
   return (
-    <div className="page">
+    <div className="page word-page">
       <StorageBanner />
       <button type="button" className="text-button back" onClick={goBack}>
         <BackIcon size={18} /> Terug
       </button>
+      <HeadMeta word={word} />
+      <WordBody word={word} headingId={headingId} heading="h1" />
+      <div className="word-actions">{action}</div>
+      {dialog}
+    </div>
+  );
+}
+
+function CloseRow({ onClose }: { onClose: () => void }) {
+  return (
+    <button type="button" className="icon-button" aria-label="Woordblad sluiten" onClick={onClose}>
+      <CloseIcon />
+    </button>
+  );
+}
+
+function HeadMeta({ word }: { word: Word }) {
+  return (
+    <div className="word-kicker">
+      {word.article ? <span className="article-chip">{word.article}</span> : null}
       <p className="eyebrow">{word.posLabel}</p>
-      {word.article ? <p className="article-chip">{word.article}</p> : null}
-      <h1 className={word.word.length >= 14 ? "detail-word is-long" : "detail-word"}>{word.word}</h1>
+    </div>
+  );
+}
+
+function WordBody({ word, headingId, heading }: { word: Word; headingId: string; heading: "h1" | "h2" }) {
+  const deck = useDeck();
+  const card = deck.store.cards[word.id];
+  const status = card ? cardStatus(card) : null;
+  const goods = card?.consecutiveGood ?? 0;
+  const Title = heading;
+  return (
+    <div className="word-body">
+      <Title id={headingId} tabIndex={-1} className={word.word.length >= 12 ? "detail-word is-long" : "detail-word"}>
+        {word.word}
+      </Title>
       <p className="eyebrow">Betekenis</p>
       {word.senses.length > 1 ? (
         <ol className="senses">
@@ -65,10 +193,10 @@ export function WordDetail() {
           ))}
         </ol>
       ) : (
-        <p className="reading">{word.senses[0]}</p>
+        <p className="sense">{word.senses[0]}</p>
       )}
       <p className="eyebrow">Voorbeeld</p>
-      {word.example ? <blockquote className="quote">{word.example}</blockquote> : <p>Voor dit woord is geen voorbeeldzin beschikbaar.</p>}
+      {word.example ? <blockquote className="quote">{word.example}</blockquote> : <p className="lede">Voor dit woord is geen voorbeeldzin beschikbaar.</p>}
       {status ? (
         <div className="status-row">
           <p>
@@ -78,45 +206,18 @@ export function WordDetail() {
           {status === "nieuw" ? null : <p>{status === "geleerd" ? "Drie keer goed" : `${Math.min(goods, 3)} van 3 keer goed`}</p>}
         </div>
       ) : null}
-      {status ? (
-        <button type="button" className="secondary" onClick={() => setConfirm(true)}>
-          Verwijder uit mijn woorden
-        </button>
-      ) : (
-        <button type="button" className="primary split" onClick={add}>
-          <span>Voeg toe aan mijn woorden</span>
-          <ArrowRightIcon />
-        </button>
-      )}
       <p className="source-line">
-        <span>Bron: </span>
-        <a className="source-anchor" href={`https://nl.wiktionary.org/wiki/${encodeURIComponent(word.word)}`} target="_blank" rel="noopener noreferrer">
+        {"Bron: "}
+        <a href={`https://nl.wiktionary.org/wiki/${encodeURIComponent(word.word)}`} target="_blank" rel="noopener noreferrer">
           WikiWoordenboek
           <span className="sr-only"> (opent in een nieuw tabblad)</span>
         </a>
-        <span>, </span>
-        <a className="source-anchor" href="https://creativecommons.org/licenses/by-sa/4.0/deed.nl" target="_blank" rel="noopener noreferrer">
+        {", "}
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.nl" target="_blank" rel="noopener noreferrer">
           CC BY-SA 4.0
           <span className="sr-only"> (opent in een nieuw tabblad)</span>
         </a>
       </p>
-      <Attribution />
-      {confirm ? (
-        <Dialog title="Woord verwijderen?" onClose={() => setConfirm(false)}>
-          <p>
-            {word.word} verdwijnt uit je woorden en je voortgang voor dit woord wordt gewist. Je kunt het woord later opnieuw toevoegen, maar dan
-            begin je opnieuw. Dit kan niet ongedaan worden gemaakt.
-          </p>
-          <div className="modal-actions">
-            <button type="button" className="secondary" onClick={() => setConfirm(false)}>
-              Annuleren
-            </button>
-            <button type="button" className="danger-button" onClick={remove}>
-              Verwijder woord
-            </button>
-          </div>
-        </Dialog>
-      ) : null}
     </div>
   );
 }
